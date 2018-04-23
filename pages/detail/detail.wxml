@@ -1,0 +1,60 @@
+
+<!--引入加载更多模版-->
+<import src="../../template/loading" />
+
+<!--详情页-->
+<view class="container">
+  <view class="c-top">
+
+    <!--简介-->
+    <view class="t-info">
+      <view class="ti-top">
+        <text>{{ question.views }}次查看</text>
+        <text>{{ question.created_at }}</text>
+      </view>
+      <view class="ti-content">
+      {{ question.description }}
+      </view>
+      <view class="ti-bottom">
+        <view>
+          <text class="iconfont icon-my"></text><text>{{question.user_name}}</text>
+        </view>
+        <view>
+          <text class="iconfont icon-xihuan"></text><text>{{question.question_follow_num}}关注</text>
+        </view>
+        <view>
+          <text class="iconfont icon-pinglun1"></text><text>{{ question.question_answer_num }}评论</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--评论列表-->
+  <view class="comments">
+    <view class="item touch-active" wx:for="{{ answers }}" wx:key="" wx:for-item="c">
+      <view class="i-left">
+        <image class="c-u-img" src="{{c.user_avatar_url}}"></image>
+      </view>
+      <view class="i-right">
+        <view class="top">
+          <text class="u-name">{{c.user_name}}</text>
+          <text class="time">{{c.created_at}}</text>
+        </view>
+
+        <!--评论内容-->
+        <view class="content">
+          <text>{{c.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--加载更多模版-->
+  <block wx:if="{{isLoading}}">
+    <template is="loading" />
+  </block>
+</view>
+<!--悬浮菜单-->
+<view class="menu">
+    <text class="iconfont icon-svg35"></text>
+</view>
