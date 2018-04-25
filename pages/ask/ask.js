@@ -165,14 +165,15 @@ Page({
           console.log(res_data);
           wx.hideLoading();
           if (res_data.code === 1000) {
-            // 成功保存之后，执行其他逻辑.
-            wx.showToast({
-              title: "提问成功",
-              icon: 'success',
-              duration: 2000
-            });
-            wx.switchTab({
-              url: '/pages/mine/mine'
+            wx.redirectTo({
+              url: '../detail/detail?id='+res_data.data.id+'&share=1',
+              success: function (e) {
+                wx.showToast({
+                  title: '问题创建成功',
+                  icon: 'success',
+                  duration: 1000
+                });
+              }
             });
           } else {
             wx.showToast({

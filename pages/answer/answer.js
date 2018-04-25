@@ -9,17 +9,12 @@ Page({
   data:{
     showTopTips: false,
     errorMsg: '',
-    question: {
-      title: '',
-      question_type: 2,
-      price: 0,
-      hide: 0,
-      device: 4,
-    },
+    question_id: 0,
+    question: {},
+    description: '',
     pictures: [],
     userInfo: {},
-    tags_select: [],
-    tagIndex: 0
+    device: 4
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -42,20 +37,10 @@ Page({
           }
         });
       }
-      //更新数据
-      that.data.userInfo = userInfo;
-      request.httpsPostRequest('/tags/load', {tag_type: 5 }, function(tag_data) {
-        if (tag_data.code === 1000) {
-          that.setData({
-            tags_select: tag_data.data.tags
-          })
-        } else {
-          wx.showToast({
-            title: tag_data.message,
-            icon: 'loading',
-            duration: 2000
-          });
-        }
+      that.setData({
+        userInfo:userInfo,
+        question_id: options.id,
+        question: wx.getStorageSync('question')
       });
     });
   },
@@ -71,21 +56,9 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  bindTagsChange: function (e) {
-    console.log(e.detail.value)
-    this.setData({
-      tagIndex: e.detail.value,
-      tag: this.data.tags_select[e.detail.value].value
-    })
-  },
   contentEventFunc: function(e) {
     if(e.detail && e.detail.value) {
-      this.data.question.title = e.detail.value;
-    }
-  },
-  isPublicEventFunc: function (e) {
-    if (e.detail && e.detail.value) {
-      this.data.question.hide = e.detail.value;
+      this.data.description = e.detail.value;
     }
   },
   showTopTips: function (msg) {
@@ -101,19 +74,16 @@ Page({
     }, 3000);
   },
   formSubmit: function(e) {
-    if (this.data.question.title === '') {
+    if (this.data.description === '') {
       this.showTopTips('内容不能为空');
       return false;
     } else {
       var jsonData = {
-        title: this.data.question.title,
-        hide: this.data.question.hide,
-        question_type: this.data.question.question_type,
-        price: this.data.question.price,
-        device: this.data.question.device,
-        tags: this.data.tags_select[this.data.tagIndex].value
+        question_id: this.data.question_id,
+        description: this.data.description,
+        device: this.data.device
       };
-      var requestUrl = '/weapp/question/store';
+      var requestUrl = '/weapp/answer/store';
       var that = this;
       var doResponse = function (res_data) {
         wx.hideLoading();
@@ -143,20 +113,25 @@ Page({
               }
             }
             wx.redirectTo({
-              url: '../detail/detail?id='+res_data.data.id+'&share=1',
+              url: '../detail/detail?id='+that.data.question_id+'&share=1',
               success: function (e) {
                 wx.showToast({
-                  title: '问题创建成功',
+                  title: '回答成功',
                   icon: 'success',
                   duration: 1000
                 });
               }
             });
           } else {
-            wx.showToast({
-              title: res_data.message,
-              icon: 'success',
-              duration: 2000
+            wx.redirectTo({
+              url: '../detail/detail?id='+that.data.question_id+'&share=1',
+              success: function (e) {
+                wx.showToast({
+                  title: '回答成功',
+                  icon: 'success',
+                  duration: 1000
+                });
+              }
             });
           }
         });
@@ -201,7 +176,7 @@ Page({
     //上传图片相关
     var that = this;
     wx.chooseImage({
-      count: 9, // 默认9
+      count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {

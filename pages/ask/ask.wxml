@@ -60,7 +60,7 @@
         <view class="weui-cells__tips">最多可上传9张图片,已上传{{pictures.length ? pictures.length : 0}}/9张</view>
 
         <view class="weui-btn-area">
-          <button formType="submit" class="weui-btn" type="primary">立即发布</button>
+          <button formType="submit" class="weui-btn" type="primary">发布</button>
         </view>
     </form>
   </view>

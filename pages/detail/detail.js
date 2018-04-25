@@ -30,7 +30,10 @@ Page({
           that.setData({
             question: res_data.data.question
           });
-          
+          wx.setStorage({
+            key:"question",
+            data:res_data.data.question
+          })
         } else {
           wx.showToast({
             title: res_data.message,
