@@ -44,7 +44,7 @@ module.exports = {
     }
     __httpRequest.https_request(jsonUrl);
   },
-  //post 请求
+  //ask 请求
   httpsPostRequest: function (req_url, req_obj, res_func) {
     var jsonUrl = {
       url: app.globalData.host + req_url,

@@ -2,8 +2,8 @@
 //获取应用实例
 var app = getApp();
 //查询用户信息
-var util = require('../../utils/util.js');
 var request = require("../../utils/request.js");
+var WxParse = require('../../libs/wxParse/wxParse.js');
 
 Page({
   data:{
@@ -57,18 +57,26 @@ Page({
   },
   loadAnswers: function(page) {
     var that = this;
-    request.httpsPostRequest('/question/answerList', { page: this.data.page, question_id: this.data.question_id }, function (res_data) {
+    request.httpsPostRequest('/weapp/answer/list', { page: this.data.page, question_id: this.data.question_id }, function (res_data) {
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
+
         if (page === 1) {
           that.data.answers = res_data.data.data;
+          for (let i = 0; i < res_data.data.data.length; i++) {
+            WxParse.wxParse('content' + i, 'html', res_data.data.data[i].content, that);
+          }
         } else {
+          for (let i = 0; i < res_data.data.data.length; i++) {
+            WxParse.wxParse('content' + (that.data.answers.length + i), 'html', res_data.data.data[i].content, that);
+          }
           that.data.answers = that.data.answers.concat(res_data.data.data);
         }
         if (!res_data.data.next_page_url) {
           isMore = false;
         }
+        WxParse.wxParseTemArray("contentTemArray",'content', that.data.answers.length, that)
 
         that.setData({
           answers: that.data.answers,
@@ -88,8 +96,21 @@ Page({
 
   onShareAppMessage: function() {
     return{
-      title:"快来帮我解决问题",
-      path:"./page/user?id=123"
+      title: this.data.question.title,
+      path: "/pages/detail/detail?id=" + this.data.question_id
     }
+  },
+  navToFollow: function () {
+    
+  },
+  navToAnswer: function () {
+    wx.navigateTo({
+      url: '../answer/answer'
+    });
+  },
+  navToAsk: function () {
+    wx.navigateTo({
+      url: '../ask/ask'
+    });
   }
 })

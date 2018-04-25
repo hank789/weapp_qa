@@ -1,7 +1,7 @@
 
 <!--引入加载更多模版-->
 <import src="../../template/loading" />
-
+<import src="../../libs/wxParse/wxParse.wxml"/>
 <!--详情页-->
 <view class="container">
   <view class="c-top">
@@ -31,7 +31,7 @@
 
   <!--评论列表-->
   <view class="comments">
-    <view class="item touch-active" wx:for="{{ answers }}" wx:key="" wx:for-item="c">
+    <view class="item touch-active" wx:for="{{ answers }}" wx:key="index" wx:for-item="c">
       <view class="i-left">
         <image class="c-u-img" src="{{c.user_avatar_url}}"></image>
       </view>
@@ -43,7 +43,7 @@
 
         <!--评论内容-->
         <view class="content">
-          <text>{{c.content}}</text>
+          <template is="wxParse" data="{{wxParseData:contentTemArray[index]}}"/>
         </view>
       </view>
     </view>
@@ -53,8 +53,28 @@
   <block wx:if="{{isLoading}}">
     <template is="loading" />
   </block>
-</view>
-<!--悬浮菜单-->
-<view class="menu">
-    <text class="iconfont icon-svg35"></text>
+    <view class="detail-bottom">
+        <view class="bottom-box">
+            <button hover-class="none" plain="true" open-type="share" class="item docbutton">
+               <i class="iconfont icon-share"></i>
+               <view class="doc">分享</view>
+            </button>
+
+            <view bindtap="navToFollow" class="item">
+              <i class="iconfont icon-message"></i>
+              <view class="doc">关注</view>
+            </view>
+
+            <view bindtap="navToAnswer" class="item">
+              <i class="iconfont icon-message"></i>
+              <view class="doc">回答</view>
+            </view>
+
+            <view bindtap="navToAsk" class="item">
+              <i class="iconfont icon-message"></i>
+              <view class="doc">提问</view>
+            </view>
+
+        </view>
+    </view>
 </view>

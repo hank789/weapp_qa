@@ -19,7 +19,7 @@ Page({
       that.setData({
         userInfo:userInfo
       });
-      that.loadList();
+      that.loadList(1);
     });
   },
   onReady:function(){
@@ -51,7 +51,7 @@ Page({
       this.setData({
         isLoading: true
       });
-      this.loadList(this.data.page + 1);
+      this.loadList(this.data.page);
     }
   },
   navToDetail: function (event) {
@@ -72,7 +72,7 @@ Page({
   },
   loadList: function (page) {
     var that = this;
-    request.httpsPostRequest('/weapp/question/allList', { page: this.data.page, order_by: 2 }, function(res_data) {
+    request.httpsPostRequest('/weapp/question/allList', { page: page, order_by: 2 }, function(res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;

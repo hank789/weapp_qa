@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/detail/detail",
-    "pages/post/post",
+    "pages/ask/ask",
+    "pages/answer/answer",
     "pages/mine/mine",
     "pages/discovery/discovery",
     "pages/search/search",
@@ -12,7 +13,8 @@
     "navigationBarTextStyle": "#fff",
     "navigationBarTitleText": "解惑助手",
     "navigationBarBackgroundColor": "#5dc890",
-    "backgroundColor": "#fbf9fe"
+    "backgroundColor": "#fbf9fe",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#dddddd",
