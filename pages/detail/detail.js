@@ -26,7 +26,7 @@ Page({
         question_id: options.id
       });
       // 查询对象
-      request.httpsPostRequest('/question/info', { id: options.id }, function (res_data) {
+      request.httpsPostRequest('/weapp/question/info', { id: options.id }, function (res_data) {
         if (res_data.code === 1000) {
           that.setData({
             question: res_data.data.question,
@@ -120,7 +120,7 @@ Page({
       });
     } else {
       var that = this
-      request.httpsPostRequest('/weapp/question/follow', { id: this.data.question_id }, function (res_data) {
+      request.httpsPostRequest('/weapp/question/follow', { question_id: this.data.question_id }, function (res_data) {
         if (res_data.code === 1000) {
           that.setData({
             is_followed_question: res_data.data.type === 'follow'?1:0

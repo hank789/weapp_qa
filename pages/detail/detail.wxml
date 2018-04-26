@@ -20,7 +20,7 @@
       </view>
       <view class="ti-bottom">
         <view>
-          <image class="c-u-img" src="{{question.user_avatar_url}}"></image><text>{{question.user_name}}</text>
+          <image class="iconfont c-u-img" src="{{question.user_avatar_url}}"></image><text>{{question.user_name}}</text>
         </view>
         <view>
           <text class="iconfont icon-openeye"></text><text>{{question.question_follow_num}}关注</text>
