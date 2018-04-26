@@ -57,6 +57,18 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
   contentEventFunc: function(e) {
     if(e.detail && e.detail.value) {
       this.data.description = e.detail.value;

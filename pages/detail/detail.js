@@ -60,6 +60,19 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.loadAnswers(1);
+    wx.stopPullDownRefresh();
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
   loadAnswers: function(page) {
     var that = this;
     request.httpsPostRequest('/weapp/answer/list', { page: this.data.page, question_id: this.data.question_id }, function (res_data) {
@@ -101,7 +114,7 @@ Page({
 
   onShareAppMessage: function() {
     return{
-      title: this.data.question.title,
+      title: this.data.question.description,
       path: "/pages/detail/detail?id=" + this.data.question_id
     }
   },

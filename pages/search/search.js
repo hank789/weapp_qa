@@ -10,6 +10,7 @@ Page({
     isMore: true,
     page: 1,
     isLoading: true,//是否显示加载数据提示
+    isSearching: false,
     inputVal: ""
   },
   onLoad:function(options){
@@ -23,8 +24,11 @@ Page({
       });
     });
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
   onPullDownRefresh: function () {
-    // 下拉刷新
+    wx.stopPullDownRefresh();
   },
   //底部更多加载
   onReachBottom: function () {
@@ -46,13 +50,6 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  },
-  searchInput: function () {
-    var that = this
-    setTimeout(() => {
-      console.log('search:' + that.data.inputVal)
-      that.loadList(1)
-    }, 1000)
   },
   showInput: function () {
     this.setData({
@@ -90,6 +87,7 @@ Page({
           list: that.data.list,
           page: nextPage,
           isLoading: false,
+          isSearching: false,
           isMore: isMore
         });
       } else {
@@ -105,5 +103,13 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+    if (e.detail.value && this.data.isSearching === false) {
+      this.data.isSearching = true;
+      var that = this
+      setTimeout(() => {
+        console.log('search:' + that.data.inputVal)
+        that.loadList(1)
+      }, 1000)
+    }
   }
 })
