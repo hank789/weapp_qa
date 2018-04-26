@@ -19,7 +19,7 @@
         </view>
         <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
             <navigator url="/pages/ask/ask" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
+                <view class="weui-cell__bd search-ask">
                     <text class="iconfont icon-help"></text><text>直接提问</text>
                 </view>
             </navigator>

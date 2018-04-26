@@ -16,3 +16,8 @@
   word-wrap:break-word;
   word-break:break-all;
 }
+
+.search-ask {
+   display:flex;
+   align-items:center;
+}

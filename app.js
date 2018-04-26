@@ -27,6 +27,7 @@ App({
             success: function (res_user) {
               var requestUrl = "/weapp/user/wxinfo";
               var jsonData = {
+                oauthType: 'weapp_ask',
                 code: res_login.code,
                 encryptedData: res_user.encryptedData,
                 iv: res_user.iv
