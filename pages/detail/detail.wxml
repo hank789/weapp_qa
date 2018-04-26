@@ -14,16 +14,19 @@
       </view>
       <view class="ti-content">
       {{ question.description }}
+      <view wx:for="{{ question.data.img }}">
+        <image src="{{item}}"></image>
+      </view>
       </view>
       <view class="ti-bottom">
         <view>
-          <text class="iconfont icon-my"></text><text>{{question.user_name}}</text>
+          <image class="c-u-img" src="{{question.user_avatar_url}}"></image><text>{{question.user_name}}</text>
         </view>
         <view>
-          <text class="iconfont icon-xihuan"></text><text>{{question.question_follow_num}}关注</text>
+          <text class="iconfont icon-openeye"></text><text>{{question.question_follow_num}}关注</text>
         </view>
         <view>
-          <text class="iconfont icon-pinglun1"></text><text>{{ question.question_answer_num }}评论</text>
+          <text class="iconfont icon-message1"></text><text>{{ question.question_answer_num }}回答</text>
         </view>
       </view>
     </view>
@@ -61,17 +64,17 @@
             </button>
 
             <view bindtap="navToFollow" class="item">
-              <i class="iconfont icon-message"></i>
-              <view class="doc">关注</view>
+              <i class="iconfont icon-openeye"></i>
+              <view class="doc">{{is_followed_question?'已':''}}关注</view>
             </view>
 
             <view bindtap="navToAnswer" class="item">
-              <i class="iconfont icon-message"></i>
+              <i class="iconfont icon-message1"></i>
               <view class="doc">回答</view>
             </view>
 
             <view bindtap="navToAsk" class="item">
-              <i class="iconfont icon-message"></i>
+              <i class="iconfont icon-help"></i>
               <view class="doc">提问</view>
             </view>
 

@@ -10,6 +10,7 @@ Page({
     question: {},
     question_id: 0,
     answers: [],
+    is_followed_question: 0,
     page: 1,
     isLoading: true,//是否显示加载数据提示
     isMore: true
@@ -28,7 +29,8 @@ Page({
       request.httpsPostRequest('/question/info', { id: options.id }, function (res_data) {
         if (res_data.code === 1000) {
           that.setData({
-            question: res_data.data.question
+            question: res_data.data.question,
+            is_followed_question: res_data.data.is_followed_question
           });
           wx.setStorage({
             key:"question",
@@ -104,11 +106,43 @@ Page({
     }
   },
   navToFollow: function () {
-    
+    if (!this.data.userInfo.id) {
+      wx.showModal({
+        content: '您的认证信息还未完善，前往完善信息',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.redirectTo({
+              url: '../register/register'
+            });
+          }
+        }
+      });
+    } else {
+      var that = this
+      request.httpsPostRequest('/weapp/question/follow', { id: this.data.question_id }, function (res_data) {
+        if (res_data.code === 1000) {
+          that.setData({
+            is_followed_question: res_data.data.type === 'follow'?1:0
+          });
+          wx.showToast({
+            title: res_data.data.tip,
+            icon: 'success',
+            duration: 2000
+          });
+        } else {
+          wx.showToast({
+            title: res_data.message,
+            icon: 'success',
+            duration: 2000
+          });
+        }
+      });
+    }
   },
   navToAnswer: function () {
     wx.navigateTo({
-      url: '../answer/answer'
+      url: '../answer/answer?id=' + this.data.question_id
     });
   },
   navToAsk: function () {

@@ -30,7 +30,10 @@ video {
   display: flex;
   flex-direction: column;
 }
-
+.c-info-name {
+    display: flex;
+    justify-content: space-between;
+}
 .ti-top {
   display: flex;
   justify-content: space-between;
@@ -48,7 +51,8 @@ video {
 }
 .ti-bottom {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  position:relative;
 }
 .ti-bottom .c-u-img {
   width: 23px;
