@@ -5,35 +5,26 @@ var request = require("../../utils/request.js");
 Page({
   data:{
     userInfo: {},
-    inputShowed: false,
     list: [],
-    isMore: true,
     page: 1,
+    filter: 0,
     isLoading: true,//是否显示加载数据提示
-    inputVal: ""
+    isMore: true
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
+    this.setData({
+      filter: options.filter?options.filter:0
+    });
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         userInfo:userInfo
       });
+      that.loadList(1);
     });
-  },
-  onPullDownRefresh: function () {
-    // 下拉刷新
-  },
-  //底部更多加载
-  onReachBottom: function () {
-    if (this.data.isMore && this.data.inputVal) {
-      this.setData({
-        isLoading: true
-      });
-      this.loadList(this.data.page);
-    }
   },
   onReady:function(){
     // 页面渲染完成
@@ -47,32 +38,34 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  searchInput: function () {
-    var that = this
-    setTimeout(() => {
-      console.log('search:' + that.data.inputVal)
-      that.loadList(1)
-    }, 1000)
-  },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
+  navToPost: function () {
+    wx.navigateTo({
+      url: '../post/post'
     });
   },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
+  onPullDownRefresh: function () {
+    // 下拉刷新
+    this.data.page = 1;
+    this.loadList(1);
+    wx.stopPullDownRefresh();
   },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
+  //底部更多加载
+  onReachBottom: function () {
+    if (this.data.isMore) {
+      this.setData({
+        isLoading: true
+      });
+      this.loadList(this.data.page);
+    }
+  },
+  navToDetail: function (event) {
+    wx.navigateTo({
+      url: '../detail/detail?id=' + event.currentTarget.dataset.id
     });
   },
   loadList: function (page) {
-    var that = this
-    request.httpsPostRequest('/weapp/question/search', { search_word: this.data.inputVal, page: page }, function(res_data) {
+    var that = this;
+    request.httpsPostRequest('/weapp/answer/myList', { page: page }, function(res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
@@ -99,11 +92,6 @@ Page({
           duration: 2000
         });
       }
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
     });
   }
 })

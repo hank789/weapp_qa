@@ -112,26 +112,14 @@ Page({
       })
     }
   },
-  tapMyHistory: function (e) {
+  navToMyQuestion: function (e) {
     wx.navigateTo({
-      url: '../myHistory/myHistory'
+      url: '../myQuestion/myQuestion?filter=1'
     })
   },
-  tapMyMessages: function (e) {
+  navToMyAnswer: function (e) {
     wx.navigateTo({
-      url: '../messages/messages'
-    })
-  },
-  navToTuCao: function (e) {
-    wx.navigateToMiniProgram({
-      appId: 'wx8abaf00ee8c3202e',
-      extraData: {
-        id: '26280',
-        customData: {
-          clientInfo: ' iPhone OS 10.3.1 / 3.2.0.43 / 0 ',
-          imei: ' 7280BECE2FC29544172A2B858E9E90D0 '
-        }
-      }
+      url: '../myAnswer/myAnswer'
     })
   }
 })

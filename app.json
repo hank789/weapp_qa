@@ -8,6 +8,8 @@
     "pages/discovery/discovery",
     "pages/search/search",
     "pages/register/register",
+    "pages/myAnswer/myAnswer",
+    "pages/myQuestion/myQuestion",
     "pages/logs/logs"
   ],
   "window":{
@@ -26,20 +28,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "提问",
-        "iconPath": "images/icon_component.png",
-        "selectedIconPath": "images/icon_component_HL.png"
+        "iconPath": "images/icon_ask@3x.png",
+        "selectedIconPath": "images/icon_ask_check@3x.png"
       },
       {
         "pagePath": "pages/discovery/discovery",
         "text": "广场",
-        "iconPath": "images/create_gray.png",
-        "selectedIconPath": "images/create.png"
+        "iconPath": "images/icon_home@3x.png",
+        "selectedIconPath": "images/icon_home_check@3x.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "images/wechat.png",
-        "selectedIconPath": "images/wechatHL.png"
+        "iconPath": "images/icon_mine@3x.png",
+        "selectedIconPath": "images/icon_mine_check@3x.png"
      }
     ]
   },
