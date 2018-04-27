@@ -68,6 +68,11 @@ Page({
     });
   },
   loadList: function (page) {
+    if (!this.data.inputVal) {
+      this.data.isSearching = false;
+      return;
+    }
+    console.log('search:' + this.data.inputVal)
     var that = this
     request.httpsPostRequest('/weapp/question/search', { search_word: this.data.inputVal, page: page }, function(res_data) {
       console.log(res_data);
@@ -91,6 +96,9 @@ Page({
           isMore: isMore
         });
       } else {
+        that.setData({
+          isSearching: false
+        });
         wx.showToast({
           title: res_data.message,
           icon: 'loading',
@@ -103,12 +111,10 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-    if (e.detail.value && this.data.isSearching === false) {
+    if (e.detail.value && this.data.inputVal && this.data.isSearching === false) {
       this.data.isSearching = true;
-      var that = this
       setTimeout(() => {
-        console.log('search:' + that.data.inputVal)
-        that.loadList(1)
+        this.loadList(1)
       }, 1000)
     }
   }
