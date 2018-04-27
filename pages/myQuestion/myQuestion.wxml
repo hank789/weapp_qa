@@ -4,7 +4,7 @@
   <template is="loading" />
 </block>
 <block wx:elif="{{list.length<=0}}">
-<view class="container">暂无</view>
+<view class="container">暂无问题</view>
 </block>
 
 <block wx:if="{{list.length > 0}}">
