@@ -14,7 +14,7 @@
   ],
   "window":{
     "navigationBarTextStyle": "#fff",
-    "navigationBarTitleText": "解惑助手",
+    "navigationBarTitleText": "InweHub精选推荐",
     "navigationBarBackgroundColor": "#5dc890",
     "backgroundColor": "#fbf9fe",
     "enablePullDownRefresh": true
