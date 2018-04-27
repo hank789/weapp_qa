@@ -71,11 +71,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.isMore) {
+      this.setData({
+        isLoading: true
+      });
+      this.loadList(this.data.page);
+    }
   },
   loadAnswers: function(page) {
     var that = this;
-    request.httpsPostRequest('/weapp/answer/list', { page: this.data.page, question_id: this.data.question_id }, function (res_data) {
+    request.httpsPostRequest('/weapp/answer/list', { page: page, question_id: this.data.question_id }, function (res_data) {
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
