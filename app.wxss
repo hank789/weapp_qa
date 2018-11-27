@@ -37,6 +37,11 @@ page {
   background: #B4B4B6;
   margin: 14rpx 18rpx 0;
 }
+.text-line-1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .text-line-5 {
     display: -webkit-box;
     overflow: hidden;

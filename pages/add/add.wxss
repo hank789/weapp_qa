@@ -1,7 +1,14 @@
+page {
+  height: 100%;
+}
+.page {
+  height: 100%;
+  position: relative;
+}
 .component-mark {
   padding: 15.98rpx 31.96rpx 19.96rpx;
 }
-span {
+.component-mark text {
   color: #B4B4B6;
   font-size: 24rpx;
   line-height: 33.0rpx;
@@ -22,10 +29,10 @@ span {
 
 .container-identity {
   padding-bottom:19.96rpx;}
-.line-river-after:after {
+/* .line-river-after:after {
   left: 31.96rpx;
   right: 31.96rpx;
-}
+} */
 .identityTitle {
   padding: 24rpx 31.96rpx 21.98rpx;
   line-height: 42rpx;
@@ -48,7 +55,7 @@ span {
 .domainList {
   padding: 0 31.96rpx;
 }
-.domainList text {
+.domainList .border-football {
   color: #B4B4B6;
   font-size: 24rpx;
   line-height: 33.0rpx;
@@ -57,6 +64,7 @@ span {
   margin-top: 12.98rpx;
   display: inline-block;
   border-radius: 199.96rpx;
+  border: 1rpx solid #DCDCDC;
 }
 
 .component-photograph {
@@ -76,7 +84,7 @@ span {
   top: 50%;
   left: 50%;
   margin-left: -28rpx;
-  margin-top: -28rpx;
+  margin-top: -42rpx;
 }
 .container-images .container-image {
   margin: 0 20rpx 20rpx 0;
@@ -100,4 +108,44 @@ span {
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+}
+
+.fixedContainer {
+  position: relative;
+  background: #ffff;
+  padding: 0.026rem 32rpx;
+  margin-top: 0.44rem;
+}
+.fixedContainer label {
+  color: #444444;
+  position: relative;
+  font-size: 28rpx;
+  padding-left: 0.24rem;
+  margin-right: 0.6rem;
+}
+
+.container-bottom-menus{
+    position: absolute;
+    /*padding-left: 0.2rem;*/
+    background: #fff;
+    left:0;
+    width: 100%;
+    bottom: 0;
+    height: 1.17333rem;
+    line-height: 1.17333rem;
+  }
+  .container-bottom-menus .productName {
+    max-width: 100rpx;
+    float: left;
+    padding-left: 32rpx;
+    display: block;
+    /*padding: 0 0.2rem;*/
+    font-size: 26rpx;
+    color: grey;
+  }
+.container-bottom-menus .confirmPush {
+  color: #03AEF9;
+  font-size: 30rpx;
+  float: right;
+  padding-right: 32rpx;
 }

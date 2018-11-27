@@ -32,8 +32,14 @@
       <text class="border-football">公司名字</text>
     </view>
     <view class="fixedContainer">
-      <text class="niming"><label class="nimingCheckbox" ></label>匿名</text>
+      <label><radio value='匿名' checked='true'/>匿名</label>
     </view>
+  </view>
+
+  <view class='container-bottom-menus'>
+    <view class='line-river-after line-river-after-top'></view>
+    <text class=' text-line-1 productName font-family-medium'>AMETR Manual</text>
+    <view class='confirmPush font-family-medium'>确认发布</view>
   </view>
 
 </view>
