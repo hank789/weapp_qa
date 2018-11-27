@@ -30,13 +30,53 @@
       <view class="line-river-after line-river-after-top"></view>
     </view>
 
-    <view class="checkOpen"><text>查看全部23个所属分类排名</text></view>
+    <view class="checkOpen"><text class="font-family-medium">查看全部23个所属分类排名</text></view>
   </view>
 
   <view class="line-river-big"></view>
 
-  <view>
-    
+  <view class='commentAll'>
+    <view class="allDianPing font-family-medium">点评（23）</view>
+    <view class="line-river-after line-river-after-top"></view>
+    <feed></feed>
+
+    <view class="checkOpen"><text class="font-family-medium">查看全部23条点评</text></view>
+  </view>
+
+  <view class="line-river-big"></view>
+
+  <view class="component-score">
+    <view class="text">就您的感受而言，您会给他打多少分？</view>
+    <view class='iconfont icon-xingxingweidian'></view>
+  </view>
+
+  <view class="line-river-big"></view>
+
+  <view class="allDianPing font-family-medium">相关推荐</view>
+  <view class="line-river-after line-river-after-top"></view>
+
+  <view class="product">
+    <view class="comment-product">
+      <view class="product-info">
+        <view class="product-img">
+          <image class="logo-img" src="../../images/logo-144.png"></image>
+        </view>
+        <view class="product-detail">
+          <view class="productName font-family-medium">产品名字</view>
+          <view class="productMark">
+            <view class="stars">
+              <view class="iconfont icon-xingxingyidian"></view>
+            </view>
+            <view class="starsText">
+              <text>5分</text>
+              <text class="spot"></text>
+              <text>6条评论</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
   </view>
 
 </view>

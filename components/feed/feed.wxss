@@ -1,1 +1,114 @@
-/* components/feed/feed.wxss */
+.text-line-5 {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal!important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+.line-river-after {
+  position: relative;
+  height: 1px; /* px不转换 */
+  width: 100%; }
+.line-river-after:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background-color: #dcdcdc;
+  height: 1px; /* px不转换 */
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5); }
+.line-river-after-top {
+  top: -1px; /* px不转换 */}
+
+.commentList {
+  margin-top: 0.533rem;}
+.commentList .line-river-after {
+  margin-top: 0.266rem;}
+.commentList .line-river-after:after {
+  left: 32rpx;
+  right: 32rpx;}
+.container-images {
+  margin-top: 0.266rem;}
+.commentUser {
+  display: flex;
+  padding: 0 32rpx;
+  justify-content: space-between;}
+.commentUser .userInfo {
+  display: flex;}
+.commentUser .userInfo .avatar {
+  width: 68rpx;
+  height: 68rpx;
+  margin-right: 16rpx;}
+.commentUser .userInfo .avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.userName .userNameTop {
+  display: flex;
+}
+.userName .userNameTop .border-football {
+  height: 30rpx;
+  color: #FA4975;
+  font-size: 20rpx;
+  padding: 0 10rpx;
+  line-height: 30rpx;
+  margin-left: 6rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #FA4975;
+}
+.userName .userNameTop text:nth-of-type(1) {
+  color: #444444;
+  font-size: 26rpx;
+  line-height: 37rpx;
+}
+.userName .time {
+  color: #B4B4B6;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  margin-top: 4rpx;
+}
+.commentUser .mark {
+  color: #FCC816;
+  font-size: 26rpx;
+  line-height: 37rpx;
+}
+.commentFeedTitle {
+  padding: 0 32rpx;
+  color: #444444;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  margin-top: 19rpx;
+  letter-spacing: 1rpx;
+}
+.feed-open-all {
+  color: #03AEF9;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+  padding: 0 32rpx;
+  line-height: 37rpx;
+}
+.feed-moreOperation {
+  /* margin-top: 20rpx; */
+  color: #808080;
+  /* margin-bottom: 20rpx; */
+  text-align: right;
+}
+.feed-operation {
+  padding-top: 10rpx;
+}
+.feed-operation view {
+  padding: 10rpx 32rpx 10rpx 8rpx;
+  font-size: 22rpx;
+  color: #444444;
+  display: inline-block;
+}
+.feed-operation view .iconfont {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}

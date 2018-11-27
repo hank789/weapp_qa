@@ -1,0 +1,125 @@
+.userInfoDetail {
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.avatar {
+  display: flex;
+}
+.avatar .avatarInner {
+  height: 68rpx;
+  width: 68rpx;
+  font-size: 26rpx;
+}
+.avatar .avatarInner image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.avatar .userName {
+  margin-left: 16rpx;
+}
+.avatar .userName .userNameTop .font-family-medium {
+  font-size: 26rpx;
+  line-height: 37rpx;
+}
+.avatar .userName .userNameTop .excellent {
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 0 10rpx;
+  color: #FA4975;
+  margin-left: 6rpx;
+  border-radius: 8rpx;
+  display: inline-block;
+  border: 1rpx solid #FA4975;
+}
+.avatar .userName .time {
+  color: #B4B4B6;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  margin-top: 4rpx;
+}
+
+.mark {
+  display: flex;
+  padding: 0 32rpx;
+  margin-top: 27rpx;
+}
+.stars {
+  font-size: 115rpx;
+  color: #FCC816;
+  line-height: 30rpx;
+}
+.icon-xingxingyidian {
+  font-size: 115rpx;
+}
+.text {
+  color: #FCC816;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  margin-top: 0.053rem;
+  margin-left: 6rpx;
+}
+.contentWrapper {
+  padding: 18rpx 32rpx 0;
+  white-space: pre-line !important;
+  word-wrap: break-word;
+  font-size: 32rpx;
+  color: #444;
+  line-height: 52rpx;
+  margin-bottom: 52rpx;
+}
+.linkWrapper {
+  padding: 0 32rpx;
+}
+
+.link {
+  padding: 0 32rpx;
+  margin-top: 46rpx;
+  margin-bottom: 0.466rem;}
+.linkBox {
+  padding: 20rpx;
+  border-radius: 8rpx;
+  background: #F7F8FA;
+}
+.productLogo {
+  width: 88rpx;
+  height: 88rpx;
+  float: left;
+  margin-right: 20rpx;}
+.productLogo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  object-fit: contain;
+}
+.link .linkContent .text-line-1 {
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+.link .linkContent .mark {
+  margin-top: 18rpx;
+  padding: 0;
+}
+.link .linkContent .mark .spot {
+  top: 0;
+  margin-left: 10rpx;
+  margin-right: 10rpx; 
+}
+.timeContainer {
+  display: flex;
+  color: #B4B4B6;
+  margin-bottom: 55rpx;
+  padding: 0 32rpx;
+  justify-content: space-between;
+}
+.makingCopy {
+  font-size: 24rpx;
+}
+.allDianPing {
+  padding: 0 32rpx;
+  color: #444444;
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
