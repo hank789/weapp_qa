@@ -1,33 +1,33 @@
 .container-list-discuss {
-  padding: 0 0.4rem; }
+  padding: 0 30rpx; }
 .container-list-discuss .list-item-discuss {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding: 0.266rem 0; }
+  padding: 19.96rpx 0; }
 .container-list-discuss .list-item-discuss .lidL {
-  width: 0.906rem; }
+  width: 67.96rpx; }
 .container-list-discuss .list-item-discuss .lidL image {
-  width: 0.906rem;
-  height: 0.906rem;
+  width: 67.96rpx;
+  height: 67.96rpx;
   border-radius: 50%; }
 .container-list-discuss .list-item-discuss .lidR {
   -webkit-box-flex: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  padding-left: 0.133rem; }
+  padding-left: 9.98rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR1 {
   color: #808080;
-  font-size: 0.346rem; }
+  font-size: 25.96rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR1 span {
   color: #B4B4B6;
-  margin: 0 0.133rem; }
+  margin: 0 9.98rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR2 {
   color: #444444;
-  font-size: 0.373rem;
-  line-height: 0.506rem;
+  font-size: 27.98rpx;
+  line-height: 37.96rpx;
   word-break: break-all;}
 .container-list-discuss .list-item-discuss .lidR .lidR3 {
   display: -webkit-box;
@@ -37,24 +37,24 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   color: #B4B4B6;
-  font-size: 0.32rem; }
+  font-size: 24rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption.active {
   color: #03AEF9; }
 .container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption .icon {
-  font-size: 0.386rem; }
+  font-size: 28.96rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption text {
-  margin-left: 0.133rem; }
+  margin-left: 9.98rpx; }
 .container-list-discuss .list-item-discuss.list-item-discuss-children {
   background-color: #F7F8FA;
-  margin-left: 1.04rem;
-  padding: 0.266rem 0.266rem 0; }
+  margin-left: 78rpx;
+  padding: 19.96rpx 19.96rpx 0; }
 .list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child {
-  border-radius: 0.106rem 0.106rem 0 0; }
+  border-radius: 7.96rpx 7.96rpx 0 0; }
 .list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:last-child {
-  margin-bottom: 0.266rem;
-  padding-bottom: 0.266rem;
-  border-radius: 0 0 0.106rem 0.106rem; }
+  margin-bottom: 19.96rpx;
+  padding-bottom: 19.96rpx;
+  border-radius: 0 0 7.96rpx 7.96rpx; }
 .list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child:last-child {
-  border-radius: 0.106rem; }
+  border-radius: 7.96rpx; }
 .container-list-discuss .line-river-after:after {
-  left: 1.066rem !important; }
+  left: 79.96rpx !important; }
