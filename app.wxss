@@ -18,11 +18,54 @@
   z-index:5;
 }
 page {
-    background-color: #f2f2f2;
+    background-color: #fff;
     color: #333;
     font-size: 12px;
     box-sizing: border-box
 }
+.font-family-medium {
+  font-family:PingFangSC-Medium;
+}
+.spot {
+  width: 4rpx;
+  height: 4rpx;
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  border-radius: 100rpx;
+  background: #B4B4B6;
+  margin: 14rpx 18rpx 0;
+}
+.line-river-big {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f3f4f6;
+}
+.line-river-after {
+  position: relative;
+  height: 1px; /* px不转换 */
+  width: 100%; }
+.line-river-after:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background-color: #dcdcdc;
+  height: 1px; /* px不转换 */
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5); }
+.line-river-after-top {
+  top: -1px; /* px不转换 */}
+.bot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2rpx;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  background-color: rgb(220, 220, 220);}
 .container {
   height:80%;
   display: flex;
@@ -72,3 +115,80 @@ page {
     margin: 15px auto 0 auto;
     padding: 0
 }
+
+/* 产品列表 */
+.comment-product {
+  padding: 32rpx 32rpx 0;}
+.comment-product .product-info {
+  overflow: hidden;
+  border-radius: 8rpx;
+  padding: 0 0 30rpx;
+  background: none;}
+.comment-product .product-info .product-img {
+  width: 88rpx;
+  height: 88rpx;
+  float: left;}
+.comment-product .product-img .logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  object-fit: contain;}
+.comment-product .product-detail {
+  float: left;
+  margin-left: 20rpx;}
+.comment-product .productName {
+  width: 7.573rem;
+  color: #444444;
+  font-size: 32rpx;
+  line-height: 45rpx;}
+.comment-product .productMark {
+  display: flex;}
+.comment-product .productMark text {
+  color: #B4B4B6;
+  font-size: 22rpx;
+  /* float: left; */
+  line-height: 30rpx;}
+.comment-product .productMark text:nth-of-type(1) {
+  color: #FCC816;
+  margin-left: 0.08rem;}
+
+
+/* 空状态 */
+.noResult {
+  text-align: center;
+  font-size: 1.333rem;
+  padding: 210rpx 0 0}
+.noResult .noResultText {
+  color: #C8C8C8;
+  font-size: 24rpx;
+  line-height: 0.426rem;
+  padding: 0.186rem 0 0.48rem;}
+.noResult .text-center {
+  text-align: center;}
+.noResult .noResultText.font-family-medium {
+  color: #808080;}
+.noResult .goRelease {
+  width: 2.48rem;
+  height: 0.906rem;
+  color: #ffffff;
+  margin: 0 auto;
+  font-size: 0.373rem;
+  line-height: 0.906rem;
+  background: #03AEF9;
+  border-radius: 2.666rem;}
+.noResult .empty-Img {
+  width: 123rpx;
+  height: 178rpx;
+  margin: 0 auto;}
+.noResult .empty-Img image {
+  width: 100%;
+  height: 100%;}
+.container-noMore {
+  text-align: center;
+  margin-top: 25rpx;}
+.container-noMore text {
+  font-size: 24rpx;
+  color: #C8C8C8;
+  line-height: 33rpx;}
+.container-noMore text.font-family-medium {
+  color: #808080;}
