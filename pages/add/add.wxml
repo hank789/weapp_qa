@@ -1,0 +1,39 @@
+<view class='page'>
+
+  <view class="component-mark">
+    <text>就您的感受而言，您会给他打多少分？</text>
+    <view class="stars">
+      <view class='iconfont icon-xingxingyidian'></view>
+      <view class="ratingNumber">5分</view>
+    </view>
+    <view class="line-river-after line-river-after-top"></view>
+  </view>
+
+  <view class="container-images">
+    <view class="container-image">
+      <text class='iconfont icon-times'></text>
+      <image src='../../images/logo-144.png'></image>
+    </view>
+    <view class="component-photograph">
+      <text class='iconfont icon-xiangji1'></text>
+    </view>
+  </view>
+
+  <view class="line-river-big"></view>
+
+  <view class="container-identity">
+    <view class="identityTitle">
+      <text>请告诉我们您的身份</text>
+      <text class='iconfont icon-jinru'></text>
+    </view>
+    <view class="line-river-after line-river-after-top"></view>
+    <view class="assessDomain">您的评价属于哪个领域</view>
+    <view class="domainList">
+      <text class="border-football">公司名字</text>
+    </view>
+    <view class="fixedContainer">
+      <text class="niming"><label class="nimingCheckbox" ></label>匿名</text>
+    </view>
+  </view>
+
+</view>

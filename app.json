@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/add/add",
     "pages/allComment/allComment",
     "pages/commentDetail/commentDetail",
     "pages/productDetail/productDetail",
