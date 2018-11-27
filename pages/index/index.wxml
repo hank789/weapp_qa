@@ -1,7 +1,7 @@
 <view class="page">
 	<view class="page__hd">
 	    <view class="ask-title">
-		    <image class="ask-title-avatar" src="../../images/logo-144.png" background-size="cover"></image>
+		    <text class="ask-title-text">帮助您的企业\n获得合适的软件和服务</text>
 	    </view>
 	</view>
 
@@ -9,10 +9,72 @@
         <view class="weui-search-bar-custom">
             <view class="weui-search-bar__form">
                 <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" disabled="true" class="weui-search-bar__input" placeholder="输入您的问题" />
+                    <icon class="weui-icon-search_in-box" type="search" size="17"></icon>
+                    <input type="text" disabled="true" class="weui-search-bar__input" placeholder="搜索你想了解的企业级产品和服务" placeholder-class="placeholder" />
                 </view>
             </view>
         </view>
     </view>
+
+    <view class="seach-keyword">
+      <view class="seach-keyword-center">
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">CRM</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">钉钉</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">阿里云</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">SAP</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">金蝶</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">北森云</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">GitHub</text>
+          <view class="spot"></view>
+        </view>
+        <view class="seach-keyword-list">
+          <text class="seach-keyword-text">GitHub</text>
+          <text class="spot"></text>
+        </view>
+      </view>
+    </view>
+
+    <view class="index-bottom">
+      <view class="bottom-operation">
+        <view class="bottom-about">
+          <text>联系我们</text>
+          <view class="spot"></view>
+        </view>
+        <view class="bottom-about">
+          <text>下载APP</text>
+          <view class="spot"></view>
+        </view>
+        <view class="bottom-about">
+          <text>分享朋友</text>
+          <!-- <view class="spot"></view> -->
+        </view>
+      </view>
+      <view class="included">
+        <view class="included-text">
+          <view class="line"></view>
+          <text>收录超过100000+</text>
+        </view>
+      </view>
+    </view>
+
 </view>
+

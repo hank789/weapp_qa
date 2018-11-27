@@ -1,33 +1,125 @@
 <view class="page">
-    <view class="page__hd">
+  <view class="page__bd">
+      <view class="container-search">
+        <view class="search-wrapper">
+          <view class="iconfont icon-sousuo"></view>
+          <input type="text" class="" placeholder-class="placeholder" placeholder="搜索你想了解的企业级产品和服务" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="close" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <view class="iconfont icon-times--"></view>
+          </view>
+        </view>
+        <text class="cancel">取消</text>
+      </view>
+  </view>
+
+  <view class="container-searchwrapper">
+    <view class="search-list listOne">
+      查看“供应”的搜索结果
+      <view class="bot"></view>
     </view>
-    <view class="page__bd">
-        <view class="weui-search-bar">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="输入您的问题" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                        <icon type="clear" size="14"></icon>
-                    </view>
-                </view>
-                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                    <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">搜索</view>
-                </label>
+  </view>
+
+  <view class="product">
+    <view class="comment-product">
+      <view class="product-info">
+        <view class="product-img">
+          <image class="logo-img" src="../../images/logo-144.png"></image>
+        </view>
+        <view class="product-detail">
+          <view class="productName font-family-medium">产品名字</view>
+          <view class="productMark">
+            <view class="stars">
+              <view class="iconfont icon-xingxingyidian"></view>
             </view>
+            <view class="starsText">
+              <text>5分</text>
+              <text class="spot"></text>
+              <text>6条评论</text>
+            </view>
+          </view>
         </view>
-        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-            <navigator url="/pages/ask/ask" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd search-ask">
-                    <text class="iconfont icon-help"></text><text>直接提问</text>
-                </view>
-            </navigator>
-            <navigator wx:for="{{list}}" wx:key="id" data-id="{{ item.id }}" bindtap="navToDetail" url="/pages/detail/detail?id={{item.id}}" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
-                    <view class="result_title ellipsis-2">{{item.description}}</view>
-                </view>
-            </navigator>
-        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
     </view>
+
+    <view class="comment-product">
+      <view class="product-info">
+        <view class="product-img">
+          <image class="logo-img" src="../../images/logo-144.png"></image>
+        </view>
+        <view class="product-detail">
+          <view class="productName font-family-medium">产品名字</view>
+          <view class="productMark">
+            <view class="stars">
+              <view class="iconfont icon-xingxingyidian"></view>
+            </view>
+            <view class="starsText">
+              <text>5分</text>
+              <text class="spot"></text>
+              <text>6条评论</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
+
+    <view class="comment-product">
+      <view class="product-info">
+        <view class="product-img">
+          <image class="logo-img" src="../../images/logo-144.png"></image>
+        </view>
+        <view class="product-detail">
+          <view class="productName font-family-medium">产品名字</view>
+          <view class="productMark">
+            <view class="stars">
+              <view class="iconfont icon-xingxingyidian"></view>
+            </view>
+            <view class="starsText">
+              <text>5分</text>
+              <text class="spot"></text>
+              <text>6条评论</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
+
+    <view class="comment-product">
+      <view class="product-info">
+        <view class="product-img">
+          <image class="logo-img" src="../../images/logo-144.png"></image>
+        </view>
+        <view class="product-detail">
+          <view class="productName font-family-medium">产品名字</view>
+          <view class="productMark">
+            <view class="stars">
+              <view class="iconfont icon-xingxingyidian"></view>
+            </view>
+            <view class="starsText">
+              <text>5分</text>
+              <text class="spot"></text>
+              <text>6条评论</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
+
+      <view class="container-noMore">
+        <text>暂无更多，</text><text class="font-family-medium">联系客服添加产品</text>
+      </view>
+  </view>
+
+  <view class="noResult">
+    <view class="empty-Img">
+      <image src="../../images/empty@3x.png"></image>
+    </view>
+    <view class="text-center">
+      <text class="noResultText">暂无匹配项，</text><text class="noResultText font-family-medium">联系客服添加产品</text>
+    </view>
+  </view>
+
 </view>

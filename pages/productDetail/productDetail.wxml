@@ -1,0 +1,42 @@
+<view class="page">
+
+  <view class="product-introduce">
+    <view class="companyLogo border-football">
+      <image class="logo-img" src="../../images/logo-144.png"></image>
+    </view>
+    <view class="companyNmae font-family-medium">TradeShift</view>
+    <view class="companyMark">
+      <view class="stars">
+        <view class="iconfont icon-xingxingyidian"></view>
+      </view>
+      <view class="starsText">
+        <text>4.3分</text>
+        <text class="spot"></text>
+        <text class="comment">23条评论</text>
+      </view>
+    </view>
+    <view class="companyDescribe">外包此活动为您提供财务空间和更多时间，可用于贵公司的核心竞争力和战略方向</view>
+    <view class="supply">
+      <text>供应商</text><text class="font-family-medium">TradeShift</text>
+    </view>
+  </view>
+
+  <view class="optionlList">
+    <view class="listWrapper">
+      <view class="list">
+        <text>采购软件</text>
+        <text class="ranking">No.5</text>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
+
+    <view class="checkOpen"><text>查看全部23个所属分类排名</text></view>
+  </view>
+
+  <view class="line-river-big"></view>
+
+  <view>
+    
+  </view>
+
+</view>
