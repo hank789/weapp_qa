@@ -21,7 +21,8 @@ page {
     background-color: #fff;
     color: #333;
     font-size: 12px;
-    box-sizing: border-box
+    box-sizing: border-box;
+    padding-bottom: 20rpx;
 }
 .font-family-medium {
   font-family:PingFangSC-Medium;
@@ -35,6 +36,15 @@ page {
   border-radius: 100rpx;
   background: #B4B4B6;
   margin: 14rpx 18rpx 0;
+}
+.text-line-5 {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal!important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 .line-river-big {
   width: 100%;

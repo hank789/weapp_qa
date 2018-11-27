@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "feed": "/components/feed/feed"
+  }
+}

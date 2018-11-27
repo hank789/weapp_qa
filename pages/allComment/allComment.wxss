@@ -1,0 +1,60 @@
+.container-list-discuss {
+  padding: 0 0.4rem; }
+.container-list-discuss .list-item-discuss {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  padding: 0.266rem 0; }
+.container-list-discuss .list-item-discuss .lidL {
+  width: 0.906rem; }
+.container-list-discuss .list-item-discuss .lidL image {
+  width: 0.906rem;
+  height: 0.906rem;
+  border-radius: 50%; }
+.container-list-discuss .list-item-discuss .lidR {
+  -webkit-box-flex: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  padding-left: 0.133rem; }
+.container-list-discuss .list-item-discuss .lidR .lidR1 {
+  color: #808080;
+  font-size: 0.346rem; }
+.container-list-discuss .list-item-discuss .lidR .lidR1 span {
+  color: #B4B4B6;
+  margin: 0 0.133rem; }
+.container-list-discuss .list-item-discuss .lidR .lidR2 {
+  color: #444444;
+  font-size: 0.373rem;
+  line-height: 0.506rem;
+  word-break: break-all;}
+.container-list-discuss .list-item-discuss .lidR .lidR3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  color: #B4B4B6;
+  font-size: 0.32rem; }
+.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption.active {
+  color: #03AEF9; }
+.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption .icon {
+  font-size: 0.386rem; }
+.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption text {
+  margin-left: 0.133rem; }
+.container-list-discuss .list-item-discuss.list-item-discuss-children {
+  background-color: #F7F8FA;
+  margin-left: 1.04rem;
+  padding: 0.266rem 0.266rem 0; }
+.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child {
+  border-radius: 0.106rem 0.106rem 0 0; }
+.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:last-child {
+  margin-bottom: 0.266rem;
+  padding-bottom: 0.266rem;
+  border-radius: 0 0 0.106rem 0.106rem; }
+.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child:last-child {
+  border-radius: 0.106rem; }
+.container-list-discuss .line-river-after:after {
+  left: 1.066rem !important; }

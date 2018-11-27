@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/feed/feed",
+    "pages/allComment/allComment",
+    "pages/commentDetail/commentDetail",
     "pages/productDetail/productDetail",
+    "pages/feed/feed",
     "pages/search/search",
     "pages/index/index",
     "pages/detail/detail",
