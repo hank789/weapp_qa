@@ -49,13 +49,13 @@
   background-color: #F7F8FA;
   margin-left: 78rpx;
   padding: 19.96rpx 19.96rpx 0; }
-.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child {
+.list-item-discuss.list-item-discuss-children:first-child {
   border-radius: 7.96rpx 7.96rpx 0 0; }
-.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:last-child {
+.container-list-discuss .list-item-discuss.list-item-discuss-children:last-child {
   margin-bottom: 19.96rpx;
   padding-bottom: 19.96rpx;
   border-radius: 0 0 7.96rpx 7.96rpx; }
-.list-item-discuss-childrens>div>.list-item-discuss.list-item-discuss-children:first-child:last-child {
+.list-item-discuss-childrens view .list-item-discuss.list-item-discuss-children:first-child:last-child {
   border-radius: 7.96rpx; }
 .container-list-discuss .line-river-after:after {
   left: 79.96rpx !important; }

@@ -14,11 +14,15 @@
                 <text>20分钟</text>
               </view>
               <view class='lidROption'>
+                <text class='iconfont icon-zan1'></text>
                 <text>2</text>
               </view>
             </view>
           </view>
         </view>
+        <div class="list-item-discuss-childrens">
+          <DiscussReplay></DiscussReplay>
+        </div>
 
         <view class='line-river-after'></view>
 
