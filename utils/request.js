@@ -39,6 +39,7 @@ module.exports = {
         typeof res_func == "function" && res_func(res.data);
       }
     }
+    req_obj.inwehub_user_device = 'weapp_dianping';
     if (req_obj) {
       jsonUrl.data = req_obj;
     }
@@ -58,6 +59,7 @@ module.exports = {
         typeof res_func == "function" && res_func(res.data);
       }
     }
+    req_obj.inwehub_user_device = 'weapp_dianping';
     if (req_obj) {
       jsonUrl.data = req_obj;
     }
