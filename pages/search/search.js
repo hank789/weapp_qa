@@ -74,7 +74,7 @@ Page({
     }
     console.log('search:' + this.data.inputVal)
     var that = this
-    request.httpsPostRequest('/weapp/question/search', { search_word: this.data.inputVal, page: page }, function(res_data) {
+    request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;

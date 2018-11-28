@@ -152,7 +152,7 @@ page {
   float: left;
   margin-left: 20rpx;}
 .comment-product .productName {
-  width: 7.573rem;
+  width: 578rpx;
   color: #444444;
   font-size: 32rpx;
   line-height: 45rpx;}

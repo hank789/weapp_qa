@@ -5,102 +5,36 @@
           <view class="iconfont icon-sousuo"></view>
           <input type="text" class="" placeholder-class="placeholder" placeholder="搜索你想了解的企业级产品和服务" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
           <view class="close" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-            <view class="iconfont icon-times--"></view>
+            <view class="iconfont icon-times"></view>
           </view>
         </view>
         <text class="cancel">取消</text>
       </view>
   </view>
 
-  <view class="container-searchwrapper">
+  <view class="container-searchwrapper" wx:if='{{ inputVal }}'>
     <view class="search-list listOne">
-      查看“供应”的搜索结果
+      查看“{{ inputVal }}”的搜索结果
       <view class="bot"></view>
     </view>
   </view>
 
-  <view class="product">
-    <view class="comment-product">
+  <view class="product" wx:if='{{ list.length}}' >
+    <view class="comment-product" wx:for="{{list}}">
       <view class="product-info">
         <view class="product-img">
-          <image class="logo-img" src="../../images/logo-144.png"></image>
+          <image class="logo-img" src="{{item.logo}}"></image>
         </view>
         <view class="product-detail">
-          <view class="productName font-family-medium">产品名字</view>
+          <view class="productName font-family-medium text-line-1">{{ item.name }}</view>
           <view class="productMark">
             <view class="stars">
               <view class="iconfont icon-xingxingyidian"></view>
             </view>
             <view class="starsText">
-              <text>5分</text>
+              <text>{{ item.review_average_rate }}分</text>
               <text class="spot"></text>
-              <text>6条评论</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="line-river-after line-river-after-top"></view>
-    </view>
-
-    <view class="comment-product">
-      <view class="product-info">
-        <view class="product-img">
-          <image class="logo-img" src="../../images/logo-144.png"></image>
-        </view>
-        <view class="product-detail">
-          <view class="productName font-family-medium">产品名字</view>
-          <view class="productMark">
-            <view class="stars">
-              <view class="iconfont icon-xingxingyidian"></view>
-            </view>
-            <view class="starsText">
-              <text>5分</text>
-              <text class="spot"></text>
-              <text>6条评论</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="line-river-after line-river-after-top"></view>
-    </view>
-
-    <view class="comment-product">
-      <view class="product-info">
-        <view class="product-img">
-          <image class="logo-img" src="../../images/logo-144.png"></image>
-        </view>
-        <view class="product-detail">
-          <view class="productName font-family-medium">产品名字</view>
-          <view class="productMark">
-            <view class="stars">
-              <view class="iconfont icon-xingxingyidian"></view>
-            </view>
-            <view class="starsText">
-              <text>5分</text>
-              <text class="spot"></text>
-              <text>6条评论</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="line-river-after line-river-after-top"></view>
-    </view>
-
-    <view class="comment-product">
-      <view class="product-info">
-        <view class="product-img">
-          <image class="logo-img" src="../../images/logo-144.png"></image>
-        </view>
-        <view class="product-detail">
-          <view class="productName font-family-medium">产品名字</view>
-          <view class="productMark">
-            <view class="stars">
-              <view class="iconfont icon-xingxingyidian"></view>
-            </view>
-            <view class="starsText">
-              <text>5分</text>
-              <text class="spot"></text>
-              <text>6条评论</text>
+              <text>{{item.review_count}}条评论</text>
             </view>
           </view>
         </view>
@@ -113,7 +47,7 @@
       </view>
   </view>
 
-  <view class="noResult">
+  <view class="noResult" wx:if='{{ list.length <= 0 }}'>
     <view class="empty-Img">
       <image src="../../images/empty@3x.png"></image>
     </view>

@@ -33,7 +33,7 @@ page {
   color: #C8C8C8;
   margin-top: 0rpx;
 }
-.container-search .close .icon-times-- {
+.container-search .close .icon-times {
   margin-left: 0.266rem;
   font-size: 0.533rem;
   position: relative;
