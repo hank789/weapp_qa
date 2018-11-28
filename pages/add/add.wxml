@@ -32,10 +32,12 @@
       <text class="border-football">公司名字</text>
     </view>
     <view class="fixedContainer">
-      <label><radio value='匿名' checked='true'/>匿名</label>
+      <label>
+        <radio value='匿名' color='#fff'/>
+        <text>匿名</text>
+      </label>
     </view>
   </view>
-
   <view class='container-bottom-menus'>
     <view class='line-river-after line-river-after-top'></view>
     <text class=' text-line-1 productName font-family-medium'>AMETR Manual</text>
