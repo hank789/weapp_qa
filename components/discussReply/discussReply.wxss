@@ -1,3 +1,4 @@
+@import '/iconfont/iconfont.wxss';
 .container-list-discuss {
   padding: 0 30rpx; }
 .container-list-discuss .list-item-discuss {

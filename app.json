@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/ask/ask",
     "pages/add/add",
+    "pages/productDetail/productDetail",
     "pages/allComment/allComment",
     "pages/commentDetail/commentDetail",
-    "pages/productDetail/productDetail",
     "pages/feed/feed",
     "pages/search/search",
-    "pages/index/index",
     "pages/detail/detail",
-    "pages/ask/ask",
     "pages/answer/answer",
     "pages/mine/mine",
     "pages/discovery/discovery",
