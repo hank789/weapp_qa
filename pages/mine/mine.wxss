@@ -37,7 +37,7 @@ page{
   padding:0rpx 30rpx;
   box-shadow: 0rpx 0rpx 8rpx 4rpx #F4F6F8;
   border-radius:8rpx;
-  margin-bottom: 30px;
+  margin-bottom: 60rpx;
 }
 .mine_list{
   width: 100%;
@@ -87,7 +87,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   opacity: 0;
 }
 .mine_btn2{
@@ -97,7 +97,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:100rpx;
   opacity: 0;
 }
@@ -108,7 +108,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:200rpx;
   opacity: 0;
 }
@@ -119,7 +119,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:300rpx;
   opacity: 0;
 }
@@ -130,7 +130,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:400rpx;
   opacity: 0;
 }
@@ -141,7 +141,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:500rpx;
   opacity: 0;
 }
@@ -152,7 +152,7 @@ page{
   position: absolute;
   text-align: center;
   line-height: 80rpx;
-  border:1px solid #000;
+  border:2rpx solid #000;
   left:600rpx;
   opacity: 0;
 }

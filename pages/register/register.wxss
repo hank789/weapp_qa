@@ -3,7 +3,7 @@ page{
   background: #fff;
 }
 button{
-  border-radius: 10px;
+  border-radius: 20rpx;
   
 }
 .register_placeholde{
@@ -39,13 +39,13 @@ button{
   color:#66DBF9; 
   border:1rpx solid #66DBF9;
   border-color: #66DBF9;
-  border-radius: 10px;
+  border-radius: 20rpx;
 }  
 
 button[disabled][type=primary] {
 background-color:#DCDCDC;
 border: none;
-border-radius: 10px;
+border-radius: 20rpx;
 
 }
 button[disabled] {
@@ -60,7 +60,7 @@ button[type=primary].register_submit{
   opacity: 1;
 }
 button.register_submit{
-  border-radius: 100px;
+  border-radius: 200rpx;
 }
 .weui-btn-area {
   margin:34rpx 32rpx 0 32rpx;
@@ -74,7 +74,7 @@ button.register_submit{
 
 .weui-agree {
   padding:0 32rpx;
-  font-size:13px;
+  font-size:26rpx;
   padding:0 32rpx;
   margin-top:35rpx;
 }

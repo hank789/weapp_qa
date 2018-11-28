@@ -1,7 +1,7 @@
 /* pages/detail/detail.wxss */
 @import "/libs/wxParse/wxParse.wxss";
 .container {
-  padding-bottom: 45px;
+  padding-bottom: 90rpx;
 }
 
 .c-top {
@@ -10,7 +10,7 @@
 
 .c-video-img {
   width: 100%;
-  height: 240px;
+  height: 480rpx;
   background-color: #000;
 }
 
@@ -26,7 +26,7 @@ video {
 
 .t-info {
   background-color: #fff;
-  padding: 8px 15px;
+  padding: 16rpx 30rpx;
   display: flex;
   flex-direction: column;
 }
@@ -38,16 +38,16 @@ video {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 0 -15px;
-  padding: 0 15px 8px 15px;
+  margin: 0 -30rpx;
+  padding: 0 30rpx 16rpx 30rpx;
   color: #888;
 }
 .ti-content {
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
-  padding: 8px 15px;
-  margin: 0 -15px 10px -15px;
-  font-size: 14px;
+  border-top: 2rpx solid #f2f2f2;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding: 16rpx 30rpx;
+  margin: 0 -30rpx 20rpx -30rpx;
+  font-size: 28rpx;
 }
 .ti-bottom {
   display: flex;
@@ -55,29 +55,29 @@ video {
   position:relative;
 }
 .ti-bottom .c-u-img {
-  width: 23px;
-  height: 23px;
+  width: 46rpx;
+  height: 46rpx;
 }
 .t-info .iconfont {
   vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 10rpx;
 }
 .comments {
-  margin-top: 10px;
+  margin-top: 20rpx;
   width: 100%;
 }
 
 .content {
   word-break: break-all;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .comments .item {
   display: flex;
   position: relative;
-  padding: 15px;
+  padding: 30rpx;
   background-color: #fff;
-  margin-bottom: 1px;
+  margin-bottom: 2rpx;
 }
 
 .i-right {
@@ -85,26 +85,26 @@ video {
 }
 
 .c-u-img {
-  width: 30px;
-  height: 30px;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: 16rpx;
 }
 
 .comments .item .top {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3px;
+  margin-bottom: 6rpx;
 }
 
 .comments .item .u-name {
   color: deepskyblue;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .comments .item .time {
   color: #888;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .comment-fixed {
@@ -113,7 +113,7 @@ video {
   left: 0;
   right: 0;
   background-color: #fff;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4rpx rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
 
@@ -128,15 +128,15 @@ video {
 }
 
 .cf-box {
-  padding: 8px 5px;
+  padding: 16rpx 10rpx;
   display: flex;
   justify-content: center;
 }
 
 .t-info textarea {
   background: red;
-  padding: 8px 5px;
-  height: 30px;
+  padding: 16rpx 10rpx;
+  height: 60rpx;
   box-sizing: border-box;
   width: 100%;
   display: block;
@@ -144,36 +144,36 @@ video {
 
 .cf-content {
   background-color: #f2f2f2;
-  padding: 8px 5px;
-  font-size: 12px;
-  height: 30px;
-  max-height: 40px;
+  padding: 16rpx 10rpx;
+  font-size: 24rpx;
+  height: 60rpx;
+  max-height: 80rpx;
   width: 100%;
 }
 
 @-webkit-keyframes pd-left-move {
   0% {
-    padding-left: 5px;
+    padding-left: 10rpx;
   }
 
   100% {
-    padding-left: 15px;
+    padding-left: 30rpx;
   }
 }
 
 @keyframes pd-left-move {
   0% {
-    padding-left: 5px;
+    padding-left: 10rpx;
   }
 
   100% {
-    padding-left: 15px;
+    padding-left: 30rpx;
   }
 }
 
 .detail-bottom {
   width: 100%;
-  border-top: 1px solid #ededed;
+  border-top: 2rpx solid #ededed;
   position: fixed;
   bottom: 0;
   background: #fff;
@@ -229,7 +229,7 @@ video {
 }
 
 .detail-bottom .item {
-  border-left: 1px solid #efefef;
+  border-left: 2rpx solid #efefef;
 }
 
 .detail-bottom .item {
@@ -263,8 +263,8 @@ video {
   font-size: 24rpx;
   border: none;
   line-height:1.6;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0rpx;
+  padding-right: 0rpx;
 }
 
 .detail-bottom .selec_active .doc {

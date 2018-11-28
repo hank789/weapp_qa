@@ -2,7 +2,7 @@ page {
   background: #FFFFFF;
 }
 .weui-cell{
-    /* padding: 12px 15px 12px 35px; */
+    /* padding: 24rpx 30rpx 24rpx 70rpx; */
 }
 
 .ask-title {
@@ -37,7 +37,7 @@ page {
 }
 .weui-search-bar__form {
   width: 586rpx;
-  border-radius: 100px;
+  border-radius: 200rpx;
   background: #F3F4F6;
   margin-top: 90rpx;
 }
@@ -96,7 +96,7 @@ page {
 }
 .included .included-text {
   color: #DCDCDC;
-  font-size: 11px;
+  font-size: 22rpx;
   position: relative;
 }
 .included .included-text text {

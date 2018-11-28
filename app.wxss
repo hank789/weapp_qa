@@ -20,7 +20,7 @@
 page {
     background-color: #fff;
     color: #333;
-    font-size: 12px;
+    font-size: 24rpx;
     box-sizing: border-box;
     padding-bottom: 20rpx;
 }
@@ -31,7 +31,7 @@ page {
   width: 4rpx;
   height: 4rpx;
   position: relative;
-  top: -3px;
+  top: -6rpx;
   display: inline-block;
   border-radius: 100rpx;
   background: #B4B4B6;
@@ -118,7 +118,7 @@ page {
   background-color: #fff;
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20rpx;
   -webkit-box-sizing: border-box;
 }
 .touch-active:active {
@@ -127,7 +127,7 @@ page {
 .weui-bg-transparent {
     background-color: transparent;
     width:85%;
-    margin: 15px auto 0 auto;
+    margin: 30rpx auto 0 auto;
     padding: 0
 }
 
@@ -165,32 +165,32 @@ page {
   line-height: 30rpx;}
 .comment-product .productMark text:nth-of-type(1) {
   color: #FCC816;
-  margin-left: 0.08rem;}
+  margin-left: 6rpx;}
 
 
 /* 空状态 */
 .noResult {
   text-align: center;
-  font-size: 1.333rem;
+  font-size: 99.98rpx;
   padding: 210rpx 0 0}
 .noResult .noResultText {
   color: #C8C8C8;
   font-size: 24rpx;
-  line-height: 0.426rem;
-  padding: 0.186rem 0 0.48rem;}
+  line-height: 31.96rpx;
+  padding: 13.96rpx 0 36rpx;}
 .noResult .text-center {
   text-align: center;}
 .noResult .noResultText.font-family-medium {
   color: #808080;}
 .noResult .goRelease {
-  width: 2.48rem;
-  height: 0.906rem;
+  width: 186rpx;
+  height: 67.96rpx;
   color: #ffffff;
   margin: 0 auto;
-  font-size: 0.373rem;
-  line-height: 0.906rem;
+  font-size: 27.98rpx;
+  line-height: 67.96rpx;
   background: #03AEF9;
-  border-radius: 2.666rem;}
+  border-radius: 199.96rpx;}
 .noResult .empty-Img {
   width: 123rpx;
   height: 178rpx;

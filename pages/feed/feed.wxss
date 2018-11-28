@@ -1,12 +1,12 @@
 .commentList {
-  margin-top: 0.533rem;}
+  margin-top: 39.98rpx;}
 .commentList .line-river-after {
-  margin-top: 0.266rem;}
+  margin-top: 19.96rpx;}
 .commentList .line-river-after:after {
   left: 32rpx;
   right: 32rpx;}
 .container-images {
-  margin-top: 0.266rem;}
+  margin-top: 19.96rpx;}
 .commentUser {
   display: flex;
   padding: 0 32rpx;
