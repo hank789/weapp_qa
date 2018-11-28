@@ -12,14 +12,15 @@
       </view>
   </view>
 
-  <view class="container-searchwrapper" wx:if='{{ inputVal }}'>
+  <view class="container-searchwrapper" bindtap='searchTipHidden' wx:if='{{ inputVal && searchTip }}'>
     <view class="search-list listOne">
-      查看“{{ inputVal }}”的搜索结果
+      <text wx:if='{{ inputVal.length > 1 }}'>查看“{{ inputVal }}”的搜索结果</text>
+      <text class='gray' wx:if='{{ inputVal.length === 1 }}'>输入的字符数不足，请继续输入</text>
       <view class="bot"></view>
     </view>
   </view>
 
-  <view class="product" wx:if='{{ list.length}}' >
+  <view class="product" wx:if='{{ list.length && inputVal.length > 1}}' >
     <view class="comment-product" wx:for="{{list}}">
       <view class="product-info">
         <view class="product-img">
@@ -47,7 +48,7 @@
       </view>
   </view>
 
-  <view class="noResult" wx:if='{{ list.length <= 0 }}'>
+  <view class="noResult" wx:if='{{ list.length === 0 && showNoResult }}'>
     <view class="empty-Img">
       <image src="../../images/empty@3x.png"></image>
     </view>

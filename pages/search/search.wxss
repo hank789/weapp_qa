@@ -17,7 +17,7 @@ page {
   justify-content: space-between;
 }
 .container-search .search-wrapper {
-  width: 586rpx;
+  width: 568rpx;
   height: 68rpx;
   border-radius: 99.98rpx;
   background: #f3f4f6;
@@ -35,12 +35,13 @@ page {
 }
 .container-search .close .icon-times {
   margin-left: 19.96rpx;
-  font-size: 39.98rpx;
+  font-size: 36rpx;
   position: relative;
   z-index: 10000;
+  color: #C8C8C8;
 }
 .container-search input {
-  width: 490rpx;
+  width: 460rpx;
   height: 34rpx;
   border: none;
   background: #f3f4f6;
@@ -65,12 +66,16 @@ page {
 .search-list {
   color: #03AEF9;
   font-size: 30rpx;
-  padding: 32rpx 0;
+  padding: 22rpx 0;
   line-height: 43.96rpx;
   position: relative;
 }
 .container-searchwrapper .search-list.listOne {
-  margin-top: 24rpx;}
+  margin-top: 12rpx;
+}
+.container-searchwrapper .search-list .gray {
+  color: #C8C8C8;
+}
 .stars {
   width: 116rpx;
   position: relative;

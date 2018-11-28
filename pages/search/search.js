@@ -11,7 +11,9 @@ Page({
     page: 1,
     isLoading: true,//是否显示加载数据提示
     isSearching: false,
-    inputVal: ""
+    inputVal: "",
+    showNoResult: false,
+    searchTip: true
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -51,36 +53,35 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
   clearInput: function () {
     this.setData({
       inputVal: ""
     });
+  },
+  searchTipHidden: function () {
+    if (this.data.inputVal.length > 1) {
+      this.setData({
+        searchTip: false
+      })
+    }
   },
   loadList: function (page) {
     if (!this.data.inputVal) {
       this.data.isSearching = false;
       return;
     }
-    console.log('search:' + this.data.inputVal)
     var that = this
     request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
-      console.log(res_data);
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
         if (page === 1) {
           that.data.list = res_data.data.data;
+          if (!that.data.list.length) {
+            that.setData({
+              showNoResult: true
+            })
+          }
         } else {
           that.data.list = that.data.list.concat(res_data.data.data);
         }
