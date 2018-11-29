@@ -80,7 +80,22 @@
       <view class="line-river-after line-river-after-top"></view>
     </view>
   </view>
-  <block wx:if="{{!loading && !userInfo.name}}">
-     <template is="getUserInfo" />
-  </block>
+
+    <block wx:if="{{!loading && !userInfo.name}}">
+       <template is="getUserInfo" />
+    </block>
+
+  <view class='dialog authentication' wx:if='{{!loading && !userInfo.name}}'>
+    <view class='mask'></view>
+    <view class='dialogContent'>
+      <view class='wxLogo'>
+        <image src='../../images/page_2@3x.png'></image>
+      </view>
+      <view class='dialogText'>
+        <text>依网络法律要求，请完成手机实名认证</text>
+      </view>
+      <button class='impowerUser' open-type='getUserInfo' bindgetuserinfo="getUserInfo">一键认证</button>
+    </view>
+  </view>
+
 </view>
