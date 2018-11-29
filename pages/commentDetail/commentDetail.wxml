@@ -63,7 +63,7 @@
   <view class="allDianPing font-family-medium">评论(23) </view>
   <view class="line-river-after line-river-after-top"></view>
   <view>
-    <DiscussReplay></DiscussReplay>
+    <commentDiscuss></commentDiscuss>
   </view>
 
   <view class="line-river-big"></view>

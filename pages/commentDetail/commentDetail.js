@@ -48,18 +48,18 @@ Page({
   },
   getCommentList: function () {
     var that = this;
-    request.httpsPostRequest('/weapp/product/reviewCommentList', {
+    request.httpsGetRequest('/weapp/product/reviewCommentList', {
       submission_slug: that.data.slug,
       page: that.data.page
     }, function (res_data) {
       if (res_data.code === 1000) {
 
-        that.data.commentList = res_data.data;
+        that.data.commentList = res_data.data.data;
 
         that.setData({
           commentList: that.data.commentList
         });
-        console.log(res_data.data, '评论list')
+        console.log(res_data.data.data, '评论list')
       } else {
         wx.showToast({
           title: res_data.message,
