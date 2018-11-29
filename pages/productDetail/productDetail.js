@@ -10,7 +10,8 @@ Page({
   data: {
     detail: {},
     loding: 1,
-    productComments: []
+    comment: [],
+    perPage: 3
   },
 
   /**
@@ -34,9 +35,10 @@ Page({
         detail: that.data.detail,
         loding: 0
       })
-      
+
       request.httpsPostRequest('/weapp/product/reviewList', {
-        tag_name: that.data.detail.name
+        tag_name: that.data.detail.name,
+        perPage: that.data.perPage
       }, function (response) {
         var code = response.data.code
         if (code !== 1000) {
@@ -46,15 +48,28 @@ Page({
             duration: 2000
           })
         }
-        that.data.productComments = response.data
+        that.data.comment = response.data.data
         that.setData({
-          productComments: that.data.productComments
+          comment: that.data.comment
         })
-        console.log(response.data, ':数组')
+        console.log(response.data.data, ':数组')
       })
 
     })
 
+  },
+
+  goProductDetail(e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '../productDetail/productDetail?name=' + name
+    });
+  },
+  goAllComment(e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '../allComment/allComment?name=' + name,
+    })
   },
 
   /**

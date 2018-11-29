@@ -110,7 +110,6 @@ Page({
   },
   goProductDetail (e) {
     let name = e.currentTarget.dataset.name
-    console.log(name)
     wx.navigateTo({
       url: '../productDetail/productDetail?name=' + name
     });

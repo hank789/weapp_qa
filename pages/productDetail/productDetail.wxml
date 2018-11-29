@@ -2,7 +2,7 @@
 
   <view class="product-introduce">
     <view class="companyLogo border-football">
-      <image class="logo-img" src="../../images/logo-144.png"></image>
+      <image class="logo-img" src="{{ detail.logo }}"></image>
     </view>
     <view class="companyNmae font-family-medium">{{ detail.name }}</view>
     <view class="companyMark">
@@ -39,11 +39,11 @@
     <view class="allDianPing font-family-medium">点评 {{ detail.review_count ? '(' + detail.review_count + ')' : '' }}</view>
     <view class="line-river-after line-river-after-top"></view>
 
-    <view wx:for=''>
-      <feed></feed>
+    <view wx:for='{{comment}}' wx:key='comment'>
+      <feed productComments='{{item}}'></feed>
     </view>
 
-    <view class="checkOpen"><text class="font-family-medium">查看全部23条点评</text></view>
+    <view class="checkOpen" data-name='detail.name' bindtap='goAllComment'><text class="font-family-medium">查看全部{{ detail.review_count }}条点评</text></view>
   </view>
 
   <view class="line-river-big"></view>
@@ -59,7 +59,7 @@
   <view class="line-river-after line-river-after-top"></view>
 
   <view class="product">
-    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='related_tags'>
+    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='related_tags' data-name='{{ item.name }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
           <image class="logo-img" src="{{item.logo}}"></image>
