@@ -14,7 +14,8 @@ Page({
     isMore: true,
     isLoading: false,
     commentList: [],
-    slug: ''
+    slug: '',
+    commentTotal: ''
   },
 
   /**
@@ -39,7 +40,6 @@ Page({
         detail: that.data.detail,
         loding: 0
       })
-      // console.log(that.data.detail ,':点评详情')
     })
     that.setData({
       slug: slug
@@ -55,11 +55,11 @@ Page({
       if (res_data.code === 1000) {
 
         that.data.commentList = res_data.data.data;
-
+        that.data.commentTotal = res_data.data.total
         that.setData({
-          commentList: that.data.commentList
+          commentList: that.data.commentList,
+          commentTotal: that.data.commentTotal
         });
-        console.log(res_data.data.data, '评论list')
       } else {
         wx.showToast({
           title: res_data.message,

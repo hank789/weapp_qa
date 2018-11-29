@@ -1,25 +1,29 @@
 <view class='page'>
-  <view class='container-list-discuss' >
-    <view class="list-item-discuss" >
-      <view class="lidL">
-        <image src='../../images/logo-144.png'></image>
-      </view>
-      <view class="lidR">
-        <view class="lidR1">大宝<text>回复</text>二宝</view>
-        <view class="lidR2 textToLink">恢复内容</view>
-        <view class="lidR3">
-          <view class="lidRtime">
-            <text>20分钟</text>
-          </view>
-          <view class="lidROption">
-            <text class='iconfont icon-zan1'></text>
-            <text>33</text>
+
+  <view wx:for='{{commentChildren}}' wx:key='commentChildren'>
+    <view class='container-list-discuss list-item-discuss-children' >
+      <view class="list-item-discuss" >
+        <view class="lidL">
+          <image src='{{item.owner.avatar}}'></image>
+        </view>
+        <view class="lidR">
+          <view class="lidR1">{{item.owner.name}}<text>回复</text>{{ parentOwnerName }}</view>
+          <view class="lidR2 textToLink">{{ item.content }}</view>
+          <view class="lidR3">
+            <view class="lidRtime">
+              <text>{{ item.created_at }}</text>
+            </view>
+            <view class="lidROption">
+              <text class='iconfont icon-zan1'></text>
+              <text>{{ item.supports }}</text>
+            </view>
           </view>
         </view>
-      </view>
-      </view>
+        </view>
 
-    <DiscussReplay></DiscussReplay>
+      <DiscussReplay commentChildren='{{item.children}}'></DiscussReplay>
 
+    </view>
   </view>
+
 </view>
