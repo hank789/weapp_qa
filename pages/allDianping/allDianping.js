@@ -2,12 +2,15 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    comment: []
+    list: [],
+    page: 1,
+    tagName: '',
+    isLoading: true,//是否显示加载数据提示
+    isMore: true
   },
 
   /**
@@ -15,23 +18,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    request.httpsPostRequest('/weapp/product/reviewList', {
-      tag_name: options.name
-    }, function (response) {
-      var code = response.data.code
-      if (code !== 1000) {
-        wx.showToast({
-          title: response.message,
-          icon: 'loading',
-          duration: 2000
-        })
-      }
-      that.data.comment = response.data.data
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function(userInfo){
+      //更新数据
       that.setData({
-        comment: that.data.comment
-      })
-      console.log(response.data.data, ':数组')
-    })
+        userInfo:userInfo,
+        tagName: options.name
+      });
+      that.loadList(1);
+    });
   },
 
   /**
@@ -61,21 +56,57 @@ Page({
   onUnload: function () {
   
   },
+  loadList: function (page) {
+    var that = this;
+    request.httpsPostRequest('/weapp/product/reviewList', {tag_name: this.data.tagName, page: page }, function(res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+        var isMore = that.data.isMore;
+        var nextPage = page + 1;
+        if (page === 1) {
+          that.data.list = res_data.data.data;
+        } else {
+          that.data.list = that.data.list.concat(res_data.data.data);
+        }
+        if (!res_data.data.next_page_url) {
+          isMore = false;
+        }
 
+        that.setData({
+          list: that.data.list,
+          page: nextPage,
+          isLoading: false,
+          isMore: isMore
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    });
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    // 下拉刷新
+    this.data.page = 1;
+    this.loadList(1);
+    wx.stopPullDownRefresh();
   },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.isMore) {
+      this.setData({
+        isLoading: true
+      });
+      this.loadList(this.data.page);
+    }
   },
-
   /**
    * 用户点击右上角分享
    */

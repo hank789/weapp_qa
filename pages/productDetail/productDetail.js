@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
     detail: {},
     loding: 1,
     comment: [],
@@ -18,29 +19,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad:function (options) {
-    var that = this
-    request.httpsGetRequest('/weapp/product/info', { 
-      tag_name: options.name
-    }, function (response) {
-      var code = response.data.code
-      if (code !== 1000) {
-        wx.showToast({
-          title: response.message,
-          icon: 'loading',
-          duration: 2000
-        })
-      }
-      that.data.detail = response.data
+    var that = this;
+    app.getUserInfo(function(userInfo){
+      //更新数据
       that.setData({
-        detail: that.data.detail,
-        loding: 0
-      })
-
-      request.httpsPostRequest('/weapp/product/reviewList', {
-        tag_name: that.data.detail.name,
-        perPage: that.data.perPage
+        userInfo:userInfo
+      });
+      request.httpsGetRequest('/weapp/product/info', {
+        tag_name: options.name
       }, function (response) {
-        var code = response.data.code
+        var code = response.code
         if (code !== 1000) {
           wx.showToast({
             title: response.message,
@@ -48,17 +36,55 @@ Page({
             duration: 2000
           })
         }
-        that.data.comment = response.data.data
+        that.data.detail = response.data
         that.setData({
-          comment: that.data.comment
+          detail: that.data.detail,
+          loding: 0
         })
-        console.log(response.data.data, ':数组')
-      })
 
-    })
+        request.httpsPostRequest('/weapp/product/reviewList', {
+          tag_name: that.data.detail.name,
+          perPage: that.data.perPage
+        }, function (response) {
+          var code = response.code
+          if (code !== 1000) {
+            wx.showToast({
+              title: response.message,
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+          that.data.comment = response.data.data
+          that.setData({
+            comment: that.data.comment
+          })
+          console.log(response.data.data, ':数组')
+        })
+      })
+    });
 
   },
+  getUserInfo(info) {
+    var userInfo = info.detail.userInfo;
+    var that = this;
+    console.log(userInfo)
+    request.httpsPostRequest('/weapp/user/updateUserInfo', userInfo, function (res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+        app.globalData.userInfo = res_data.data
 
+        that.setData({
+          userInfo: res_data.data
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
+  },
   goProductDetail(e) {
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
