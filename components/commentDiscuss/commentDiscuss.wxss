@@ -1,6 +1,6 @@
 @import '/iconfont/iconfont.wxss';
 .container-list-discuss {
-  padding: 0 30rpx; }
+  padding: 0 30rpx 20rpx; }
 .container-list-discuss .list-item-discuss {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,7 +46,7 @@
   font-size: 28.96rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption text {
   margin-left: 9.98rpx; }
-.container-list-discuss .list-item-discuss.list-item-discuss-children {
+.container-list-discuss .list-item-discuss-children {
   background-color: #F7F8FA;
   margin-left: 78rpx;
   padding: 19.96rpx 19.96rpx 0; }
