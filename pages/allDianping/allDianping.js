@@ -7,13 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
+    comment: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    request.httpsPostRequest('/weapp/product/reviewList', {
+      tag_name: options.name
+    }, function (response) {
+      var code = response.data.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.data.comment = response.data.data
+      that.setData({
+        comment: that.data.comment
+      })
+      console.log(response.data.data, ':数组')
+    })
   },
 
   /**

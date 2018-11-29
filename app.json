@@ -16,7 +16,8 @@
     "pages/myAnswer/myAnswer",
     "pages/myQuestion/myQuestion",
     "pages/logs/logs",
-    "components/feed/feed"
+    "components/feed/feed",
+    "pages/allDianping/allDianping"
   ],
   "window": {
     "navigationBarTextStyle": "black",

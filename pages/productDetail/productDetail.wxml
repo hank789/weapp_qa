@@ -43,7 +43,7 @@
       <feed productComments='{{item}}'></feed>
     </view>
 
-    <view class="checkOpen" data-name='detail.name' bindtap='goAllComment'><text class="font-family-medium">查看全部{{ detail.review_count }}条点评</text></view>
+    <view class="checkOpen" data-name='{{ detail.name }}' bindtap='goAllDianping'><text class="font-family-medium">查看全部{{ detail.review_count }}条点评</text></view>
   </view>
 
   <view class="line-river-big"></view>

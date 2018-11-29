@@ -65,10 +65,11 @@ Page({
       url: '../productDetail/productDetail?name=' + name
     });
   },
-  goAllComment(e) {
+  goAllDianping(e) {
+    console.log(e, ':goAllComment')
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
-      url: '../allComment/allComment?name=' + name,
+      url: '../allDianping/allDianping?name=' + name,
     })
   },
 

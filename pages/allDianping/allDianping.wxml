@@ -1,0 +1,5 @@
+<view class='page'>
+  <view wx:for='{{comment}}' wx:key='comment'>
+    <feed productComments='{{item}}'></feed>
+  </view>
+</view>
