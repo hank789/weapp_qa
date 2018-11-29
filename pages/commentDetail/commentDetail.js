@@ -9,7 +9,12 @@ Page({
    */
   data: {
     loding: 1,
-    detail: {}
+    detail: {},
+    page: 1,
+    isMore: true,
+    isLoading: false,
+    commentList: [],
+    slug: ''
   },
 
   /**
@@ -17,6 +22,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    var slug = options.slug
     request.httpsGetRequest('/weapp/product/reviewInfo', {
       slug: options.slug
     }, function (response) {
@@ -33,7 +39,34 @@ Page({
         detail: that.data.detail,
         loding: 0
       })
-      console.log(that.data.detail ,':点评详情')
+      // console.log(that.data.detail ,':点评详情')
+    })
+    that.setData({
+      slug: slug
+    })
+    that.getCommentList()
+  },
+  getCommentList: function () {
+    var that = this;
+    request.httpsPostRequest('/weapp/product/reviewCommentList', {
+      submission_slug: that.data.slug,
+      page: that.data.page
+    }, function (res_data) {
+      if (res_data.code === 1000) {
+
+        that.data.commentList = res_data.data;
+
+        that.setData({
+          commentList: that.data.commentList
+        });
+        console.log(res_data.data, '评论list')
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
     })
   },
   goProductDetail: function (e) {

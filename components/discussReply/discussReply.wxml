@@ -1,6 +1,6 @@
 <view class='page'>
-  <view class='container-list-discuss'>
-    <view class="list-item-discuss list-item-discuss-children" >
+  <view class='container-list-discuss' >
+    <view class="list-item-discuss" >
       <view class="lidL">
         <image src='../../images/logo-144.png'></image>
       </view>
