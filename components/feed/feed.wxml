@@ -1,5 +1,5 @@
 <view class="page">
-  <view>
+  <view data-slug='{{productComments.feed.slug}}'  bindtap='goCommentDetail'>
     <view class="commentList">
         <view class="commentUser">
           <view class="userInfo">

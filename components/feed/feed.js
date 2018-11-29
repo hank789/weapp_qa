@@ -18,6 +18,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goCommentDetail: function (e) {
+      console.log(e, ":slug")
+      let slug = e.currentTarget.dataset.slug
+      wx.navigateTo({
+        url: '../commentDetail/commentDetail?slug=' + slug,
+      })
+    }
   }
 })

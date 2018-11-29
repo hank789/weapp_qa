@@ -22,7 +22,7 @@ Page({
     request.httpsGetRequest('/weapp/product/info', { 
       tag_name: options.name
     }, function (response) {
-      var code = response.data.code
+      var code = response.code
       if (code !== 1000) {
         wx.showToast({
           title: response.message,
