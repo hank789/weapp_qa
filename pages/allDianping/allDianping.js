@@ -10,7 +10,8 @@ Page({
     page: 1,
     tagName: '',
     isLoading: true,//是否显示加载数据提示
-    isMore: true
+    isMore: true,
+    authUserPhone: false
   },
 
   /**
@@ -106,6 +107,33 @@ Page({
       });
       this.loadList(this.data.page);
     }
+  },
+  getUserPhone(e) {
+    console.log(e.detail)
+    if (e.detail.errMsg === 'getPhoneNumber:ok') {
+      var that = this;
+      request.httpsPostRequest('/weapp/user/updatePhone', e.detail, function (res_data) {
+        console.log(res_data);
+        if (res_data.code === 1000) {
+          app.globalData.userInfo = res_data.data
+
+          that.setData({
+            userInfo: res_data.data
+          });
+        } else {
+          wx.showToast({
+            title: res_data.message,
+            icon: 'loading',
+            duration: 2000
+          });
+        }
+      })
+    }
+  },
+  onAuthPhone: function (e) {
+    this.setData({
+      authUserPhone: true
+    });
   },
   /**
    * 用户点击右上角分享
