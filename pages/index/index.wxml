@@ -52,5 +52,6 @@
   <block wx:if="{{!loading && !userInfo.name}}">
      <template is="getUserInfo" />
   </block>
+
 </view>
 
