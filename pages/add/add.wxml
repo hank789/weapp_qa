@@ -1,5 +1,6 @@
 <view class='page'>
-
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{ errorMsg }}</view>
+  <form bindsubmit="formSubmit">
   <view class="component-mark">
     <text>就您的感受而言，您会给他打多少分？</text>
     <view class="stars">
@@ -10,17 +11,30 @@
   </view>
 
   <view class='textarea'>
-    <textarea maxlength='-1' placeholder="说说您您喜欢/不喜欢的点，他帮助您或公司解决了哪些业务上的问题？" />
+    <textarea maxlength='-1' bindblur="contentEventFunc" value="{{title}}" placeholder="说说您您喜欢/不喜欢的点，他帮助您或公司解决了哪些业务上的问题？" />
   </view>
 
   <view class="container-images">
-    <view class="container-image">
-      <text class='iconfont icon-times'></text>
-      <image src='../../images/logo-144.png'></image>
+    <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+            <view class="weui-uploader__title"></view>
+            <view class="weui-uploader__info"></view>
+        </view>
+        <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{pictures}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                </block>
+                <view class="weui-uploader__input-box" wx:if="{{pictures.length <= 9}}">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+            </view>
+
+        </view>
     </view>
-    <view class="component-photograph">
-      <text class='iconfont icon-xiangji1'></text>
-    </view>
+
   </view>
 
   <view class="line-river-big"></view>
@@ -29,25 +43,26 @@
     <view class="identityTitle">
       <text>请告诉我们您的身份</text>
       <text class='iconfont icon-jinru'></text>
+      <picker id="identity" bindchange="bindIdentityChange" range-key="text" value="{{identityIndex}}" range="{{identity_select}}">
+          <view class="weui-select weui-select_in-select-after">{{identity_select[identityIndex].text}}</view>
+      </picker>
     </view>
     <view class="line-river-after line-river-after-top"></view>
     <view class="assessDomain">您的评价属于哪个领域</view>
     <view class="domainList">
-      <text class="border-football">公司名字</text>
-      <text class="border-football active">公司名字</text>
-      <text class="border-football">公司名字</text>
+      <text class="border-football active" wx:for="{{product.categories}}" wx:key="index" data-id='{{ item.id }}' bindtap="selectCategory">{{ item.name }}</text>
     </view>
     <view class="fixedContainer">
       <label>
-        <checkbox value='匿名' color='#fff'/>
+        <switch bindchange="isPublicEventFunc" />
         <text>匿名</text>
       </label>
     </view>
   </view>
   <view class='container-bottom-menus'>
     <view class='line-river-after line-river-after-top'></view>
-    <text class=' text-line-1 productName font-family-medium'>AMETR Manual</text>
-    <view class='confirmPush font-family-medium'>确认发布</view>
+    <text class=' text-line-1 productName font-family-medium'>{{tag}}</text>
+    <button formType="submit" class='confirmPush font-family-medium'>确认发布</button>
   </view>
-
+</form>
 </view>

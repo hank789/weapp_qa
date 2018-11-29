@@ -21,12 +21,17 @@ Page({
    */
   onLoad:function (options) {
     var that = this;
+    var scene = decodeURIComponent(options.scene)
+    var tagName = options.name
+    if (scene !== 'undefined') {
+      tagName = scene.split("=")[1];
+    }
     app.getUserInfo(function(userInfo){
       that.setData({
         userInfo:userInfo
       });
       request.httpsGetRequest('/weapp/product/info', {
-        tag_name: options.name
+        tag_name: tagName
       }, function (response) {
         var code = response.code
         if (code !== 1000) {
@@ -36,9 +41,8 @@ Page({
             duration: 2000
           })
         }
-        that.data.detail = response.data
         that.setData({
-          detail: that.data.detail,
+          detail: response.data,
           loding: 0
         })
 
@@ -127,8 +131,14 @@ Page({
     })
   },
   goToDianPing(e) {
+    if (!this.data.userInfo.mobile) {
+      this.setData({
+        authUserPhone: true
+      });
+      return;
+    }
     wx.navigateTo({
-      url: '../add/add?name=',
+      url: '../add/add?tag=' + this.data.detail.name,
     })
   },
   /**
