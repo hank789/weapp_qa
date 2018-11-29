@@ -12,7 +12,8 @@ Page({
     detail: {},
     loding: 1,
     comment: [],
-    perPage: 3
+    perPage: 3,
+    authUserPhone: false
   },
 
   /**
@@ -64,25 +65,53 @@ Page({
 
   },
   getUserInfo(info) {
-    var userInfo = info.detail.userInfo;
-    var that = this;
-    console.log(userInfo)
-    request.httpsPostRequest('/weapp/user/updateUserInfo', userInfo, function (res_data) {
-      console.log(res_data);
-      if (res_data.code === 1000) {
-        app.globalData.userInfo = res_data.data
+    console.log(info.detail);
+    if (info.detail.errMsg === 'getUserInfo:ok') {
+      var that = this;
+      request.httpsPostRequest('/weapp/user/updateUserInfo', info.detail.userInfo, function (res_data) {
+        console.log(res_data);
+        if (res_data.code === 1000) {
+          app.globalData.userInfo = res_data.data
 
-        that.setData({
-          userInfo: res_data.data
-        });
-      } else {
-        wx.showToast({
-          title: res_data.message,
-          icon: 'loading',
-          duration: 2000
-        });
-      }
-    })
+          that.setData({
+            userInfo: res_data.data
+          });
+        } else {
+          wx.showToast({
+            title: res_data.message,
+            icon: 'loading',
+            duration: 2000
+          });
+        }
+      })
+    }
+  },
+  getUserPhone(e) {
+    console.log(e.detail)
+    if (e.detail.errMsg === 'getPhoneNumber:ok') {
+      var that = this;
+      request.httpsPostRequest('/weapp/user/updatePhone', e.detail, function (res_data) {
+        console.log(res_data);
+        if (res_data.code === 1000) {
+          app.globalData.userInfo = res_data.data
+
+          that.setData({
+            userInfo: res_data.data
+          });
+        } else {
+          wx.showToast({
+            title: res_data.message,
+            icon: 'loading',
+            duration: 2000
+          });
+        }
+      })
+    }
+  },
+  onAuthPhone: function (e) {
+    this.setData({
+      authUserPhone: true
+    });
   },
   goProductDetail(e) {
     let name = e.currentTarget.dataset.name
@@ -97,7 +126,11 @@ Page({
       url: '../allDianping/allDianping?name=' + name,
     })
   },
-
+  goToDianPing(e) {
+    wx.navigateTo({
+      url: '../add/add?name=',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -130,7 +163,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -144,6 +177,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title:this.data.detail.name,
+      path:"/pages/productDetail/productDetail?name=" + this.data.detail.name
+    }
   }
 })

@@ -1,4 +1,5 @@
 <import src="../../template/getUserInfo" />
+<import src="../../template/getUserPhone" />
 <view class="page" wx:if='{{!loding}}'>
 
   <view class="product-introduce">
@@ -39,7 +40,7 @@
     <view class="line-river-after line-river-after-top"></view>
 
     <view wx:for='{{comment}}' wx:key='comment'>
-      <feed productComments='{{item}}'></feed>
+      <feed productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
     </view>
 
     <view class="checkOpen" data-name='{{ detail.name }}' bindtap='goAllDianping'><text class="font-family-medium">查看全部{{ detail.review_count }}条点评</text></view>
@@ -84,18 +85,23 @@
     <block wx:if="{{!loading && !userInfo.name}}">
        <template is="getUserInfo" />
     </block>
+    <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+       <template is="getUserPhone" />
+    </block>
 
-  <view class='dialog authentication' wx:if='{{!loading && !userInfo.name}}'>
-    <view class='mask'></view>
-    <view class='dialogContent'>
-      <view class='wxLogo'>
-        <image src='../../images/page_2@3x.png'></image>
+
+  <view class='operationList'>
+    <view class='buttonWrapper' bindtap="goToDianPing">
+      <!-- <text class='iconfont icon-xiaozhongdianpinglogo'></text> -->
+      <view class='editImg'>
+        <image src='../../images/page_3@3x.png'></image>
       </view>
-      <view class='dialogText'>
-        <text>依网络法律要求，请完成手机实名认证</text>
-      </view>
-      <button class='impowerUser' open-type='getUserInfo' bindgetuserinfo="getUserInfo">一键认证</button>
     </view>
+     <button hover-class="none" open-type="share" class="docbutton">
+        <view class='buttonWrapper shearBut'>
+        <text class='iconfont icon-fenxiang'></text>
+        </view>
+    </button>
   </view>
 
 </view>
