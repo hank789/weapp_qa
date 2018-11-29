@@ -114,3 +114,10 @@
   .productMark .stars .icon-xingxingyidian {
     top: 0;
   }
+
+  .docbutton {
+    border: none;
+    line-height:1.6;
+    padding-left: 0px;
+    padding-right: 0px;
+  }

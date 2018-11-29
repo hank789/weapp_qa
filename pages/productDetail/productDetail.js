@@ -126,7 +126,11 @@ Page({
       url: '../allDianping/allDianping?name=' + name,
     })
   },
-
+  goToDianPing(e) {
+    wx.navigateTo({
+      url: '../add/add?name=',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
