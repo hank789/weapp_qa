@@ -22,8 +22,12 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo
+        userInfo:userInfo,
+        inputVal: options.id
       });
+      if (options.id) {
+        that.loadList(1)
+      }
     });
   },
   /**
@@ -120,6 +124,7 @@ Page({
     });
     if (e.detail.value && this.data.inputVal && this.data.isSearching === false) {
       this.data.isSearching = true;
+      this.data.isMore = true;
       setTimeout(() => {
         this.loadList(1)
       }, 1000)

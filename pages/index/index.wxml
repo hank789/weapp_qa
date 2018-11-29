@@ -18,38 +18,10 @@
 
     <view class="seach-keyword">
       <view class="seach-keyword-center">
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">CRM</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">钉钉</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">阿里云</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">SAP</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">金蝶</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">北森云</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">GitHub</text>
-          <view class="spot"></view>
-        </view>
-        <view class="seach-keyword-list">
-          <text class="seach-keyword-text">GitHub</text>
-          <text class="spot"></text>
-        </view>
+          <view class="seach-keyword-list" wx:for="{{keywords}}" wx:key="id" data-id="{{ item }}" bindtap="navToSearch">
+              <text class="seach-keyword-text">{{item}}</text>
+              <view class="spot"></view>
+          </view>
       </view>
     </view>
 
@@ -76,7 +48,7 @@
       </view>
     </view>
 
-    <view class='dialog' wx:if='{{!userInfo.nickName}}'>
+    <view class='dialog' wx:if='{{!loading && !userInfo.name}}'>
       <view class='mask'></view>
       <view class='dialogContent'>
         <view class='wxLogo'>
@@ -85,7 +57,7 @@
         <view class='dialogText'>
           <text>点击完成微信授权后继续使用</text>
         </view>
-        <button class='impowerUser' open-type='getUserInfo'>授权微信用户信息</button>
+        <button class='impowerUser' open-type='getUserInfo' bindgetuserinfo="getUserInfo">授权微信用户信息</button>
       </view>
     </view>
 

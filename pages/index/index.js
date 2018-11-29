@@ -4,35 +4,35 @@ var request = require("../../utils/request.js");
 
 Page({
   data:{
-    userInfo: {}
+    userInfo: {},
+    loading: true,
+    keywords: []
   },
   onLoad:function(options){
     var that = this
-    wx.getUserInfo({
-      success: function (res) {
-        var userInfo = res.userInfo
-        that.setData({
-          userInfo: userInfo
-        });
-        console.log(that.data.userInfo.nickName + ':name')
-        // var userInfo = res.userInfo
-        // var nickName = userInfo.nickName
-        // var avatarUrl = userInfo.avatarUrl
-        // var gender = userInfo.gender //性别 0：未知、1：男、2：女
-        // var province = userInfo.province
-        // var city = userInfo.city
-        // var country = userInfo.country
-      }
-    })
     // 页面初始化 options为页面跳转所带来的参数
     //调用应用实例的方法获取全局数据
-    // app.getUserInfo(function(userInfo){
-    //   //更新数据
-    //   that.setData({
-    //     userInfo:userInfo
-    //   });
-    //   console.log(that.userInfo + ':name')
-    // });
+     app.getUserInfo(function(userInfo){
+       //更新数据
+       that.setData({
+         userInfo:userInfo,
+         loading:false
+       });
+       request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
+         console.log(res_data);
+         if (res_data.code === 1000) {
+           that.setData({
+             keywords: res_data.data.words
+           });
+         } else {
+           wx.showToast({
+             title: res_data.message,
+             icon: 'loading',
+             duration: 2000
+           });
+         }
+       })
+     });
   },
   onReady:function(){
     // 页面渲染完成
@@ -62,5 +62,31 @@ Page({
     wx.navigateTo({
       url: '../search/search'
     });
+  },
+  navToSearch: function (e) {
+    wx.navigateTo({
+      url: '../search/search?id=' + e.currentTarget.dataset.id
+    });
+  },
+  getUserInfo(info) {
+    var userInfo = info.detail.userInfo;
+    var that = this;
+    console.log(userInfo)
+    request.httpsPostRequest('/weapp/user/updateUserInfo', userInfo, function (res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+        app.globalData.userInfo = res_data.data
+
+        that.setData({
+          userInfo: res_data.data
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
   }
 })
