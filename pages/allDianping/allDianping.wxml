@@ -1,5 +1,16 @@
-<view class='page'>
-  <view wx:for='{{comment}}' wx:key='comment'>
+<view class="page">
+<!--引入加载更多模版-->
+<import src="../../template/loading" />
+<block wx:if="{{isLoading}}">
+  <template is="loading" />
+</block>
+<block wx:elif="{{list.length<=0}}">
+暂无问题
+</block>
+
+<block wx:if="{{list.length > 0}}">
+<view wx:for='{{list}}' wx:key='item.id'>
     <feed productComments='{{item}}'></feed>
-  </view>
+</view>
+</block>
 </view>
