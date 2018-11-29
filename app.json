@@ -10,11 +10,6 @@
     "pages/feed/feed",
     "pages/detail/detail",
     "pages/answer/answer",
-    "pages/mine/mine",
-    "pages/discovery/discovery",
-    "pages/register/register",
-    "pages/myAnswer/myAnswer",
-    "pages/myQuestion/myQuestion",
     "pages/logs/logs",
     "components/feed/feed",
     "pages/allDianping/allDianping"
