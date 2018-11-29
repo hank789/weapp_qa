@@ -48,7 +48,7 @@
       </view>
     </view>
 
-    <view class='dialog' wx:if='{{loading && !userInfo.name}}'>
+    <view class='dialog' wx:if='{{!loading && !userInfo.name}}'>
       <view class='mask'></view>
       <view class='dialogContent'>
         <view class='wxLogo'>
