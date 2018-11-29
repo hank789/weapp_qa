@@ -29,8 +29,6 @@
       </view>
       <view class="line-river-after line-river-after-top"></view>
     </view>
-
-    <view class="checkOpen"><text class="font-family-medium">查看全部{{detail.categories.length}}个所属分类排名</text></view>
   </view>
 
   <view class="line-river-big"></view>
