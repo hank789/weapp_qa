@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "点评详情",
   "usingComponents": {
-    "DiscussReplay": "/components/discussReply/discussReply"
+    "commentDiscuss": "/components/commentDiscuss/commentDiscuss"
   }
 }
