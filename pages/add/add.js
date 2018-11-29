@@ -14,7 +14,7 @@ Page({
     rate_star: 4,
     hide: 0,
     tags: 0,
-    category_ids: [],
+    categoryArr: [],
     pictures: [],
     userInfo: {},
     identity_select: [],
@@ -71,18 +71,31 @@ Page({
         }
         for (var i in response.data.categories) {
           var item = response.data.categories[i]
-          that.data.category_ids.push(item.id)
+          that.data.categoryArr.push({
+            id: item.id,
+            name: item.name,
+            selected: 1
+          })
         }
         that.setData({
           product: response.data,
-          category_ids: that.data.category_ids
+          categoryArr: that.data.categoryArr
         })
 
       })
     });
   },
-  selectCategory: function () {
+  selectCategory: function (e) {
+    var id = e.target.dataset.id
+    for(let i=0;i<this.data.categoryArr.length;i++) {
+      if (this.data.categoryArr[i].id === id) {
+        this.data.categoryArr[i].selected = !this.data.categoryArr[i].selected
+      }
+    }
 
+    this.setData({
+      categoryArr: this.data.categoryArr
+    })
   },
   onReady:function(){
     // 页面渲染完成
@@ -114,14 +127,14 @@ Page({
       identityIndex: e.detail.value
     })
   },
-  contentEventFunc: function(e) {
+  bindTitleBlur: function(e) {
     if(e.detail && e.detail.value) {
       this.setData({
         title: e.detail.value
       })
     }
   },
-  isPublicEventFunc: function (e) {
+  bindHideChange: function (e) {
     if (e.detail && e.detail.value) {
       this.setData({
         hide: e.detail.value
@@ -142,63 +155,74 @@ Page({
   },
   formSubmit: function(e) {
     console.log(this.data.title)
+    var cids = []
+    for(let i=0;i<this.data.categoryArr.length;i++) {
+      if (this.data.categoryArr[i].selected) {
+        cids.push(this.data.categoryArr[i].id)
+      }
+    }
     if (this.data.title === '') {
       this.showTopTips('内容不能为空');
       return false;
-    } else {
-      var jsonData = {
-        title: this.data.title,
-        hide: this.data.hide?1:0,
-        type: 'review',
-        category_ids: this.data.category_ids,
-        tags: this.data.product.id,
-        rate_star: this.data.rate_star,
-        identity: this.data.identity_select[this.data.identityIndex].value
-      };
-      var requestUrl = '/weapp/product/storeReview';
-      var that = this;
-      var doResponse = function (res_data) {
-        wx.hideLoading();
-        if (res_data.data.code === 1000) {
+    }
+    if (cids.length === 0) {
+      this.showTopTips('请选择领域');
+      return false;
+    }
 
-        } else {
-          wx.showToast({
-            title: res_data.message,
-            icon: 'success',
-            duration: 2000
-          });
-        }
-      };
-      request.httpsPostRequest(requestUrl, jsonData, function (res_data) {
-        console.log(res_data);
-        wx.hideLoading();
-        if (res_data.code === 1000) {
-          if (that.data.pictures.length >=1) {
-            for (let i=0;i<=8;i++) {
-              if (that.data.pictures[i]) {
-                that.addQuestionImage(res_data.data.id, that.data.pictures[i], doResponse);
-              }
+    var jsonData = {
+      title: this.data.title,
+      hide: this.data.hide?1:0,
+      type: 'review',
+      category_ids: cids,
+      tags: this.data.product.id,
+      rate_star: this.data.rate_star,
+      identity: this.data.identity_select[this.data.identityIndex].value
+    };
+    var requestUrl = '/weapp/product/storeReview';
+    var that = this;
+    var doResponse = function (res_data) {
+      wx.hideLoading();
+      if (res_data.data.code === 1000) {
+
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'success',
+          duration: 2000
+        });
+      }
+    };
+    request.httpsPostRequest(requestUrl, jsonData, function (res_data) {
+      console.log(res_data);
+      wx.hideLoading();
+      if (res_data.code === 1000) {
+        if (that.data.pictures.length >=1) {
+          for (let i=0;i<=8;i++) {
+            if (that.data.pictures[i]) {
+              that.addQuestionImage(res_data.data.id, that.data.pictures[i], doResponse);
             }
           }
-          wx.redirectTo({
-            url: '../productDetail/productDetail?name='+that.data.tag,
-            success: function (e) {
-              wx.showToast({
-                title: '点评成功',
-                icon: 'success',
-                duration: 1000
-              });
-            }
-          });
-        } else {
-          wx.showToast({
-            title: res_data.message,
-            icon: 'success',
-            duration: 2000
-          });
         }
-      });
-    }
+        wx.redirectTo({
+          url: '../productDetail/productDetail?name='+that.data.tag,
+          success: function (e) {
+            wx.showToast({
+              title: '点评成功',
+              icon: 'success',
+              duration: 1000
+            });
+          }
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'success',
+          duration: 2000
+        });
+      }
+    });
+
   },
   addQuestionImage: function (id, imagePath, res_func) {
     request.httpsUpload('/weapp/product/addReviewImage', { id: id }, 'image_file', imagePath, function (res_data) {

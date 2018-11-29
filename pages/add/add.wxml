@@ -11,7 +11,7 @@
   </view>
 
   <view class='textarea'>
-    <textarea maxlength='-1' bindblur="contentEventFunc" value="{{title}}" placeholder="说说您您喜欢/不喜欢的点，他帮助您或公司解决了哪些业务上的问题？" />
+    <textarea maxlength='-1' bindblur="bindTitleBlur" value="{{title}}" placeholder="说说您您喜欢/不喜欢的点，他帮助您或公司解决了哪些业务上的问题？" />
   </view>
 
   <view class="container-images">
@@ -50,11 +50,13 @@
     <view class="line-river-after line-river-after-top"></view>
     <view class="assessDomain">您的评价属于哪个领域</view>
     <view class="domainList">
-      <text class="border-football active" wx:for="{{product.categories}}" wx:key="index" data-id='{{ item.id }}' bindtap="selectCategory">{{ item.name }}</text>
+    <block wx:for="{{categoryArr}}" wx:key="index">
+       <text class="border-football {{item.selected ? 'active':''}}" data-id='{{ item.id }}' bindtap="selectCategory">{{ item.name }}</text>
+    </block>
     </view>
     <view class="fixedContainer">
       <label>
-        <switch bindchange="isPublicEventFunc" />
+        <switch bindchange="bindHideChange" />
         <text>匿名</text>
       </label>
     </view>
