@@ -1,0 +1,10 @@
+<view class='page'>
+  <view class="starViewWrapper">
+    <view class="upStar" style="{{ 'width:' + rating / 5 * 100 + '%' }}">
+      <text class='iconfont icon-xingxingyidian'></text>
+    </view>
+    <view class="downStar">
+      <text class='iconfont icon-xingxingweidian'></text>
+    </view>
+  </view>
+</view>
