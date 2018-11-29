@@ -173,6 +173,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title:this.data.detail.name,
+      path:"/pages/productDetail/productDetail?name=" + this.data.detail.name
+    }
   }
 })
