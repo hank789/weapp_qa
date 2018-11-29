@@ -92,10 +92,13 @@
 
   <view class='operationList'>
     <view class='buttonWrapper' bindtap="goToDianPing">
-      <text class='iconfont icon-xiaozhongdianpinglogo'></text>
+      <!-- <text class='iconfont icon-xiaozhongdianpinglogo'></text> -->
+      <view class='editImg'>
+        <image src='../../images/page_3@3x.png'></image>
+      </view>
     </view>
-     <button hover-class="none" plain="true" open-type="share" class="docbutton">
-        <view class='buttonWrapper'>
+     <button hover-class="none" open-type="share" class="docbutton">
+        <view class='buttonWrapper shearBut'>
         <text class='iconfont icon-fenxiang'></text>
         </view>
     </button>

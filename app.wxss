@@ -282,6 +282,37 @@ page {
   text-align: center;
   box-shadow:0px 0px 19rpx 0px rgba(234,240,244,1);
 }
+.operationList .buttonWrapper .editImg {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.operationList .buttonWrapper .editImg image {
+  width: 100%;
+  height: 100%;
+  margin-top: 24rpx;
+}
+.operationList button::after {
+  border: none;
+}
+.operationList .docbutton {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  position: relative;
+  box-shadow:0px 0px 19rpx 0px rgba(234,240,244,1);
+}
+.operationList .docbutton .shearBut {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+.operationList .plain {
+  border: none;
+  border-color: transparent;
+}
 .operationList .buttonWrapper text {
   font-size: 40rpx;
   text-align: center;
