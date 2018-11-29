@@ -54,6 +54,13 @@ Component({
           });
         }
       })
+    },
+    goCommentDetail: function (e) {
+      console.log(e, ":slug")
+      let slug = e.currentTarget.dataset.slug
+      wx.navigateTo({
+        url: '../commentDetail/commentDetail?slug=' + slug,
+      })
     }
   }
 })
