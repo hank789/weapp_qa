@@ -7,16 +7,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comment: []
+    comment: [],
+    name: '',
+    page: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var name = options.name
+    this.setData({
+      name: name
+    })
+    if (name) {
+      this.commentList(this.data.page)
+    }
+    
+  },
+
+  commentList: function (page) {
     var that = this
     request.httpsPostRequest('/weapp/product/reviewList', {
-      tag_name: options.name
+      tag_name: that.data.name,
+      page: page
     }, function (response) {
       var code = response.data.code
       if (code !== 1000) {
@@ -26,12 +40,19 @@ Page({
           duration: 2000
         })
       }
+      var nextPage = page + 1
       that.data.comment = response.data.data
       that.setData({
-        comment: that.data.comment
+        comment: that.data.comment,
+        page: nextPage
       })
       console.log(response.data.data, ':数组')
     })
+  },
+
+  /**页面上拉触底事件的处理函数*/
+  onReachBottom: function () {
+    this.commentList(this.data.page)
   },
 
   /**
@@ -55,25 +76,14 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
+  /*生命周期函数--监听页面卸载*/
   onUnload: function () {
   
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  /* 页面相关事件处理函数--监听用户下拉动作*/
   onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+    wx.stopPullDownRefresh();
   },
 
   /**
