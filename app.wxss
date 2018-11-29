@@ -294,7 +294,7 @@ page {
   max-width: 452.02rpx;
   max-height: 452.02rpx;
 }
-.container-images .container-image:only-child img {
+.container-images .container-image:only-child image {
   width: auto;
   height: auto;
   max-width: 100%;
