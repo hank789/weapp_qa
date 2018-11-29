@@ -7,6 +7,14 @@
 .dialog {
 
 }
+.dialog.authentication .dialogContent .impowerUser {
+  background: #03AEF9;
+  border-color: #029FE4;
+}
+.dialog.authentication .dialogContent .wxLogo {
+  width: 113rpx !important;
+  height: 108rpx;
+}
 .dialog .mask {
   position: fixed;
   z-index: 10;
