@@ -1,11 +1,13 @@
 // components/feed.js
 var request = require("../../utils/request.js");
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    productComments: Object
+    productComments: Object,
+    authUserPhone: Boolean
   },
 
   /**
@@ -20,6 +22,10 @@ Component({
    */
   methods: {
     upvote: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var that = this
       console.log(this.data.productComments.feed.submission_id)
       request.httpsPostRequest('/weapp/product/upvoteReview', {submission_id: this.data.productComments.feed.submission_id}, function (res_data) {
@@ -38,6 +44,10 @@ Component({
       })
     },
     downvote: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var that = this
       console.log(this.data.productComments.feed.submission_id)
       request.httpsPostRequest('/weapp/product/downvoteReview', {submission_id: this.data.productComments.feed.submission_id}, function (res_data) {
