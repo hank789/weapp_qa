@@ -43,7 +43,7 @@
       <view class="line-river-after line-river-after-top"></view>
     </view>
 
-      <view class="container-noMore">
+      <view class="container-noMore" wx:if='{{!isMore}}'>
         <text>暂无更多，</text><text class="font-family-medium">联系客服添加产品</text>
       </view>
   </view>
