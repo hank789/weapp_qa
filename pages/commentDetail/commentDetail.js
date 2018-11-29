@@ -36,7 +36,12 @@ Page({
       console.log(that.data.detail ,':点评详情')
     })
   },
-
+  goProductDetail: function (e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '../productDetail/productDetail?name=' + name,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -3,12 +3,12 @@
   <view class='userInfoDetail'>
     <view class="avatar">
       <view class="avatarInner">
-        <image src='../../images/logo-144.png'></image>
+        <image src='{{ detail.owner.avatar }}'></image>
       </view>
       <view class='userName'>
         <view class='userNameTop'>
-          <text class='font-family-medium'>国伟</text>
-          <text class='excellent'>优质</text>
+          <text class='font-family-medium'>{{ detail.owner.name }}</text>
+          <!-- <text class='excellent'>优质</text> -->
         </view>
         <view class='time'>20分钟</view>
       </view>
@@ -20,34 +20,34 @@
       <view class="stars">
         <view class='iconfont icon-xingxingyidian'></view>
       </view>
-      <view class="text">4分</view>
+      <view class="text">{{ detail.rate_star }}分</view>
     </view>
 
     <view class="discoverContentWrapper">
       <view class="contentWrapper quillDetailWrapper container-editor container-editor-app">
-        <text>我是内容详情啦啦啦啦啦啦啦啦啊啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</text>
+        <text>{{ detail.title }}</text>
       </view>
 
       <view class="linkWrapper Column" >
-        <view>
-          <image src='../../images/logo-144.png'></image>
+        <view wx:for='{{ detail.data.img }}' wx:key='img'>
+          <image src='{{ item }}'></image>
         </view>
       </view>
     </view>
 
     <view class="link">
-      <view class="linkBox">
+      <view class="linkBox" data-name='{{ detail.tags[0].name }}' bindtap='goProductDetail'>
         <view class="productLogo border-football" v-else>
           <image src='../../images/logo-144.png'></image>
         </view>
         <view class="linkContent">
-          <view class="text-line-1">Studio Science Reviews</view>
+          <view class="text-line-1">{{detail.tags[0].name}}</view>
           <view class="mark">
             <view class="stars">
               <view class='iconfont icon-xingxingyidian'></view>
             </view>
-            <text class="text">4.3分</text><text class='spot'></text>
-            <text class="comment">6条评论</text>
+            <text class="text">{{ detail.tags[0].review_average_rate }}分</text><text class='spot'></text>
+            <text class="comment">{{detail.tags[0].reviews}}条评论</text>
           </view>
         </view>
       </view>
@@ -64,21 +64,21 @@
   <view class="line-river-after line-river-after-top"></view>
 
   <view class="product">
-    <view class="comment-product">
+    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='{{relatedTags}}' data-name='{{ item.name }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
-          <image class="logo-img" src="../../images/logo-144.png"></image>
+          <image class="logo-img" src="{{item.logo}}"></image>
         </view>
         <view class="product-detail">
-          <view class="productName font-family-medium">产品名字</view>
+          <view class="productName font-family-medium">{{ item.name }}</view>
           <view class="productMark">
             <view class="stars">
               <view class="iconfont icon-xingxingyidian"></view>
             </view>
             <view class="starsText">
-              <text>5分</text>
+              <text>{{ item.review_average_rate }}分</text>
               <text class="spot"></text>
-              <text>6条评论</text>
+              <text>{{ item.review_count }}条评论</text>
             </view>
           </view>
         </view>
