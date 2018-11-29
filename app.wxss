@@ -266,3 +266,25 @@ page {
   line-height: 33rpx;}
 .container-noMore text.font-family-medium {
   color: #808080;}
+
+/* 按钮 */
+.operationList {
+  position: fixed;
+  right: 33rpx;
+  bottom: 40rpx;
+}
+.operationList .buttonWrapper {
+  width: 88rpx;
+  height: 88rpx;
+  margin: 34rpx 0;
+  border-radius: 50%;
+  background: #ffffff;
+  text-align: center;
+  box-shadow:0px 0px 19rpx 0px rgba(234,240,244,1);
+}
+.operationList .buttonWrapper text {
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #03AEF9;
+}

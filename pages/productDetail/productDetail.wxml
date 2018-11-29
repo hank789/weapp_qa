@@ -89,4 +89,14 @@
        <template is="getUserPhone" />
     </block>
 
+
+  <view class='operationList'>
+    <view class='buttonWrapper'>
+      <text class='iconfont icon-xiaozhongdianpinglogo'></text>
+    </view>
+    <view class='buttonWrapper'>
+      <text class='iconfont icon-fenxiang'></text>
+    </view>
+  </view>
+
 </view>
