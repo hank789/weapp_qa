@@ -267,9 +267,7 @@ page {
 .container-noMore text.font-family-medium {
   color: #808080;}
 
-<<<<<<< HEAD
-
-  .container-images {
+.container-images {
   padding: 0rpx 30rpx;
 }
 .container-images:after {
@@ -338,7 +336,7 @@ page {
     width: 216rpx;
     height: 216rpx;
   }
-=======
+}
 /* 按钮 */
 .operationList {
   position: fixed;
@@ -390,5 +388,4 @@ page {
   text-align: center;
   line-height: 88rpx;
   color: #03AEF9;
->>>>>>> ea7ae486a8d6eee07c2eab4e67d3766904b5d3ba
 }
