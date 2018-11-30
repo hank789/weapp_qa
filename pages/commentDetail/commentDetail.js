@@ -112,11 +112,15 @@ Page({
       });
       return;
     }
+    if (this.data.detail.is_downvoted) return;
     var that = this
     request.httpsPostRequest('/weapp/product/upvoteReview', {submission_id: this.data.detail.id}, function (res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
-
+        that.setData({
+          'detail.is_upvoted': res_data.data.type == 'upvote'?1:0,
+          'detail.upvotes': res_data.data.type == 'upvote'?that.data.detail.upvotes+1:that.data.detail.upvotes-1
+        })
       } else {
         wx.showToast({
           title: res_data.message,
@@ -133,11 +137,15 @@ Page({
       });
       return;
     }
+    if (this.data.detail.is_upvoted) return;
     var that = this
     request.httpsPostRequest('/weapp/product/downvoteReview', {submission_id: this.data.detail.id}, function (res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
-
+        that.setData({
+          'detail.is_downvoted': res_data.data.type == 'downvote'?1:0,
+          'detail.downvotes': res_data.data.type == 'downvote'?that.data.detail.downvotes+1:that.data.detail.downvotes-1
+        })
       } else {
         wx.showToast({
           title: res_data.message,
