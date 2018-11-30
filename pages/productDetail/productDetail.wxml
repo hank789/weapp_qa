@@ -1,5 +1,3 @@
-<import src="../../template/getUserInfo" />
-<import src="../../template/getUserPhone" />
 <view class="page" wx:if='{{!loding}}'>
 
   <view class="product-introduce">
@@ -83,10 +81,10 @@
   </view>
 
     <block wx:if="{{!loading && !userInfo.name}}">
-       <template is="getUserInfo" />
+       <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
     </block>
     <block wx:if="{{authUserPhone && !userInfo.mobile}}">
-       <template is="getUserPhone" />
+       <getUserPhone bind:authPhoneOk="onAuthPhoneOk"></getUserPhone>
     </block>
 
 

@@ -98,15 +98,24 @@
 
 
   <view class='operationList'>
-    <view class='buttonWrapper'>
+    <view class='buttonWrapper' bindtap="upvote">
       <text class='iconfont icon-zan'></text>
     </view>
-    <view class='buttonWrapper'>
+    <view class='buttonWrapper' bindtap="downvote">
       <text class='iconfont icon-cai'></text>
     </view>
-    <view class='buttonWrapper'>
+    <button hover-class="none" open-type="share" class="docbutton">
+    <view class='buttonWrapper shearBut'>
       <text class='iconfont icon-fenxiang'></text>
     </view>
+    </button>
   </view>
+
+  <block wx:if="{{!loading && !userInfo.name}}">
+     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk"></getUserPhone>
+  </block>
 
 </view>

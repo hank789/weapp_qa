@@ -1,5 +1,5 @@
 <!--拉起微信授权 模版-->
-<template name="getUserInfo">
+
       <view class='dialog'>
         <view class='mask'></view>
         <view class='dialogContent'>
@@ -12,4 +12,3 @@
           <button class='impowerUser' open-type='getUserInfo' bindgetuserinfo="getUserInfo">授权微信用户信息</button>
         </view>
       </view>
-</template>
