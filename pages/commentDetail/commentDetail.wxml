@@ -64,7 +64,7 @@
     <view class="allDianPing font-family-medium">评论{{ commentTotal ? '(' + commentTotal + ')' : '' }} </view>
     <view class="line-river-after line-river-after-top"></view>
     <view>
-      <commentDiscuss comment='{{commentList}}'></commentDiscuss>
+      <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
     </view>
     <view class="line-river-big"></view>
   </view>

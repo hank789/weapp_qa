@@ -46,6 +46,9 @@ Component({
           });
         }
       })
-    }
+    },
+    onAuthPhone: function (e) {
+      this.triggerEvent('authPhone', {}, {});
+    },
   }
 })

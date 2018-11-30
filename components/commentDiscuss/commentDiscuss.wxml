@@ -21,7 +21,7 @@
       </view>
 
       <view class="list-item-discuss-children">
-        <DiscussReplay commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
+        <DiscussReplay bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
 
       <view class="line-river-after"></view>
