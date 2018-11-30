@@ -128,7 +128,7 @@ Page({
     request.httpsPostRequest('/weapp/product/downvoteReview', {submission_id: this.data.detail.id}, function (res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
-        
+
       } else {
         wx.showToast({
           title: res_data.message,
@@ -170,7 +170,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getCommentList()
   },
 
   /**

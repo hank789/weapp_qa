@@ -1,5 +1,4 @@
 <view class="page">
-<import src="../../template/getUserPhone" />
 <!--引入加载更多模版-->
 <import src="../../template/loading" />
 <block wx:if="{{isLoading}}">
@@ -14,10 +13,10 @@
     <feed productComments='{{item}}'></feed>
 </view>
 </block>
-    <block wx:if="{{!isLoading && !userInfo.name}}">
-       <template is="getUserInfo" />
-    </block>
-    <block wx:if="{{authUserPhone && !userInfo.mobile}}">
-       <template is="getUserPhone" />
-    </block>
+  <block wx:if="{{!loading && !userInfo.name}}">
+     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk"></getUserPhone>
+  </block>
 </view>
