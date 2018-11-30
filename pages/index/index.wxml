@@ -30,9 +30,9 @@
         <button hover-class="none" open-type="contact" class="docbutton">
         <view class="bottom-about">
           <text>联系我们</text>
-          <view class="spot"></view>
         </view>
         </button>
+          <view class="spot"></view>
         
         <button hover-class="none" open-type="share" class="docbutton">
         <view class="bottom-about">

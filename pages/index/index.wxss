@@ -82,6 +82,21 @@ page {
 .bottom-operation {
   text-align: center;
 }
+.bottom-operation button {
+  width: 22%;
+  display: inline-block;
+  background: #FFF;
+}
+.bottom-operation button::after {
+  border: none;
+}
+.bottom-operation .spot {
+  margin-right:-19rpx;
+  margin-left:-20rpx;
+  margin-top:0;
+  top:-40rpx;
+  z-index:9999;
+}
 .bottom-about {
   display: inline-block;
   text-align: center;
