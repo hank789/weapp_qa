@@ -7,7 +7,7 @@
         </view>
         <view class="lidR">
           <view class="lidR1">{{item.owner.name}}</view>
-          <view class="lidR2 textToLink">{{ item.content }}</view>
+          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
           <view class="lidR3">
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
