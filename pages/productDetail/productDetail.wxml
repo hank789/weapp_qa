@@ -27,14 +27,16 @@
       <view class="list" wx:for='{{detail.categories}}' wx:key='id'>
         <text>{{ item.name }}</text>
         <text class="ranking">No.{{ item.rate }}</text>
+      <view class="line-river-after line-river-after-top" wx:if='{{ index !== detail.categories.length - 1 }}'></view>
       </view>
-      <view class="line-river-after line-river-after-top"></view>
     </view>
   </view>
 
-  <view class="line-river-big"></view>
 
-  <view class='commentAll'>
+  <view class='commentAll' wx:if='{{ detail.review_count }}'>
+
+    <view class="line-river-big"></view>
+
     <view class="allDianPing font-family-medium">点评 {{ detail.review_count ? '(' + detail.review_count + ')' : '' }}</view>
     <view class="line-river-after line-river-after-top"></view>
 
@@ -47,7 +49,7 @@
 
   <view class="line-river-big"></view>
 
-  <view class="component-score">
+  <view class="component-score" bindtap="goToDianPing">
     <view class="text">就您的感受而言，您会给他打多少分？</view>
     <view class='iconfont icon-xingxingweidian'></view>
   </view>
