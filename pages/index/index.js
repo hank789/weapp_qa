@@ -72,5 +72,8 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     });
+  },
+  downloadApp: function (e) {
+    
   }
 })

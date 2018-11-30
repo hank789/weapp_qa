@@ -27,18 +27,19 @@
 
     <view class="index-bottom">
       <view class="bottom-operation">
+        <button hover-class="none" open-type="contact" class="docbutton">
         <view class="bottom-about">
           <text>联系我们</text>
           <view class="spot"></view>
         </view>
-        <view class="bottom-about">
-          <text>下载APP</text>
-          <view class="spot"></view>
-        </view>
+        </button>
+        
+        <button hover-class="none" open-type="share" class="docbutton">
         <view class="bottom-about">
           <text>分享朋友</text>
           <!-- <view class="spot"></view> -->
         </view>
+        </button>
       </view>
       <view class="included">
         <view class="included-text">
