@@ -90,3 +90,9 @@ page {
 .starsText .spot {
   margin: 14rpx 10rpx 0;
 }
+.docbutton {
+  background: #FFFFFF;
+}
+.docbutton::after {
+  border: none;
+}
