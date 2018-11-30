@@ -100,17 +100,17 @@
   
 
   <view class='operationList'>
-    <view class="buttonWrapper {{ detail.is_upvoted ? '' : 'buttonMargin' }}"bindtap="upvote">
+    <view class="buttonWrapper  {{ detail.is_upvoted ? 'isActive' : '' }} {{ detail.upvotes ? '' : 'buttonMargin' }}"bindtap="upvote">
       <view class='textIcon'>
         <text class='iconfont icon-zan'></text>
-        <view class='number' wx:if='{{detail.is_upvoted}}'>{{detail.is_upvoted}}</view>
+        <view class='number' wx:if='{{detail.upvotes}}'>{{detail.upvotes}}</view>
       </view>
     </view>
-    <view class="buttonWrapper {{ detail.is_downvoted ? '' : 'buttonMargin' }}"
+    <view class="buttonWrapper {{ detail.is_downvoted ? 'isActive' : '' }} {{ detail.downvotes ? '' : 'buttonMargin' }}"
 bindtap="downvote">
       <view class='textIcon'>
         <text class='iconfont icon-cai'></text>
-        <view class='number' wx:if='{{detail.is_downvoted}}'>{{detail.is_downvoted}}</view>
+        <view class='number' wx:if='{{detail.downvotes}}'>{{detail.downvotes}}</view>
       </view>
     </view>
     <button hover-class="none" open-type="share" class="docbutton">

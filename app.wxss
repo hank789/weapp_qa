@@ -410,3 +410,13 @@ page {
 .operationList .buttonMargin text {
   line-height: 72rpx;
 }
+
+.operationList .isActive {
+  background: #03AEF9;
+}
+.operationList .isActive .textIcon .iconfont {
+  color: #FFFFFF;
+}
+.operationList .isActive .textIcon .number {
+  color: #FFFFFF;
+}
