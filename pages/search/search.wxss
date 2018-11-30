@@ -24,7 +24,7 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2rpx solid #DCDCDC;
+  /* border: 2rpx solid #DCDCDC; */
   justify-content: space-between;
   padding: 0 19.96rpx;
 }
