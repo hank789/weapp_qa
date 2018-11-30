@@ -56,10 +56,10 @@
     <view class="empty-Img">
       <image src="../../images/empty@3x.png"></image>
     </view>
-    <button hover-class="none" open-type="contact" class="docbutton">
-    <view class="text-center">
-      <text class="noResultText">暂无匹配项，</text><text class="noResultText font-family-medium">联系客服添加产品</text>
-    </view>
+    <button hover-class="none"  open-type="contact" class="docbutton">
+      <view class="text-center">
+        <text class="noResultText">暂无匹配项，</text><text class="noResultText font-family-medium">联系客服添加产品</text>
+      </view>
     </button>
   </view>
 
