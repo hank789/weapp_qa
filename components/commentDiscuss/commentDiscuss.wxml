@@ -1,6 +1,6 @@
 <view class='page'>
   <view class="container-list-discuss">
-    <view wx:for='{{comment}}' wx:key='comment'>
+    <view wx:for='{{comment}}' wx:key='id'>
       <view class="list-item-discuss">
         <view class="lidL">
           <image src="{{item.owner.avatar}}"></image>
@@ -12,7 +12,7 @@
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
             </view>
-            <view class="lidROption">
+            <view data-id='{{ item.id }}' class="lidROption" bindtap="upvote">
               <text class='iconfont icon-zan1'></text>
               <text>{{ item.supports }}</text>
             </view>

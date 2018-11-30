@@ -1,6 +1,6 @@
 <view class='page'>
 
-  <view wx:for='{{commentChildren}}' wx:key='commentChildren'>
+  <view wx:for='{{commentChildren}}' wx:key='id'>
     <view class='container-list-discuss list-item-discuss-children' >
       <view class="list-item-discuss" >
         <view class="lidL">
