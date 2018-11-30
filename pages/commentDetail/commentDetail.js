@@ -9,6 +9,7 @@ Page({
    */
   data: {
     loding: 1,
+    userInfo: {},
     detail: {},
     page: 1,
     isMore: true,
@@ -24,27 +25,30 @@ Page({
   onLoad: function (options) {
     var that = this
     var slug = options.slug
-    request.httpsGetRequest('/weapp/product/reviewInfo', {
-      slug: options.slug
-    }, function (response) {
-      var code = response.code
-      if (code !== 1000) {
-        wx.showToast({
-          title: response.message,
-          icon: 'loading',
-          duration: 2000
-        })
-      }
-      that.data.detail = response.data
+    app.getUserInfo(function(userInfo) {
       that.setData({
-        detail: that.data.detail,
-        loding: 0
+        userInfo: userInfo,
+        slug: slug
+      });
+      request.httpsGetRequest('/weapp/product/reviewInfo', {
+        slug: options.slug
+      }, function (response) {
+        var code = response.code
+        if (code !== 1000) {
+          wx.showToast({
+            title: response.message,
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+        that.data.detail = response.data
+        that.setData({
+          detail: that.data.detail,
+          loding: 0
+        })
       })
+      that.getCommentList()
     })
-    that.setData({
-      slug: slug
-    })
-    that.getCommentList()
   },
   getCommentList: function () {
     var that = this;
@@ -121,6 +125,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title:this.data.detail.owner.name + '对「' + this.data.detail.tags[0].name +'」的点评',
+      path:"/pages/commentDetail/commentDetail?slug=" + this.data.slug
+    }
   }
 })

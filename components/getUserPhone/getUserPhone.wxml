@@ -1,5 +1,4 @@
 <!--拉起微信授权 模版-->
-<template name="getUserPhone">
   <view class='dialog authentication'>
     <view class='mask'></view>
     <view class='dialogContent'>
@@ -12,4 +11,3 @@
       <button class='impowerUser' open-type='getPhoneNumber' bindgetphonenumber="getUserPhone">一键认证</button>
     </view>
   </view>
-</template>

@@ -104,9 +104,11 @@
     <view class='buttonWrapper'>
       <text class='iconfont icon-cai'></text>
     </view>
-    <view class='buttonWrapper'>
+    <button hover-class="none" open-type="share" class="docbutton">
+    <view class='buttonWrapper shearBut'>
       <text class='iconfont icon-fenxiang'></text>
     </view>
+    </button>
   </view>
 
 </view>
