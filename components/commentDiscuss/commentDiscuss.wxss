@@ -60,3 +60,19 @@
   border-radius: 7.96rpx; }
 .container-list-discuss .line-river-after:after {
   left: 79.96rpx !important; }
+
+
+.line-river-after {
+  position: relative;
+  height: 1px; /* px不转换 */
+  width: 100%; }
+.line-river-after:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background-color: #dcdcdc;
+  height: 1px; /* px不转换 */
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5); }
