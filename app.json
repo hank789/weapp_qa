@@ -3,13 +3,10 @@
     "pages/index/index",
     "pages/productDetail/productDetail",
     "pages/search/search",
-    "pages/ask/ask",
     "pages/add/add",
     "pages/allComment/allComment",
     "pages/commentDetail/commentDetail",
     "pages/feed/feed",
-    "pages/detail/detail",
-    "pages/answer/answer",
     "pages/logs/logs",
     "components/feed/feed",
     "pages/allDianping/allDianping"
