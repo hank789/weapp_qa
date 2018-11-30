@@ -75,7 +75,7 @@ Page({
   },
   onShareAppMessage: function () {
     return{
-      title:'帮助您的企业获得适合的软件和服务',
+      title:'推荐 企业服务点评 给你，去试试',
       path:"/pages/index/index"
     }
   },
