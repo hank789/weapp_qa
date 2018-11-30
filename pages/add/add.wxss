@@ -36,7 +36,7 @@ page {
   right: 31.96rpx;
 } */
 .identityTitle {
-  padding: 24rpx 6rpx 21.98rpx 31.96rpx;
+  padding: 8rpx 6rpx 8rpx 31.96rpx;
   line-height: 42rpx;
   display: flex;
   justify-content: space-between;}
@@ -210,4 +210,12 @@ page {
   font-size: 46rpx;
   color: #FCC816;
   margin:0 7rpx;
+}
+.textareaColor {
+  color: #B4B4B6;
+  line-height: 52rpx;
+}
+.weui-select {
+  font-size: 30rpx;
+  color: #444444;
 }

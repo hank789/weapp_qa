@@ -46,6 +46,9 @@
   padding: 0 32rpx;
   margin-top: 27rpx;
 }
+.mark .comment {
+  color: #B4B4B6;
+}
 .stars {
   font-size: 115rpx;
   color: #FCC816;
