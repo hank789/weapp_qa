@@ -9,9 +9,11 @@ Page({
     list: [],
     isMore: true,
     page: 1,
-    isLoading: true,//是否显示加载数据提示
+    isLoading: false,//是否显示加载数据提示
     isSearching: false,
-    inputVal: ""
+    inputVal: "",
+    showNoResult: false,
+    searchTip: true
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -22,6 +24,12 @@ Page({
       that.setData({
         userInfo:userInfo
       });
+      if (options.id) {
+        that.setData({
+          inputVal: options.id
+        });
+        that.loadList(1)
+      }
     });
   },
   /**
@@ -51,36 +59,46 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
   clearInput: function () {
     this.setData({
       inputVal: ""
     });
+  },
+  cancelInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+    wx.navigateTo({
+      url: '../index/index'
+    });
+  },
+  searchTipHidden: function () {
+    if (this.data.inputVal.length > 1) {
+      this.setData({
+        searchTip: false
+      })
+    }
   },
   loadList: function (page) {
     if (!this.data.inputVal) {
       this.data.isSearching = false;
       return;
     }
-    console.log('search:' + this.data.inputVal)
+    this.setData({
+      isLoading: true
+    })
     var that = this
-    request.httpsPostRequest('/weapp/question/search', { search_word: this.data.inputVal, page: page }, function(res_data) {
-      console.log(res_data);
+    request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
         if (page === 1) {
           that.data.list = res_data.data.data;
+          if (!that.data.list.length) {
+            that.setData({
+              showNoResult: true
+            })
+          }
         } else {
           that.data.list = that.data.list.concat(res_data.data.data);
         }
@@ -107,12 +125,22 @@ Page({
       }
     });
   },
+  goProductDetail (e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '../productDetail/productDetail?name=' + name
+    });
+  },
   inputTyping: function (e) {
     this.setData({
       inputVal: e.detail.value
     });
     if (e.detail.value && this.data.inputVal && this.data.isSearching === false) {
       this.data.isSearching = true;
+      this.data.isMore = true;
+      this.setData({
+        isLoading: true
+      })
       setTimeout(() => {
         this.loadList(1)
       }, 1000)

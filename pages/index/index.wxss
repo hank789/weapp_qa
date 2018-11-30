@@ -1,27 +1,162 @@
+page {
+  background: #FFFFFF;
+}
 .weui-cell{
-    padding: 12px 15px 12px 35px;
+    /* padding: 24rpx 30rpx 24rpx 70rpx; */
 }
 
+.searchIcon {
+
+}
 .ask-title {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 147rpx;
 }
 
-.ask-title-avatar {
-    width: 118rpx;
-    height: 118rpx;
-    margin-top: 78rpx;
-    border-radius: 50%;
-    margin-bottom: 39rpx;
+.ask-title-text {
+  font-size: 46rpx;
+  text-align: center;
+  line-height: 64rpx;
+  color: #03AEF9;
+  /* font-family: STSongti-SC-Bold; */
 }
 
 .weui-search-bar-custom {
-    position:relative;
-    padding:10px 10px;
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:flex;
-    box-sizing:border-box;
-    background-color:#efeff4;
+  width: 586rpx;
+  position:relative;
+  padding: 20rpx 0;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  box-sizing:border-box;
+  margin: 0 auto;
+  /* background-color:#efeff4; */
+}
+.weui-search-bar__input {
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.weui-search-bar__form {
+  width: 586rpx;
+  border-radius: 200rpx;
+  background: #F3F4F6;
+  margin-top: 90rpx;
+}
+.weui-search-bar__box {
+  width: 586rpx;
+  padding: 0 20rpx;
+}
+.weui-icon-search_in-box {
+  top: 18rpx;
+}
+.placeholder {
+  color: #C8C8C8;
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+
+.seach-keyword {
+  width: 586rpx;
+  margin: 20rpx auto 0;
+  text-align: center;
+}
+.seach-keyword-center {
+  text-align: center;
+}
+.seach-keyword-list {
+  /* float: left; */
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 12rpx;
+}
+.seach-keyword-text {
+  color: #808080;
+  font-size: 24rpx;
+  float: left;
+}
+.index-bottom {
+  position: absolute;
+  bottom: 55rpx;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+.bottom-operation {
+  text-align: center;
+}
+.bottom-operation button {
+  width: 30%;
+  display: inline-block;
+  background: #FFF;
+}
+.bottom-operation button::after {
+  border: none;
+}
+.bottom-operation .spot {
+  margin-right:-19rpx;
+  margin-left:-20rpx;
+  margin-top:0;
+  /* top:-38rpx; */
+  z-index:9999;
+}
+.bottom-about {
+  display: inline-block;
+  text-align: center;
+}
+.bottom-about text {
+  color: #03AEF9;
+  font-size: 24rpx;
+}
+.bottom-about .iconfont {
+  color: #B4B4B6;
+  margin-right: 11rpx;
+}
+.included {
+  margin-top: 35rpx;
+  padding: 0 32rpx;
+}
+.included .included-text {
+  color: #DCDCDC;
+  font-size: 22rpx;
+  position: relative;
+}
+.included .included-text text {
+  padding: 0 15rpx;
+  background: #FFF;
+  position: absolute;
+  top: -15rpx;
+  left: 50%;
+  display: inline-block;
+  transform: translateX(-50%);
+}
+.included .included-text .line {
+  width: 100%;
+  height: 2rpx;
+  background: #DCDCDC;
+}
+
+.searchWrapper {
+  margin-top: 110rpx;
+  margin-bottom: 10rpx;
+}
+.searchWrapper .inputWrapper {
+  width: 586rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #F3F4F6;
+  margin: 0 auto;
+  border-radius: 100rpx;
+  padding: 0 20rpx;
+}
+.searchWrapper .inputWrapper .icon-sousuo {
+  color: #C8C8C8;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+  margin-top: -4rpx;
+}
+.searchWrapper .inputWrapper .placeholderText {
+  color: #C8C8C8;
+  font-size: 28rpx;
 }

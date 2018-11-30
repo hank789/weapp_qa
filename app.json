@@ -1,49 +1,22 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/detail/detail",
-    "pages/ask/ask",
-    "pages/answer/answer",
-    "pages/mine/mine",
-    "pages/discovery/discovery",
+    "pages/productDetail/productDetail",
     "pages/search/search",
-    "pages/register/register",
-    "pages/myAnswer/myAnswer",
-    "pages/myQuestion/myQuestion",
-    "pages/logs/logs"
+    "pages/add/add",
+    "pages/allComment/allComment",
+    "pages/commentDetail/commentDetail",
+    "pages/feed/feed",
+    "pages/logs/logs",
+    "components/feed/feed",
+    "pages/allDianping/allDianping"
   ],
-  "window":{
-    "navigationBarTextStyle": "#fff",
-    "navigationBarTitleText": "InweHub精选推荐",
-    "navigationBarBackgroundColor": "#5dc890",
-    "backgroundColor": "#fbf9fe",
-    "enablePullDownRefresh": true
-  },
-  "tabBar": {
-    "color": "#dddddd",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "white",
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "企业服务点评",
+    "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "提问",
-        "iconPath": "images/icon_ask@3x.png",
-        "selectedIconPath": "images/icon_ask_check@3x.png"
-      },
-      {
-        "pagePath": "pages/discovery/discovery",
-        "text": "广场",
-        "iconPath": "images/icon_home@3x.png",
-        "selectedIconPath": "images/icon_home_check@3x.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "images/icon_mine@3x.png",
-        "selectedIconPath": "images/icon_mine_check@3x.png"
-     }
-    ]
+    "enablePullDownRefresh": true
   },
   "networkTimeout": {
     "request": 10000,

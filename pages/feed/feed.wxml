@@ -1,0 +1,43 @@
+<view class="page">
+
+  <view class="commentList">
+      <view class="commentUser">
+        <view class="userInfo">
+          <view class="avatar">
+            <image src="../../images/logo-144.png"></image>
+          </view>
+          <view class="userName">
+            <view class="userNameTop">
+              <text class="font-family-medium">名字</text>
+              <text class="border-football">优质</text>
+            </view>
+            <text class="time"><text>20分中</text></text>
+          </view>
+        </view>
+        <view class="mark font-family-medium">4分</view>
+      </view>
+      <view class="commentFeedTitle text-line-5 currency-title">昨天，借用浅黑史老师的文章，介绍了爬虫无处不在的利益网络，当这个小虫子羽翼渐丰，成群结队出门之时，又有一个大市场在远方向它们招手，那就是企业级 - 科技应用市场。 文章看完后，深深的抽了根烟，平静一下心中的焦虑，拿出已经布满爬虫的手机，寻找着解乏应用，就它了，刺激战场 - 吃鸡， 这一百人从天而降的场景，只留一个的规则。战术、武器、枪法、运气一个都不能少，稍不留神就被伏地魔突突成盒。 企业所面临的商业环境，何尝不也是如此，在这里的刺激战场，“武器”和“枪法”决定了战术有效性、战略的高度，有的时候还能决定企业边界的广度。 今天，就用几个真实的例子，聊聊企业兵器谱中的一个冷门兵器，爬虫</view>
+      <view class="feed-open-all font-family-medium">展开全部</view>
+
+      <view class="container-images container-images-discover" >
+        <view class="container-image">
+          <image src="../../images/logo-144.png"></image>
+        </view>
+      </view>
+
+      <view class="feed-moreOperation">
+        <view class="feed-operation">
+          <view>
+            <text class="iconfont icon-cai1"></text>
+            <text>33</text>
+          </view>
+          <view>
+            <text class="iconfont icon-zan1"></text>
+            <text>22</text>
+          </view>
+        </view>
+      </view>
+      <view class="line-river-after line-river-after-top"></view>
+    </view>
+
+</view>

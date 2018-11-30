@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "全部评论",
+  "usingComponents": {
+    "DiscussReplay": "/components/discussReply/discussReply"
+  }
+}

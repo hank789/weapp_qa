@@ -39,10 +39,11 @@ module.exports = {
         typeof res_func == "function" && res_func(res.data);
       }
     }
+    req_obj.inwehub_user_device = 'weapp_dianping';
     if (req_obj) {
       jsonUrl.data = req_obj;
     }
-    __httpRequest.https_request(jsonUrl);
+    __httpsRequest.https_request(jsonUrl);
   },
   //ask 请求
   httpsPostRequest: function (req_url, req_obj, res_func) {
@@ -58,6 +59,7 @@ module.exports = {
         typeof res_func == "function" && res_func(res.data);
       }
     }
+    req_obj.inwehub_user_device = 'weapp_dianping';
     if (req_obj) {
       jsonUrl.data = req_obj;
     }

@@ -1,0 +1,221 @@
+page {
+  height: 100%;
+  bottom: 88rpx;
+}
+.page {
+  height: 100%;
+  position: relative;
+}
+.component-mark {
+  padding: 15.98rpx 31.96rpx 19.96rpx;
+}
+.component-mark text {
+  color: #B4B4B6;
+  font-size: 24rpx;
+  line-height: 33.0rpx;
+}
+.stars {
+  position: relative;
+  color: #FCC816;
+  font-size: 45.98rpx;
+  /*margin-top: 15.98rpx;*/
+  margin-bottom: 30rpx;
+  display: flex;
+}
+.ratingNumber {
+  position: absolute;
+  right: 0;
+  bottom: 3.98rpx;
+  font-size: 36rpx;
+}
+
+.container-identity {
+  padding-bottom:19.96rpx;}
+/* .line-river-after:after {
+  left: 31.96rpx;
+  right: 31.96rpx;
+} */
+.identityTitle {
+  padding: 8rpx 6rpx 8rpx 31.96rpx;
+  line-height: 42rpx;
+  display: flex;
+  justify-content: space-between;}
+.identityTitle text {
+  color: #444444;
+  font-size: 30rpx;
+}
+.identityTitle .iconfont {
+  color: #808080;
+  margin-top: 6rpx;
+}
+.assessDomain {
+  color: #B4B4B6;
+  font-size: 24rpx;
+  padding: 24.98rpx 31.96rpx 12rpx;
+  line-height: 33.0rpx;
+}
+.domainList {
+  padding: 0 31.96rpx;
+}
+.domainList .border-football {
+  color: #B4B4B6;
+  font-size: 24rpx;
+  line-height: 33.0rpx;
+  padding: 9.98rpx 21.98rpx;
+  margin-right: 19.96rpx;
+  margin-top: 12.98rpx;
+  display: inline-block;
+  border-radius: 199.96rpx;
+  border: 1rpx solid #DCDCDC;
+}
+.domainList .border-football.active {
+  background: #F3F4F6;
+  color: #444444;
+  border-color: #F3F4F6;
+}
+
+.component-photograph {
+  width: 121.96rpx !important;
+  height: 121.96rpx !important;
+  /* float: left; */
+  margin-bottom: 19.96rpx;
+  display: inline-block;
+  border-radius: 8rpx;
+  background: #dcdcdc;
+  position: relative;
+}
+.component-photograph .iconfont {
+  position: absolute;
+  color: #fff;
+  font-size: 56rpx;
+  top: 50%;
+  left: 50%;
+  margin-left: -28rpx;
+  margin-top: -42rpx;
+}
+.container-images .container-image {
+  margin: 0 20rpx 20rpx 0;
+  float: left;
+  width: 122rpx;
+  height: 122rpx;
+  border-radius: 8rpx;
+  position: relative;
+}
+.container-images .container-image:nth-of-type(3n+1) {
+  clear: both;
+}
+.container-image .iconfont {
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+}
+.container-image image {
+  border-radius: 10rpx;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.container-bottom-menus{
+    position: fixed;
+    /*padding-left: 15.0rpx;*/
+    background: #fff;
+    left:0;
+    width: 100%;
+    bottom: 0;
+    height: 88rpx;
+    line-height: 88rpx;
+    z-index: 99;
+  }
+  .container-bottom-menus .productName {
+    max-width: 200rpx;
+    float: left;
+    padding-left: 32rpx;
+    display: block;
+    /*padding: 0 15.0rpx;*/
+    font-size: 26rpx;
+    color: grey;
+  }
+.container-bottom-menus .confirmPush {
+  color: #03AEF9;
+  font-size: 30rpx;
+  float: right;
+  padding-right: 32rpx;
+  margin-top: 5rpx;
+}
+.container-bottom-menus button {
+  background: #fff;
+}
+.container-bottom-menus button::after {
+  border: none;
+}
+
+.fixedContainer {
+  position: relative;
+  background: #ffff;
+  padding: 33rpx 32rpx;
+  /* margin-top: 33.0rpx; */
+}
+.fixedContainer label text {
+  color: #444444;
+  position: relative;
+  font-size: 28rpx;
+  padding-left: 18rpx;
+  margin-right: 45.0rpx;
+  top: 10rpx;
+}
+.fixedContainer checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;
+  width: 12rpx; 
+  height: 12rpx; 
+  text-align: center;
+  font-size:0rpx;
+  background-color: #03AEF9; 
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.fixedContainer checkbox{
+  border-radius: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  border: 2rpx solid #C8C8C8;
+  font-size: 0;
+}
+.fixedContainer checkbox .wx-checkbox-input{
+   border-radius: 50%;
+   width: 32rpx;
+   height: 32rpx; 
+   border: none;
+}
+.textarea {
+  padding: 0 32rpx 30rpx;
+}
+.textarea textarea {
+  width: 100%;
+  min-height: 350rpx;
+  height: auto;
+  font-size: 32rpx;
+  color: #444444;
+  line-height: 52rpx;
+}
+.weui-select {
+  border-right: none !important; 
+}
+.identity {
+  width: 100%;
+}
+
+
+.stars .star .iconfont {
+  font-size: 46rpx;
+  color: #FCC816;
+  margin:0 7rpx;
+}
+.textareaColor {
+  color: #B4B4B6;
+  line-height: 52rpx;
+}
+.weui-select {
+  font-size: 30rpx;
+  color: #444444;
+}

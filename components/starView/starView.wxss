@@ -1,0 +1,22 @@
+@import '/iconfont/iconfont.wxss';
+.starViewWrapper{
+  position: relative;
+  width: 152rpx;
+  height: 42rpx;
+}
+.starViewWrapper .iconfont{
+  font-size: 152rpx !important;
+  margin-left: 0 !important;
+}
+.upStar{
+  position: absolute;
+  color: #fcc816;
+  top: 2rpx;
+  overflow: hidden;
+}
+.downStar{
+  position: absolute;
+  color: #fcc816;
+  top: 2rpx;
+  overflow: hidden;
+}
