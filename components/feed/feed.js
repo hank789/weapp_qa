@@ -26,12 +26,14 @@ Component({
         this.triggerEvent('authPhone', {}, {});
         return;
       }
+      if (this.data.productComments.feed.is_downvoted) return;
       var that = this
       console.log(this.data.productComments.feed.submission_id)
       request.httpsPostRequest('/weapp/product/upvoteReview', {submission_id: this.data.productComments.feed.submission_id}, function (res_data) {
         console.log(res_data);
         if (res_data.code === 1000) {
           that.setData({
+            'productComments.feed.is_upvoted': res_data.data.type == 'upvote'?1:0,
             'productComments.feed.support_number': res_data.data.type == 'upvote' ? that.data.productComments.feed.support_number + 1 : that.data.productComments.feed.support_number - 1
           })
         } else {
@@ -48,12 +50,14 @@ Component({
         this.triggerEvent('authPhone', {}, {});
         return;
       }
+      if (this.data.productComments.feed.is_upvoted) return;
       var that = this
       console.log(this.data.productComments.feed.submission_id)
       request.httpsPostRequest('/weapp/product/downvoteReview', {submission_id: this.data.productComments.feed.submission_id}, function (res_data) {
         console.log(res_data);
         if (res_data.code === 1000) {
           that.setData({
+            'productComments.feed.is_downvoted': res_data.data.type == 'downvote'?1:0,
             'productComments.feed.downvote_number': res_data.data.type == 'downvote' ? that.data.productComments.feed.downvote_number + 1 : that.data.productComments.feed.downvote_number - 1
           })
         } else {
