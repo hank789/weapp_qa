@@ -42,7 +42,7 @@
           <image src='../../images/logo-144.png'></image>
         </view>
         <view class="linkContent">
-          <view class="text-line-1">{{detail.tags[0].name}}</view>
+          <view class="text-line-1 font-family-medium">{{detail.tags[0].name}}</view>
           <view class="mark">
             <view class="stars">
             <StarView rating='{{ detail.tags[0].review_average_rate }}'></StarView>

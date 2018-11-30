@@ -34,8 +34,11 @@
     display: inline-block;
     position: relative;
     top: -15.96rpx;}
+  .starsText .comment {
+    color: #B4B4B6;
+  }
   .stars {
-    width: 162rpx;
+    width: 153rpx;
     height: 100%;
     position: relative;}
   .stars .icon-xingxingyidian {

@@ -20,7 +20,7 @@ page {
   text-align: center;
   line-height: 64rpx;
   color: #03AEF9;
-  font-family: STSongti-SC-Bold;
+  /* font-family: STSongti-SC-Bold; */
 }
 
 .weui-search-bar-custom {

@@ -99,7 +99,7 @@
   line-height: 45rpx;
 }
 .link .linkContent .mark {
-  margin-top: 18rpx;
+  margin-top: 10rpx;
   padding: 0;
 }
 .link .linkContent .mark .spot {

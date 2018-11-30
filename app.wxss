@@ -216,6 +216,7 @@ page {
   font-size: 32rpx;
   line-height: 45rpx;}
 .comment-product .productMark {
+  margin-top: 10rpx;
   display: flex;}
 .comment-product .productMark text {
   color: #B4B4B6;
