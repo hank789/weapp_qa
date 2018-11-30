@@ -1,4 +1,6 @@
 // components/commentDiscuss/commentDiscuss.js
+var request = require("../../utils/request.js");
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -24,13 +26,17 @@ Component({
         this.triggerEvent('authPhone', {}, {});
         return;
       }
+      var id= e.currentTarget.dataset.id
+      var index = e.currentTarget.dataset.index
       var that = this
-      console.log(this.data.productComments.feed.submission_id)
-      request.httpsPostRequest('/weapp/product/support/comment', {submission_id: this.data.productComments.feed.submission_id}, function (res_data) {
+      console.log(id)
+      console.log(index)
+      request.httpsPostRequest('/weapp/product/support/comment', {id: id}, function (res_data) {
         console.log(res_data);
         if (res_data.code === 1000) {
+          that.data.comment[index].supports = res_data.data.type == 'support' ? that.data.comment[index].supports + 1 : that.data.comment[index].supports - 1
           that.setData({
-            'productComments.feed.support_number': res_data.data.type == 'upvote' ? that.data.productComments.feed.support_number + 1 : that.data.productComments.feed.support_number - 1
+            comment: that.data.comment
           })
         } else {
           wx.showToast({

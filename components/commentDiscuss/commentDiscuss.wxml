@@ -12,7 +12,7 @@
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
             </view>
-            <view data-id='{{ item.id }}' class="lidROption" bindtap="upvote">
+            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
               <text class='iconfont icon-zan1'></text>
               <text>{{ item.supports }}</text>
             </view>
