@@ -19,7 +19,14 @@ Page({
     userInfo: {},
     identity_select: [],
     identityIndex: 0,
-    tag: ''
+    tag: '',
+    starNumber: ''
+  },
+  oneStar: function() {
+    var that = this
+    that.setData({
+      starNumber: 1
+    })
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
