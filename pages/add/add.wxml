@@ -9,25 +9,25 @@
         <text wx:if='{{ starNumber < 1 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=1 }}' class='iconfont icon-shixinxingxing starShi'></text>
       </view>
-      <view class='star' bindtap=''>
-        <text wx:if='{{ starNumber <= 2 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+      <view class='star' bindtap='twoStar'>
+        <text wx:if='{{ starNumber < 2 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=2 }}'  class='iconfont icon-shixinxingxing starShi'></text>
       </view>
-      <view class='star' bindtap=''>
-        <text wx:if='{{ starNumber <= 3 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+      <view class='star' bindtap='threeStar'>
+        <text wx:if='{{ starNumber < 3 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=3 }}'  class='iconfont icon-shixinxingxing starShi'></text>
       </view>
-      <view class='star' bindtap=''>
-        <text wx:if='{{ starNumber <= 4 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+      <view class='star' bindtap='fourStar'>
+        <text wx:if='{{ starNumber < 4 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=4 }}'  class='iconfont icon-shixinxingxing starShi'></text>
       </view>
-      <view class='star' bindtap=''>
-        <text wx:if='{{ starNumber <= 5 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+      <view class='star' bindtap='fiveStar'>
+        <text wx:if='{{ starNumber < 5 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=5 }}'  class='iconfont icon-shixinxingxing starShi'></text>
       </view>
 
       <!-- <view class='iconfont icon-xingxingyidian'></view> -->
-      <view class="ratingNumber">5分</view>
+      <view class="ratingNumber" wx:if='{{starNumber}}'>{{starNumber}}分</view>
     </view>
     <view class="line-river-after line-river-after-top"></view>
   </view>

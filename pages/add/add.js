@@ -28,6 +28,30 @@ Page({
       starNumber: 1
     })
   },
+  twoStar: function () {
+    var that = this
+    that.setData({
+      starNumber: 2
+    })
+  },
+  threeStar: function () {
+    var that = this
+    that.setData({
+      starNumber: 3
+    })
+  },
+  fourStar: function () {
+    var that = this
+    that.setData({
+      starNumber: 4
+    })
+  },
+  fiveStar: function () {
+    var that = this
+    that.setData({
+      starNumber: 5
+    })
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     this.data.pictures = [];
@@ -168,6 +192,10 @@ Page({
         cids.push(this.data.categoryArr[i].id)
       }
     }
+    if (this.data.starNumber === '') {
+      this.showTopTips('您还没有给星级打分');
+      return false
+    }
     if (this.data.title === '') {
       this.showTopTips('内容不能为空');
       return false;
@@ -183,7 +211,7 @@ Page({
       type: 'review',
       category_ids: cids,
       tags: this.data.product.id,
-      rate_star: this.data.rate_star,
+      rate_star: this.data.starNumber,
       identity: this.data.identity_select[this.data.identityIndex].value
     };
     var requestUrl = '/weapp/product/storeReview';
