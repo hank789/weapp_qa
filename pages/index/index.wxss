@@ -83,7 +83,7 @@ page {
   text-align: center;
 }
 .bottom-operation button {
-  width: 22%;
+  width: 30%;
   display: inline-block;
   background: #FFF;
 }
@@ -94,7 +94,7 @@ page {
   margin-right:-19rpx;
   margin-left:-20rpx;
   margin-top:0;
-  top:-40rpx;
+  top:-38rpx;
   z-index:9999;
 }
 .bottom-about {
@@ -104,6 +104,10 @@ page {
 .bottom-about text {
   color: #03AEF9;
   font-size: 24rpx;
+}
+.bottom-about .iconfont {
+  color: #B4B4B6;
+  margin-right: 11rpx;
 }
 .included {
   margin-top: 35rpx;
