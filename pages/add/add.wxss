@@ -35,7 +35,7 @@ page {
   right: 31.96rpx;
 } */
 .identityTitle {
-  padding: 24rpx 31.96rpx 21.98rpx;
+  padding: 24rpx 6rpx 21.98rpx 31.96rpx;
   line-height: 42rpx;
   display: flex;
   justify-content: space-between;}
@@ -140,13 +140,20 @@ page {
   font-size: 30rpx;
   float: right;
   padding-right: 32rpx;
+  margin-top: 5rpx;
+}
+.container-bottom-menus button {
+  background: #fff;
+}
+.container-bottom-menus button::after {
+  border: none;
 }
 
 .fixedContainer {
   position: relative;
   background: #ffff;
   padding: 33rpx 32rpx;
-  margin-top: 33.0rpx;
+  /* margin-top: 33.0rpx; */
 }
 .fixedContainer label text {
   color: #444444;
@@ -189,4 +196,10 @@ page {
   font-size: 32rpx;
   color: #444444;
   line-height: 52rpx;
+}
+.weui-select {
+  border-right: none !important; 
+}
+.identity {
+  width: 100%;
 }
