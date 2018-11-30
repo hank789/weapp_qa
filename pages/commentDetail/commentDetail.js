@@ -55,7 +55,8 @@ Page({
     var that = this;
     request.httpsGetRequest('/weapp/product/reviewCommentList', {
       submission_slug: that.data.slug,
-      page: that.data.page
+      page: that.data.page,
+      perPage: 150
     }, function (res_data) {
       if (res_data.code === 1000) {
 

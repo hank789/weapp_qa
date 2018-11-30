@@ -1,3 +1,4 @@
+<import src="../../template/loading" />
 <view class="page">
   <view class="page__bd">
       <view class="container-search">
@@ -51,7 +52,9 @@
       </view>
     </button>
   </view>
-
+<block wx:if="{{isLoading}}">
+  <template is="loading" />
+</block>
   <view class="noResult" wx:if='{{ list.length === 0 && showNoResult }}'>
     <view class="empty-Img">
       <image src="../../images/empty@3x.png"></image>
