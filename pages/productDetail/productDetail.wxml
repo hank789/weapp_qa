@@ -24,9 +24,11 @@
 
   <view class="optionlList">
     <view class="listWrapper">
-      <view class="list" wx:for='{{detail.categories}}' wx:key='id'>
+    <view wx:for='{{detail.categories}}' wx:key='id'>
+      <view class="list">
         <text>{{ item.name }}</text>
         <text class="ranking">No.{{ item.rate }}</text>
+      </view>
       <view class="line-river-after line-river-after-top" wx:if='{{ index !== detail.categories.length - 1 }}'></view>
       </view>
     </view>
