@@ -9,7 +9,7 @@
 }
 .dialog.authentication .dialogContent .impowerUser {
   background: #03AEF9;
-  border-color: #029FE4;
+  /* border-color: #029FE4; */
 }
 .dialog.authentication .dialogContent .wxLogo {
   width: 113rpx !important;
@@ -56,7 +56,7 @@
   height: 88rpx;
   line-height: 88rpx;
   background: #1AAD19;
-  border: 2rpx solid #179E16;
+  /* border: 2rpx solid #179E16; */
   color: #FFFFFF;
   font-size: 32rpx;
 }
