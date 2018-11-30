@@ -97,17 +97,26 @@
   </view>
 
 
+  
+
   <view class='operationList'>
-    <view class='buttonWrapper' bindtap="upvote">
-      <text class='iconfont icon-zan'></text>
+    <view class="buttonWrapper  {{ detail.is_upvoted ? 'isActive' : '' }} {{ detail.upvotes ? '' : 'buttonMargin' }}"bindtap="upvote">
+      <view class='textIcon'>
+        <text class='iconfont icon-zan'></text>
+        <view class='number' wx:if='{{detail.upvotes}}'>{{detail.upvotes}}</view>
+      </view>
     </view>
-    <view class='buttonWrapper' bindtap="downvote">
-      <text class='iconfont icon-cai'></text>
+    <view class="buttonWrapper {{ detail.is_downvoted ? 'isActive' : '' }} {{ detail.downvotes ? '' : 'buttonMargin' }}"
+bindtap="downvote">
+      <view class='textIcon'>
+        <text class='iconfont icon-cai'></text>
+        <view class='number' wx:if='{{detail.downvotes}}'>{{detail.downvotes}}</view>
+      </view>
     </view>
     <button hover-class="none" open-type="share" class="docbutton">
-    <view class='buttonWrapper shearBut'>
-      <text class='iconfont icon-fenxiang'></text>
-    </view>
+      <view class='buttonWrapper shearBut'>
+        <text class='iconfont icon-fenxiang'></text>
+      </view>
     </button>
   </view>
 
