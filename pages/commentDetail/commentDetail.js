@@ -16,7 +16,8 @@ Page({
     isLoading: false,
     commentList: [],
     slug: '',
-    commentTotal: ''
+    commentTotal: '',
+    authUserPhone: false
   },
 
   /**
@@ -77,6 +78,64 @@ Page({
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
       url: '../productDetail/productDetail?name=' + name,
+    })
+  },
+  onAuthPhone: function (e) {
+    this.setData({
+      authUserPhone: true
+    });
+  },
+  onAuthPhoneOk: function (e) {
+    this.setData({
+      authUserPhone: false,
+      userInfo: app.globalData.userInfo
+    });
+  },
+  onAuthUserOk: function (e) {
+    this.setData({
+      userInfo: app.globalData.userInfo
+    });
+  },
+  upvote: function (e) {
+    if (!this.data.userInfo.mobile) {
+      this.setData({
+        authUserPhone: true
+      });
+      return;
+    }
+    var that = this
+    request.httpsPostRequest('/weapp/product/upvoteReview', {submission_id: this.data.detail.id}, function (res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
+  },
+  downvote: function (e) {
+    if (!this.data.userInfo.mobile) {
+      this.setData({
+        authUserPhone: true
+      });
+      return;
+    }
+    var that = this
+    request.httpsPostRequest('/weapp/product/downvoteReview', {submission_id: this.data.detail.id}, function (res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+        
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
     })
   },
   /**
