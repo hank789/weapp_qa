@@ -1,27 +1,27 @@
 <view class='page'>
   <view class='container-list-discuss container-list-marginTop'>
-    <view class='message'>
+    <view class='message' wx:for='{{commentList}}' wx:key='comment'>
       <view>
         <view class='list-item-discuss'>
           <view class='lidL'>
-            <image src='../../images/logo-144.png'></image>
+            <image src='{{item.owner.avatar}}'></image>
           </view>
           <view class='lidR'>
-            <view class='lidR1'>郭伟</view>
-            <view class='lidR2 textToLink'>这是雷军打算正面怼苹果的节奏吗？ </view>
+            <view class='lidR1'>{{ item.owner.name }}</view>
+            <rich-text class='lidR2 textToLink' nodes="{{item.content}}"></rich-text>
             <view class='lidR3'>
               <view class='lidRtime'>
-                <text>20分钟</text>
+                <text>{{item.created_at}}</text>
               </view>
-              <view class='lidROption'>
+              <view class='lidROption' data-id="{{ item.id }}" data-index="{{index}}" bindtap='upvote'>
                 <text class='iconfont icon-zan1'></text>
-                <text>2</text>
+                <text>{{item.supports}}</text>
               </view>
             </view>
           </view>
         </view>
         <div class="list-item-discuss-childrens">
-          <DiscussReplay></DiscussReplay>
+          <DiscussReplay commentChildren='{{ item.children }}'></DiscussReplay>
         </div>
 
         <view class='line-river-after'></view>

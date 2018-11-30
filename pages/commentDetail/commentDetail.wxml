@@ -68,6 +68,12 @@
     <view>
       <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
     </view>
+    <view class='lineMargin'>
+      <view class="line-river-after line-river-after-top"></view>
+      <view class="checkOpen" data-slug='{{detail.slug}}' bindtap='goAllComment'>
+        <text class="font-family-medium">查看全部{{ commentTotal }}条评论</text>
+      </view>
+    </view>
     <view class="line-river-big"></view>
   </view>
 

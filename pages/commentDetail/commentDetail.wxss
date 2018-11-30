@@ -123,3 +123,15 @@
   font-size: 32rpx;
   line-height: 88rpx;
 }
+
+ .checkOpen {
+    text-align: center;
+    padding: 24rpx 0;
+  }
+  .checkOpen text {
+    font-size: 28rpx;
+    color: #808080;
+  }
+  .lineMargin {
+    padding: 0 32rpx;
+  }

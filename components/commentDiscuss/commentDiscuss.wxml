@@ -1,6 +1,6 @@
 <view class='page'>
   <view class="container-list-discuss">
-    <view wx:for='{{comment}}' wx:key='id'>
+    <view wx:for='{{comment}}' wx:key='id' wx:if='{{index < 3}}'>
       <view class="list-item-discuss">
         <view class="lidL">
           <image src="{{item.owner.avatar}}"></image>
@@ -20,7 +20,7 @@
         </view>
       </view>
 
-      <view class="list-item-discuss-children">
+      <view class="list-item-discuss-children" wx:if='{{ item.children }}'>
         <DiscussReplay bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
 

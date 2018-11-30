@@ -51,6 +51,14 @@ Page({
       that.getCommentList()
     })
   },
+  goAllComment: function (e) {
+    let slug = e.currentTarget.dataset.slug
+    var that = this
+  
+    wx.navigateTo({
+      url: '../allComment/allComment?slug=' + slug,
+    })
+  },
   getCommentList: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/reviewCommentList', {
