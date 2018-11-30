@@ -1,6 +1,6 @@
 <view class='page'>
 
-  <view wx:for='{{commentChildren}}' wx:key='commentChildren'>
+  <view wx:for='{{commentChildren}}' wx:key='id'>
     <view class='container-list-discuss list-item-discuss-children' >
       <view class="list-item-discuss" >
         <view class="lidL">
@@ -8,12 +8,12 @@
         </view>
         <view class="lidR">
           <view class="lidR1">{{item.owner.name}}<text>回复</text>{{ parentOwnerName }}</view>
-          <view class="lidR2 textToLink">{{ item.content }}</view>
+          <rich-text class="lidR2 textToLink">{{ item.content }}</rich-text>
           <view class="lidR3">
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
             </view>
-            <view class="lidROption">
+            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
               <text class='iconfont icon-zan1'></text>
               <text>{{ item.supports }}</text>
             </view>

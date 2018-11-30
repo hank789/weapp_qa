@@ -23,7 +23,7 @@
 
   <view class="optionlList">
     <view class="listWrapper">
-      <view class="list" wx:for='{{detail.categories}}' wx:key='categories'>
+      <view class="list" wx:for='{{detail.categories}}' wx:key='id'>
         <text>{{ item.name }}</text>
         <text class="ranking">No.{{ item.rate }}</text>
       </view>
@@ -37,7 +37,7 @@
     <view class="allDianPing font-family-medium">点评 {{ detail.review_count ? '(' + detail.review_count + ')' : '' }}</view>
     <view class="line-river-after line-river-after-top"></view>
 
-    <view wx:for='{{comment}}' wx:key='comment'>
+    <view wx:for='{{comment}}' wx:key='id'>
       <feed productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
     </view>
 
@@ -57,7 +57,7 @@
   <view class="line-river-after line-river-after-top"></view>
 
   <view class="product">
-    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='related_tags' data-name='{{ item.name }}' bindtap='goProductDetail'>
+    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='id' data-name='{{ item.name }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
           <image class="logo-img" src="{{item.logo}}"></image>
