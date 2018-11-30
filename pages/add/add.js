@@ -183,7 +183,7 @@ Page({
     var that = this;
     var doResponse = function (res_data) {
       wx.hideLoading();
-      if (res_data.data.code === 1000) {
+      if (res_data.code === 1000) {
 
       } else {
         wx.showToast({

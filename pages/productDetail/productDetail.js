@@ -45,28 +45,30 @@ Page({
           detail: response.data,
           loding: 0
         })
-
-        request.httpsPostRequest('/weapp/product/reviewList', {
-          tag_name: that.data.detail.name,
-          perPage: that.data.perPage
-        }, function (response) {
-          var code = response.code
-          if (code !== 1000) {
-            wx.showToast({
-              title: response.message,
-              icon: 'loading',
-              duration: 2000
-            })
-          }
-          that.data.comment = response.data.data
-          that.setData({
-            comment: that.data.comment
-          })
-          console.log(response.data.data, ':数组')
-        })
+        that.getReviewList()
       })
     });
 
+  },
+  getReviewList: function () {
+    var that = this;
+    request.httpsPostRequest('/weapp/product/reviewList', {
+      tag_name: that.data.detail.name,
+      perPage: that.data.perPage
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.data.comment = response.data.data
+      that.setData({
+        comment: that.data.comment
+      })
+    })
   },
   onAuthPhone: function (e) {
     this.setData({
@@ -140,6 +142,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.getReviewList();
     wx.stopPullDownRefresh();
   },
 
