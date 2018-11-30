@@ -9,7 +9,7 @@
             <view class="iconfont icon-times"></view>
           </view>
         </view>
-        <text class="cancel" bindtap="clearInput">取消</text>
+        <text class="cancel" bindtap="cancelInput">取消</text>
       </view>
   </view>
 
