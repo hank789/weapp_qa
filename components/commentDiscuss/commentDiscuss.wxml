@@ -20,11 +20,10 @@
         </view>
       </view>
 
-      <view class="list-item-discuss-children" wx:if='{{ item.children }}'>
+      <view class="list-item-discuss-children" wx:if='{{ item.children.length }}'>
         <DiscussReplay bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
-
-      <view class="line-river-after"></view>
+      <view class="line-river-after" wx:if='{{ index !== 2 }}'></view>
     </view>
   </view>
 </view>
