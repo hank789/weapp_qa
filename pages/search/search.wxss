@@ -4,6 +4,9 @@ page {
 .page__bd {
   padding: 0 32rpx;
 }
+.placeholder {
+  color: #C8C8C8;
+}
 .container-search {
   position: relative;
   width:100%;
