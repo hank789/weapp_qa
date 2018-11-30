@@ -29,11 +29,11 @@
 
         <view class="feed-moreOperation">
           <view class="feed-operation">
-            <view bindtap="downvote">
+            <view bindtap="downvote" class='upDownVote {{ productComments.feed.is_downvoted ? "active" : "" }}'>
               <text class="iconfont icon-cai1"></text>
               <text>{{productComments.feed.downvote_number}}</text>
             </view>
-            <view bindtap="upvote">
+            <view bindtap="upvote" class='upDownVote {{ productComments.feed.is_upvoted ? "active" : "" }}'>
               <text class="iconfont icon-zan1"></text>
               <text>{{productComments.feed.support_number}}</text>
             </view>
