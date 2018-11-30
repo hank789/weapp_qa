@@ -9,13 +9,12 @@
             <view class="iconfont icon-times"></view>
           </view>
         </view>
-        <text class="cancel" bindtap="clearInput">取消</text>
+        <text class="cancel" bindtap="cancelInput">取消</text>
       </view>
   </view>
 
   <view class="container-searchwrapper" bindtap='searchTipHidden' wx:if='{{ inputVal && searchTip }}'>
     <view class="search-list listOne">
-      <text wx:if='{{ inputVal.length > 1 }}'>查看“{{ inputVal }}”的搜索结果</text>
       <text class='gray' wx:if='{{ inputVal.length === 1 }}'>输入的字符数不足，请继续输入</text>
       <view class="bot"></view>
     </view>

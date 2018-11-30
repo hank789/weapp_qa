@@ -62,6 +62,14 @@ Page({
       inputVal: ""
     });
   },
+  cancelInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+    wx.navigateTo({
+      url: '../index/index'
+    });
+  },
   searchTipHidden: function () {
     if (this.data.inputVal.length > 1) {
       this.setData({

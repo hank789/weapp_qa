@@ -73,6 +73,12 @@ Page({
       userInfo: app.globalData.userInfo
     });
   },
+  onShareAppMessage: function () {
+    return{
+      title:'帮助您的企业获得适合的软件和服务',
+      path:"/pages/index/index"
+    }
+  },
   downloadApp: function (e) {
     
   }
