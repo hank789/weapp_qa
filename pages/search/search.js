@@ -84,7 +84,9 @@ Page({
       this.data.isSearching = false;
       return;
     }
-    this.data.isLoading = true;
+    this.setData({
+      isLoading: true
+    })
     var that = this
     request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
       if (res_data.code === 1000) {
@@ -136,6 +138,9 @@ Page({
     if (e.detail.value && this.data.inputVal && this.data.isSearching === false) {
       this.data.isSearching = true;
       this.data.isMore = true;
+      this.setData({
+        isLoading: true
+      })
       setTimeout(() => {
         this.loadList(1)
       }, 1000)
