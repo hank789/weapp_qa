@@ -5,15 +5,22 @@
 	    </view>
 	</view>
 
-    <view class="page__bd" bindtap="inputTyping">
+    <!-- <view class="page__bd" bindtap="inputTyping">
         <view class="weui-search-bar-custom">
             <view class="weui-search-bar__form">
                 <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="17"></icon>
+                    <text class="iconfont icon-sousuo searchIcon"></text>
                     <input type="text" disabled="true" class="weui-search-bar__input" placeholder="搜索你想了解的企业级产品和服务" placeholder-class="placeholder" />
                 </view>
             </view>
         </view>
+    </view> -->
+
+    <view class='searchWrapper' bindtap="inputTyping">
+      <view class='inputWrapper'>
+        <icon class="iconfont icon-sousuo"></icon>
+        <text class='placeholderText'>搜索你想了解的企业级产品和服务</text>
+      </view>
     </view>
 
     <view class="seach-keyword">
