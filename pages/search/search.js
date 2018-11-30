@@ -9,7 +9,7 @@ Page({
     list: [],
     isMore: true,
     page: 1,
-    isLoading: true,//是否显示加载数据提示
+    isLoading: false,//是否显示加载数据提示
     isSearching: false,
     inputVal: "",
     showNoResult: false,
@@ -22,10 +22,12 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo,
-        inputVal: options.id
+        userInfo:userInfo
       });
       if (options.id) {
+        that.setData({
+          inputVal: options.id
+        });
         that.loadList(1)
       }
     });
@@ -82,6 +84,9 @@ Page({
       this.data.isSearching = false;
       return;
     }
+    this.setData({
+      isLoading: true
+    })
     var that = this
     request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
       if (res_data.code === 1000) {
@@ -133,6 +138,9 @@ Page({
     if (e.detail.value && this.data.inputVal && this.data.isSearching === false) {
       this.data.isSearching = true;
       this.data.isMore = true;
+      this.setData({
+        isLoading: true
+      })
       setTimeout(() => {
         this.loadList(1)
       }, 1000)
