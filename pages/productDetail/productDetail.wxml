@@ -7,7 +7,8 @@
     <view class="companyNmae font-family-medium">{{ detail.name }}</view>
     <view class="companyMark">
       <view class="stars">
-        <view class="iconfont icon-xingxingyidian"></view>
+        <StarView rating='{{ detail.review_average_rate }}'></StarView>
+        <!-- <view class="iconfont icon-xingxingyidian"></view> -->
       </view>
       <view class="starsText">
         <text>{{ detail.review_average_rate }}分</text>
@@ -66,7 +67,8 @@
           <view class="productName font-family-medium">{{ item.name }}</view>
           <view class="productMark">
             <view class="stars">
-              <view class="iconfont icon-xingxingyidian"></view>
+            <StarView rating='{{ item.review_average_rate }}'></StarView>
+              <!-- <view class="iconfont icon-xingxingyidian"></view> -->
             </view>
             <view class="starsText">
               <text>{{ item.review_average_rate }}分</text>

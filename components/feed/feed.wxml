@@ -20,8 +20,8 @@
             <view class="commentFeedTitle text-line-5 currency-title">{{ productComments.feed.title }}</view>
             <!-- <view class="feed-open-all font-family-medium">展开全部</view> -->
 
-            <view class="container-images container-images-discover {{ 'container-images-' + productComments.feed.img.length }}" wx:for='{{productComments.feed.img}}' wx:key='img' >
-              <view class="container-image">
+            <view class="container-images container-images-discover {{ 'container-images-' + productComments.feed.img.length }}">
+              <view class="container-image" wx:for='{{productComments.feed.img}}' wx:key='img'>
                 <image src="{{item}}"></image>
               </view>
             </view>

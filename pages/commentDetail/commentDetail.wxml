@@ -10,7 +10,7 @@
           <text class='font-family-medium'>{{ detail.owner.name }}</text>
           <!-- <text class='excellent'>优质</text> -->
         </view>
-        <view class='time'>20分钟</view>
+        <view class='time'>{{ detail.created_at }}</view>
       </view>
     </view>
   </view>
@@ -18,14 +18,15 @@
   <view>
     <view class="mark">
       <view class="stars">
-        <view class='iconfont icon-xingxingyidian'></view>
+        <StarView rating='{{ detail.rate_star }}'></StarView>
+        <!-- <view class='iconfont icon-xingxingyidian'></view> -->
       </view>
       <view class="text">{{ detail.rate_star }}分</view>
     </view>
 
     <view class="discoverContentWrapper">
       <view class="contentWrapper quillDetailWrapper container-editor container-editor-app">
-        <text>{{ detail.title }}</text>
+        <rich-text nodes="{{detail.title}}"></rich-text>
       </view>
 
       <view class="linkWrapper Column" >
@@ -44,7 +45,8 @@
           <view class="text-line-1">{{detail.tags[0].name}}</view>
           <view class="mark">
             <view class="stars">
-              <view class='iconfont icon-xingxingyidian'></view>
+            <StarView rating='{{ detail.tags[0].review_average_rate }}'></StarView>
+              <!-- <view class='iconfont icon-xingxingyidian'></view> -->
             </view>
             <text class="text">{{ detail.tags[0].review_average_rate }}分</text><text class='spot'></text>
             <text class="comment">{{detail.tags[0].reviews}}条评论</text>
@@ -82,7 +84,8 @@
           <view class="productName font-family-medium">{{ item.name }}</view>
           <view class="productMark">
             <view class="stars">
-              <view class="iconfont icon-xingxingyidian"></view>
+              <StarView rating='{{ item.review_average_rate }}'></StarView>
+              <!-- <view class="iconfont icon-xingxingyidian"></view> -->
             </view>
             <view class="starsText">
               <text>{{ item.review_average_rate }}分</text>

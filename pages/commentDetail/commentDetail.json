@@ -3,6 +3,7 @@
   "usingComponents": {
     "commentDiscuss": "/components/commentDiscuss/commentDiscuss",
     "getUserInfo": "/components/getUserInfo/getUserInfo",
-    "getUserPhone": "/components/getUserPhone/getUserPhone"
+    "getUserPhone": "/components/getUserPhone/getUserPhone",
+    "StarView": "/components/starView/starView"
   }
 }

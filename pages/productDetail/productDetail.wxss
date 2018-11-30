@@ -33,9 +33,9 @@
   .starsText {
     display: inline-block;
     position: relative;
-    top: -1.96rpx;}
+    top: -15.96rpx;}
   .stars {
-    width: 116rpx;
+    width: 162rpx;
     height: 100%;
     position: relative;}
   .stars .icon-xingxingyidian {
@@ -112,5 +112,8 @@
     line-height: 34rpx;
   }
   .productMark .stars .icon-xingxingyidian {
+    top: 0;
+  }
+  .productMark .starsText {
     top: 0;
   }
