@@ -4,7 +4,7 @@
       <view class="container-search">
         <view class="search-wrapper">
           <view class="iconfont icon-sousuo"></view>
-          <input type="text" class="" placeholder-class="placeholder" placeholder="搜索你想了解的企业级产品和服务" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="" placeholder-class="placeholder" placeholder="搜索你想了解的企业级产品和服务" value="{{inputVal}}" focus="true" bindinput="inputTyping" />
           <view class="close" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <view class="iconfont icon-times"></view>
           </view>
@@ -21,7 +21,7 @@
     </view>
   </view>
 
-  <view class="product" wx:if='{{ list.length && inputVal.length > 1}}' >
+  <view class="product" wx:if='{{ list.length && inputVal.length >= 1}}' >
     <view class="comment-product" wx:for="{{list}}" wx:key="id" data-name='{{ item.name }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">

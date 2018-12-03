@@ -18,20 +18,31 @@ Page({
          userInfo:userInfo,
          loading:false
        });
-       request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
-         console.log(res_data);
-         if (res_data.code === 1000) {
-           that.setData({
-             keywords: res_data.data.words
-           });
-         } else {
-           wx.showToast({
-             title: res_data.message,
-             icon: 'loading',
-             duration: 2000
-           });
-         }
-       })
+       let keywords = wx.getStorageSync('hot_keywords');
+       if (keywords) {
+         that.setData({
+           keywords: keywords
+         });
+       } else {
+         request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
+           console.log(res_data);
+           if (res_data.code === 1000) {
+             that.setData({
+               keywords: res_data.data.words
+             });
+             wx.setStorage({
+               key:"hot_keywords",
+               data:res_data.data.words
+             })
+           } else {
+             wx.showToast({
+               title: res_data.message,
+               icon: 'loading',
+               duration: 2000
+             });
+           }
+         })
+       }
      });
   },
   onReady:function(){
