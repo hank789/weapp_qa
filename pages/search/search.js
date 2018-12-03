@@ -5,7 +5,6 @@ var request = require("../../utils/request.js");
 Page({
   data:{
     userInfo: {},
-    inputShowed: false,
     list: [],
     isMore: true,
     page: 1,
