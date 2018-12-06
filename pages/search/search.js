@@ -125,9 +125,9 @@ Page({
     });
   },
   goProductDetail (e) {
-    let name = e.currentTarget.dataset.name
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name
+      url: '../productDetail/productDetail?id=' + id
     });
   },
   inputTyping: function (e) {
