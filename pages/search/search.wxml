@@ -22,7 +22,7 @@
   </view>
 
   <view class="product" wx:if='{{ list.length && inputVal.length >= 1}}' >
-    <view class="comment-product" wx:for="{{list}}" wx:key="id" data-name='{{ item.name }}' bindtap='goProductDetail'>
+    <view class="comment-product" wx:for="{{list}}" wx:key="id" data-id='{{ item.id }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
           <image class="logo-img" src="{{item.logo}}"></image>

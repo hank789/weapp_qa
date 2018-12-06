@@ -22,16 +22,17 @@ Page({
   onLoad:function (options) {
     var that = this;
     var scene = decodeURIComponent(options.scene)
-    var tagName = options.name
+    var tagId = options.id
+    console.log(tagId)
     if (scene !== 'undefined') {
-      tagName = scene.split("=")[1];
+      tagId = scene.split("=")[1];
     }
     app.getUserInfo(function(userInfo){
       that.setData({
         userInfo:userInfo
       });
       request.httpsGetRequest('/weapp/product/info', {
-        tag_name: tagName
+        tag_name: tagId
       }, function (response) {
         var code = response.code
         if (code !== 1000) {
