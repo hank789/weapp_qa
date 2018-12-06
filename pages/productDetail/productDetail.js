@@ -159,7 +159,7 @@ Page({
   onShareAppMessage: function () {
     return{
       title:this.data.detail.name,
-      path:"/pages/productDetail/productDetail?name=" + this.data.detail.name
+      path:"/pages/productDetail/productDetail?id=" + this.data.detail.id
     }
   }
 })
