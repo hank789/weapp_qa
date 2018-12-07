@@ -57,7 +57,13 @@ Page({
     this.data.pictures = [];
     pictures = [];//防止缓存影响
     var tagName = options.tag
+    var starMark = options.starMark
     var that = this;
+    if (starMark) {
+      that.setData({
+        starNumber: starMark
+      })
+    }
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       if (!userInfo.mobile) {

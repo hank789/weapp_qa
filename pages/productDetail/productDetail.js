@@ -13,7 +13,8 @@ Page({
     loding: 1,
     comment: [],
     perPage: 3,
-    authUserPhone: false
+    authUserPhone: false,
+    starNumber: ''
   },
 
   /**
@@ -92,8 +93,14 @@ Page({
       url: '../productDetail/productDetail?name=' + name
     });
   },
+  goAdd(e) {
+    console.log(e, ":starNumber")
+    let name = e.currentTarget.dataset.starNumber
+    wx.navigateTo({
+      // url: '../allDianping/allDianping?name=' + name,
+    })
+  },
   goAllDianping(e) {
-    console.log(e, ':goAllComment')
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
       url: '../allDianping/allDianping?name=' + name,

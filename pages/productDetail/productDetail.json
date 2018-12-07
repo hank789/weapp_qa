@@ -3,6 +3,7 @@
     "feed": "/components/feed/feed",
     "getUserInfo": "/components/getUserInfo/getUserInfo",
     "getUserPhone": "/components/getUserPhone/getUserPhone",
-    "StarView": "/components/starView/starView"
+    "StarView": "/components/starView/starView",
+    "MarkStar": "/components/markStar/markStar"
   }
 }

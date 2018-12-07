@@ -1,0 +1,23 @@
+
+@import '../../iconfont/iconfont.wxss';
+.stars {
+  position:relative;
+  color:#FCC816;
+  font-size:45.98rpx;
+  margin-bottom:30rpx;
+  display:flex;
+}
+
+.stars .star .iconfont {
+  font-size: 46rpx;
+  color: #FCC816;
+  margin:0 7rpx;
+}
+.textareaColor {
+  color: #B4B4B6;
+  line-height: 52rpx;
+}
+.weui-select {
+  font-size: 30rpx;
+  color: #444444;
+}

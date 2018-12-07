@@ -1,0 +1,29 @@
+<view class='page'>
+
+  <view class="stars">
+      <view class='star' bindtap='oneStar' data-mark='1'>
+        <text wx:if='{{ starNumber < 1 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+        <text wx:if='{{ starNumber >=1 }}' class='iconfont icon-shixinxingxing starShi'></text>
+      </view>
+      <view class='star' bindtap='twoStar' data-mark='2'>
+        <text wx:if='{{ starNumber < 2 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+        <text wx:if='{{ starNumber >=2 }}'  class='iconfont icon-shixinxingxing starShi'></text>
+      </view>
+      <view class='star' bindtap='threeStar' data-mark='3'>
+        <text wx:if='{{ starNumber < 3 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+        <text wx:if='{{ starNumber >=3 }}'  class='iconfont icon-shixinxingxing starShi'></text>
+      </view>
+      <view class='star' bindtap='fourStar' data-mark='4'>
+        <text wx:if='{{ starNumber < 4 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+        <text wx:if='{{ starNumber >=4 }}'  class='iconfont icon-shixinxingxing starShi'></text>
+      </view>
+      <view class='star' bindtap='fiveStar' data-mark='5'>
+        <text wx:if='{{ starNumber < 5 }}' class='iconfont icon-xingxingkongxin starKong'></text>
+        <text wx:if='{{ starNumber >=5 }}'  class='iconfont icon-shixinxingxing starShi'></text>
+      </view>
+
+      <!-- <view class='iconfont icon-xingxingyidian'></view> -->
+      <view class="ratingNumber" wx:if='{{starNumber && showNumber}}'>{{starNumber}}分</view>
+    </view>
+
+</view>

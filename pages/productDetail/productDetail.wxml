@@ -51,9 +51,12 @@
 
   <view class="line-river-big"></view>
 
-  <view class="component-score" bindtap="goToDianPing">
+  <view class="component-score">
     <view class="text">就您的感受而言，您会给他打多少分？</view>
-    <view class='iconfont icon-xingxingweidian'></view>
+    <!-- <view class='iconfont icon-xingxingweidian'></view>   bindtap="goToDianPing" -->
+
+    <MarkStar data-starNumber='{{starNumber}}' name='{{ detail.name }}' showNumber='{{ false }}'></MarkStar>
+
   </view>
 
   <view class="line-river-big"></view>
