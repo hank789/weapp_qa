@@ -421,3 +421,14 @@ page {
 .operationList .isActive .textIcon .number {
   color: #FFFFFF;
 }
+
+
+.commentBig {
+  width: 500rpx;
+  height: 144rpx;
+  margin: 0 auto;
+}
+.commentBig .img {
+  width: 100%;
+  height: 100%;
+}

@@ -9,7 +9,8 @@
     "pages/feed/feed",
     "pages/logs/logs",
     "components/feed/feed",
-    "pages/allDianping/allDianping"
+    "pages/allDianping/allDianping",
+    "pages/activity/activity"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -160,3 +160,9 @@ page {
   color: #C8C8C8;
   font-size: 28rpx;
 }
+.commentGiving {
+  position: absolute;
+  bottom: 225rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

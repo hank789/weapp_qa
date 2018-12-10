@@ -1,0 +1,83 @@
+<view class='page'>
+  <view class='commentBig'>
+    <image class='img' src='../../images/commentBig@3x.png'></image>
+  </view>
+
+  <view class='activityTime currencyWrapper'>
+    <view class='currencyTitle font-family-medium'>活动时间</view>
+    <view class='currencyText'>2018.12.08-2018.12.30</view>
+    <view class='line-river-after line-river-after-top'></view>
+  </view>
+
+  <view class='activityRule currencyWrapper'>
+    <view class='currencyTitle font-family-medium'>活动时间</view>
+    <view class='ruleList'>
+      <view class='rule'>
+        <text class='spot'></text>
+        <text class='currencyText'>点评一款产品，内容100字以上，凑字作假无效</text>
+      </view>
+      <view class='rule'>
+        <text class='spot'></text>
+        <text class='currencyText'>该条点评非匿名并获得5个及以上点赞</text>
+      </view>
+      <view class='rule'>
+        <text class='spot'></text>
+        <text class='currencyText'>满足条件平台即赠送咖啡一杯(或等值饮品) </text>
+      </view>
+      <view class='rule'>
+        <text class='spot'></text>
+        <text class='currencyText'>同款产品下，同一账号只限点评一次 </text>
+      </view>
+      <view class='rule'>
+        <text class='spot'></text>
+        <text class='currencyText'>活动首批兑换10000杯 先兑先得，兑完暂止 </text>
+      </view>
+    </view>
+    <view class='line-river-after line-river-after-top'></view>
+  </view>
+
+  <view class='activityStep currencyWrapper'>
+    <view class='currencyTitle font-family-medium'>领奖步骤</view>
+    <view class='ruleList'>
+      <view class='rule'>
+        <text class='number'>1.</text>
+        <text class='currencyText'>请您添加平台客服微信hiinwe </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>2.</text>
+        <text class='currencyText'>截图发送“我的点评”详情给客服 </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>3.</text>
+        <text class='currencyText'>填写领奖配送地址或领取咖啡兑换券</text>
+      </view>
+      <view class='rule'>
+        <text class='number'>4.</text>
+        <text class='currencyText'>品牌包含不限于星巴克、Costa、luckin coffee </text>
+      </view>
+    </view>
+    <view class='line-river-after line-river-after-top'></view>
+  </view>
+
+  <view class='contactWrapper'>
+    <view class='contactText'>
+      <text>最终解释权归平台所有，如有其它疑问，</text>
+      <button hover-class="none">联系客服</button>
+    </view>
+  </view>
+
+  <view class='takePart'>
+    <view class='line-river-after line-river-after-top'></view>
+    <view class='takePartWrapper'>
+      <view class='buttonText'>立即参与</view>
+      <view class='mycomment'>
+        <view class='editImg'>
+          <image src='../../images/page_3@3x.png'></image>
+        </view>
+        <view>我的点评</view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

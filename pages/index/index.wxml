@@ -5,17 +5,6 @@
 	    </view>
 	</view>
 
-    <!-- <view class="page__bd" bindtap="inputTyping">
-        <view class="weui-search-bar-custom">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <text class="iconfont icon-sousuo searchIcon"></text>
-                    <input type="text" disabled="true" class="weui-search-bar__input" placeholder="搜索你想了解的企业级产品和服务" placeholder-class="placeholder" />
-                </view>
-            </view>
-        </view>
-    </view> -->
-
     <view class='searchWrapper' bindtap="inputTyping">
       <view class='inputWrapper'>
         <icon class="iconfont icon-sousuo"></icon>
@@ -32,22 +21,30 @@
       </view>
     </view>
 
+    <view class='commentGiving'>
+      <navigator url='../activity/activity' hover-class='none'>
+        <view class='commentBig'>
+          <image class='img' src='../../images/commentBig@3x.png'></image>
+        </view>
+      </navigator>
+    </view>
+
     <view class="index-bottom">
       <view class="bottom-operation">
         <button hover-class="none" open-type="contact" class="docbutton">
-        <view class="bottom-about">
-          <text class='iconfont icon-youxiang'></text>
-          <text>联系我们</text>
-        </view>
+          <view class="bottom-about">
+            <text class='iconfont icon-youxiang'></text>
+            <text>联系我们</text>
+          </view>
         </button>
-          <view class="spot"></view>
+        <view class="spot"></view>
         
         <button hover-class="none" open-type="share" class="docbutton">
-        <view class="bottom-about">
-          <text class='iconfont icon-fenxiang'></text>
-          <text>分享朋友</text>
-          <!-- <view class="spot"></view> -->
-        </view>
+          <view class="bottom-about">
+            <text class='iconfont icon-fenxiang'></text>
+            <text>分享朋友</text>
+            <!-- <view class="spot"></view> -->
+          </view>
         </button>
       </view>
       <view class="included">
