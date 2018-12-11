@@ -3,8 +3,10 @@
     <view class='iconfont icon-check-circle'></view>
     <view class='sucessText font-family-medium'>发布成功!</view>
     <view class='share'>快分享求赞吧~</view>
-    <view class='shareIcon'>
-      <view class='iconfont icon-fenxiang'></view>
-    </view>
+    <button hover-class="none" open-type="share" class="docbutton">
+      <view class='shareIcon'>
+        <view class='iconfont icon-fenxiang'></view>
+      </view>
+    </button>
   </view>
 </view>

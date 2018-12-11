@@ -22,13 +22,27 @@
 .sucessWrapper .shareIcon {
   width: 88rpx;
   height: 88rpx;
-  margin: 40rpx auto;
+  margin: 0 auto;
   border-radius: 50%;
   background: #FFFFFF;
-  box-shadow:0px 0px 19rpx 0px rgba(234,240,244,1);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .sucessWrapper .shareIcon .iconfont {
   color: #03AEF9;
   font-size: 43rpx;
   line-height: 88rpx;
+}
+.docbutton {
+  width: 88rpx;
+  height: 88rpx;
+  margin: 40rpx auto;
+  border-radius: 50%;
+  position: relative;
+  box-shadow:0px 0px 19rpx 0px rgba(234,240,244,1);
+  background: #FFFFFF;
+}
+button.docbutton::after {
+  border: none;
 }
