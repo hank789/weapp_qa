@@ -1,9 +1,9 @@
 <view class='page'>
-  <view class=''>
+  <view class='sucessWrapper'>
     <view class='iconfont icon-check-circle'></view>
-    <view>发布成功！</view>
-    <view>快分享求赞吧~</view>
-    <view>
+    <view class='sucessText font-family-medium'>发布成功!</view>
+    <view class='share'>快分享求赞吧~</view>
+    <view class='shareIcon'>
       <view class='iconfont icon-fenxiang'></view>
     </view>
   </view>
