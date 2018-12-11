@@ -11,7 +11,8 @@
     "components/feed/feed",
     "pages/allDianping/allDianping",
     "pages/activity/activity",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/myComment/myComment"
   ],
   "window": {
     "navigationBarTextStyle": "black",

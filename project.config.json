@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -50,7 +50,13 @@
 				{
 					"id": -1,
 					"name": "发布成功",
-					"pathName": "pages/publish/publish"
+					"pathName": "pages/publish/publish",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的点评",
+					"pathName": "pages/myComment/myComment"
 				}
 			]
 		}
