@@ -1,3 +1,15 @@
 <view class='page'>
-  
+
+  <!-- 未点评 -->
+  <view class='noCommentWrapper'>
+    <view class='noCommentImg'>
+    <image class='img' src='../../images/empty@3x.png'></image>      
+    </view>
+    <view class='noCommentText'>
+      <text class='text'>您还未写过点评，</text>
+      <navigator hover-class='none' url='../index/index'>
+        <text class='text font-family-medium'>去搜索产品写点评</text>        
+      </navigator>
+    </view>
+  </view>
 </view>
