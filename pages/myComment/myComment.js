@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden: false,
     commentList: [],
     userInfo: {}
   },
@@ -21,25 +20,8 @@ Page({
       that.setData({
         userInfo: userInfo
       });
-      request.httpsGetRequest('/weapp/product/myReview', {
-        type: 2
-      }, function (response) {
-        var code = response.code
-        if (code !== 1000) {
-          wx.showToast({
-            title: response.message,
-            icon: 'loading',
-            duration: 2000
-          })
-        }
-        that.data.commentList = response.data.data
-        that.setData({
-          commentList: that.data.commentList,
-        })
-      })
+      that.getMyComment()
     });
-
-
   },
 
   getMyComment: function () {
@@ -56,9 +38,8 @@ Page({
         })
       }
       that.data.commentList = response.data.data
-      console.log(response,'数据')
       that.setData({
-        commentList: that.data.commentList
+        commentList: that.data.commentList,
       })
     })
   },

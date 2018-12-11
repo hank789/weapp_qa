@@ -21,7 +21,16 @@ Page({
   onReady: function () {
   
   },
-
+  goMyComment: function () {
+    wx.navigateTo({
+      url: '../myComment/myComment'
+    });
+  },
+  backHome: function () {
+    wx.navigateTo({
+      url: '../index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

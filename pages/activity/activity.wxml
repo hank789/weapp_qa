@@ -62,15 +62,15 @@
   <view class='contactWrapper'>
     <view class='contactText'>
       <text class='word'>最终解释权归平台所有，如有其它疑问，</text>
-      <button hover-class="none">联系客服</button>
+      <button hover-class="none" open-type="contact">联系客服</button>
     </view>
   </view>
 
   <view class='takePart'>
     <view class='line-river-after line-river-after-top'></view>
     <view class='takePartWrapper'>
-      <view class='buttonText'>立即参与</view>
-      <view class='mycomment'>
+      <view class='buttonText' bindtap='backHome'>立即参与</view>
+      <view class='mycomment' bindtap='goMyComment'>
         <view class='editImg'>
           <image src='../../images/page_3@3x.png'></image>
         </view>
