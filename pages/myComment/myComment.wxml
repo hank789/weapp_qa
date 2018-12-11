@@ -1,7 +1,11 @@
 <view class='page'>
 
+<view wx:for='{{ commentList }}'  wx:key='commentList'>
+  <feed productComments='{{ item }}' showProductName='{{ true }}' bind:authPhone="onAuthPhone"></feed>
+</view>
+
   <!-- 未点评 -->
-  <view class='noCommentWrapper'>
+  <view class='noCommentWrapper' wx:if='{{ hidden }}'>
     <view class='noCommentImg'>
     <image class='img' src='../../images/empty@3x.png'></image>      
     </view>

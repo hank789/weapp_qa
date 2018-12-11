@@ -85,8 +85,9 @@ Page({
   },
   goProductDetail: function (e) {
     let name = e.currentTarget.dataset.name
+    let id = e.currentTarget.dataset.tagid
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name,
+      url: '../productDetail/productDetail?name=' + name + '&id=' + id,
     })
   },
   onAuthPhone: function (e) {

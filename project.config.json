@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -56,7 +56,14 @@
 				{
 					"id": -1,
 					"name": "我的点评",
-					"pathName": "pages/myComment/myComment"
+					"pathName": "pages/myComment/myComment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "点评详情",
+					"pathName": "pages/commentDetail/commentDetail",
+					"query": "slug=BC-199"
 				}
 			]
 		}

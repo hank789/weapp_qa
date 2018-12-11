@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我的点评"
+  "navigationBarTitleText": "我的点评",
+  "usingComponents": {
+    "feed": "/components/feed/feed"
+  }
 }

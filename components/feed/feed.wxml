@@ -28,6 +28,9 @@
         </view>
 
         <view class="feed-moreOperation">
+          <view class='feed-mord' >
+            <text wx:if='{{ showProductName }}'>{{ productComments.feed.tags[0].name }}</text>
+          </view>
           <view class="feed-operation">
             <view bindtap="downvote" class='upDownVote {{ productComments.feed.is_downvoted ? "active" : "" }}'>
               <text class="iconfont icon-cai1"></text>

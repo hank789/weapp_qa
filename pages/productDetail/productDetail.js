@@ -21,10 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad:function (options) {
+
     var that = this;
     var scene = decodeURIComponent(options.scene)
     var tagId = options.id
-    console.log(tagId)
     if (scene !== 'undefined') {
       tagId = scene.split("=")[1];
     }
@@ -90,9 +90,10 @@ Page({
   },
   goProductDetail(e) {
     let name = e.currentTarget.dataset.name
+    let id = e.currentTarget.dataset.tagid
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name
-    });
+      url: '../productDetail/productDetail?name=' + name + '&id=' + id,
+    })
   },
   goAdd(e) {
     console.log(e, ":starNumber")

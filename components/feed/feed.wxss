@@ -98,7 +98,18 @@
   /* margin-top: 20rpx; */
   color: #808080;
   /* margin-bottom: 20rpx; */
-  text-align: right;
+  /* text-align: right; */
+  display: flex;
+  justify-content: space-between;
+}
+.feed-moreOperation .feed-mord {
+  /* height: 40rpx; */
+  line-height: 80rpx;
+  padding-left: 32rpx;
+}
+.feed-moreOperation .feed-mord text {
+  color: #808080;
+  font-size: 28rpx;
 }
 .feed-operation {
   padding-top: 10rpx;
