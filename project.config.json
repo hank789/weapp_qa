@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,13 @@
 				{
 					"id": -1,
 					"name": "活动页",
-					"pathName": "pages/activity/activity"
+					"pathName": "pages/activity/activity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布成功",
+					"pathName": "pages/publish/publish"
 				}
 			]
 		}

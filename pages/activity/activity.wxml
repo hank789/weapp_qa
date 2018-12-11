@@ -61,7 +61,7 @@
 
   <view class='contactWrapper'>
     <view class='contactText'>
-      <text>最终解释权归平台所有，如有其它疑问，</text>
+      <text class='word'>最终解释权归平台所有，如有其它疑问，</text>
       <button hover-class="none">联系客服</button>
     </view>
   </view>
