@@ -1,6 +1,6 @@
 <view class="page">
     <view class="commentList">
-        <view class="commentUser">
+        <view class="commentUser" bindtap='goCommentDetail'>
           <view class="userInfo">
             <view class="avatar">
               <image src="{{productComments.user.avatar}}"></image>
