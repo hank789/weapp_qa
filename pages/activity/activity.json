@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "咖啡暖心意 · 点评有好礼"
+  "navigationBarTitleText": "咖啡暖心意 · 点评有好礼",
+  "usingComponents": {
+    "Dialog": "/components/dialog/dialog"
+  }
 }

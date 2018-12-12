@@ -65,6 +65,9 @@
 .contactWrapper .contactText button::after {
   border: none;
 }
+.wechatNumbe {
+  color: #03AEF9;
+}
 
 .takePart {
   width: 100%;

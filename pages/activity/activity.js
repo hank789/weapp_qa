@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    showPopup: false
   },
 
   /**
@@ -29,6 +29,11 @@ Page({
   backHome: function () {
     wx.navigateTo({
       url: '../index/index',
+    })
+  },
+  showIsPopup: function () {
+    this.setData({
+      showPopup: true
     })
   },
   /**

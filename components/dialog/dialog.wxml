@@ -1,0 +1,11 @@
+<view class='wx-popup' catchtouchmove='true' hidden='{{ !isShow }}'>
+  <view class='codeWrapper'>
+    <view class='closeIcon' bindtap='closePopup'>
+      <text class='iconfont icon-times--'></text>
+    </view>
+    <view class='text'>截图保存后扫描 添加小哈微信</view>
+    <view class='codeImg'>
+      <image class='img' src='../../images/inwehubWechat@3x.png'></image>
+    </view>
+  </view>
+</view>

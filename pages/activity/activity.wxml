@@ -41,7 +41,8 @@
     <view class='ruleList'>
       <view class='rule'>
         <text class='number'>1.</text>
-        <text class='currencyText'>请您添加平台客服微信hiinwe </text>
+        <text class='currencyText'>请您添加平台客服微信 </text>
+         <text class='wechatNumbe' bindtap='showIsPopup'> hiinwe</text> 
       </view>
       <view class='rule'>
         <text class='number'>2.</text>
@@ -77,6 +78,10 @@
         <view>我的点评</view>
       </view>
     </view>
+  </view>
+
+  <view>
+    <Dialog isShow='{{showPopup}}'></Dialog>
   </view>
 
 
