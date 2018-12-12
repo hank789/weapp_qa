@@ -191,7 +191,7 @@ Page({
     }, 3000);
   },
   formSubmit: function(e) {
-    console.log(this.data.title)
+    console.log(this.data.tag + 'title123')
     var cids = []
     for(let i=0;i<this.data.categoryArr.length;i++) {
       if (this.data.categoryArr[i].selected) {
@@ -246,14 +246,15 @@ Page({
           }
         }
         wx.redirectTo({
-          url: '../productDetail/productDetail?name='+that.data.tag,
-          success: function (e) {
-            wx.showToast({
-              title: '点评成功',
-              icon: 'success',
-              duration: 1000
-            });
-          }
+          url: '../publish/publish',
+          // url: '../commentDetail/commentDetail?slug=' + res_data.data.slug,
+          // success: function (e) {
+          //   wx.showToast({
+          //     title: '点评成功',
+          //     icon: 'success',
+          //     duration: 1000
+          //   });
+          // }
         });
       } else {
         wx.showToast({
