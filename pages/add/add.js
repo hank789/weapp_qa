@@ -235,7 +235,8 @@ Page({
       }
     };
     request.httpsPostRequest(requestUrl, jsonData, function (res_data) {
-      console.log(res_data);
+      console.log(res_data, '数据');
+      console.log(that.data.userInfo, ':userInfo')
       wx.hideLoading();
       if (res_data.code === 1000) {
         if (that.data.pictures.length >=1) {
@@ -246,7 +247,7 @@ Page({
           }
         }
         wx.redirectTo({
-          url: '../publish/publish',
+          url: '../publish/publish?slug=' + res_data.data.slug + '&name=' + that.data.userInfo.name + '&tag=' + that.data.tag,
           // url: '../commentDetail/commentDetail?slug=' + res_data.data.slug,
           // success: function (e) {
           //   wx.showToast({
