@@ -84,10 +84,9 @@ Page({
     })
   },
   goProductDetail: function (e) {
-    let name = e.currentTarget.dataset.name
-    let id = e.currentTarget.dataset.tagid
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name + '&id=' + id,
+      url: '../productDetail/productDetail?id=' + id,
     })
   },
   onAuthPhone: function (e) {
@@ -156,11 +155,6 @@ Page({
       }
     })
   },
-  goActivityDetail() {
-    wx.navigateTo({
-      url: '../activity/activity',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -193,8 +187,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getCommentList();
-    wx.stopPullDownRefresh();
+    this.getCommentList()
   },
 
   /**
