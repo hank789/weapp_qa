@@ -74,7 +74,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: this.data.userName + '对「' + this.data.productName + '」的点评',
+      title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
+      imageUrl: '',
       path: "/pages/commentDetail/commentDetail?slug=" + this.data.slug
     }
   }

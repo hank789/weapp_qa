@@ -14,7 +14,7 @@
     <view class='ruleList'>
       <view class='rule'>
         <text class='spot'></text>
-        <text class='currencyText'>点评一款产品，内容100字以上，凑字作假无效</text>
+        <text class='currencyText'>点评一款产品，内容50字以上，凑字作假无效</text>
       </view>
       <view class='rule'>
         <text class='spot'></text>

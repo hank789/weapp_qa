@@ -70,6 +70,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '咖啡暖心意 · 点评有好礼'
+    }
   }
 })
