@@ -1,11 +1,17 @@
 <view class='page'>
-
-<view wx:for='{{ commentList }}'  wx:key='commentList'>
+<!--引入加载更多模版-->
+<import src="../../template/loading" />
+<block wx:if="{{list.length > 0}}">
+<view wx:for='{{ list }}'  wx:key='id'>
   <feed productComments='{{ item }}' showProductName='{{ true }}' bind:authPhone="onAuthPhone"></feed>
 </view>
-
+</block>
+<block wx:if="{{isLoading}}">
+  <template is="loading" />
+</block>
+<block wx:elif="{{list.length<=0}}">
   <!-- 未点评 -->
-  <view class='noCommentWrapper' wx:if='{{ !commentList.length }}'>
+  <view class='noCommentWrapper'>
     <view class='noCommentImg'>
     <image class='img' src='../../images/empty@3x.png'></image>      
     </view>
@@ -16,4 +22,5 @@
       </navigator>
     </view>
   </view>
+</block>
 </view>
