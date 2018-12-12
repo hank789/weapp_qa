@@ -89,10 +89,9 @@ Page({
     });
   },
   goProductDetail(e) {
-    let name = e.currentTarget.dataset.name
-    let id = e.currentTarget.dataset.tagid
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name + '&id=' + id,
+      url: '../productDetail/productDetail?id=' + id,
     })
   },
   goAdd(e) {
