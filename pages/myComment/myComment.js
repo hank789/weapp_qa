@@ -6,8 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commentList: [],
-    userInfo: {}
+    list: [],
+    page: 1,
+    userInfo: {},
+    isMore: true,
+    isLoading: true //是否显示加载数据提示
   },
 
   /**
@@ -20,27 +23,41 @@ Page({
       that.setData({
         userInfo: userInfo
       });
-      that.getMyComment()
+      that.loadList(1)
     });
   },
 
-  getMyComment: function () {
+  loadList: function (page) {
     var that = this;
     request.httpsGetRequest('/weapp/product/myReview', {
-      type: 2
-    }, function (response) {
-      var code = response.code
-      if (code !== 1000) {
+      type: 2,
+      page: page
+    }, function (res_data) {
+      if (res_data.code === 1000) {
+        var isMore = that.data.isMore;
+        var nextPage = page + 1;
+        if (page === 1) {
+          that.data.list = res_data.data.data;
+        } else {
+          that.data.list = that.data.list.concat(res_data.data.data);
+        }
+        if (!res_data.data.next_page_url) {
+          isMore = false;
+        }
+
+        that.setData({
+          list: that.data.list,
+          page: nextPage,
+          isLoading: false,
+          isMore: isMore
+        });
+      } else {
         wx.showToast({
-          title: response.message,
+          title: res_data.message,
           icon: 'loading',
           duration: 2000
-        })
+        });
       }
-      that.data.commentList = response.data.data
-      that.setData({
-        commentList: that.data.commentList,
-      })
     })
   },
 
@@ -76,14 +93,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    // 下拉刷新
+    this.data.page = 1;
+    this.loadList(1);
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.isMore) {
+      this.setData({
+        isLoading: true
+      });
+      this.loadList(this.data.page);
+    }
   },
 
   /**
