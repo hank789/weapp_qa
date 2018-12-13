@@ -24,9 +24,13 @@ Page({
         userInfo:userInfo
       });
       if (options.id) {
-        that.setData({
-          inputVal: options.id
-        });
+        if (options.id === '点评送咖啡') {
+          that.data.inputVal = options.id
+        } else {
+          that.setData({
+            inputVal: options.id
+          });
+        }
         that.loadList(1)
       }
     });
