@@ -15,7 +15,8 @@ Page({
     comment: [],
     perPage: 3,
     authUserPhone: false,
-    starNumber: ''
+    starNumber: '',
+    isShowPopup: false
   },
 
   /**
@@ -82,7 +83,8 @@ Page({
   },
   onAuthPhone: function (e) {
     this.setData({
-      authUserPhone: true
+      authUserPhone: true,
+      isShowPopup: true
     });
   },
   onAuthPhoneOk: function (e) {
@@ -118,7 +120,8 @@ Page({
   goToDianPing(e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }

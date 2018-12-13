@@ -93,7 +93,7 @@
        <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
     </block>
     <block wx:if="{{authUserPhone && !userInfo.mobile}}">
-       <getUserPhone bind:authPhoneOk="onAuthPhoneOk"></getUserPhone>
+       <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
     </block>
 
   <view class='giftWrapper' bindtap='goActivityDetail'>

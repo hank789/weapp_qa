@@ -4,7 +4,7 @@
 
 <block wx:if="{{list.length > 0}}">
 <view wx:for='{{list}}' wx:key='id'>
-    <feed productComments='{{item}}'></feed>
+    <feed productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
 </view>
 </block>
 <block wx:if="{{isLoading}}">
@@ -17,6 +17,6 @@
      <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
   </block>
   <block wx:if="{{authUserPhone && !userInfo.mobile}}">
-     <getUserPhone bind:authPhoneOk="onAuthPhoneOk"></getUserPhone>
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
   </block>
 </view>

@@ -11,7 +11,8 @@ Page({
     tagName: '',
     isLoading: true,//是否显示加载数据提示
     isMore: true,
-    authUserPhone: false
+    authUserPhone: false,
+    isShowPopup: false
   },
 
   /**
@@ -132,7 +133,8 @@ Page({
   },
   onAuthPhone: function (e) {
     this.setData({
-      authUserPhone: true
+      authUserPhone: true,
+      isShowPopup: true
     });
   },
   /**

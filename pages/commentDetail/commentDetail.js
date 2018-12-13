@@ -17,7 +17,8 @@ Page({
     commentList: [],
     slug: '',
     commentTotal: '',
-    authUserPhone: false
+    authUserPhone: false,
+    isShowPopup: false
   },
 
   /**
@@ -91,7 +92,8 @@ Page({
   },
   onAuthPhone: function (e) {
     this.setData({
-      authUserPhone: true
+      authUserPhone: true,
+      isShowPopup: true
     });
   },
   onAuthPhoneOk: function (e) {
@@ -108,7 +110,8 @@ Page({
   upvote: function (e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }
@@ -133,7 +136,8 @@ Page({
   downvote: function (e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }
