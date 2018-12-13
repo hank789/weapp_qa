@@ -60,7 +60,7 @@
       </view>
       <view class='rule'>
         <text class='number'>4.</text>
-        <text class='currencyText'>品牌包含不限于星巴克、Costa、luckin coffee </text>
+        <text class='currencyText'>品牌包含不限于星巴克、Costa、luckin coffee等 </text>
       </view>
       <view class='rule'>
         <text class='number'>5.</text>
