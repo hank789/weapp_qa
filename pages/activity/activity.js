@@ -28,7 +28,7 @@ Page({
   },
   backHome: function () {
     wx.navigateTo({
-      url: '../search/search',
+      url: '../search/search?id=点评送咖啡',
     })
   },
   showIsPopup: function () {
