@@ -1,43 +1,49 @@
 <view class='page'>
-  <view class='commentBig'>
-    <image class='img' src='../../images/commentBig@3x.png'></image>
+  <view class='topBig'>
+    <image class='img' src='../../images/acticityImg@3x.png'></image>
   </view>
 
   <view class='activityTime currencyWrapper'>
-    <view class='currencyTitle font-family-medium'>活动时间</view>
-    <view class='currencyText'>2018.12.08-2018.12.30</view>
-    <view class='line-river-after line-river-after-top'></view>
-  </view>
+    <view class='currencyTitle font-family-medium'>参与和玩法</view>
+    <view class='step'>
 
-  <view class='activityRule currencyWrapper'>
-    <view class='currencyTitle font-family-medium'>活动时间</view>
-    <view class='ruleList'>
-      <view class='rule'>
-        <text class='spot'></text>
-        <text class='currencyText'>点评一款产品，内容50字以上，凑字作假无效</text>
+      <view class='stepOne'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/1@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>写点评</view>
+          <view class='describe'>点评一款产品，50字以上，凑字作假无效</view>
+        </view> 
       </view>
-      <view class='rule'>
-        <text class='spot'></text>
-        <text class='currencyText'>该条点评非匿名并获得5个及以上点赞</text>
+
+      <view class='stepOne'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/2@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>集5赞</view>
+          <view class='describe'>该条点评非匿名并获得5个及以上点赞</view>
+        </view> 
       </view>
-      <view class='rule'>
-        <text class='spot'></text>
-        <text class='currencyText'>满足条件平台即赠送咖啡一杯(或等值饮品) </text>
+
+      <view class='stepOne stepThree'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/3@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>领咖啡</view>
+          <view class='describe'>满足条件平台即赠送咖啡一杯(或等值饮品)</view>
+        </view> 
       </view>
-      <view class='rule'>
-        <text class='spot'></text>
-        <text class='currencyText'>同款产品下，同一账号只限点评一次 </text>
-      </view>
-      <view class='rule'>
-        <text class='spot'></text>
-        <text class='currencyText'>活动首批兑换10000杯 先兑先得，兑完暂止 </text>
-      </view>
+
     </view>
+
     <view class='line-river-after line-river-after-top'></view>
   </view>
 
   <view class='activityStep currencyWrapper'>
-    <view class='currencyTitle font-family-medium'>领奖步骤</view>
+    <view class='currencyTitle font-family-medium'>领奖与规则</view>
     <view class='ruleList'>
       <view class='rule'>
         <text class='number'>1.</text>
@@ -55,6 +61,14 @@
       <view class='rule'>
         <text class='number'>4.</text>
         <text class='currencyText'>品牌包含不限于星巴克、Costa、luckin coffee </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>5.</text>
+        <text class='currencyText'>同款产品下，同一账号只限点评一次 </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>6.</text>
+        <text class='currencyText'>活动首批兑换10000杯 先兑先得，兑完暂止</text>
       </view>
     </view>
     <view class='line-river-after line-river-after-top'></view>

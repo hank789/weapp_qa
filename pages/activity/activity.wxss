@@ -1,6 +1,17 @@
 .page {
   padding-bottom: 107rpx;
 }
+scroll-view {
+  height: 100%;
+}
+.topBig {
+  width: 750rpx;
+  height: 600rpx;
+}
+.topBig .img {
+  width: 100%;
+  height: 100%;
+}
 .currencyWrapper {
   position: relative;
   padding: 0 72rpx 3rpx;
@@ -107,4 +118,37 @@
 .mycomment .editImg image {
   width: 100%;
   height: 100%;
+}
+
+.activityTime .step .stepOne {
+  display: flex;
+  margin-top: 34rpx;
+}
+.activityTime .step .stepThree {
+  padding-bottom: 30rpx;
+}
+.activityTime .step {
+  margin-top: 31rpx;
+}
+.step .stepOneNum {
+  width: 60rpx;
+  height: 60rpx;
+}
+.step .stepOneNum .img {
+  width: 100%;
+  height: 100%;
+}
+.activityTime .stepOneText {
+  margin-left: 20rpx;
+}
+.activityTime .stepOneText .textTitle {
+  color: #7B573E;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.activityTime .stepOneText .describe {
+  color: #808080;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  margin-top: 5rpx;
 }
