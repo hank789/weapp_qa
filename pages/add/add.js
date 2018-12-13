@@ -191,7 +191,6 @@ Page({
     }, 3000);
   },
   formSubmit: function(e) {
-    console.log(this.data.tag + 'title123')
     var cids = []
     for(let i=0;i<this.data.categoryArr.length;i++) {
       if (this.data.categoryArr[i].selected) {

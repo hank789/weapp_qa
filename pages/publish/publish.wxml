@@ -9,4 +9,12 @@
       </view>
     </button>
   </view>
+
+  <view class='myComment' bindtap='goMyComment'>
+    <view class='editImg'>
+      <image class='img' src='../../images/page_3@3x.png'></image>
+    </view>
+    <text class='myCommentText'>我的点评</text>
+  </view>
+
 </view>

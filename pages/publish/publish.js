@@ -24,7 +24,12 @@ Page({
       productName: productName,
       slug: slug
     })
-    console.log(that.data.userName + ':' + that.data.productName + ':' + that.data.slug + ':取到名字了吗')
+    
+  },
+  goMyComment () {
+    wx.redirectTo({
+      url: '../myComment/myComment',
+    })
   },
 
   /**
