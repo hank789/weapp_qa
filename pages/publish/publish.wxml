@@ -1,0 +1,20 @@
+<view class='page'>
+  <view class='sucessWrapper'>
+    <view class='iconfont icon-check-circle'></view>
+    <view class='sucessText font-family-medium'>发布成功!</view>
+    <view class='share'>快分享求赞吧~</view>
+    <button hover-class="none" open-type="share" class="docbutton">
+      <view class='shareIcon'>
+        <view class='iconfont icon-fenxiang'></view>
+      </view>
+    </button>
+  </view>
+
+  <view class='myComment' bindtap='goMyComment'>
+    <view class='editImg'>
+      <image class='img' src='../../images/page_3@3x.png'></image>
+    </view>
+    <text class='myCommentText'>我的点评</text>
+  </view>
+
+</view>

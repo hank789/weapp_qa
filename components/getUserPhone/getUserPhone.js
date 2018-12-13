@@ -5,7 +5,9 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {},
+  properties: {
+    isHidden: Boolean
+  },
   options: {
     addGlobalClass: true,
   },
@@ -13,7 +15,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-
   },
 
   /**
@@ -38,6 +39,11 @@ Component({
           }
         })
       }
+    },
+    classPopup () {
+      this.setData({
+        isHidden: false
+      })
     }
   }
 })

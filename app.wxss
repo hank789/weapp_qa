@@ -421,3 +421,28 @@ page {
 .operationList .isActive .textIcon .number {
   color: #FFFFFF;
 }
+
+
+.commentBig {
+  width: 500rpx;
+  height: 144rpx;
+  margin: 0 auto;
+}
+.commentBig .img {
+  width: 100%;
+  height: 100%;
+}
+
+.giftWrapper {
+  position: fixed;
+  bottom: 40rpx;
+  left: 32rpx;
+}
+.giftWrapper .giftImg {
+  width: 200rpx;
+  height: 97rpx;
+}
+.giftWrapper .giftImg .img{
+  width: 100%;
+  height: 100%;
+}

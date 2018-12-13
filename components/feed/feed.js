@@ -7,7 +7,8 @@ Component({
    */
   properties: {
     productComments: Object,
-    authUserPhone: Boolean
+    authUserPhone: Boolean,
+    showProductName: Boolean
   },
 
   options: {

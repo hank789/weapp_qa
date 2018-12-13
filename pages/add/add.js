@@ -57,7 +57,13 @@ Page({
     this.data.pictures = [];
     pictures = [];//防止缓存影响
     var tagName = options.tag
+    var starMark = options.starMark
     var that = this;
+    if (starMark) {
+      that.setData({
+        starNumber: starMark
+      })
+    }
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       if (!userInfo.mobile) {
@@ -185,7 +191,6 @@ Page({
     }, 3000);
   },
   formSubmit: function(e) {
-    console.log(this.data.title)
     var cids = []
     for(let i=0;i<this.data.categoryArr.length;i++) {
       if (this.data.categoryArr[i].selected) {
@@ -229,7 +234,8 @@ Page({
       }
     };
     request.httpsPostRequest(requestUrl, jsonData, function (res_data) {
-      console.log(res_data);
+      console.log(res_data, '数据');
+      console.log(that.data.userInfo, ':userInfo')
       wx.hideLoading();
       if (res_data.code === 1000) {
         if (that.data.pictures.length >=1) {
@@ -240,14 +246,15 @@ Page({
           }
         }
         wx.redirectTo({
-          url: '../productDetail/productDetail?name='+that.data.tag,
-          success: function (e) {
-            wx.showToast({
-              title: '点评成功',
-              icon: 'success',
-              duration: 1000
-            });
-          }
+          url: '../publish/publish?slug=' + res_data.data.slug + '&name=' + that.data.userInfo.name + '&tag=' + that.data.tag,
+          // url: '../commentDetail/commentDetail?slug=' + res_data.data.slug,
+          // success: function (e) {
+          //   wx.showToast({
+          //     title: '点评成功',
+          //     icon: 'success',
+          //     duration: 1000
+          //   });
+          // }
         });
       } else {
         wx.showToast({

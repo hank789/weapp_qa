@@ -1,8 +1,11 @@
 <!--拉起微信授权 模版-->
-  <view class='dialog authentication'>
+  <view class='dialog authentication' hidden='{{ !isHidden }}' catchtouchmove='true'>
     <view class='mask'></view>
     <view class='dialogContent'>
-      <view class='wxLogo'>
+      <view class='close' bindtap='classPopup'>
+        <view class='iconfont icon-times--'></view>
+      </view>
+      <view class='wxLogo logotop'>
         <image src='../../images/page_2@3x.png'></image>
       </view>
       <view class='dialogText'>

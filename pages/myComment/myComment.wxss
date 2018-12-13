@@ -1,0 +1,27 @@
+.noCommentWrapper {
+  text-align: center;
+  margin-top: 288rpx;
+}
+.noCommentWrapper .noCommentImg {
+  width: 123rpx;
+  height: 178rpx;
+  margin: 0 auto;
+}
+.noCommentWrapper .noCommentImg .img {
+  width: 100%;
+  height: 100%;
+}
+.noCommentWrapper .noCommentText {
+  margin-top: 20rpx;
+}
+.noCommentWrapper .noCommentText .text {
+  color: #C8C8C8;
+  font-size: 24rpx;
+  line-height: 33rpx;
+}
+.noCommentWrapper .noCommentText .text.font-family-medium {
+  color: #03AEF9;
+}
+.noCommentWrapper .noCommentText navigator {
+  display: inline-block;
+}

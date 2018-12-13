@@ -1,0 +1,45 @@
+.wx-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+.wx-popup .codeWrapper {
+  width: 600rpx;
+  height: 491rpx;
+  background:#FFFFFF;
+  border-radius: 36rpx;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wx-popup .codeWrapper .closeIcon {
+  text-align: right;
+  padding-right: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 9rpx;
+}
+.wx-popup .codeWrapper .closeIcon .iconfont {
+  font-size: 26rpx;
+  color: #808080;
+}
+.wx-popup .codeWrapper .text {
+  color: #808080;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  margin-bottom: 26rpx;
+}
+.wx-popup .codeWrapper .codeImg {
+  width: 300rpx;
+  height: 301rpx;
+  margin: 0 auto;
+}
+.wx-popup .codeWrapper .codeImg .img {
+  width: 100%;
+  height: 100%;
+}

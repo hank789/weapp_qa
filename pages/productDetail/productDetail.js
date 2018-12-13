@@ -8,48 +8,58 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tagId: '',
     userInfo: {},
     detail: {},
     loding: 1,
     comment: [],
     perPage: 3,
-    authUserPhone: false
+    authUserPhone: false,
+    starNumber: '',
+    isShowPopup: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad:function (options) {
+
     var that = this;
     var scene = decodeURIComponent(options.scene)
     var tagId = options.id
-    console.log(tagId)
     if (scene !== 'undefined') {
       tagId = scene.split("=")[1];
     }
+    this.setData({
+      tagId: tagId
+    })
     app.getUserInfo(function(userInfo){
       that.setData({
         userInfo:userInfo
       });
-      request.httpsGetRequest('/weapp/product/info', {
-        tag_name: tagId
-      }, function (response) {
-        var code = response.code
-        if (code !== 1000) {
-          wx.showToast({
-            title: response.message,
-            icon: 'loading',
-            duration: 2000
-          })
-        }
-        that.setData({
-          detail: response.data,
-          loding: 0
-        })
-        that.getReviewList()
-      })
+      that.getReviewInfo()
     });
 
+  },
+  getReviewInfo: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/info', {
+      tag_name: this.data.tagId
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.setData({
+        detail: response.data,
+        loding: 0
+      })
+      that.getReviewList()
+    })
   },
   getReviewList: function () {
     var that = this;
@@ -73,7 +83,8 @@ Page({
   },
   onAuthPhone: function (e) {
     this.setData({
-      authUserPhone: true
+      authUserPhone: true,
+      isShowPopup: true
     });
   },
   onAuthPhoneOk: function (e) {
@@ -88,13 +99,19 @@ Page({
     });
   },
   goProductDetail(e) {
-    let name = e.currentTarget.dataset.name
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name
-    });
+      url: '../productDetail/productDetail?id=' + id,
+    })
+  },
+  goAdd(e) {
+    console.log(e, ":starNumber")
+    let name = e.currentTarget.dataset.starNumber
+    wx.navigateTo({
+      url: '../allDianping/allDianping?name=' + name,
+    })
   },
   goAllDianping(e) {
-    console.log(e, ':goAllComment')
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
       url: '../allDianping/allDianping?name=' + name,
@@ -103,12 +120,18 @@ Page({
   goToDianPing(e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }
     wx.navigateTo({
       url: '../add/add?tag=' + this.data.detail.name,
+    })
+  },
+  goActivityDetail () {
+    wx.navigateTo({
+      url: '../activity/activity',
     })
   },
   /**
@@ -143,7 +166,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getReviewList();
+    this.getReviewInfo();
     wx.stopPullDownRefresh();
   },
 

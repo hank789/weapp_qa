@@ -1,6 +1,6 @@
 <view class="page">
     <view class="commentList">
-        <view class="commentUser">
+        <view data-slug='{{productComments.feed.slug}}' class="commentUser" bindtap='goCommentDetail'>
           <view class="userInfo">
             <view class="avatar">
               <image src="{{productComments.user.avatar}}"></image>
@@ -28,6 +28,9 @@
         </view>
 
         <view class="feed-moreOperation">
+          <view class='feed-mord' >
+            <text wx:if='{{ showProductName }}'>{{ productComments.feed.tags[0].name }}</text>
+          </view>
           <view class="feed-operation">
             <view bindtap="downvote" class='upDownVote {{ productComments.feed.is_downvoted ? "active" : "" }}'>
               <text class="iconfont icon-cai1"></text>

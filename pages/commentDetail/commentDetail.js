@@ -17,7 +17,8 @@ Page({
     commentList: [],
     slug: '',
     commentTotal: '',
-    authUserPhone: false
+    authUserPhone: false,
+    isShowPopup: false
   },
 
   /**
@@ -84,14 +85,15 @@ Page({
     })
   },
   goProductDetail: function (e) {
-    let name = e.currentTarget.dataset.name
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?name=' + name,
+      url: '../productDetail/productDetail?id=' + id,
     })
   },
   onAuthPhone: function (e) {
     this.setData({
-      authUserPhone: true
+      authUserPhone: true,
+      isShowPopup: true
     });
   },
   onAuthPhoneOk: function (e) {
@@ -108,7 +110,8 @@ Page({
   upvote: function (e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }
@@ -133,7 +136,8 @@ Page({
   downvote: function (e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
-        authUserPhone: true
+        authUserPhone: true,
+        isShowPopup: true
       });
       return;
     }
@@ -153,6 +157,11 @@ Page({
           duration: 2000
         });
       }
+    })
+  },
+  goActivityDetail() {
+    wx.navigateTo({
+      url: '../activity/activity',
     })
   },
   /**
@@ -180,7 +189,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.getCommentList();
+    wx.stopPullDownRefresh();
   },
 
   /**

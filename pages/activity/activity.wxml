@@ -1,0 +1,102 @@
+<view class='page'>
+  <view class='topBig'>
+    <image class='img' src='../../images/acticityImg@3x.png'></image>
+  </view>
+
+  <view class='activityTime currencyWrapper'>
+    <view class='currencyTitle font-family-medium'>参与和玩法</view>
+    <view class='step'>
+
+      <view class='stepOne'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/1@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>写点评</view>
+          <view class='describe'>点评一款产品，50字以上，凑字作假无效</view>
+        </view> 
+      </view>
+
+      <view class='stepOne'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/2@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>集5赞</view>
+          <view class='describe'>该条点评非匿名并获得5个及以上点赞</view>
+        </view> 
+      </view>
+
+      <view class='stepOne stepThree'>
+        <view class='stepOneNum'>
+          <image class='img' src='../../images/3@3x.png'></image>
+        </view>
+        <view class='stepOneText'>
+          <view class='textTitle font-family-medium'>领咖啡</view>
+          <view class='describe'>满足条件平台即赠送咖啡一杯(或等值饮品)</view>
+        </view> 
+      </view>
+
+    </view>
+
+    <view class='line-river-after line-river-after-top'></view>
+  </view>
+
+  <view class='activityStep currencyWrapper'>
+    <view class='currencyTitle font-family-medium'>领奖与规则</view>
+    <view class='ruleList'>
+      <view class='rule'>
+        <text class='number'>1.</text>
+        <text class='currencyText'>请您添加平台客服微信 </text>
+         <text class='wechatNumbe' bindtap='showIsPopup'> hiinwe</text> 
+      </view>
+      <view class='rule'>
+        <text class='number'>2.</text>
+        <text class='currencyText'>截图发送“我的点评”详情给客服 </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>3.</text>
+        <text class='currencyText'>填写领奖配送地址或领取咖啡兑换券</text>
+      </view>
+      <view class='rule'>
+        <text class='number'>4.</text>
+        <text class='currencyText'>品牌包含不限于星巴克、Costa、luckin coffee等 </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>5.</text>
+        <text class='currencyText'>同款产品下，同一账号只限点评一次 </text>
+      </view>
+      <view class='rule'>
+        <text class='number'>6.</text>
+        <text class='currencyText'>活动首批兑换10000杯 先兑先得，兑完暂止</text>
+      </view>
+    </view>
+    <view class='line-river-after line-river-after-top'></view>
+  </view>
+
+  <view class='contactWrapper'>
+    <view class='contactText'>
+      <text class='word'>最终解释权归平台所有，如有其它疑问，</text>
+      <button hover-class="none" open-type="contact">联系客服</button>
+    </view>
+  </view>
+
+  <view class='takePart'>
+    <view class='line-river-after line-river-after-top'></view>
+    <view class='takePartWrapper'>
+      <view class='buttonText' bindtap='backHome'>搜一搜 写点评 得好礼</view>
+      <view class='mycomment' bindtap='goMyComment'>
+        <view class='editImg'>
+          <image src='../../images/page_3@3x.png'></image>
+        </view>
+        <view>我的点评</view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <Dialog isShow='{{showPopup}}'></Dialog>
+  </view>
+
+
+</view>
