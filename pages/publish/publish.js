@@ -75,7 +75,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
-      imageUrl: '',
+      imageUrl: '../../images/shareImg@2x.png',
       path: "/pages/commentDetail/commentDetail?slug=" + this.data.slug
     }
   }

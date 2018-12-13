@@ -70,7 +70,7 @@
   <view class='takePart'>
     <view class='line-river-after line-river-after-top'></view>
     <view class='takePartWrapper'>
-      <view class='buttonText' bindtap='backHome'>立即参与</view>
+      <view class='buttonText' bindtap='backHome'>搜一搜 写点评 得好礼</view>
       <view class='mycomment' bindtap='goMyComment'>
         <view class='editImg'>
           <image src='../../images/page_3@3x.png'></image>
