@@ -104,7 +104,11 @@
       <view class="line-river-after line-river-after-top"></view>
     </view>
   </view>
-
+  <view class='giftWrapper' bindtap='goActivityDetail'>
+    <view class='giftImg'>
+      <image class='img' src='../../images/commentSmall@3x.png'></image>
+    </view>
+  </view>
 
   
 
