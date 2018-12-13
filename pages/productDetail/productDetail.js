@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tagId: '',
     userInfo: {},
     detail: {},
     loding: 1,
@@ -28,29 +29,36 @@ Page({
     if (scene !== 'undefined') {
       tagId = scene.split("=")[1];
     }
+    this.setData({
+      tagId: tagId
+    })
     app.getUserInfo(function(userInfo){
       that.setData({
         userInfo:userInfo
       });
-      request.httpsGetRequest('/weapp/product/info', {
-        tag_name: tagId
-      }, function (response) {
-        var code = response.code
-        if (code !== 1000) {
-          wx.showToast({
-            title: response.message,
-            icon: 'loading',
-            duration: 2000
-          })
-        }
-        that.setData({
-          detail: response.data,
-          loding: 0
-        })
-        that.getReviewList()
-      })
+      that.getReviewInfo()
     });
 
+  },
+  getReviewInfo: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/info', {
+      tag_name: this.data.tagId
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.setData({
+        detail: response.data,
+        loding: 0
+      })
+      that.getReviewList()
+    })
   },
   getReviewList: function () {
     var that = this;
@@ -98,7 +106,7 @@ Page({
     console.log(e, ":starNumber")
     let name = e.currentTarget.dataset.starNumber
     wx.navigateTo({
-      // url: '../allDianping/allDianping?name=' + name,
+      url: '../allDianping/allDianping?name=' + name,
     })
   },
   goAllDianping(e) {
@@ -155,7 +163,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getReviewList();
+    this.getReviewInfo();
     wx.stopPullDownRefresh();
   },
 

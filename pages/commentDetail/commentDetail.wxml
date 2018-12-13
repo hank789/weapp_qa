@@ -37,7 +37,7 @@
     </view>
 
     <view class="link">
-      <view class="linkBox" data-name='{{ detail.tags[0].name }}' bindtap='goProductDetail'>
+      <view class="linkBox" data-id='{{ detail.tags[0].id }}' bindtap='goProductDetail'>
         <view class="productLogo border-football" v-else>
           <image src='../../images/logo-144.png'></image>
         </view>
@@ -81,7 +81,7 @@
   <view class="line-river-after line-river-after-top"></view>
 
   <view class="product">
-    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='id' data-name='{{ item.name }}' data-tagId='{{ item.id }}' bindtap='goProductDetail'>
+    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='id' data-id='{{ item.id }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
           <image class="logo-img" src="{{item.logo}}"></image>
@@ -104,12 +104,12 @@
       <view class="line-river-after line-river-after-top"></view>
     </view>
   </view>
-
   <view class='giftWrapper' bindtap='goActivityDetail'>
     <view class='giftImg'>
       <image class='img' src='../../images/commentSmall@3x.png'></image>
     </view>
   </view>
+
   
 
   <view class='operationList'>

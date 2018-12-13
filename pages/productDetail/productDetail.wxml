@@ -65,7 +65,7 @@
   <view class="line-river-after line-river-after-top"></view>
 
   <view class="product">
-    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='id' data-name='{{ item.name }}' data-id='{{ item.id }}' bindtap='goProductDetail'>
+    <view class="comment-product" wx:for='{{detail.related_tags}}' wx:key='id' data-id='{{ item.id }}' bindtap='goProductDetail'>
       <view class="product-info">
         <view class="product-img">
           <image class="logo-img" src="{{item.logo}}"></image>
