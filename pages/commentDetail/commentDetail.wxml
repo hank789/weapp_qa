@@ -39,7 +39,7 @@
     <view class="link">
       <view class="linkBox" data-id='{{ detail.tags[0].id }}' bindtap='goProductDetail'>
         <view class="productLogo border-football" v-else>
-          <image src='../../images/logo-144.png'></image>
+          <image src='{{ detail.tags[0].logo }}'></image>
         </view>
         <view class="linkContent">
           <view class="text-line-1 font-family-medium">{{detail.tags[0].name}}</view>
