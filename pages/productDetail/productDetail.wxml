@@ -55,7 +55,7 @@
     <view class="text">就您的感受而言，您会给他打多少分？</view>
     <!-- <view class='iconfont icon-xingxingweidian'></view>   bindtap="goToDianPing" -->
 
-    <MarkStar data-starNumber='{{starNumber}}' name='{{ detail.name }}' showNumber='{{ false }}'></MarkStar>
+    <MarkStar data-starNumber='{{starNumber}}' name='{{ detail.name }}' showNumber='{{ false }}' bind:authPhone="onAuthPhone"></MarkStar>
 
   </view>
 

@@ -1,4 +1,5 @@
 // components/markStar/markStar.js
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -25,6 +26,10 @@ Component({
   methods: {
     
     oneStar: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var starMark = e.currentTarget.dataset.mark
       var that = this
       if (that.data.name) {
@@ -37,6 +42,10 @@ Component({
       })
     },
     twoStar: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var starMark = e.currentTarget.dataset.mark
       var that = this
       if (that.data.name) {
@@ -49,6 +58,10 @@ Component({
       })
     },
     threeStar: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var starMark = e.currentTarget.dataset.mark
       var that = this
       if (that.data.name) {
@@ -61,6 +74,10 @@ Component({
       })
     },
     fourStar: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var starMark = e.currentTarget.dataset.mark
       var that = this
       if (that.data.name) {
@@ -73,6 +90,10 @@ Component({
       })
     },
     fiveStar: function (e) {
+      if (!app.globalData.userInfo.mobile) {
+        this.triggerEvent('authPhone', {}, {});
+        return;
+      }
       var starMark = e.currentTarget.dataset.mark
       var that = this
       if (that.data.name) {
