@@ -73,7 +73,7 @@ Page({
           success: function (res) {
             if (res.confirm) {
               wx.navigateTo({
-                url: '../productDetail/productDetail?name=' + tagName
+                url: '../productDetail/productDetail?id=' + tagName
               });
             }
           }
