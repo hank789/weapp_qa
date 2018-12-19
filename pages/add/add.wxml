@@ -81,8 +81,8 @@
         <!-- <checkbox-group bindchange="bindHideChange">
           <checkbox value='匿名' checked='false' color='#fff'/>
         </checkbox-group> -->
+        <text>匿名模式</text>
         <switch bindchange="bindHideChange" />
-        <text>匿名</text>
       </label>
     </view>
   </view>
