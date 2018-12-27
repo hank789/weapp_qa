@@ -113,11 +113,15 @@
         <image src='../../images/page_3@3x.png'></image>
       </view>
     </view>
-     <button hover-class="none" open-type="share" class="docbutton">
+     <button hover-class="none" bindtap='popup' class="docbutton">
         <view class='buttonWrapper shearBut'>
         <text class='iconfont icon-fenxiang'></text>
         </view>
     </button>
+  </view>
+
+  <view>
+    <PageMore showPageMore='{{showPageMore}}' bind:clickCancel='clickCancel' bind:myevent='clickItem' iconMenu='{{iconMenus}}'></PageMore>
   </view>
 
 </view>
