@@ -27,6 +27,10 @@ Page({
   onLoad: function (options) {
     var that = this
     var slug = options.slug
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      slug = scene.split("=")[1];
+    }
     app.getUserInfo(function(userInfo) {
       that.setData({
         userInfo: userInfo,

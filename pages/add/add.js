@@ -73,7 +73,7 @@ Page({
           success: function (res) {
             if (res.confirm) {
               wx.navigateTo({
-                url: '../productDetail/productDetail?name=' + tagName
+                url: '../productDetail/productDetail?id=' + tagName
               });
             }
           }
@@ -172,11 +172,10 @@ Page({
     }
   },
   bindHideChange: function (e) {
-    if (e.detail && e.detail.value) {
-      this.setData({
-        hide: e.detail.value
-      })
-    }
+    console.log(e.detail.value)
+    this.setData({
+      hide: e.detail.value
+    })
   },
   showTopTips: function (msg) {
     var that = this;
