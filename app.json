@@ -12,7 +12,8 @@
     "pages/allDianping/allDianping",
     "pages/activity/activity",
     "pages/publish/publish",
-    "pages/myComment/myComment"
+    "pages/myComment/myComment",
+    "pages/feedback/feedback"
   ],
   "window": {
     "navigationBarTextStyle": "black",

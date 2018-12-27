@@ -22,8 +22,8 @@
           <image class='img' src='../../images/2@3x.png'></image>
         </view>
         <view class='stepOneText'>
-          <view class='textTitle font-family-medium'>集5赞</view>
-          <view class='describe'>该条点评非匿名并获得5个及以上点赞</view>
+          <view class='textTitle font-family-medium'>集3赞</view>
+          <view class='describe'>该条点评非匿名并获得3个及以上点赞</view>
         </view> 
       </view>
 

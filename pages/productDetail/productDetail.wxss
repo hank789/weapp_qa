@@ -120,3 +120,16 @@
   .productMark .starsText {
     top: 0;
   }
+
+  .feedbackWrapper {
+    text-align: center;
+    padding: 30rpx 0 60rpx;
+  }
+  .feedbackWrapper text {
+    color: #B4B4B6;
+    font-size: 24rpx;
+    line-height: 33rpx;
+  }
+  .feedbackWrapper .font-family-medium {
+    color: #03AEF9;
+  }
