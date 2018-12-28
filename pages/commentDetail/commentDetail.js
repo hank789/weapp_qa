@@ -195,7 +195,7 @@ Page({
       title: '加载中',
       mask: true
     });
-    request.httpsPostRequest('/weapp/product/getReviewShareImage', { id: that.data.detail.id, type: size }, function (res_data) {
+    request.httpsGetRequest('/weapp/product/getReviewShareImage', { id: that.data.detail.id, type: size }, function (res_data) {
       if (res_data.code === 1000) {
         wx.hideLoading();
         wx.previewImage({

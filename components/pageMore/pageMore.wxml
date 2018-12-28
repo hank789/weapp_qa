@@ -1,4 +1,4 @@
-<view class=''  hidden='{{!showPageMore}}' catchtouchmove='true' >
+<view class='wx-popup'  hidden='{{!showPageMore}}' catchtouchmove='true' >
   <view class='wx-popup' catchtouchmove='true' bindtap='cancel'></view>
   <view class='card-wrapper'>
   <view class='menuList'>
