@@ -113,10 +113,11 @@
             color:#444444;
             line-height:45px;
         }
-        .component-card .card-wrapper .product-wrapper .product .info .stars-wrapper {
+        .component-card .card-wrapper .stars-wrapper {
+            display: flex;
             margin-top: 10px;
         }
-        .component-card .card-wrapper .product-wrapper .product .info .stars-wrapper .spot {
+        .component-card .card-wrapper .stars-wrapper .spot {
             width:4px;
             height:4px;
             display: inline-block;
@@ -126,14 +127,14 @@
             position: relative;
             top: -5px;
         }
-        .component-card .card-wrapper .product-wrapper .product .info .stars-wrapper span {
+        .component-card .card-wrapper .stars-wrapper span {
             font-size:22px;
             font-family:PingFangSC-Regular;
             font-weight:400;
             color:rgba(180,180,182,1);
             line-height:30px;
         }
-        .component-card .card-wrapper .product-wrapper .product .info .stars-wrapper span:nth-of-type(1) {
+        .component-card .card-wrapper .stars-wrapper span:nth-of-type(1) {
             color: #FCC816;
         }
 
@@ -183,6 +184,33 @@
             transform: translateX(-50%);
             background: #ffffff;
         }
+        .starImg {
+            width: 139px;
+            height: 21px;
+            position: relative;
+        }
+        .starImg .star-star {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .starImg .star-star img {
+            width: 139px;
+        }
+        .starImg .star-S {
+            overflow: hidden;
+        }
+        .starImg .star-S img {
+            /* width: 100%; */
+        }
+        .stars-wrapper .star-text  {
+            margin-top: -4px;
+            margin-left: 12px;
+         }
+         .card-wrapper .user .stars-wrapper {
+             justify-content: center;
+             padding-bottom: 34px;
+         }
 
     </style>
 </head>
@@ -198,8 +226,14 @@
                     <img src="..//images/logo-144.png" alt="">
                 </div>
                 <div class="username">玩够</div>
-                <div class="stars">
-                    <span>4.0分</span>
+                <div class="stars-wrapper">
+                    <div class="starImg">
+                        <div class="star-S star-star" style="width: 45%;"><img src="../images/starS@3x.png" alt=""></div>
+                        <div class="star-K star-star"><img src="../images/starK@3x.png" alt=""></div>
+                    </div>
+                    <div class="star-text">
+                        <span>4.0分</span><i class="spot"></i><span>23条评论</span> 
+                    </div>                      
                 </div>
             </div>
             <div class="content">
@@ -214,7 +248,13 @@
                     <div class="info">
                         <div class="name">麦兜</div>
                         <div class="stars-wrapper">
-                            <span>4.0分</span><i class="spot"></i><span>23条评论</span>                         
+                            <div class="starImg">
+                                <div class="star-S star-star" style="width: 45%;"><img src="../images/starS@3x.png" alt=""></div>
+                                <div class="star-K star-star"><img src="../images/starK@3x.png" alt=""></div>
+                            </div>
+                            <div class="star-text">
+                                <span>4.0分</span><i class="spot"></i><span>23条评论</span> 
+                            </div>                      
                         </div>
                     </div>
                 </div>
