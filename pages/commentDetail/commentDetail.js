@@ -18,7 +18,14 @@ Page({
     slug: '',
     commentTotal: '',
     authUserPhone: false,
-    isShowPopup: false
+    isShowPopup: false, 
+    showPageMore: false,
+    iconMenus: [
+      {
+        img: '../../images/icon3@3x.png',
+        text: '生成长图'
+      }
+    ]
   },
 
   /**
@@ -167,6 +174,44 @@ Page({
     wx.navigateTo({
       url: '../activity/activity',
     })
+  },
+
+
+  popup() {
+    this.setData({
+      showPageMore: true
+    })
+  },
+  clickCancel() {
+    this.setData({
+      showPageMore: false
+    })
+  },
+  clickItem(e) {
+    var that = this;
+    console.log(e)
+    var size = 1
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+    request.httpsPostRequest('/weapp/product/getReviewShareImage', { id: that.data.detail.id, type: size }, function (res_data) {
+      if (res_data.code === 1000) {
+        wx.hideLoading();
+        wx.previewImage({
+          current: res_data.data.url, // 当前显示图片的http链接
+          urls: [res_data.data.url]
+        })
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'success',
+          duration: 2000
+        });
+      }
+      that.clickCancel()
+    });
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

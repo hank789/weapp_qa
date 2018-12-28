@@ -43,6 +43,7 @@
 .card-wrapper .menuList .text {
   color: #444444;
   font-size: 28rpx;
+  line-height: 84rpx;
 }
 .card-wrapper .menuList.cancel {
   border-top: 1rpx solid #F2F2F2;

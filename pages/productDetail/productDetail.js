@@ -157,29 +157,32 @@ Page({
     })
   },
   clickItem (e) {
-    console.log(e)
-    if (e.detail.key === '生成朋友圈分享图') {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      });
-      request.httpsPostRequest('/weapp/product/getProductShareImage', { id: this.data.detail.id, type: 1 }, function (res_data) {
-        if (res_data.code === 1000) {
-          wx.hideLoading();
-          wx.previewImage({
-            current: res_data.data.url, // 当前显示图片的http链接
-            urls: [res_data.data.url]
-          })
-
-        } else {
-          wx.showToast({
-            title: res_data.message,
-            icon: 'success',
-            duration: 2000
-          });
-        }
-      });
+    var that = this;
+    var size = 1
+    if (e.detail.key === '生成公众号文章分享图') {
+      size = 2
     }
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+    request.httpsPostRequest('/weapp/product/getProductShareImage', { id: that.data.detail.id, type: size }, function (res_data) {
+      if (res_data.code === 1000) {
+        wx.hideLoading();
+        wx.previewImage({
+          current: res_data.data.url, // 当前显示图片的http链接
+          urls: [res_data.data.url]
+        })
+
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'success',
+          duration: 2000
+        });
+      }
+      that.clickCancel()
+    });
 
   },
   /**
