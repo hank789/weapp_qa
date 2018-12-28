@@ -1,0 +1,50 @@
+<view class="dianpingFeedBack">
+    <view class="mui-content">
+
+      <view class="feedBackWrapper">
+        <view class="title {{ item.text === type ? 'active' : '' }}" wx:for='{{ feedBackInfo }}' wx:key='{{ id }}' data-name='{{ item.text }}' bindtap='feedBack'>
+          <text>{{ item.text }}</text>
+          <text class='icon iconfont icon-gou1'></text>
+          <view class="bot" wx:if="{{ index !== feedBackInfo.length-1 }}"></view>
+        </view>
+      </view>
+      <view class="line-river-big"></view>
+
+      <view class="productSummary">
+        <view class="titleText">具体描述</view>
+        <view class="textareaWrapper">
+          <textarea value="{{ description }}" placeholder="产品问题具体描述"></textarea>
+        </view>
+      </view>
+
+      <view class="pictureCaption">
+        <view class="titleText">图片说明</view>
+      </view>
+
+      <view class="container-images">
+      <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title"></view>
+          <view class="weui-uploader__info"></view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{pictures}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+              <view class="weui-uploader__input-box" wx:if="{{pictures.length <= 9}}">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+          </view>
+        </view>
+      </view>
+
+  </view>
+
+
+      <view class="sureButton">确认创建</view>
+
+    </view>
+  </view>
