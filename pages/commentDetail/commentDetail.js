@@ -44,7 +44,7 @@ Page({
         slug: slug
       });
       request.httpsGetRequest('/weapp/product/reviewInfo', {
-        slug: options.slug
+        slug: slug
       }, function (response) {
         var code = response.code
         if (code !== 1000) {
