@@ -52,6 +52,11 @@ Page({
     });
 
   },
+  goFeedBack: function () {
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    })
+  },
   getReviewInfo: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/info', {
