@@ -89,9 +89,9 @@
     </view>
   </view>
 
-  <!-- <view class='feedbackWrapper'>
-    <text>如果您有任何关于该产品服务相关问题或信息反馈，</text><text class='font-family-medium'>请点击</text>
-  </view> -->
+  <view class='feedbackWrapper' bindtap='goFeedBack'>
+    <text>如您有关于该产品服务相关问题或反馈，</text><text class='font-family-medium'>请点击</text>
+  </view>
 
     <block wx:if="{{!loading && !userInfo.name}}">
        <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>

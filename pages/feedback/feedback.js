@@ -1,4 +1,6 @@
-// pages/feedback/feedback.js
+//获取应用实例
+var app = getApp();
+var request = require("../../utils/request.js");
 var pictures = [];
 Page({
 
@@ -39,6 +41,48 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  bindFormSubmit: function (e) {
+    var that = this;
+    var content = that.data.type + '/具体表述：' + e.detail.value.description
+    if (!that.data.type) {
+      wx.showToast({
+        title: '请选择反馈类型',
+        icon: 'loading',
+        duration: 2000
+      })
+      return
+    }
+    if (!e.detail.value.description) {
+      wx.showToast({
+        title: '请输入具体描述',
+        icon: 'loading',
+        duration: 2000
+      })
+      return
+    }
+    request.httpsPostRequest('/weapp/product/feedback', {
+      title: '反馈内容',
+      content: content
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      wx.showToast({
+        title: '提交成功',
+        icon: 'loading',
+        duration: 2000,
+        success: function (res) {
+          wx.navigateBack({ changed: true })
+        }
+      })
+      
+    })
   },
 
   /**
