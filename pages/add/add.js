@@ -245,15 +245,15 @@ Page({
           }
         }
         wx.redirectTo({
-          url: '../publish/publish?slug=' + res_data.data.slug + '&name=' + that.data.userInfo.name + '&tag=' + that.data.tag,
-          // url: '../commentDetail/commentDetail?slug=' + res_data.data.slug,
-          // success: function (e) {
-          //   wx.showToast({
-          //     title: '点评成功',
-          //     icon: 'success',
-          //     duration: 1000
-          //   });
-          // }
+          // url: '../publish/publish?slug=' + res_data.data.slug + '&name=' + that.data.userInfo.name + '&tag=' + that.data.tag,
+          url: '../commentDetail/commentDetail?slug=' + res_data.data.slug,
+          success: function (e) {
+            wx.showToast({
+              title: '点评成功',
+              icon: 'success',
+              duration: 1000
+            });
+          }
         });
       } else {
         wx.showToast({
