@@ -209,5 +209,11 @@ page {
   opacity:0.7;
   border-radius: 34rpx;
   padding: 16rpx 20rpx;
-  background: #111111;
+  background:rgba(17,17,17,0.7);
+}
+.leftFooter .lookGoodWrapper .nameText {
+  color: #FFFFFF;
+}
+.leftFooter .lookGoodWrapper .nameText .text {
+  color: #FA4975;
 }

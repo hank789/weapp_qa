@@ -95,7 +95,7 @@
 
   <view class='leftFooter'>
     <view class='lookGoodWrapper'>
-      <view>邱丽丽 看好了 <text>钉钉</text> !</view>
+      <view class='nameText'>邱丽丽 看好了 <text class='text'>钉钉</text> !</view>
     </view>
   </view>
 
