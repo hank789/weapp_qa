@@ -1,63 +1,83 @@
-<view class="page">
-	<view class="page__hd">
-	    <view class="ask-title">
-		    <text class="ask-title-text font-family-medium">帮助您的企业\n获得适合的软件和服务</text>
-	    </view>
-	</view>
-
-    <view class='searchWrapper' bindtap="inputTyping">
-      <view class='inputWrapper'>
-        <icon class="iconfont icon-sousuo"></icon>
-        <text class='placeholderText'>搜索你想了解的企业级产品和服务</text>
-      </view>
-    </view>
-
-    <view class="seach-keyword">
-      <view class="seach-keyword-center">
-          <view class="seach-keyword-list" wx:for="{{keywords}}" wx:key="id" data-id="{{ item }}" bindtap="navToSearch">
-              <text class="seach-keyword-text">{{item}}</text>
-              <view class="spot"></view>
+<view class='mui-container container-fill'>
+  <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
+    <view class="pageIndex section">
+      <view class="page__hd">
+          <view class="ask-title">
+            <text class="ask-title-text font-family-medium">帮助您的企业\n获得适合的软件和服务</text>
           </view>
       </view>
-    </view>
 
-    <!-- <view class='commentGiving'>
-      <navigator url='../activity/activity' hover-class='none'>
-        <view class='commentBig'>
-          <image class='img' src='../../images/commentBig@3x.png'></image>
+        <view class='searchWrapper' bindtap="inputTyping">
+          <view class='inputWrapper'>
+            <icon class="iconfont icon-sousuo"></icon>
+            <text class='placeholderText'>搜索你想了解的企业级产品和服务</text>
+          </view>
         </view>
-      </navigator>
-    </view> -->
 
-    <view class="index-bottom">
-      <view class="bottom-operation">
-        <button hover-class="none" open-type="contact" class="docbutton">
-          <view class="bottom-about">
-            <text class='iconfont icon-youxiang'></text>
-            <text>联系我们</text>
+        <view class="seach-keyword">
+          <view class="seach-keyword-center">
+              <view class="seach-keyword-list" wx:for="{{keywords}}" wx:key="id" data-id="{{ item }}" bindtap="navToSearch">
+                  <text class="seach-keyword-text">{{item}}</text>
+                  <view class="spot"></view>
+              </view>
           </view>
-        </button>
-        <view class="spot"></view>
-        
-        <button hover-class="none" open-type="share" class="docbutton">
-          <view class="bottom-about">
-            <text class='iconfont icon-fenxiang'></text>
-            <text>分享朋友</text>
-            <!-- <view class="spot"></view> -->
-          </view>
-        </button>
-      </view>
-      <view class="included">
-        <view class="included-text">
-          <view class="line"></view>
-          <text>收录超过100000+</text>
         </view>
-      </view>
+
+        <!-- <view class='commentGiving'>
+          <navigator url='../activity/activity' hover-class='none'>
+            <view class='commentBig'>
+              <image class='img' src='../../images/commentBig@3x.png'></image>
+            </view>
+          </navigator>
+        </view> -->
+
+        <view class="index-bottom">
+          <view class="bottom-operation">
+            <button hover-class="none" open-type="contact" class="docbutton">
+              <view class="bottom-about">
+                <text class='iconfont icon-youxiang'></text>
+                <text>联系我们</text>
+              </view>
+            </button>
+            <view class="spot"></view>
+            
+            <button hover-class="none" open-type="share" class="docbutton">
+              <view class="bottom-about">
+                <text class='iconfont icon-fenxiang'></text>
+                <text>分享朋友</text>
+                <!-- <view class="spot"></view> -->
+              </view>
+            </button>
+          </view>
+          <view class="included">
+            <view class="included-text">
+              <view class="line"></view>
+              <text>收录超过100000+</text>
+            </view>
+          </view>
+        </view>
+
+      <block wx:if="{{!loading && !userInfo.name}}">
+        <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+      </block>
+
     </view>
 
-  <block wx:if="{{!loading && !userInfo.name}}">
-     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
-  </block>
+  <!-- 专题集 -->
+    <view class='pageSpecial section' style='background: red'>
+      <view class='topTitle font-family-medium'>专题集</view>
 
+      <view class='specialWrapper'>
+        <view class='specialList'>
+          <view class='img'><image src='../../images/1@3x 3.png'></image></view>
+          <view class='text'>分析与商业智能</view>
+        </view>
+      </view>
+
+
+    </view>
+
+
+  </view>
 </view>
 
