@@ -21,13 +21,13 @@
       </view>
     </view>
 
-    <view class='commentGiving'>
+    <!-- <view class='commentGiving'>
       <navigator url='../activity/activity' hover-class='none'>
         <view class='commentBig'>
           <image class='img' src='../../images/commentBig@3x.png'></image>
         </view>
       </navigator>
-    </view>
+    </view> -->
 
     <view class="index-bottom">
       <view class="bottom-operation">

@@ -260,6 +260,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    request.httpsPostRequest('/weapp/product/feedback', { title: '分享' + this.data.detail.owner.name + '对「' + this.data.detail.tags[0].name +'」的点评', content: this.data.detail.title }, function (res_data) {});
     return{
       title:this.data.detail.owner.name + '对「' + this.data.detail.tags[0].name +'」的点评',
       path:"/pages/commentDetail/commentDetail?slug=" + this.data.slug

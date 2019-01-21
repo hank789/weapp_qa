@@ -13,7 +13,8 @@
     "pages/activity/activity",
     "pages/publish/publish",
     "pages/myComment/myComment",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/specialDetail/specialDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -10,10 +10,11 @@
       </view>
       <view class="line-river-big"></view>
 
+<form bindsubmit="bindFormSubmit">
       <view class="productSummary">
         <view class="titleText">具体描述</view>
         <view class="textareaWrapper">
-          <textarea value="{{ description }}" placeholder="产品问题具体描述"></textarea>
+          <textarea value="{{ description }}" name="description" placeholder="产品问题具体描述"></textarea>
         </view>
       </view>
 
@@ -44,7 +45,7 @@
   </view>
 
 
-      <view class="sureButton">确认创建</view>
-
+      <button class="sureButton" form-type='submit'>确认创建</button>
+</form>
     </view>
   </view>

@@ -1,0 +1,102 @@
+<view class='page'>
+  <view class='special-info-wrapper'>
+    <view class='background'>
+      <image class='img' src='../../images/1@3x 2.png'></image>
+      <view class='backMask'></view>
+    </view>
+    <view class='special-detail-info'>
+      <view class='leftLogo'>
+        <image class='logo' src='../../images/logo@3x.png'></image>
+      </view>
+      <view class='title'>
+        <view class='text font-family-medium'>分析与商业智能产品推荐</view>
+        <view class='line-river-after'></view>
+        <view class='describe'>
+          中小和初创企业，往往需要在工具选择上下功夫，特别是团队协作类的产品。如何在功能、性价比、扩展性、易用度等方面考察后，作出最后的选择决策，希望这个榜单上的产品能给您带来眼前一亮的感觉。（以下排名不分先后)
+        </view>
+      </view>
+    </view>
+    <!-- <view class='backgroundCircle'><image src='../../images/backgroundTop@3x.png'></image></view> -->
+  </view>
+
+  <view class='domainWrapper'>
+    <view class='productList'>
+      <view class='detailIofo'>
+        <view class='logoAndName'>
+          <view class='productLogo'><image class='img' src='../../images/logo-144.png'></image></view>
+          <view class='nameAndStars'>
+            <view class='font-family-medium'>Teambition</view>
+            <view class='stars'>
+              <StarView rating='4'></StarView>
+              <view class='starNumber'>4.3分</view>
+            </view>
+          </view>
+        </view>
+        <view class='describe'>界面简洁优美，但是太专注于项目协作，所有的沟通都要通过项目来发起。</view>
+      </view>
+      <view class='operation'>
+        <view class='heat'>
+          <view class="addOne">
+            <text class='triangle'></text>
+            <text class='addNum'>+1</text>
+          </view>
+          <view class='heatImg'>
+            <image class='img' src='../../images/heat@3x.png'></image>
+            <text class='heatNum'>2862</text>
+          </view>
+        </view>
+        <view class='buttonWrapper'>
+          <button class='support'>
+            <view class="iconfont icon-zan1"></view>
+            <text class='text'>+1</text>
+          </button>
+        </view>
+      </view>
+    </view>
+    <view class='productList'>
+      <view class='detailIofo'>
+        <view class='logoAndName'>
+          <view class='productLogo'><image class='img' src='../../images/logo-144.png'></image></view>
+          <view class='nameAndStars'>
+            <view class='font-family-medium'>Teambition</view>
+            <view class='stars'>
+              <StarView rating='4'></StarView>
+              <view class='starNumber'>4.3分</view>
+            </view>
+          </view>
+        </view>
+        <view class='describe'>界面简洁优美，但是太专注于项目协作，所有的沟通都要通过项目来发起。</view>
+      </view>
+      <view class='operation'>
+        <view class='heat'>
+          <view class="addOne">
+            <text class='triangle'></text>
+            <text class='addNum'>+1</text>
+          </view>
+          <view class='heatImg'>
+            <image class='img' src='../../images/heat@3x.png'></image>
+            <text class='heatNum'>2862</text>
+          </view>
+        </view>
+        <view class='buttonWrapper'>
+          <button class='support'>
+            <view class="iconfont icon-zan1"></view>
+            <text class='text'>+1</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='footerWrapper'>
+    <view class='moreJoint'>更多合作请添加微信号“<text>hiinwe</text>”</view>
+    <view class='commentary'>InweHub依据和采集平台用户的海量评价数据，采用数据模型对获得市场和客户高度认同认可的产品和服务，进行上榜展示。</view>
+  </view>
+
+  <view class='leftFooter'>
+    <view class='lookGoodWrapper'>
+      <view class='nameText'>邱丽丽 看好了 <text class='text'>钉钉</text> !</view>
+    </view>
+  </view>
+
+</view>
