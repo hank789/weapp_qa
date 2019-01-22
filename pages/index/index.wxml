@@ -50,10 +50,11 @@
             </button>
           </view>
           <view class="included">
-            <view class="included-text">
-              <view class="line"></view>
-              <text>收录超过100000+</text>
+            <view class='iconWrapper'>
+              <text class='iconfont icon-xiangxiajiantou'></text>
+              <text class='iconfont icon-xiangxiajiantou'></text>
             </view>
+            <view class='text font-family-medium'>进入专题</view>
           </view>
         </view>
 
@@ -64,14 +65,23 @@
     </view>
 
   <!-- 专题集 -->
-    <view class='pageSpecial section' style='background: red'>
+    <view class='pageSpecial section' style='background: pink;'>
       <view class='topTitle font-family-medium'>专题集</view>
 
       <view class='specialWrapper'>
-        <view class='specialList'>
-          <view class='img'><image src='../../images/1@3x 3.png'></image></view>
-          <view class='text'>分析与商业智能</view>
-        </view>
+        <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+
+          <view class='display'>
+            <view class='specialList'>
+              <view class='mask'></view>
+              <view class='img'><image src='../../images/1@3x 3.png'></image></view>
+              <view class='text font-family-medium'>分析与商业智能</view>
+            </view>
+          </view>
+
+        </scroll-view>
+        
+
       </view>
 
 

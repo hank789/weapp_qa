@@ -13,6 +13,7 @@ Page({
     endy: 0, //结束的位置y
     critical: 100, //触发翻页的临界值
     margintop: 0,  //滑动下拉距离
+    data: 5
   },
   onLoad:function(options){
     var that = this
