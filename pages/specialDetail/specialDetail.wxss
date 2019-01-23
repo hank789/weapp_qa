@@ -96,6 +96,7 @@ page {
   margin-left: 20rpx;
 }
 .domainWrapper .productList .detailIofo .logoAndName .nameAndStars .font-family-medium {
+  width: 500rpx;
   font-size: 32rpx;
   line-height: 45rpx;
   color: #444444;

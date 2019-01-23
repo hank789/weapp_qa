@@ -13,7 +13,8 @@ Page({
     endy: 0, //结束的位置y
     critical: 100, //触发翻页的临界值
     margintop: 0,  //滑动下拉距离
-    data: 5
+    data: 5,
+    list: []
   },
   onLoad:function(options){
     var that = this
@@ -39,7 +40,42 @@ Page({
            });
          }
        })
+       that.getAlbumList()
      });
+  },
+  getAlbumList: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/albumList', {
+    }, function (res) {
+      var code = res.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      let listArry = res.data.data
+      let len = listArry.length;
+      let n = 5; //假设每行显示5个
+      let lineNum = len % 5 === 0 ? len / 5 : Math.ceil(len / 5);
+      let resD = [];
+      for (let i = 0; i < lineNum; i++) {
+        let temp = listArry.slice(i * n, i * n + n);
+        resD.push(temp);
+      }
+
+      console.log(resD, '数据')
+
+      that.setData({
+        list: resD
+      })
+    })
+  },
+  goDetail (e) {
+    wx.navigateTo({
+      url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
+    });
   },
   onReady:function(){
     // 页面渲染完成

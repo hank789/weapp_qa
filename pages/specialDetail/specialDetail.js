@@ -1,18 +1,111 @@
-// pages/specialDetail/specialDetail.js
+//获取应用实例
+var app = getApp();
+var request = require("../../utils/request.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    loding: 1,
+    list: [],
+    userInfo: {},
+    albumInfo: {},
+    id: '',
+    isMore: true,
+    page: 1,
+    isShowAddOne: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    console.log(options,'数据')
+    that.data.id = options.id
+
+    // 获取用户信息
+    app.getUserInfo(function (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      });
+      that.getProductList(1)
+      that.getAlbumInfo()
+    });
+  },
+  getAlbumInfo: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/albumInfo', {
+      id: that.data.id
+    }, function (res) {
+      var code = res.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.setData({
+        albumInfo: res.data
+      })
+    })
+  },
+  getProductList: function (page) {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/albumProductList', {
+      id: that.data.id,
+      page: page
+    }, function (response) {
+      var res_data = response
+      if (res_data.code === 1000) {
+        var isMore = that.data.isMore;
+        var nextPage = page + 1;
+        if (page === 1) {
+          that.data.list = res_data.data.data;
+        } else {
+          that.data.list = that.data.list.concat(res_data.data.data);
+        }
+        if (!res_data.data.next_page_url) {
+          isMore = false;
+        }
+
+        that.setData({
+          list: that.data.list,
+          page: nextPage,
+          isLoading: false,
+          isMore: isMore
+        });
+      } else {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+    })
+  },
+  discoverDown: function (e) {
+    var that = this;
+    var id = e.currentTarget.dataset.id
+    var index = e.currentTarget.dataset.index
+    request.httpsPostRequest('/weapp/product/supportAlbumProduct', {
+      id: id
+    }, function (res) {
+      var code = res.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      console.log('成功')
+      // that.data.list.support_rate ++
+       that.data.list[index].support_rate + 1
+    
+    })
   },
 
   /**
@@ -47,14 +140,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.data.page = 1;
+    this.getProductList(1);
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.isMore) {
+      this.setData({
+        isLoading: true
+      });
+      this.getProductList(this.data.page);
+    }
   },
 
   /**

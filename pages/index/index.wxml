@@ -65,17 +65,17 @@
     </view>
 
   <!-- 专题集 -->
-    <view class='pageSpecial section' style='background: pink;'>
+    <view class='pageSpecial section' >
       <view class='topTitle font-family-medium'>专题集</view>
 
       <view class='specialWrapper'>
         <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
 
-          <view class='display'>
-            <view class='specialList'>
+          <view class='display' wx:for='{{ list }}' wx:key='index'>
+            <view class='specialList' wx:for='{{ item }}' wx:key='id' data-id='{{ item.id }}' bindtap='goDetail'>
               <view class='mask'></view>
-              <view class='img'><image src='../../images/1@3x 3.png'></image></view>
-              <view class='text font-family-medium'>分析与商业智能</view>
+              <view class='img'><image src='{{ item.icon }}'></image></view>
+              <view class='text font-family-medium'>{{ item.name }}</view>
             </view>
           </view>
 
