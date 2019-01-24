@@ -7,14 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loding: 1,
+    loading: 1,
     list: [],
     userInfo: {},
     albumInfo: {},
     id: '',
     isMore: true,
     page: 1,
-    isShowAddOne: false
+    // isShowAddOne: false,
+    authUserPhone: false,
+    isShowPopup: false, 
   },
 
   /**
@@ -87,24 +89,46 @@ Page({
     })
   },
   discoverDown: function (e) {
+
+    if (!this.data.userInfo.mobile) {
+      this.setData({
+        authUserPhone: true,
+        isShowPopup: true
+      });
+      return;
+    }
+
     var that = this;
-    var id = e.currentTarget.dataset.id
+    var item = e.currentTarget.dataset.item
     var index = e.currentTarget.dataset.index
     request.httpsPostRequest('/weapp/product/supportAlbumProduct', {
-      id: id
+      id: item.tag_id
     }, function (res) {
       var code = res.code
-      if (code !== 1000) {
+      var support = "list[" + index + "].can_support"
+      if (code === 6120) {
         wx.showToast({
-          title: res.message,
+          title: '今天不能点赞了哦',
           icon: 'loading',
-          duration: 2000
+          duration: 1000
         })
+        that.setData({
+          [support]: 0
+        })
+        return
       }
-      console.log('成功')
-      // that.data.list.support_rate ++
-       that.data.list[index].support_rate + 1
-    
+      var up = "list[" + index + "].support_rate";
+      var isShowAddOne = "list[" + index + "].isShowAddOne"
+      that.setData({
+        [up]: item.support_rate + 1,
+        [isShowAddOne]: true
+      })
+      setTimeout(() => {
+        that.setData({
+          [isShowAddOne]: false
+        })
+      }, 1500)
+      console.log(item, '判断')
     })
   },
 

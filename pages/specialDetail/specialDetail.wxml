@@ -35,7 +35,7 @@
       </view>
       <view class='operation'>
         <view class='heat'>
-          <view class="addOne" wx:if='{{ isShowAddOne }}'>
+          <view class="addOne" wx:if='{{ item.isShowAddOne }}'>
             <text class='triangle'></text>
             <text class='addNum'>+1</text>
           </view>
@@ -44,10 +44,10 @@
             <text class='heatNum'>{{ item.support_rate }}</text>
           </view>
         </view>
-        <view class='buttonWrapper' data-index='{{ index }}' data-id='{{ item.tag_id }}' bindtap='discoverDown'>
-          <button class='support'>
-            <view class="iconfont icon-zan1"></view>
-            <text class='text'>+1</text>
+        <view class='buttonWrapper'>
+          <button data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown' class="support {{ item.can_support ? '':'active' }}">
+            <view class="iconfont icon-zan1" wx:if='{{item.can_support}}'></view>
+            <text class='text'>{{ item.can_support ? '+1': '明天再来' }}</text>
           </button>
         </view>
       </view>
@@ -65,5 +65,12 @@
       <view class='nameText'>邱丽丽 看好了 <text class='text'>钉钉</text> !</view>
     </view>
   </view>
+
+  <block wx:if="{{!loading && !userInfo.name}}">
+     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
+  </block>
 
 </view>

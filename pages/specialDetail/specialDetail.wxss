@@ -146,29 +146,44 @@ page {
   border-radius:29rpx;
   background:linear-gradient(135deg,rgba(253,128,173,1) 0%,rgba(250,73,117,1) 100%);
 }
+.buttonWrapper button.button-hover {
+  background: #C8C8C8;
+}
+.buttonWrapper .support.active {
+  background: #C8C8C8;
+}
 .buttonWrapper .support .iconfont {
   font-size: 30rpx;
+  margin-right: 6rpx;
 }
 .buttonWrapper .support .text {
   font-size: 22rpx;
-  margin-left: 6rpx;
   font-family:HelveticaNeue-Medium;
 }
 .addOne {
   height: 42rpx;
   position: absolute;
   top: -55.96rpx;
-  left: 31.96rpx;
+  left: 8.96rpx;
+  opacity: 0;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: addone 0.8s;
+  -moz-animation: addone 0.8s; /* Firefox */
+  -webkit-animation: addone 0.8s; /* Safari and Chrome */
+  -o-animation: addone 0.8s; /* Opera */
 }
 .addOne .triangle {
   width: 0;
   height: 0;
-  border-left: 6rpx solid transparent;
-  border-right: 6rpx solid transparent;
-  border-top: 6rpx solid #FA4975;
+  border-left: 8rpx solid transparent;
+  border-right: 8rpx solid transparent;
+  border-top: 8rpx solid #FA4975;
   position: absolute;
-  top: 37.50rpx;
-  left: 12rpx;
+  top: 36rpx;
+  left: 16rpx;
 }
 .addOne .addNum {
   width: 45.98rpx;
@@ -218,3 +233,35 @@ page {
 .leftFooter .lookGoodWrapper .nameText .text {
   color: #FA4975;
 }
+
+
+  @keyframes addone
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes addone 
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }
