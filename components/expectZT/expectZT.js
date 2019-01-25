@@ -51,7 +51,6 @@ Component({
             duration: 1000
           })
         }
-        
       })
       this.setData({
         isShow: false,
