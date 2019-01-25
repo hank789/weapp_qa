@@ -14,7 +14,8 @@ Page({
     critical: 100, //触发翻页的临界值
     margintop: 0,  //滑动下拉距离
     data: 5,
-    list: []
+    list: [],
+    showPopup: false
   },
   onLoad:function(options){
     var that = this
@@ -161,5 +162,10 @@ Page({
       margintop: 0
     })
   },
-
+  showExpect () {
+    console.log('显示弹窗')
+    this.setData({
+      showPopup: true
+    })
+  }
 })

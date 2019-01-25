@@ -122,7 +122,7 @@ page {
   margin-right: 11rpx;
 }
 .included {
-  margin-top: 35rpx;
+  margin-top: 10rpx;
   padding: 0 32rpx;
   display: flex;
   justify-content: center;
@@ -195,6 +195,7 @@ page {
 }
 .display {
   display: inline-block;
+  vertical-align: top;
 }
 .scrollView {}
 .specialWrapper .specialList .img {
@@ -223,4 +224,23 @@ page {
   top: 0;
   left: 0;
   border-radius: 8rpx;
+}
+.expectWrapper {
+  height: 156rpx;
+}
+.expectWrapper .content {
+  height: 100%;
+  line-height: 156rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #DCDCDC;
+}
+.expectWrapper .content .iconfont {
+  font-size: 26rpx;
+  color: #3C3E44;
+  margin-left: 30rpx;
+  margin-right: 7rpx;
+}
+.expectWrapper .content .expectText {
+  color: #808080;
+  font-size: 26rpx;
 }

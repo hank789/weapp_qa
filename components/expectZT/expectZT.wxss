@@ -1,0 +1,44 @@
+.wx-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+.wx-popup .codeWrapper {
+  width: 600rpx;
+  height: 320rpx;
+  padding: 60rpx 0rpx 0;
+  background:#FFFFFF;
+  border-radius: 36rpx;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.codeWrapper .title {
+  color: #444;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+}
+.codeWrapper input {
+  width: 500rpx;
+  margin: 30rpx auto 59rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: left;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  color: #444;
+  border: 1rpx solid #DCDCDC;
+}
+.codeWrapper .submit {
+  color: #03AEF9;
+  font-size: 32rpx;
+  line-height:99rpx;
+  font-family:PingFangSC-Medium;
+  border-top: 1rpx solid #DCDCDC;
+}
