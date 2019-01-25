@@ -49,7 +49,6 @@ Page({
           showGood: true,
           index: index+1
         })
-
         setTimeout(()=>{
           that.setData({
             showGood: false,
