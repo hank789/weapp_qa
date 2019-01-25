@@ -172,6 +172,12 @@ Page({
       })
     })
   },
+  goProductDetail (e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../productDetail/productDetail?id=' + id
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

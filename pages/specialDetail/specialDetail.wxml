@@ -20,7 +20,7 @@
   <view class='domainWrapper'>
 
     <view class='productList' wx:for='{{ list }}' wx:key='index'>
-      <view class='detailIofo'>
+      <view class='detailIofo' data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
         <view class='logoAndName'>
           <view class='productLogo'><image class='img' src="{{item.logo}}"></image></view>
           <view class='nameAndStars'>
@@ -66,7 +66,13 @@
       <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
     </view>
   </view>
-
+  <view class='operationList'>
+     <button hover-class="none"  open-type="share" class="docbutton">
+        <view class='buttonWrapper shearBut'>
+        <text class='iconfont icon-fenxiang'></text>
+        </view>
+    </button>
+  </view>
   <block wx:if="{{!loading && !userInfo.name}}">
      <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
   </block>

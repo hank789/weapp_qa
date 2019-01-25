@@ -147,11 +147,11 @@ Page({
   },
   scrollTouchend: function (e) {
     let d = this.data;
-    if (d.endy - d.starty > 100 && d.scrollindex > 0) {
+    if (d.endy - d.starty > 100 && d.scrollindex > 0 && d.margintop) {
       this.setData({
         scrollindex: d.scrollindex - 1
       })
-    } else if (d.endy - d.starty < -100 && d.scrollindex < this.data.totalnum - 1) {
+    } else if (d.endy - d.starty < -100 && d.scrollindex < this.data.totalnum - 1 && d.margintop) {
       this.setData({
         scrollindex: d.scrollindex + 1
       })
