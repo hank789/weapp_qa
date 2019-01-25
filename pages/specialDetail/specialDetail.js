@@ -17,6 +17,10 @@ Page({
     // isShowAddOne: false,
     authUserPhone: false,
     isShowPopup: false, 
+    supportsList: [],
+    supportData: {},
+    showGood: false,
+    index: 0
   },
 
   /**
@@ -34,7 +38,26 @@ Page({
       });
       that.getProductList(1)
       that.getAlbumInfo()
+      that.getSupportsList()
     });
+    if (that.data.supportsList) {
+      setInterval(() => {
+        var list = that.data.supportsList
+        var index = that.data.index
+        that.setData({
+          supportData: list[index],
+          showGood: true,
+          index: index+1
+        })
+
+        setTimeout(()=>{
+          that.setData({
+            showGood: false,
+          })
+        }, 1500)
+      }, 2000)
+    }
+    
   },
   getAlbumInfo: function () {
     var that = this;
@@ -129,6 +152,25 @@ Page({
         })
       }, 1500)
       console.log(item, '判断')
+    })
+  },
+
+  getSupportsList: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/getAlbumSupports', {
+      id: that.data.id
+    }, function (res) {
+      var code = res.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.setData({
+        supportsList: res.data
+      })
     })
   },
 

@@ -1,19 +1,32 @@
-// pages/productRank/productRank.js
+//获取应用实例
+var app = getApp();
+var request = require("../../utils/request.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    loading: 1,
+    isMore: true,
+    page: 1,
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    // 获取用户信息
+    app.getUserInfo(function (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      });
+    });
   },
+
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

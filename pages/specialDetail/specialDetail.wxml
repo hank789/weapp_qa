@@ -60,9 +60,10 @@
     <view class='commentary'>InweHub依据和采集平台用户的海量评价数据，采用数据模型对获得市场和客户高度认同认可的产品和服务，进行上榜展示。</view>
   </view>
 
-  <view class='leftFooter'>
-    <view class='lookGoodWrapper'>
-      <view class='nameText'>邱丽丽 看好了 <text class='text'>钉钉</text> !</view>
+  <view class='leftFooter' wx:if='{{ showGood }}'>
+    <view class='lookGoodWrapper'> 
+     <!-- wx:for='{{ supportsList }}' -->
+      <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
     </view>
   </view>
 

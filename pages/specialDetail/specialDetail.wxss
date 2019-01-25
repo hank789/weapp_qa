@@ -220,19 +220,64 @@ page {
 .leftFooter {
   position: fixed;
   bottom: 60rpx;
+  max-width: 686rpx;
+  left:32rpx;
+  opacity: 0;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: rolling 1s;
+  -moz-animation: rolling 1s; /* Firefox */
+  -webkit-animation: rolling 1s; /* Safari and Chrome */
+  -o-animation: rolling 1s; /* Opera */
 }
 .leftFooter .lookGoodWrapper {
-  opacity:0.7;
   border-radius: 34rpx;
   padding: 16rpx 20rpx;
   background:rgba(17,17,17,0.7);
+  /* margin-top: 8rpx; */
 }
 .leftFooter .lookGoodWrapper .nameText {
   color: #FFFFFF;
+  line-height: 30rpx;
 }
 .leftFooter .lookGoodWrapper .nameText .text {
   color: #FA4975;
+  max-width:370rpx;
+  display:inline-block;
+  position: relative;
+  top: 8rpx;
 }
+  @keyframes rolling {
+    0% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    50% {
+      bottom: 60rpx;
+      opacity: 3;
+    }
+    100% {
+      bottom: 168rpx;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes rolling {
+    0% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    50% {
+      bottom: 60rpx;
+      opacity: 3;
+    }
+    100% {
+      bottom: 168rpx;
+      opacity: 0;
+    }
+  }
+
 
 
   @keyframes addone
