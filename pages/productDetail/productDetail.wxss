@@ -81,6 +81,26 @@
     left: 32rpx;
     right: 32rpx;
   }
+  .topicHot {
+    position: relative;
+    top: 8rpx;
+  }
+  .topicHot .content {
+    padding: 0rpx 10rpx;
+    border-radius: 8rpx;
+    background: #DCDCDC;
+    height: 30rpx;
+    line-height: 30rpx;
+  }
+  .topicHot .content text {
+    color: #444444;
+    font-size: 20rpx;
+  }
+  .topicHot .content .img {
+    width: 17rpx;
+    height: 20rpx;
+    margin: 0 8rpx;
+  }
  .checkOpen {
     text-align: center;
     padding: 24rpx 0;
