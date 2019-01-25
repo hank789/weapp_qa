@@ -88,9 +88,19 @@
           </view>
 
         </scroll-view>
-        
-
+      
       </view>
+
+      <view class="index-bottom">
+          <view class="included">
+            <view class='iconWrapper'>
+              <text style="color:'#3C3E44'" class='iconfont icon-xiangshangjiantou'></text>
+              <text style="color:'#B2B3B5'" class='iconfont icon-xiangshangjiantou'></text>
+            </view>
+          </view>
+        </view>
+
+
     </view>
 
       <view >

@@ -21,12 +21,17 @@ Component({
       this.setData({
         voteTitle: e.detail.value
       })
-      console.log(this.data.voteTitle, 'input数据')
     },
 
     submit (e) {
-      console.log(e,'提交成功')
-
+      if (!this.data.voteTitle) {
+        wx.showToast({
+          title: '请输入标题',
+          icon: 'loading',
+          duration: 1000
+        })
+        return
+      }
       request.httpsPostRequest('/system/feedback', {
         title: this.data.voteTitle,
         content: this.data.voteTitle
