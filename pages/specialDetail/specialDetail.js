@@ -28,7 +28,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options,'数据')
+    // console.log(options,'数据')
     that.data.id = options.id
 
     // 获取用户信息
@@ -40,22 +40,27 @@ Page({
       that.getAlbumInfo()
       that.getSupportsList()
     });
-    if (that.data.supportsList) {
-      setInterval(() => {
-        var list = that.data.supportsList
-        var index = that.data.index
+    var roll = setInterval(function () { setRoll() }, 2000);
+    function setRoll() {
+      var list = that.data.supportsList
+      var index = that.data.index
+      that.setData({
+        supportData: list[index],
+        showGood: true,
+        index: index + 1
+      })
+      setTimeout(() => {
         that.setData({
-          supportData: list[index],
-          showGood: true,
-          index: index+1
+          showGood: false,
         })
-        setTimeout(()=>{
-          that.setData({
-            showGood: false,
-          })
-        }, 1500)
-      }, 2000)
+      }, 1500)
+      if (index === list.length) {
+        clearInterval(roll);
+        console.log(that.data.index, '数据', that.data.supportsList.length)
+      }
     }
+    
+    
     
   },
   getAlbumInfo: function () {
