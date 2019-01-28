@@ -17,7 +17,7 @@
   margin: 0 auto;
   position: relative;
   top: 100%;
-  transform: translateY(-200%);
+  transform: translateY(-210%);
 }
 .codeWrapper .title {
   color: #444;

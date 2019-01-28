@@ -56,7 +56,7 @@ Page({
       }, 1500)
       if (index === list.length) {
         clearInterval(roll);
-        console.log(that.data.index, '数据', that.data.supportsList.length)
+        // console.log(that.data.index, '数据', that.data.supportsList.length)
       }
     }
     
