@@ -230,10 +230,10 @@ page {
   -moz-transition-delay: 1.5s;
   -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
   -o-transition-delay: 1.5s;
-  animation: rolling 1s;
-  -moz-animation: rolling 1s; /* Firefox */
-  -webkit-animation: rolling 1s; /* Safari and Chrome */
-  -o-animation: rolling 1s; /* Opera */
+  animation: rolling 1.5s;
+  -moz-animation: rolling 1.5s; /* Firefox */
+  -webkit-animation: rolling 1.5s; /* Safari and Chrome */
+  -o-animation: rolling 1.5s; /* Opera */
 }
 .leftFooter .lookGoodWrapper {
   border-radius: 34rpx;
@@ -259,7 +259,11 @@ page {
     }
     50% {
       bottom: 60rpx;
-      opacity: 3;
+      opacity: 1;
+    }
+    75% {
+      bottom: 60rpx;
+      opacity: 1;
     }
     100% {
       bottom: 168rpx;
@@ -274,6 +278,10 @@ page {
     50% {
       bottom: 60rpx;
       opacity: 3;
+    }
+    75% {
+      bottom: 60rpx;
+      opacity: 1;
     }
     100% {
       bottom: 168rpx;
