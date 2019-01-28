@@ -250,7 +250,7 @@ page {
   max-width:370rpx;
   display:inline-block;
   position: relative;
-  top: 8rpx;
+  top: 6rpx;
 }
   @keyframes rolling {
     0% {
