@@ -39,6 +39,8 @@ page {
   margin: 40rpx auto 0;
   text-align: center;
   padding: 0 62rpx;
+  position: relative;
+  z-index: 9;
 }
 .special-info-wrapper .special-detail-info .title .text {
   width: 414rpx;  
@@ -59,10 +61,13 @@ page {
   text-align: left;
 }
 .backgroundCircle {
-
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.backgroundCircle img {
-
+.backgroundCircle .img {
+  width: 126rpx;
+  height: 233rpx;
 }
 
 .domainWrapper {
@@ -250,7 +255,7 @@ page {
   max-width:370rpx;
   display:inline-block;
   position: relative;
-  top: 6rpx;
+  top: 4rpx;
 }
   @keyframes rolling {
     0% {
