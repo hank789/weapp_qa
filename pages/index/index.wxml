@@ -52,7 +52,7 @@
           <view class="included">
             <view class='iconWrapper'>
               <text class='iconfont icon-xiangxiajiantou'></text>
-              <text class='iconfont icon-xiangxiajiantou'></text>
+              <text class='iconfont icon-xiangxiajiantou shadow'></text>
             </view>
             <view class='text font-family-medium'>进入专题</view>
           </view>
@@ -94,8 +94,8 @@
       <view class="index-bottom">
           <view class="included">
             <view class='iconWrapper'>
-              <text style="color:'#3C3E44'" class='iconfont icon-xiangshangjiantou'></text>
               <text style="color:'#B2B3B5'" class='iconfont icon-xiangshangjiantou'></text>
+              <text style="color:'#3C3E44'" class='dowmShadow iconfont icon-xiangshangjiantou'></text>
             </view>
           </view>
         </view>

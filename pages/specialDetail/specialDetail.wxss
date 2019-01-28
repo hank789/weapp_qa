@@ -48,6 +48,9 @@ page {
   line-height: 76rpx;
   margin: 0 auto 35rpx;
 }
+.special-info-wrapper .special-detail-info .line-river-after {
+  opacity: 0.3;
+}
 .special-info-wrapper .special-detail-info .title .describe {
   margin-top: 29rpx;
   color: #FFFFFF;
@@ -65,7 +68,7 @@ page {
 .domainWrapper {
   padding: 0 32rpx;
   position: relative;
-  margin-top: -171rpx;
+  margin-top: -190rpx;
 }
 .domainWrapper .productList {
   background: #F9FAFB;

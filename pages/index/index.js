@@ -47,6 +47,7 @@ Page({
   getAlbumList: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/albumList', {
+      perPage: 100
     }, function (res) {
       var code = res.code
       if (code !== 1000) {

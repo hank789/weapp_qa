@@ -135,8 +135,20 @@ page {
 }
 .included .iconWrapper .iconfont:nth-of-type(2) {
   position: relative;
-  top: -26rpx;
+  top: -37rpx;
   color: #3C3E44;
+}
+.iconWrapper .shadow {
+  animation: shadow 1.2s 0s linear infinite;
+  -moz-animation: shadow 1.2s 0s linear infinite; /* Firefox */
+  -webkit-animation: shadow 1.2s 0s linear infinite; /* Safari and Chrome */
+  -o-animation: shadow 1.2s 0s linear infinite; /* Opera */
+}
+.index-bottom .iconWrapper .dowmShadow {
+  animation: dowmShadow 1.2s 0s linear infinite;
+  -moz-animation: dowmShadow 1.2s 0s linear infinite; /* Firefox */
+  -webkit-animation: dowmShadow 1.2s 0s linear infinite; /* Safari and Chrome */
+  -o-animation: dowmShadow 1.2s 0s linear infinite; /* Opera */
 }
 .included .text {
   color: #3C3E44;
@@ -182,7 +194,7 @@ page {
   color: #3C3E44;
 }
 .pageSpecial .included .iconWrapper .iconfont:nth-of-type(2) {
-  color: #B2B3B5;
+  color: #3C3E44;
 }
 
 .topTitle {
@@ -207,6 +219,9 @@ page {
 .display {
   display: inline-block;
   vertical-align: top;
+}
+.marginR {
+  margin-right: 40rpx;
 }
 .scrollView {}
 .specialWrapper .specialList .img {
@@ -255,3 +270,45 @@ page {
   color: #808080;
   font-size: 26rpx;
 }
+
+@keyframes shadow {
+    0% {
+      top: -37rpx;
+      opacity: 1;
+    }
+    100% {
+      top: -26rpx;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes shadow {
+    0% {
+      top: -37rpx;
+      opacity: 1;
+    }
+    100% {
+      top: -26rpx;
+      opacity: 0;
+    }
+  }
+
+  @keyframes dowmShadow {
+    0% {
+      top: -37rpx;
+      opacity: 1;
+    }
+    100% {
+      top: -51rpx;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes dowmShadow {
+    0% {
+      top: -37rpx;
+      opacity: 1;
+    }
+    100% {
+      top: -51rpx;
+      opacity: 0;
+    }
+  }
