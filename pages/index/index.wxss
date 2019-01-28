@@ -281,12 +281,12 @@ page {
     opacity: 1;
   }
   90% {
-    top: -26rpx;
+    top: -22rpx;
     opacity: 0;
     visibility: hidden;
   }
   100% {
-    top: -26rpx;
+    top: -22rpx;
     opacity: 0;
     visibility: hidden;
   }
@@ -301,12 +301,12 @@ page {
     opacity: 1;
   }
   90% {
-    top: -26rpx;
+    top: -22rpx;
     opacity: 0;
     visibility: hidden;
   }
   100% {
-    top: -26rpx;
+    top: -22rpx;
     opacity: 0;
     visibility: hidden;
   }
