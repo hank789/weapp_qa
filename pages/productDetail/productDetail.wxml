@@ -25,7 +25,7 @@
   <view class="optionlList">
     <view class="listWrapper">
     <view wx:for='{{detail.categories}}' wx:key='id'>
-      <view class="list">
+      <view class="list" data-id='{{ item.id }}' data-type='{{ item.type }}' bindtap='goSpecial'>
         <text>{{ item.name }}</text>
 
         <view class='topicHot' wx:if='{{ item.type === 2 }}'>
