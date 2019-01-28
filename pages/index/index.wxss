@@ -134,20 +134,20 @@ page {
 }
 .included .iconWrapper .iconfont:nth-of-type(2) {
   position: relative;
-  top: -37rpx;
+  /* top: -37rpx; */
   color: #3C3E44;
 }
 .iconWrapper .shadow {
-  animation: shadow 1.2s 0s linear infinite;
-  -moz-animation: shadow 1.2s 0s linear infinite; /* Firefox */
-  -webkit-animation: shadow 1.2s 0s linear infinite; /* Safari and Chrome */
-  -o-animation: shadow 1.2s 0s linear infinite; /* Opera */
+  animation-fill-mode:none;
+  -webkit-backface-visibility: hidden;  
+  animation: shadow 1.2s 0.2s linear infinite;
+  -webkit-animation: shadow 1.2s 0.2s linear infinite; /* Safari and Chrome */
 }
 .index-bottom .iconWrapper .dowmShadow {
-  animation: dowmShadow 1.2s 0s linear infinite;
-  -moz-animation: dowmShadow 1.2s 0s linear infinite; /* Firefox */
-  -webkit-animation: dowmShadow 1.2s 0s linear infinite; /* Safari and Chrome */
-  -o-animation: dowmShadow 1.2s 0s linear infinite; /* Opera */
+  animation-fill-mode:none;
+  -webkit-backface-visibility: hidden;  
+  animation: dowmShadow 1.2s 0.2s linear infinite;
+  -webkit-animation: dowmShadow 1.2s 0.2s linear infinite; /* Safari and Chrome */
 }
 .included .text {
   color: #3C3E44;
@@ -226,7 +226,6 @@ page {
 .marginR {
   margin-right: 40rpx;
 }
-.scrollView {}
 .specialWrapper .specialList .img {
   width: 333rpx;
   height: 159rpx;
@@ -275,19 +274,35 @@ page {
 }
 
 @keyframes shadow {
-    0% {
-      top: -37rpx;
-      opacity: 1;
-    }
-    100% {
-      top: -26rpx;
-      opacity: 0;
-    }
+  0% {
+    top: -37rpx;
+    opacity: 0;
   }
+  10% {
+    top: -35rpx;
+    opacity: 1;
+  }
+  90% {
+    top: -26rpx;
+    opacity: 0;
+  }
+  100% {
+    top: -26rpx;
+    opacity: 0;
+  }
+}
   @-webkit-keyframes shadow {
     0% {
-      top: -37rpx;
+    top: -37rpx;
+    opacity: 0;
+  }
+    10% {
+      top: -35rpx;
       opacity: 1;
+    }
+    90% {
+      top: -26rpx;
+      opacity: 0;
     }
     100% {
       top: -26rpx;
@@ -295,10 +310,23 @@ page {
     }
   }
 
+
+
+
+
+
   @keyframes dowmShadow {
     0% {
       top: -37rpx;
+      opacity: 0;
+    }
+    10% {
+      top: -41rpx;
       opacity: 1;
+    }
+    90% {
+      top: -51rpx;
+      opacity: 0;
     }
     100% {
       top: -51rpx;
@@ -308,7 +336,15 @@ page {
   @-webkit-keyframes dowmShadow {
     0% {
       top: -37rpx;
+      opacity: 0;
+    }
+    10% {
+      top: -41rpx;
       opacity: 1;
+    }
+    90% {
+      top: -51rpx;
+      opacity: 0;
     }
     100% {
       top: -51rpx;

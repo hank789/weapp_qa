@@ -66,8 +66,8 @@ page {
   right: 0;
 }
 .backgroundCircle .img {
-  width: 126rpx;
-  height: 233rpx;
+  width:110rpx;
+  height:217rpx;
 }
 
 .domainWrapper {
