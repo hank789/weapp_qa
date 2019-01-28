@@ -138,14 +138,12 @@ page {
   color: #3C3E44;
 }
 .iconWrapper .shadow {
-  animation-fill-mode:none;
-  -webkit-backface-visibility: hidden;  
+  animation-fill-mode:forwards;
   animation: shadow 1.2s 0.2s linear infinite;
   -webkit-animation: shadow 1.2s 0.2s linear infinite; /* Safari and Chrome */
 }
 .index-bottom .iconWrapper .dowmShadow {
-  animation-fill-mode:none;
-  -webkit-backface-visibility: hidden;  
+  animation-fill-mode:forwards;
   animation: dowmShadow 1.2s 0.2s linear infinite;
   -webkit-animation: dowmShadow 1.2s 0.2s linear infinite; /* Safari and Chrome */
 }
@@ -285,30 +283,34 @@ page {
   90% {
     top: -26rpx;
     opacity: 0;
+    visibility: hidden;
   }
   100% {
     top: -26rpx;
     opacity: 0;
+    visibility: hidden;
   }
 }
-  @-webkit-keyframes shadow {
-    0% {
+@-webkit-keyframes shadow {
+  0% {
     top: -37rpx;
     opacity: 0;
   }
-    10% {
-      top: -35rpx;
-      opacity: 1;
-    }
-    90% {
-      top: -26rpx;
-      opacity: 0;
-    }
-    100% {
-      top: -26rpx;
-      opacity: 0;
-    }
+  10% {
+    top: -35rpx;
+    opacity: 1;
   }
+  90% {
+    top: -26rpx;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    top: -26rpx;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 
 
 
@@ -327,10 +329,12 @@ page {
     90% {
       top: -51rpx;
       opacity: 0;
+      visibility: hidden;
     }
     100% {
       top: -51rpx;
       opacity: 0;
+      visibility: hidden;
     }
   }
   @-webkit-keyframes dowmShadow {
@@ -345,9 +349,11 @@ page {
     90% {
       top: -51rpx;
       opacity: 0;
+      visibility: hidden;
     }
     100% {
       top: -51rpx;
       opacity: 0;
+      visibility: hidden;
     }
   }
