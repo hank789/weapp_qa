@@ -106,9 +106,8 @@ page {
   margin-right:-19rpx;
   margin-left:-20rpx;
   margin-top:0;
-  /* top:-38rpx; */
   z-index:9999;
-  top: -37rpx;
+  top: 0;
 }
 .bottom-about {
   display: inline-block;
@@ -130,7 +129,7 @@ page {
 }
 .included .iconWrapper .iconfont {
   display: block;
-  color: #B2B3B5;
+  color: #3C3E44;
   font-size: 24rpx;
 }
 .included .iconWrapper .iconfont:nth-of-type(2) {
@@ -205,20 +204,24 @@ page {
 .specialWrapper {
   width: 100%;
   height: 893rpx;
-  padding: 0rpx 0 0 32rpx;
+  padding: 0rpx 0 0 0rpx;
   overflow: hidden;
   white-space: nowrap;
   /* display: flex; */
 }
 .specialWrapper .specialList {
   position: relative;
-  margin: 20rpx 20rpx 0 0;
+  margin: 20rpx 0rpx 0 0;
   /* float: left; */
   /* display: inline-block; */
 }
 .display {
   display: inline-block;
   vertical-align: top;
+  margin-left: 20rpx;
+}
+.display:last-child {
+  margin-right: 20rpx;
 }
 .marginR {
   margin-right: 40rpx;
