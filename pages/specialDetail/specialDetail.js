@@ -40,7 +40,7 @@ Page({
       that.getAlbumInfo()
       that.getSupportsList()
     });
-    var roll = setInterval(function () { setRoll() }, 2000);
+    var roll = setInterval(function () { setRoll() }, 3300);
     function setRoll() {
       var list = that.data.supportsList
       var index = that.data.index
@@ -53,10 +53,9 @@ Page({
         that.setData({
           showGood: false,
         })
-      }, 1500)
+      }, 3200)
       if (index === list.length) {
         clearInterval(roll);
-        // console.log(that.data.index, '数据', that.data.supportsList.length)
       }
     }
     

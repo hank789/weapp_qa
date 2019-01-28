@@ -68,7 +68,7 @@ page {
 .domainWrapper {
   padding: 0 32rpx;
   position: relative;
-  margin-top: -190rpx;
+  margin-top: -244rpx;
 }
 .domainWrapper .productList {
   background: #F9FAFB;
@@ -231,9 +231,9 @@ page {
   -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
   -o-transition-delay: 1.5s;
   animation: rolling 1.5s;
-  -moz-animation: rolling 1.5s; /* Firefox */
-  -webkit-animation: rolling 1.5s; /* Safari and Chrome */
-  -o-animation: rolling 1.5s; /* Opera */
+  -moz-animation: rolling 2s; /* Firefox */
+  -webkit-animation: rolling 2s; /* Safari and Chrome */
+  -o-animation: rolling 2s; /* Opera */
 }
 .leftFooter .lookGoodWrapper {
   border-radius: 34rpx;
