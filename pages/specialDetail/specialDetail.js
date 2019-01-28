@@ -129,7 +129,7 @@ Page({
     var item = e.currentTarget.dataset.item
     var index = e.currentTarget.dataset.index
     request.httpsPostRequest('/weapp/product/supportAlbumProduct', {
-      id: item.tag_id
+      id: item.id
     }, function (res) {
       var code = res.code
       var support = "list[" + index + "].can_support"
@@ -155,7 +155,6 @@ Page({
           [isShowAddOne]: false
         })
       }, 1500)
-      console.log(item, '判断')
     })
   },
 
