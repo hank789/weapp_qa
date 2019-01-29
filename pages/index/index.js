@@ -6,7 +6,16 @@ Page({
   data:{
     userInfo: {},
     loading: true,
-    keywords: []
+    keywords: [],
+    scrollindex: 0,  //当前页面的索引值
+    totalnum: 2,  //总共页面数
+    starty: 0,  //开始的位置x
+    endy: 0, //结束的位置y
+    critical: 100, //触发翻页的临界值
+    margintop: 0,  //滑动下拉距离
+    data: 5,
+    list: [],
+    showPopup: false
   },
   onLoad:function(options){
     var that = this
@@ -32,7 +41,43 @@ Page({
            });
          }
        })
+       that.getAlbumList()
      });
+  },
+  getAlbumList: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/albumList', {
+      perPage: 100
+    }, function (res) {
+      var code = res.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      let listArry = res.data.data
+      let len = listArry.length;
+      let n = 5; //假设每行显示5个
+      let lineNum = len % 5 === 0 ? len / 5 : Math.ceil(len / 5);
+      let resD = [];
+      for (let i = 0; i < lineNum; i++) {
+        let temp = listArry.slice(i * n, i * n + n);
+        resD.push(temp);
+      }
+
+      console.log(resD, '数据')
+
+      that.setData({
+        list: resD
+      })
+    })
+  },
+  goDetail (e) {
+    wx.navigateTo({
+      url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
+    });
   },
   onReady:function(){
     // 页面渲染完成
@@ -81,5 +126,47 @@ Page({
   },
   downloadApp: function (e) {
     
+  },
+
+  scrollTouchstart: function (e) {
+    let py = e.touches[0].pageY;
+    this.setData({
+      starty: py
+    })
+  },
+  scrollTouchmove: function (e) {
+    let py = e.touches[0].pageY;
+    let d = this.data;
+    this.setData({
+      endy: py,
+    })
+    if (py - d.starty < 100 && py - d.starty > -100) {
+      this.setData({
+        margintop: py - d.starty
+      })
+    }
+  },
+  scrollTouchend: function (e) {
+    let d = this.data;
+    if (d.endy - d.starty > 100 && d.scrollindex > 0 && d.margintop) {
+      this.setData({
+        scrollindex: d.scrollindex - 1
+      })
+    } else if (d.endy - d.starty < -100 && d.scrollindex < this.data.totalnum - 1 && d.margintop) {
+      this.setData({
+        scrollindex: d.scrollindex + 1
+      })
+    }
+    this.setData({
+      starty: 0,
+      endy: 0,
+      margintop: 0
+    })
+  },
+  showExpect () {
+    console.log('显示弹窗')
+    this.setData({
+      showPopup: true
+    })
   }
 })

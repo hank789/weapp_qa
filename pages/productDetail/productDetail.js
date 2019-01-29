@@ -190,6 +190,15 @@ Page({
     });
 
   },
+  goSpecial (e) {
+    var id = e.currentTarget.dataset.id
+    var type = e.currentTarget.dataset.type
+    if (type === 2) {
+      wx.navigateTo({
+        url: '../specialDetail/specialDetail?id=' + id
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

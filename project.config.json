@@ -78,9 +78,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "专题详情",
-					"pathName": "pages/specialDetail/specialDetail"
+					"pathName": "pages/specialDetail/specialDetail",
+					"query": "id=2726"
+				},
+				{
+					"id": -1,
+					"name": "榜单排名",
+					"pathName": "pages/productRank/productRank",
+					"query": ""
 				}
 			]
 		}

@@ -39,6 +39,8 @@ page {
   margin: 40rpx auto 0;
   text-align: center;
   padding: 0 62rpx;
+  position: relative;
+  z-index: 9;
 }
 .special-info-wrapper .special-detail-info .title .text {
   width: 414rpx;  
@@ -48,6 +50,9 @@ page {
   line-height: 76rpx;
   margin: 0 auto 35rpx;
 }
+.special-info-wrapper .special-detail-info .line-river-after {
+  opacity: 0.3;
+}
 .special-info-wrapper .special-detail-info .title .describe {
   margin-top: 29rpx;
   color: #FFFFFF;
@@ -56,16 +61,19 @@ page {
   text-align: left;
 }
 .backgroundCircle {
-
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.backgroundCircle img {
-
+.backgroundCircle .img {
+  width:110rpx;
+  height:217rpx;
 }
 
 .domainWrapper {
   padding: 0 32rpx;
   position: relative;
-  margin-top: -171rpx;
+  margin-top: -244rpx;
 }
 .domainWrapper .productList {
   background: #F9FAFB;
@@ -96,6 +104,7 @@ page {
   margin-left: 20rpx;
 }
 .domainWrapper .productList .detailIofo .logoAndName .nameAndStars .font-family-medium {
+  width: 500rpx;
   font-size: 32rpx;
   line-height: 45rpx;
   color: #444444;
@@ -145,29 +154,44 @@ page {
   border-radius:29rpx;
   background:linear-gradient(135deg,rgba(253,128,173,1) 0%,rgba(250,73,117,1) 100%);
 }
+.buttonWrapper button.button-hover {
+  background: #C8C8C8;
+}
+.buttonWrapper .support.active {
+  background: #C8C8C8;
+}
 .buttonWrapper .support .iconfont {
   font-size: 30rpx;
+  margin-right: 6rpx;
 }
 .buttonWrapper .support .text {
   font-size: 22rpx;
-  margin-left: 6rpx;
   font-family:HelveticaNeue-Medium;
 }
 .addOne {
   height: 42rpx;
   position: absolute;
   top: -55.96rpx;
-  left: 31.96rpx;
+  left: 8.96rpx;
+  opacity: 0;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: addone 0.8s;
+  -moz-animation: addone 0.8s; /* Firefox */
+  -webkit-animation: addone 0.8s; /* Safari and Chrome */
+  -o-animation: addone 0.8s; /* Opera */
 }
 .addOne .triangle {
   width: 0;
   height: 0;
-  border-left: 6rpx solid transparent;
-  border-right: 6rpx solid transparent;
-  border-top: 6rpx solid #FA4975;
+  border-left: 8rpx solid transparent;
+  border-right: 8rpx solid transparent;
+  border-top: 8rpx solid #FA4975;
   position: absolute;
-  top: 37.50rpx;
-  left: 12rpx;
+  top: 36rpx;
+  left: 16rpx;
 }
 .addOne .addNum {
   width: 45.98rpx;
@@ -204,16 +228,101 @@ page {
 .leftFooter {
   position: fixed;
   bottom: 60rpx;
+  max-width: 686rpx;
+  left:32rpx;
+  opacity: 0;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: rolling 1.5s;
+  -moz-animation: rolling 2s; /* Firefox */
+  -webkit-animation: rolling 2s; /* Safari and Chrome */
+  -o-animation: rolling 2s; /* Opera */
 }
 .leftFooter .lookGoodWrapper {
-  opacity:0.7;
   border-radius: 34rpx;
   padding: 16rpx 20rpx;
   background:rgba(17,17,17,0.7);
+  /* margin-top: 8rpx; */
 }
 .leftFooter .lookGoodWrapper .nameText {
   color: #FFFFFF;
+  line-height: 30rpx;
 }
 .leftFooter .lookGoodWrapper .nameText .text {
   color: #FA4975;
+  max-width:370rpx;
+  display:inline-block;
+  position: relative;
+  top: 4rpx;
 }
+  @keyframes rolling {
+    0% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    50% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    75% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    100% {
+      bottom: 168rpx;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes rolling {
+    0% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    50% {
+      bottom: 60rpx;
+      opacity: 3;
+    }
+    75% {
+      bottom: 60rpx;
+      opacity: 1;
+    }
+    100% {
+      bottom: 168rpx;
+      opacity: 0;
+    }
+  }
+
+
+
+  @keyframes addone
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes addone 
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }

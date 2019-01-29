@@ -25,9 +25,19 @@
   <view class="optionlList">
     <view class="listWrapper">
     <view wx:for='{{detail.categories}}' wx:key='id'>
-      <view class="list">
+      <view class="list" data-id='{{ item.id }}' data-type='{{ item.type }}' bindtap='goSpecial'>
         <text>{{ item.name }}</text>
-        <text class="ranking">No.{{ item.rate }}</text>
+
+        <view class='topicHot' wx:if='{{ item.type === 2 }}'>
+          <view class='content'>
+            <text class=''>专题</text>
+            <image class='img' src='../../images/heat@3x.png'></image>
+            <text>{{ item.support_rate }}</text>
+          </view>
+        </view>
+
+        <text wx:else class="ranking">No.{{ item.rate }}</text>
+        
       </view>
       <view class="line-river-after line-river-after-top" wx:if='{{ index !== detail.categories.length - 1 }}'></view>
       </view>

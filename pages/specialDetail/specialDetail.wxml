@@ -1,7 +1,7 @@
 <view class='page'>
   <view class='special-info-wrapper'>
     <view class='background'>
-      <image class='img' src='../../images/1@3x 2.png'></image>
+      <image class='img' src='{{ albumInfo.icon }}'></image>
       <view class='backMask'></view>
     </view>
     <view class='special-detail-info'>
@@ -9,83 +9,50 @@
         <image class='logo' src='../../images/logo@3x.png'></image>
       </view>
       <view class='title'>
-        <view class='text font-family-medium'>分析与商业智能产品推荐</view>
+        <view class='text font-family-medium'>{{ albumInfo.name }}</view>
         <view class='line-river-after'></view>
-        <view class='describe'>
-          中小和初创企业，往往需要在工具选择上下功夫，特别是团队协作类的产品。如何在功能、性价比、扩展性、易用度等方面考察后，作出最后的选择决策，希望这个榜单上的产品能给您带来眼前一亮的感觉。（以下排名不分先后)
-        </view>
+        <view class='describe'>{{ albumInfo.summary }}</view>
       </view>
     </view>
-    <!-- <view class='backgroundCircle'><image src='../../images/backgroundTop@3x.png'></image></view> -->
+    <view class='backgroundCircle'><image class='img' src='../../images/backgroundTop@3x.png'></image></view>
   </view>
 
   <view class='domainWrapper'>
-    <view class='productList'>
-      <view class='detailIofo'>
+
+    <view class='productList' wx:for='{{ list }}' wx:key='index'>
+      <view class='detailIofo' data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
         <view class='logoAndName'>
-          <view class='productLogo'><image class='img' src='../../images/logo-144.png'></image></view>
+          <view class='productLogo'><image class='img' src="{{item.logo}}"></image></view>
           <view class='nameAndStars'>
-            <view class='font-family-medium'>Teambition</view>
+            <view class='font-family-medium text-line-1'>{{ item.name }}</view>
             <view class='stars'>
-              <StarView rating='4'></StarView>
-              <view class='starNumber'>4.3分</view>
+              <StarView rating='{{ item.review_average_rate }}'></StarView>
+              <view class='starNumber'>{{ item.review_average_rate }}分</view>
             </view>
           </view>
         </view>
-        <view class='describe'>界面简洁优美，但是太专注于项目协作，所有的沟通都要通过项目来发起。</view>
+        <view class='describe text-line-2'>{{ item.summary }}</view>
       </view>
       <view class='operation'>
         <view class='heat'>
-          <view class="addOne">
+          <view class="addOne" wx:if='{{ item.isShowAddOne }}'>
             <text class='triangle'></text>
             <text class='addNum'>+1</text>
           </view>
           <view class='heatImg'>
             <image class='img' src='../../images/heat@3x.png'></image>
-            <text class='heatNum'>2862</text>
+            <text class='heatNum'>{{ item.support_rate }}</text>
           </view>
         </view>
         <view class='buttonWrapper'>
-          <button class='support'>
-            <view class="iconfont icon-zan1"></view>
-            <text class='text'>+1</text>
+          <button data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown' class="support {{ item.can_support ? '':'active' }}">
+            <view class="iconfont icon-zan1" wx:if='{{item.can_support}}'></view>
+            <text class='text'>{{ item.can_support ? '+1': '明天再来' }}</text>
           </button>
         </view>
       </view>
     </view>
-    <view class='productList'>
-      <view class='detailIofo'>
-        <view class='logoAndName'>
-          <view class='productLogo'><image class='img' src='../../images/logo-144.png'></image></view>
-          <view class='nameAndStars'>
-            <view class='font-family-medium'>Teambition</view>
-            <view class='stars'>
-              <StarView rating='4'></StarView>
-              <view class='starNumber'>4.3分</view>
-            </view>
-          </view>
-        </view>
-        <view class='describe'>界面简洁优美，但是太专注于项目协作，所有的沟通都要通过项目来发起。</view>
-      </view>
-      <view class='operation'>
-        <view class='heat'>
-          <view class="addOne">
-            <text class='triangle'></text>
-            <text class='addNum'>+1</text>
-          </view>
-          <view class='heatImg'>
-            <image class='img' src='../../images/heat@3x.png'></image>
-            <text class='heatNum'>2862</text>
-          </view>
-        </view>
-        <view class='buttonWrapper'>
-          <button class='support'>
-            <view class="iconfont icon-zan1"></view>
-            <text class='text'>+1</text>
-          </button>
-        </view>
-      </view>
-    </view>
+
   </view>
 
   <view class='footerWrapper'>
@@ -93,10 +60,24 @@
     <view class='commentary'>InweHub依据和采集平台用户的海量评价数据，采用数据模型对获得市场和客户高度认同认可的产品和服务，进行上榜展示。</view>
   </view>
 
-  <view class='leftFooter'>
-    <view class='lookGoodWrapper'>
-      <view class='nameText'>邱丽丽 看好了 <text class='text'>钉钉</text> !</view>
+  <view class='leftFooter' wx:if='{{ showGood }}'>
+    <view class='lookGoodWrapper'> 
+     <!-- wx:for='{{ supportsList }}' -->
+      <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
     </view>
   </view>
+  <view class='operationList'>
+     <button hover-class="none"  open-type="share" class="docbutton">
+        <view class='buttonWrapper shearBut'>
+        <text class='iconfont icon-fenxiang'></text>
+        </view>
+    </button>
+  </view>
+  <block wx:if="{{!loading && !userInfo.name}}">
+     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
+  </block>
 
 </view>
