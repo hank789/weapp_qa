@@ -1,7 +1,7 @@
 <view class='page'>
   <view class='special-info-wrapper'>
     <view class='background'>
-      <image class='img' src='{{ albumInfo.icon }}'></image>
+      <image class='img' src='{{ albumInfo.icon }}' mode="aspectFit"></image>
       <view class='backMask'></view>
     </view>
     <view class='special-detail-info'>
@@ -22,7 +22,7 @@
     <view class='productList' wx:for='{{ list }}' wx:key='index'>
       <view class='detailIofo' data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
         <view class='logoAndName'>
-          <view class='productLogo'><image class='img' src="{{item.logo}}"></image></view>
+          <view class='productLogo'><image class='img' src="{{item.logo}}" mode="aspectFit"></image></view>
           <view class='nameAndStars'>
             <view class='font-family-medium text-line-1'>{{ item.name }}</view>
             <view class='stars'>

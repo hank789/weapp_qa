@@ -2,6 +2,6 @@
   <view class='codeWrapper'>
     <view class='title'>我期待的专题</view>
     <input placeholder="输入您期待的专题名称" value='{{ voteTitle }}' bindinput="voteTitle"></input>
-    <view  bindtap='submit' class='submit'>提交</view>
+    <view class='submit'><label bindtap='cancel'>取消</label><label bindtap='submit'>提交</label></view>
   </view>
 </view>

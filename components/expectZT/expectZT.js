@@ -56,6 +56,12 @@ Component({
         isShow: false,
         voteTitle: ''
       })
+    },
+    cancel (e) {
+      this.setData({
+        isShow: false,
+        voteTitle: ''
+      })
     }
   }
 })
