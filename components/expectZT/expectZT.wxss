@@ -42,3 +42,7 @@
   font-family:PingFangSC-Medium;
   border-top: 1rpx solid #DCDCDC;
 }
+
+.codeWrapper label {
+    padding: 0 80rpx;
+}

@@ -44,11 +44,13 @@ Page({
     function setRoll() {
       var list = that.data.supportsList
       var index = that.data.index
-      that.setData({
-        supportData: list[index],
-        showGood: true,
-        index: index + 1
-      })
+      if (list.length > 0) {
+        that.setData({
+          supportData: list[index],
+          showGood: true,
+          index: index + 1
+        })
+      }
       setTimeout(() => {
         that.setData({
           showGood: false,
