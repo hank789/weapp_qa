@@ -2,7 +2,7 @@
 
   <view class="product-introduce">
     <view class="companyLogo border-football">
-      <image class="logo-img" src="{{ detail.logo }}" mode="aspectFill"></image>
+      <image class="logo-img" src="{{ detail.logo }}" mode="aspectFit"></image>
     </view>
     <view class="companyNmae font-family-medium">{{ detail.name }}</view>
     <view class="companyMark">
