@@ -44,7 +44,7 @@ Page({
     function setRoll() {
       var list = that.data.supportsList
       var index = that.data.index
-      if (list.length > 0) {
+      if (list[index]) {
         that.setData({
           supportData: list[index],
           showGood: true,
