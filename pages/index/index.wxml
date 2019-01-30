@@ -75,7 +75,7 @@
 
             <view class='specialList' wx:for='{{ item }}' wx:key='id' data-id='{{ item.id }}' bindtap='goDetail'>
               <view class='mask'></view>
-              <view class='img'><image src='{{ item.icon }}'></image></view>
+              <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
               <view class='text font-family-medium'>{{ item.name }}</view>
             </view>
             <view class='expectWrapper specialList' wx:if='{{ item.length < 5 }}' bindtap='showExpect'>

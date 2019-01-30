@@ -1,7 +1,7 @@
 <view class='page'>
   <view class='special-info-wrapper'>
     <view class='background'>
-      <image class='img' src='{{ albumInfo.icon }}' mode="aspectFit"></image>
+      <image class='img' src='{{ albumInfo.icon }}' mode="aspectFill"></image>
       <view class='backMask'></view>
     </view>
     <view class='special-detail-info'>
