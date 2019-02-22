@@ -1,0 +1,48 @@
+<view class='page'>
+
+  <view class='productDetail'>
+    <view class='topInfo'>
+      <view class='left'>
+        <image class='img' src='../../images/logo-144.png'></image>
+      </view>
+      <view  class='right'>
+        <view class='name font-family-medium'>阿里云2排效果2排效果2排效果2排效果</view>
+        <view class='score'>
+          <text class='text'>4.3分</text>
+        </view>
+      </view>
+    </view>
+    <view class='describe'>
+    外包此活动为您提供财务空间和更多时间，可用于贵公司的核心竞争力和战略方向。外包此活动为您提供财务空间和更多时间，可用于贵公司的核心竞争力和战略方
+    </view>
+  </view>
+
+  <!-- 产品亮点 -->
+  <view class='productWrapper'>
+    <view class='title'>产品亮点</view>
+
+    <view  class='imgWrapper'>
+      <view class='imgList'>
+        <image class='img' src='../../images/logo-144.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 入选专题 -->
+  <view class='chosenWrapper'>
+    <view class='title'>入选专题</view>
+
+    <view class='specialWrapper'>
+      <view class='speciaList'>
+        <image class='img' src='../../images/1@3x 2.png'></image>
+        <view class='mask'></view>
+        <view class='info'>
+          <view class='top'>热度1269</view>
+          <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
