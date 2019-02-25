@@ -1,6 +1,6 @@
 <view class='page'>
 
-  <view class="stars">
+  <view class="stars my-class">
       <view class='star' bindtap='oneStar' data-mark='1'>
         <text wx:if='{{ starNumber < 1 }}' class='iconfont icon-xingxingkongxin starKong'></text>
         <text wx:if='{{ starNumber >=1 }}' class='iconfont icon-shixinxingxing starShi'></text>

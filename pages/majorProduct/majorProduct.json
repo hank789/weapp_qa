@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "StarView": "/components/starView/starView",
+    "MarkStar": "/components/markStar/markStar"
+  }
 }
