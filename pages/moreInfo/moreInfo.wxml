@@ -1,0 +1,44 @@
+<view class='page'>
+  <view class='consultWrapper'>
+    <view class='consultListWrapper'>
+      <view class='consultList'>
+        <view class='splitCircle'></view>
+        <view class='content'>
+          <view class='left'>
+            <view class='titles font-family-medium'>Grab和Go-Jek，国外的滴滴和美团2018年全年战报</view>
+            <view class='bottom'>
+              <text class='time'>1月18日</text>
+              <view class='spot'></view>
+              <text class='name'>TradeShift</text>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='consultImg'>
+              <image class='img' src='../../images/logo-144.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='consultList'>
+        <view class='splitCircle'></view>
+        <view class='content'>
+          <view class='left'>
+            <view class='titles font-family-medium'>Grab和Go-Jek，国外的滴滴和美团2018年全年战报</view>
+            <view class='bottom'>
+              <text class='time'>1月18日</text>
+              <view class='spot'></view>
+              <text class='name'>TradeShift</text>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='consultImg'>
+              <image class='img' src='../../images/logo-144.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
