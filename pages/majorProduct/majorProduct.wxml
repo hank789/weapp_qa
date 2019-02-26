@@ -25,9 +25,12 @@
     <view class='title'>产品亮点</view>
 
     <view  class='imgWrapper'>
-      <view class='imgList'>
-        <image class='img' src='../../images/logo-144.png'></image>
-      </view>
+      <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+        <view class='imgList' wx:for='{{ detail.introduce_pic }}'>
+          <image class='img' src='{{ item }}'></image>
+        </view>
+      </scroll-view>
+
     </view>
   </view>
 
@@ -36,14 +39,36 @@
     <view class='title'>入选专题</view>
 
     <view class='specialWrapper'>
-      <view class='speciaList'>
-        <image class='img' src='../../images/1@3x 2.png'></image>
-        <view class='mask'></view>
-        <view class='info'>
-          <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
-          <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+      <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
         </view>
-      </view>
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
+        </view>
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
+        </view>
+
+      </scroll-view>
     </view>
 
   </view>
