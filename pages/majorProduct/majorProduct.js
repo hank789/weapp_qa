@@ -1,18 +1,47 @@
-// pages/majorProduct/majorProduct.js
+//获取应用实例
+var app = getApp();
+var request = require("../../utils/request.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detail: {},
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    app.getUserInfo(function (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      });
+      that.getReviewInfo()
+    });
+  },
+  getReviewInfo: function () {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/info', {
+      tag_name: '1259'
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.setData({
+        detail: response.data,
+        loding: 0
+      })
+      // that.getReviewList()
+    })
   },
 
   /**

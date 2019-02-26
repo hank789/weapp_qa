@@ -3,18 +3,21 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image class='img' src='../../images/logo-144.png'></image>
+        <image class='img' src='{{ detail.logo }}'></image>
       </view>
       <view  class='right'>
-        <view class='name font-family-medium'>阿里云2排效果2排效果2排效果2排效果</view>
+        <view class='name font-family-medium'>{{ detail.name }}</view>
         <view class='score'>
-          <text class='text'>4.3分</text>
+          <view class='stars'>
+            <StarView rating='{{ detail.review_average_rate }}'></StarView>
+          </view>
+          <text class='text'>{{ detail.review_average_rate }}分</text>
+          <view class='spot'></view>
+          <text class='text'>{{ detail.reviews }}条评论</text>
         </view>
       </view>
     </view>
-    <view class='describe'>
-    外包此活动为您提供财务空间和更多时间，可用于贵公司的核心竞争力和战略方向。外包此活动为您提供财务空间和更多时间，可用于贵公司的核心竞争力和战略方
-    </view>
+    <view class='describe'>{{ detail.summary }}</view>
   </view>
 
   <!-- 产品亮点 -->
@@ -37,7 +40,7 @@
         <image class='img' src='../../images/1@3x 2.png'></image>
         <view class='mask'></view>
         <view class='info'>
-          <view class='top'>热度1269</view>
+          <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
           <view class='name font-family-medium'>分析与商业智能分析的产品</view>
         </view>
       </view>
@@ -131,7 +134,7 @@
     </view>
   </view>
 
-  <!--  -->
+  <!-- 相关推荐 -->
   <view class='recommendWrapper'>
     <view class='title'>相关推荐</view>
 
@@ -145,7 +148,7 @@
             <view class='productName font-family-medium'>AMETRAS Manual</view>
             <view class='productMark'>
               <view class='stars'>
-              <StarView rating='4'></StarView>
+                <StarView rating='4'></StarView>
               </view>
               <view class='starsText'>
                 <text>4分</text>
