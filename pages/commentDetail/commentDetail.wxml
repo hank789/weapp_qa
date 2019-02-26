@@ -36,6 +36,16 @@
       </view>
     </view>
 
+    <!-- 官方回复 -->
+    <view class='officialWrapper'>
+      <view class='replycontent'>
+        <view class='texts font-family-medium'>官方回复</view>
+        <view class='time'>3分钟前</view>
+        <view class='contentText'>今年6月份注册成为Airbnb的房东，接待了两个房客，感觉非常的开心</view>
+      </view>
+    </view>
+
+
     <view class="link">
       <view class="linkBox" data-id='{{ detail.tags[0].id }}' bindtap='goProductDetail'>
         <view class="productLogo border-football" v-else>
@@ -112,7 +122,7 @@
 
   
 
-  <view class='operationList'>
+  <!-- <view class='operationList'>
     <view class="buttonWrapper  {{ detail.is_upvoted ? 'isActive' : '' }} {{ detail.upvotes ? '' : 'buttonMargin' }}"bindtap="upvote">
       <view class='textIcon'>
         <text class='iconfont icon-zan'></text>
@@ -131,6 +141,22 @@ bindtap="downvote">
         <text class='iconfont icon-fenxiang'></text>
       </view>
     </button>
+  </view> -->
+
+  <!-- 底部 -->
+  <view class='footerWrapper'>
+    <view class='iconImg'>
+      <text class='number'>123</text>
+      <text class='iconfont icon-diancai-'></text>
+    </view>
+    <view class='iconImg'>
+      <text class='number'>123</text>
+      <text class='iconfont icon-dianzan-'></text>
+    </view>
+    <view class='iconImg'>
+      <text class='number'>123</text>
+      <text class='iconfont icon-zhuanfa-1'></text>
+    </view>
   </view>
 
   <block wx:if="{{!loading && !userInfo.name}}">
