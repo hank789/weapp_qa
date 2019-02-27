@@ -15,7 +15,9 @@
     "pages/myComment/myComment",
     "pages/feedback/feedback",
     "pages/specialDetail/specialDetail",
-    "pages/productRank/productRank"
+    "pages/productRank/productRank",
+    "pages/majorProduct/majorProduct",
+    "pages/moreInfo/moreInfo"
   ],
   "window": {
     "navigationBarTextStyle": "black",

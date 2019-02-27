@@ -1,0 +1,212 @@
+<view class='page'>
+
+  <view class='productDetail'>
+    <view class='topInfo'>
+      <view class='left'>
+        <image class='img' src='{{ detail.logo }}'></image>
+      </view>
+      <view  class='right'>
+        <view class='name font-family-medium'>{{ detail.name }}</view>
+        <view class='score'>
+          <view class='stars'>
+            <StarView rating='{{ detail.review_average_rate }}'></StarView>
+          </view>
+          <text class='text'>{{ detail.review_average_rate }}分</text>
+          <view class='spot'></view>
+          <text class='text'>{{ detail.reviews }}条评论</text>
+        </view>
+      </view>
+    </view>
+    <view class='describe'>{{ detail.summary }}</view>
+  </view>
+
+  <!-- 产品亮点 -->
+  <view class='productWrapper'>
+    <view class='title'>产品亮点</view>
+
+    <view  class='imgWrapper'>
+      <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+        <view class='imgList' wx:for='{{ detail.introduce_pic }}'>
+          <image class='img' src='{{ item }}'></image>
+        </view>
+      </scroll-view>
+
+    </view>
+  </view>
+
+  <!-- 入选专题 -->
+  <view class='chosenWrapper'>
+    <view class='title'>入选专题</view>
+
+    <view class='specialWrapper'>
+      <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
+        </view>
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
+        </view>
+
+        <view class='speciaList'>
+          <image class='img' src='../../images/1@3x 2.png'></image>
+          <view class='mask'></view>
+          <view class='info'>
+            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
+            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </view>
+
+  </view>
+
+  <!-- 最新资讯 -->
+  <view class='consultWrapper'>
+    <view class='title'>最新资讯</view>
+
+    <view class='consultListWrapper'>
+      <view class='consultList'>
+        <view class='splitCircle'></view>
+        <view class='content'>
+          <view class='left'>
+            <view class='titles font-family-medium'>Grab和Go-Jek，国外的滴滴和美团2018年全年战报</view>
+            <view class='bottom'>
+              <text class='time'>1月18日</text>
+              <view class='spot'></view>
+              <text class='name'>TradeShift</text>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='consultImg'>
+              <image class='img' src='../../images/logo-144.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='seeMore font-family-medium'>查看更多</view>
+
+  </view>
+
+  <!-- 成功案例 -->
+  <view class='successCaseWrapper'>
+    <view class='title'>成功案例</view>
+
+    <view class='caseWrapper'>
+      <view class='caseList'>
+        <view class='caseImg'>
+          <image class='img' src='../../images/logo-144.png'></image>
+        </view>
+        <view class='name font-family-medium'>GeneDock</view>
+        <view class='describe font-family-medium'>帮助合作伙伴在医学健康和卫生领域不断进行创新</view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 专家观点 -->
+  <view class='expertWrapper'>
+    <view class='title'>专家观点</view>
+
+    <view class='expertListWrapper'>
+
+      <view class='expertList'>
+        <view class='avatar'>
+          <view class='avatarInner'>
+            <image class='img' src='../../images/logo-144.png'></image>
+          </view>
+        </view>
+        <view class='expertBj'>
+          <image class='img' src='../../images/expertBj@3x.png'></image>
+        </view>
+        <view class='topName'>
+          <text class='name font-family-medium'>JACK</text>
+          <view class='spot'></view>
+          <text class='jop font-family-medium'>知名架构师</text>
+        </view>
+        <view class='describe'>依托实力雄厚的阿里巴巴集团，在杭州、北京和硅谷等地设有运营机构。阿里云是目前中国最大的云服务商，占有50%以上的市场份额。</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 用户点评 -->
+  <view class='userComment'>
+    <view class='title'>用户点评</view>
+    <view class='seeMore'>查看全部23条点评</view>
+  </view>
+
+  <!-- 评论打分 -->
+  <view class='scoreWrapper'>
+    <view class='component-score'>
+      <view class='text'>就您的感受而言，您会给他打多少分？</view>
+      <MarkStar my-class='red-text'></MarkStar>
+    </view>
+  </view>
+
+  <!-- 相关推荐 -->
+  <view class='recommendWrapper'>
+    <view class='title'>相关推荐</view>
+
+    <view class='recommendList'>
+      <view class='comment-product'>
+        <view class='product-info'>
+          <view class='product-img'>
+            <image class='logo-img'  src='../../images/logo-144.png'></image>
+          </view>
+          <view class='product-detail'>
+            <view class='productName font-family-medium'>AMETRAS Manual</view>
+            <view class='productMark'>
+              <view class='stars'>
+                <StarView rating='4'></StarView>
+              </view>
+              <view class='starsText'>
+                <text>4分</text>
+                <text class='spot'></text>
+                <text>6条评论</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='line-river-after line-river-after-top'></view>
+      </view>
+    </view>
+    <view class='feedback'>如您有关于该产品服务相关问题或反馈，<text class='font-family-medium'>请点击</text> </view>
+  </view>
+
+  <!-- 升级专业版 -->
+  <view class='updateWrapper'>
+    <view class='left'>
+      <view class='top'>
+        <text class='iconfont icon-zhuanyeban-'></text>
+        <text class='font-family-medium'>升级专业版</text>
+      </view>
+      <view class='bottom'>了解“企业服务点评”小程序</view>
+    </view>
+    <view class='right'>
+      <text class='iconfont icon-jinru'></text>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class='footerWrapper'>
+    <view class='left iconfont icon-xiedianping-'></view>
+    <view class='right iconfont icon-zhuanfa-1'></view>
+  </view>
+
+</view>
