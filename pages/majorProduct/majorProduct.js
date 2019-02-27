@@ -113,10 +113,11 @@ Page({
         urls: attr // 需要预览的图片http链接列表 需要是数组
       })
     }
-
+// encodeURIComponent
+    console.log(item.link_url)
     if (item.type === 'link' || item.type === 'pdf') {
       wx.navigateTo({
-        url: '../url/url?url=' + item.link_url,
+        url: '../url/url?url=' + encodeURIComponent(item.link_url),
       })
     }
 
