@@ -15,7 +15,7 @@ Page({
     console.log(options.url + ',,,,链接')
     var that = this
     that.setData({
-      linkUrl: options.url
+      linkUrl: decodeURIComponent(options.url)
     })
   },
 
