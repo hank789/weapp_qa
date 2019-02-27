@@ -18,6 +18,7 @@ Page({
     showPopup: false
   },
   onLoad:function(options){
+    console.log(options,'数据')
     var that = this
     // 页面初始化 options为页面跳转所带来的参数
     //调用应用实例的方法获取全局数据
@@ -28,7 +29,6 @@ Page({
          loading:false
        });
        request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
-         console.log(res_data);
          if (res_data.code === 1000) {
            that.setData({
              keywords: res_data.data.words
@@ -72,7 +72,6 @@ Page({
         resD.push(temp);
       }
 
-      console.log(resD, '数据')
 
       that.setData({
         list: resD
@@ -169,7 +168,6 @@ Page({
     })
   },
   showExpect () {
-    console.log('显示弹窗')
     this.setData({
       showPopup: true
     })
