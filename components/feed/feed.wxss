@@ -26,6 +26,7 @@
   top: -1px; /* px不转换 */}
 
 .commentList {
+  position: relative;
   margin-top: 39.98rpx;}
 .commentList .line-river-after {
   margin-top: 19.96rpx;}
@@ -88,17 +89,18 @@
   letter-spacing: 1rpx;
 }
 .feed-open-all {
-  color: #03AEF9;
-  font-size: 26rpx;
-  margin-top: 8rpx;
+  color: #29BC9E;
+  font-size: 28rpx;
+  margin-top: 26rpx;
   padding: 0 32rpx;
   line-height: 37rpx;
+  text-align: right;
 }
 .feed-moreOperation {
-  /* margin-top: 20rpx; */
+  position: absolute;
+  top: -16rpx;
+  right: 0;
   color: #808080;
-  /* margin-bottom: 20rpx; */
-  /* text-align: right; */
   display: flex;
   justify-content: space-between;
 }
@@ -201,4 +203,9 @@
     width: 216rpx;
     height: 216rpx;
   }
+}
+
+.starsWrapper {
+  padding: 0 32rpx;
+  margin-top: 29rpx;
 }

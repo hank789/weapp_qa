@@ -120,9 +120,14 @@
   </view>
 
   <!-- 用户点评 -->
-  <view class='userComment'>
+  <view class='userComment' wx:if='{{ total }}'>
     <view class='title'>用户点评</view>
-    <view class='seeMore'>查看全部23条点评</view>
+
+    <view class='' wx:for='{{ comment }}' wx:key='comment'>
+      <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
+    </view>
+
+    <view class='seeMore' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
   </view>
 
   <!-- 评论打分 -->

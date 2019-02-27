@@ -10,6 +10,9 @@ Page({
     loading: 1,
     detail: {},
     userInfo: {},
+    comment: [],
+    perPage: 3,
+    total: '',
     authUserPhone: false,
     isShowPopup: false,
   },
@@ -43,7 +46,28 @@ Page({
         detail: response.data,
         loding: 0
       })
-      // that.getReviewList()
+      that.getReviewList()
+    })
+  },
+  getReviewList: function () {
+    var that = this;
+    request.httpsPostRequest('/weapp/product/reviewList', {
+      tag_name: that.data.detail.name,
+      perPage: that.data.perPage
+    }, function (response) {
+      var code = response.code
+      if (code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      that.data.comment = response.data.data
+      that.setData({
+        comment: that.data.comment,
+        total: response.data.total
+      })
     })
   },
   onAuthPhoneOk: function (e) {
