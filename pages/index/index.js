@@ -58,6 +58,11 @@ Page({
         })
       }
       let listArry = res.data.data
+
+      listArry.push({
+          type: 'lastElement',
+      })
+
       let len = listArry.length;
       let n = 5; //假设每行显示5个
       let lineNum = len % 5 === 0 ? len / 5 : Math.ceil(len / 5);
