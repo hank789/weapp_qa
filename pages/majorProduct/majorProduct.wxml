@@ -183,4 +183,12 @@
     <view class='right iconfont icon-zhuanfa-1'></view>
   </view>
 
+  <!-- 授权组建 -->
+  <block wx:if="{{!loading && !userInfo.name}}">
+      <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+      <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
+  </block>
+
 </view>

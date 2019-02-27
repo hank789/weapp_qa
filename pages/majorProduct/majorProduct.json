@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "getUserInfo": "/components/getUserInfo/getUserInfo",
+    "getUserPhone": "/components/getUserPhone/getUserPhone",
     "StarView": "/components/starView/starView",
     "MarkStar": "/components/markStar/markStar",
     "Information":"/components/information/information"

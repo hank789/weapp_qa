@@ -11,7 +11,7 @@ Page({
     tagId: '',
     userInfo: {},
     detail: {},
-    loding: 1,
+    loading: 1,
     comment: [],
     perPage: 3,
     authUserPhone: false,

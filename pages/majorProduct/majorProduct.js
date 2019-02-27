@@ -7,8 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading: 1,
     detail: {},
-    userInfo: {}
+    userInfo: {},
+    authUserPhone: false,
+    isShowPopup: false,
   },
 
   /**
@@ -42,6 +45,12 @@ Page({
       })
       // that.getReviewList()
     })
+  },
+  onAuthPhoneOk: function (e) {
+    this.setData({
+      authUserPhone: false,
+      userInfo: app.globalData.userInfo
+    });
   },
 
   /**
