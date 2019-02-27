@@ -116,7 +116,7 @@ Page({
 
     if (item.type === 'link' || item.type === 'pdf') {
       wx.navigateTo({
-        url: '../url/url?url=' + item.link_url,
+        url: '../url/url?url=' + encodeURIComponent(item.link_url),
       })
     }
 

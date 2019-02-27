@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      linkUrl: options.url
+      linkUrl: decodeURIComponent(options.url)
     })
   },
 
