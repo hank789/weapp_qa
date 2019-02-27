@@ -19,6 +19,7 @@ Page({
   },
   onLoad:function(options){
     var that = this
+    var goto = options.goto
     // 页面初始化 options为页面跳转所带来的参数
     //调用应用实例的方法获取全局数据
      app.getUserInfo(function(userInfo){
@@ -27,22 +28,25 @@ Page({
          userInfo:userInfo,
          loading:false
        });
-       request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
-         console.log(res_data);
-         if (res_data.code === 1000) {
-           that.setData({
-             keywords: res_data.data.words
-           });
-         } else {
-           wx.showToast({
-             title: res_data.message,
-             icon: 'loading',
-             duration: 2000
-           });
-         }
-       })
-       that.getAlbumList()
      });
+    request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
+      console.log(res_data);
+      if (res_data.code === 1000) {
+        that.setData({
+          keywords: res_data.data.words
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
+    that.getAlbumList()
+    if (goto == 'zhuanti') {
+      // 跳转到专题
+    }
   },
   getAlbumList: function () {
     var that = this;
