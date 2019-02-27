@@ -81,13 +81,18 @@
     <view class='title'>成功案例</view>
 
     <view class='caseWrapper'>
-      <view class='caseList' wx:for='{{ detail.case_list }}' wx:key='case'>
-        <view class='caseImg'>
-          <image class='img' src='{{ item.cover_pic }}'></image>
+      <block wx:for='{{ detail.case_list }}' wx:key='case'>
+
+        <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
+          <view class='caseImg'>
+            <image class='img' src='{{ item.cover_pic }}'></image>
+          </view>
+          <view class='name font-family-medium'>{{ item.title }}</view>
+          <view class='describe font-family-medium'>{{ item.desc }}</view>
         </view>
-        <view class='name font-family-medium'>{{ item.title }}</view>
-        <view class='describe font-family-medium'>{{ item.desc }}</view>
-      </view>
+
+      </block>
+
 
     </view>
 
@@ -99,7 +104,7 @@
 
     <view class='expertListWrapper'>
 
-      <view class='expertList' wx:for='{{ detail.expert_review }}'>
+      <view class='expertList' wx:for='{{ detail.expert_review }}' wx:key='{{ review }}'>
         <view class='avatar'>
           <view class='avatarInner'>
             <image class='img' src='{{ item.avatar }}'></image>
@@ -127,14 +132,14 @@
       <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
     </view>
 
-    <view class='seeMore' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
+    <view class='seeMore' data-name='{{ detail.name }}' bindtap='goAllDianping' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
   </view>
 
   <!-- 评论打分 -->
   <view class='scoreWrapper'>
     <view class='component-score'>
       <view class='text'>就您的感受而言，您会给他打多少分？</view>
-      <MarkStar my-class='red-text'></MarkStar>
+      <MarkStar data-starNumber='{{starNumber}}' name='{{ detail.name }}' showNumber='{{ false }}' bind:authPhone="onAuthPhone"></MarkStar>
     </view>
   </view>
 
@@ -143,7 +148,7 @@
     <view class='title'>相关推荐</view>
 
     <view class='recommendList'>
-      <view class='comment-product' wx:for='{{ detail.related_tags }}' wx:key='tags'>
+      <view class='comment-product' wx:for='{{ detail.related_tags }}' wx:key='tags' data-id='{{ item.id }}' bindtap='goProductDetail'>
         <view class='product-info'>
           <view class='product-img'>
             <image class='logo-img'  src='{{ item.logo }}'></image>

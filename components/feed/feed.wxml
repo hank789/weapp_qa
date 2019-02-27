@@ -25,13 +25,24 @@
 
         <view data-slug='{{productComments.feed.slug}}' bindtap='goCommentDetail'>
             <view class="commentFeedTitle text-line-6 currency-title">{{ productComments.feed.title }}</view>
-            <view class="feed-open-all font-family-medium">展开全部</view>
 
             <view class="container-images container-images-discover {{ 'container-images-' + productComments.feed.img.length }}">
               <view class="container-image" wx:for='{{productComments.feed.img}}' wx:key='img'>
                 <image src="{{item}}"></image>
               </view>
             </view>
+
+            <view class="feed-open-all font-family-medium">展开</view>
+        </view>
+
+         <!-- 官方回复 -->
+        <view class='officialWrapper'>
+          <view class='replycontent'>
+            <view class="iconfont icon-sanjiaoxing-"></view>
+            <view class='texts font-family-medium'>官方回复</view>
+            <view class='time'>3分钟前</view>
+            <view class='contentText'>今年6月份注册成为Airbnb的房东，接待了两个房客，感觉非常的开心</view>
+          </view>
         </view>
 
         <view class="feed-moreOperation">

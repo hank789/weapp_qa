@@ -82,6 +82,7 @@
   padding: 19rpx 30rpx;
   background: #F7F8FA;
   border-radius: 8rpx;
+  position: relative;
 }
 .officialWrapper .replycontent .texts {
   color: #444444;
@@ -96,6 +97,12 @@
   color: #444444;
   font-size: 28rpx;
   line-height: 45rpx;
+}
+.officialWrapper .replycontent .icon-sanjiaoxing- {
+  position: absolute;
+  top: -34rpx;
+  color: #F7F8FA;
+  font-size: 32rpx;
 }
 
 .linkWrapper {

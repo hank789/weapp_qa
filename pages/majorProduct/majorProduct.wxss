@@ -272,6 +272,9 @@
   padding: 0 32rpx;
   margin-bottom: 60rpx;
 }
+.userComment .seeMore {
+  margin-top: 29rpx;
+}
 
 .scoreWrapper {
   padding: 0 32rpx;

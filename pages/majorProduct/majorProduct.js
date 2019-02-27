@@ -15,6 +15,8 @@ Page({
     total: '',
     authUserPhone: false,
     isShowPopup: false,
+    starNumber: '',
+    tagId: ''
   },
 
   /**
@@ -22,6 +24,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      tagId: options.id
+    })
     app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
@@ -32,7 +37,7 @@ Page({
   getReviewInfo: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/info', {
-      tag_name: '1259'
+      tag_name: this.data.tagId
     }, function (response) {
       var code = response.code
       if (code !== 1000) {
@@ -70,11 +75,51 @@ Page({
       })
     })
   },
+  goProductDetail(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../majorProduct/majorProduct?id=' + id,
+    })
+  },
+  goAdd(e) {
+    console.log(e, ":starNumber")
+    let name = e.currentTarget.dataset.starNumber
+    wx.navigateTo({
+      url: '../allDianping/allDianping?name=' + name,
+    })
+  },
+  goAllDianping(e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '../allDianping/allDianping?name=' + name,
+    })
+  },
   onAuthPhoneOk: function (e) {
     this.setData({
       authUserPhone: false,
       userInfo: app.globalData.userInfo
     });
+  },
+
+  // 成功案例
+  previewImage: function (e) {
+    var item = e.currentTarget.dataset.item
+    // 预览图片
+    if (item.type === 'image') {
+      // var current = item.cover_pic;
+      var attr = item.link_url.split(' ');
+      wx.previewImage({
+        current: item.cover_pic, // 当前显示图片的http链接
+        urls: attr // 需要预览的图片http链接列表 需要是数组
+      })
+    }
+
+    if (item.type === 'link' || item.type === 'pdf') {
+      wx.navigateTo({
+        url: '../url/url?url=' + item.link_url,
+      })
+    }
+
   },
 
   /**
