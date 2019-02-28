@@ -18,6 +18,7 @@
     "pages/productRank/productRank",
     "pages/majorProduct/majorProduct",
     "pages/moreInfo/moreInfo",
+    "pages/test/test",
     "pages/url/url",
     "pages/video/video"
   ],
