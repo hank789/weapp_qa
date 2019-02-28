@@ -174,7 +174,7 @@
       top: 22rpx; }
       .component-card-product .second .right .button {
         border-radius: 29.0rpx;
-        width: 128rpx;
+        padding: 0 32rpx;
         height: 58rpx;
         line-height: 58rpx;
         text-align: center;

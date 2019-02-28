@@ -30,7 +30,7 @@
     </view>
     <view class="second">
       <view class="left"><image src="../../images/fill_1@3x.png"></image>{{ item.support_rate }}</view>
-      <view class="right">
+      <view class="right" data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown'>
         <view class="button">
           <text class='iconfont icon-dianzan-'></text>{{ item.can_support ? '+1': '明天再来' }}
         </view>
