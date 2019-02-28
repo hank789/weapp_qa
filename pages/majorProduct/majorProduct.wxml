@@ -3,7 +3,8 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image class='img' src='{{ detail.logo }}'></image>
+        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}'></image>
+        <view wx:else class='iconImg iconfont icon-kongzhuangtai-'></view>
       </view>
       <view  class='right'>
         <view class='name font-family-medium'>{{ detail.name }}</view>
@@ -20,17 +21,17 @@
     <view class='describe'>{{ detail.summary }}</view>
   </view>
 
-  <view class='coverPic'>
+  <view class='coverPic' wx:if='{{ detail.is_pro }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
     <image class='img' src='{{ detail.cover_pic }}'></image>
   </view>
 
   <!-- 产品亮点 -->
-  <view class='productWrapper'>
+  <view class='productWrapper' wx:if='{{ detail.is_pro }}'>
     <view class='title'>产品亮点</view>
 
     <view  class='imgWrapper'>
       <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
-        <view class='imgList' wx:for='{{ detail.introduce_pic }}' wx:key='introduce_pic'>
+        <view class='imgList' bindtap='previewImg' data-currentLink='{{ item }}' data-item='{{ detail.introduce_pic }}' wx:for='{{ detail.introduce_pic }}' wx:key='introduce_pic'>
           <image class='img' src='{{ item }}'></image>
         </view>
       </scroll-view>
@@ -63,7 +64,7 @@
   </view>
 
   <!-- 最新资讯 -->
-  <view class='consultWrapper' wx:if='{{ detail.recent_news.length }}'>
+  <view class='consultWrapper' wx:if='{{ detail.recent_news.length && detail.is_pro }}'>
     <view class='title'>最新资讯</view>
 
     <view class='consultListWrapper'>
@@ -77,7 +78,7 @@
   </view>
 
   <!-- 成功案例 -->
-  <view class='successCaseWrapper'>
+  <view class='successCaseWrapper' wx:if='{{ detail.is_pro }}'>
     <view class='title'>成功案例</view>
 
     <view class='caseWrapper'>
@@ -99,7 +100,7 @@
   </view>
 
   <!-- 专家观点 -->
-  <view class='expertWrapper'>
+  <view class='expertWrapper'  wx:if='{{ detail.is_pro }}'>
     <view class='title'>专家观点</view>
 
     <view class='expertListWrapper'>
@@ -125,11 +126,18 @@
   </view>
 
   <!-- 用户点评 -->
-  <view class='userComment' wx:if='{{ total }}'>
+  <view class='userComment'>
     <view class='title'>用户点评</view>
 
-    <view class='' wx:for='{{ comment }}' wx:key='comment'>
-      <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
+    <block wx:if='{{ total }}'>
+      <view class='' wx:for='{{ comment }}' wx:key='comment'>
+        <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
+      </view>
+    </block>
+
+    <view class='emptyWrapper' wx:else>
+      <view class='iconImg iconfont icon-kongzhuangtai-'></view>
+      <view class='iconText'>期待您参与首评</view>
     </view>
 
     <view class='seeMore' data-name='{{ detail.name }}' bindtap='goAllDianping' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
@@ -178,19 +186,21 @@
     <view class='left'>
       <view class='top'>
         <text class='iconfont icon-zhuanyeban-'></text>
-        <text class='font-family-medium'>升级专业版</text>
+        <text class='font-family-medium'>{{ detail.is_pro ? '了解“企业服务点评”小程序' : '升级专业版' }}</text>
       </view>
-      <view class='bottom'>了解“企业服务点评”小程序</view>
+      <view class='bottom' wx:if='{{ !detail.is_pro }}'>了解“企业服务点评”小程序</view>
     </view>
-    <view class='right'>
+    <view class='right {{ detail.is_pro ? "":"addClass" }}'>
       <text class='iconfont icon-jinru'></text>
     </view>
   </view>
 
   <!-- 底部 -->
   <view class='footerWrapper'>
-    <view class='left iconfont icon-xiedianping-'></view>
-    <view class='right iconfont icon-zhuanfa-1'></view>
+    <view class='buttonWrapper iconfont icon-xiedianping-'></view>
+    <button class='buttonWrapper'hover-class="none" open-type="share">
+      <view class=' iconfont icon-zhuanfa-1'></view>
+    </button>
   </view>
 
   <!-- 授权组建 -->

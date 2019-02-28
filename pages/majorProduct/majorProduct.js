@@ -164,6 +164,33 @@ Page({
     }
 
   },
+  previewTopImg (e) {
+    var that = this
+    var img = e.currentTarget.dataset.img
+    // 预览图片
+    var attr = img.split(' ');
+    console.log(attr,"数据",e)
+    wx.previewImage({
+      current: img, // 当前显示图片的http链接
+      urls: img.split(' ') // 需要预览的图片http链接列表 需要是数组
+    })
+  },
+  previewImg (e) {
+    console.log(e,'数据')
+    var that = this
+    var item = e.currentTarget.dataset.item
+    // 预览图片
+      var attr = item.link_url;
+      wx.previewImage({
+        current: e.currentTarget.dataset.currentlink, // 当前显示图片的http链接
+        urls: item // 需要预览的图片http链接列表 需要是数组
+      })
+  },
+  popup() {
+    this.setData({
+      showPageMore: true
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
