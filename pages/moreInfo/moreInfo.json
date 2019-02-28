@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Information": "/components/information/information",
+    "getUserInfo": "/components/getUserInfo/getUserInfo",
+    "getUserPhone": "/components/getUserPhone/getUserPhone"
+  }
 }

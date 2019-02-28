@@ -186,6 +186,11 @@ Page({
         urls: item // 需要预览的图片http链接列表 需要是数组
       })
   },
+  seeMore (e) {
+    wx.navigateTo({
+      url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id,
+    })
+  },
   popup() {
     this.setData({
       showPageMore: true

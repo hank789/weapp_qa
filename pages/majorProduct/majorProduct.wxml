@@ -63,8 +63,8 @@
 
   </view>
 
-  <!-- 最新资讯 -->
-  <view class='consultWrapper' wx:if='{{ detail.recent_news.length && detail.is_pro }}'>
+  <!-- 最新资讯   wx:if='{{ detail.recent_news.length && detail.is_pro }}' -->
+  <view class='consultWrapper'>
     <view class='title'>最新资讯</view>
 
     <view class='consultListWrapper'>
@@ -73,7 +73,7 @@
       </block>
     </view>
 
-    <view class='seeMore font-family-medium'>查看更多</view>
+    <view class='seeMore font-family-medium' data-id='{{ detail.id }}' bindtap='seeMore'>查看更多</view>
 
   </view>
 
