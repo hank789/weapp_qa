@@ -72,6 +72,13 @@
   right: 50rpx;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg); }
+.component-card-main .topRight {
+  position: absolute;
+  right: 0;
+  top: 0; }
+.component-card-main .topRight image {
+  width: 290rpx;
+  height: 222.28rpx; }
 
 .component-card-product {
   margin: 0 32rpx; }

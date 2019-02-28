@@ -9,6 +9,7 @@
     <view class="last">
       <text class='iconfont icon-shangyinhao-'></text>
     </view>
+    <view class="topRight"><image src="../../images/zhuanti_main_card_bg@3x.png"></image></view>
   </view>
   <view class="component-card-product"  wx:for='{{ list }}' wx:key='index'>
     <view class="first">
