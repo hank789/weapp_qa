@@ -1,83 +1,45 @@
-<view class='page'>
-  <view class='special-info-wrapper'>
-    <view class='background'>
-      <image class='img' src='{{ albumInfo.icon }}' mode="aspectFill"></image>
-      <view class='backMask'></view>
+<view class="container-special">
+  <view class="component-earth-bottom"><image src="{{ albumInfo.icon }}"  mode="aspectFill"></image><image class="radian" src="/images/hudu2@3x.png"></image></view>
+  <view class="component-card-main">
+    <view class="title">{{ albumInfo.name }}</view>
+    <view class="content">{{ albumInfo.summary }}</view>
+    <view class="before">
+      <text class='iconfont icon-shangyinhao-'></text>
     </view>
-    <view class='special-detail-info'>
-      <view class='leftLogo'>
-        <image class='logo' src='../../images/logo@3x.png'></image>
-      </view>
-      <view class='title'>
-        <view class='text font-family-medium'>{{ albumInfo.name }}</view>
-        <view class='line-river-after'></view>
-        <view class='describe'>{{ albumInfo.summary }}</view>
-      </view>
+    <view class="last">
+      <text class='iconfont icon-shangyinhao-'></text>
     </view>
-    <view class='backgroundCircle'><image class='img' src='../../images/backgroundTop@3x.png'></image></view>
   </view>
-
-  <view class='domainWrapper'>
-
-    <view class='productList' wx:for='{{ list }}' wx:key='index'>
-      <view class='detailIofo' data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
-        <view class='logoAndName'>
-          <view class='productLogo'><image class='img' src="{{item.logo}}" mode="aspectFit"></image></view>
-          <view class='nameAndStars'>
-            <view class='font-family-medium text-line-1'>{{ item.name }}</view>
-            <view class='stars'>
-              <StarView rating='{{ item.review_average_rate }}'></StarView>
-              <view class='starNumber'>{{ item.review_average_rate }}分</view>
-            </view>
+  <view class="component-card-product"  wx:for='{{ list }}' wx:key='index'>
+    <view class="first">
+      <view class="productHead">
+        <view class="logo"><image src="{{item.logo}}" mode="aspectFit"></image></view>
+        <view class="right">
+          <view class="title">{{ item.name }}</view>
+          <view class="stars">
+            <text class='iconfont icon-shixinxingxing'></text>
+            <text class='iconfont icon-shixinxingxing'></text>
+            <text class='iconfont icon-shixinxingxing'></text>
+            <text class='iconfont icon-shixinxingxing'></text>
+            <text class='iconfont icon-shixinxingxing'></text><text class="span">{{ item.review_average_rate }}分</text>
           </view>
         </view>
-        <view class='describe text-line-2'>{{ item.summary }}</view>
       </view>
-      <view class='operation'>
-        <view class='heat'>
-          <view class="addOne" wx:if='{{ item.isShowAddOne }}'>
-            <text class='triangle'></text>
-            <text class='addNum'>+1</text>
-          </view>
-          <view class='heatImg'>
-            <image class='img' src='../../images/heat@3x.png'></image>
-            <text class='heatNum'>{{ item.support_rate }}</text>
-          </view>
-        </view>
-        <view class='buttonWrapper'>
-          <button data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown' class="support {{ item.can_support ? '':'active' }}">
-            <view class="iconfont icon-zan1" wx:if='{{item.can_support}}'></view>
-            <text class='text'>{{ item.can_support ? '+1': '明天再来' }}</text>
-          </button>
+      <view class="content">{{ item.summary }}</view>
+    </view>
+    <view class="second">
+      <view class="left"><image src="../../images/fill_1@3x.png"></image>{{ item.support_rate }}</view>
+      <view class="right">
+        <view class="button">
+          <text class='iconfont icon-dianzan-'></text>{{ item.can_support ? '+1': '明天再来' }}
         </view>
       </view>
     </view>
-
-  </view>
-
-  <view class='footerWrapper'>
-    <view class='moreJoint'>更多合作请添加微信号“<text>hiinwe</text>”</view>
-    <view class='commentary'>InweHub依据和采集平台用户的海量评价数据，采用数据模型对获得市场和客户高度认同认可的产品和服务，进行上榜展示。</view>
-  </view>
-
-  <view class='leftFooter' wx:if='{{ showGood }}'>
-    <view class='lookGoodWrapper'> 
-     <!-- wx:for='{{ supportsList }}' -->
-      <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
+    <view class="three">
+      <text class='iconfont icon-lianjie-'></text>亮点:<text class="span">所有ECS实例都附带Anti-DDoS保护</text>
     </view>
   </view>
-  <view class='operationList'>
-     <button hover-class="none"  open-type="share" class="docbutton">
-        <view class='buttonWrapper shearBut'>
-        <text class='iconfont icon-fenxiang'></text>
-        </view>
-    </button>
-  </view>
-  <block wx:if="{{!loading && !userInfo.name}}">
-     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
-  </block>
-  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
-     <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
-  </block>
 
+  <view class="component-earth-top"><image class="radian" src="/images/hudu@3x.png"></image></view>
 </view>
+<view class="component-title-big">相关资讯</view>

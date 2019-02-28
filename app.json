@@ -17,7 +17,8 @@
     "pages/specialDetail/specialDetail",
     "pages/productRank/productRank",
     "pages/majorProduct/majorProduct",
-    "pages/moreInfo/moreInfo"
+    "pages/moreInfo/moreInfo",
+    "pages/test/test"
   ],
   "window": {
     "navigationBarTextStyle": "black",
