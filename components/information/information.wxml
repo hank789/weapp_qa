@@ -1,0 +1,18 @@
+<view class='consultList'>
+  <view class='splitCircle'></view>
+  <view class='content'>
+    <view class='left'>
+      <view class='titles font-family-medium'>{{ recentNews.title }}</view>
+      <view class='bottom'>
+        <text class='time'>{{ recentNews.date }}</text>
+        <view class='spot'></view>
+        <text class='name'>{{ recentNews.author }}</text>
+      </view>
+    </view>
+    <view class='right'>
+      <view class='consultImg'>
+        <image class='img' src='{{ recentNews.cover_pic }}'></image>
+      </view>
+    </view>
+  </view>
+</view>

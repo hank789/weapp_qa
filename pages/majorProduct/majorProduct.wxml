@@ -3,7 +3,8 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image class='img' src='{{ detail.logo }}'></image>
+        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}'></image>
+        <view wx:else class='iconImg iconfont icon-kongzhuangtai-'></view>
       </view>
       <view  class='right'>
         <view class='name font-family-medium'>{{ detail.name }}</view>
@@ -20,13 +21,17 @@
     <view class='describe'>{{ detail.summary }}</view>
   </view>
 
+  <view class='coverPic' wx:if='{{ detail.is_pro }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
+    <image class='img' src='{{ detail.cover_pic }}'></image>
+  </view>
+
   <!-- 产品亮点 -->
-  <view class='productWrapper'>
+  <view class='productWrapper' wx:if='{{ detail.is_pro }}'>
     <view class='title'>产品亮点</view>
 
     <view  class='imgWrapper'>
       <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
-        <view class='imgList' wx:for='{{ detail.introduce_pic }}'>
+        <view class='imgList' bindtap='previewImg' data-currentLink='{{ item }}' data-item='{{ detail.introduce_pic }}' wx:for='{{ detail.introduce_pic }}' wx:key='introduce_pic'>
           <image class='img' src='{{ item }}'></image>
         </view>
       </scroll-view>
@@ -35,36 +40,21 @@
   </view>
 
   <!-- 入选专题 -->
-  <view class='chosenWrapper'>
+  <view class='chosenWrapper' wx:if='{{ detail.categories }}'>
     <view class='title'>入选专题</view>
 
     <view class='specialWrapper'>
       <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
 
-        <view class='speciaList'>
+        <view class='speciaList' wx:for='{{ detail.categories }}' wx:key='categories'>
           <image class='img' src='../../images/1@3x 2.png'></image>
           <view class='mask'></view>
           <view class='info'>
-            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
-            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
-          </view>
-        </view>
-
-        <view class='speciaList'>
-          <image class='img' src='../../images/1@3x 2.png'></image>
-          <view class='mask'></view>
-          <view class='info'>
-            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
-            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
-          </view>
-        </view>
-
-        <view class='speciaList'>
-          <image class='img' src='../../images/1@3x 2.png'></image>
-          <view class='mask'></view>
-          <view class='info'>
-            <view class='top'> <text class='iconfont icon-zhuanti'></text> 热度1269</view>
-            <view class='name font-family-medium'>分析与商业智能分析的产品</view>
+            <view class='top'>
+              <text class='iconfont icon-zhuanti'></text>
+              {{ item.support_rate }}
+            </view>
+            <view class='name font-family-medium'>{{ item.name }}</view>
           </view>
         </view>
 
@@ -74,28 +64,13 @@
   </view>
 
   <!-- 最新资讯 -->
-  <view class='consultWrapper'>
+  <view class='consultWrapper' wx:if='{{ detail.recent_news.length && detail.is_pro }}'>
     <view class='title'>最新资讯</view>
 
     <view class='consultListWrapper'>
-      <view class='consultList'>
-        <view class='splitCircle'></view>
-        <view class='content'>
-          <view class='left'>
-            <view class='titles font-family-medium'>Grab和Go-Jek，国外的滴滴和美团2018年全年战报</view>
-            <view class='bottom'>
-              <text class='time'>1月18日</text>
-              <view class='spot'></view>
-              <text class='name'>TradeShift</text>
-            </view>
-          </view>
-          <view class='right'>
-            <view class='consultImg'>
-              <image class='img' src='../../images/logo-144.png'></image>
-            </view>
-          </view>
-        </view>
-      </view>
+      <block wx:for='{{ detail.recent_news }}' wx:key='news'>
+        <Information recentNews='{{ item }}'></Information>
+      </block>
     </view>
 
     <view class='seeMore font-family-medium'>查看更多</view>
@@ -103,43 +78,48 @@
   </view>
 
   <!-- 成功案例 -->
-  <view class='successCaseWrapper'>
+  <view class='successCaseWrapper' wx:if='{{ detail.is_pro }}'>
     <view class='title'>成功案例</view>
 
     <view class='caseWrapper'>
-      <view class='caseList'>
-        <view class='caseImg'>
-          <image class='img' src='../../images/logo-144.png'></image>
+      <block wx:for='{{ detail.case_list }}' wx:key='case'>
+
+        <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
+          <view class='caseImg'>
+            <image class='img' src='{{ item.cover_pic }}'></image>
+          </view>
+          <view class='name font-family-medium'>{{ item.title }}</view>
+          <view class='describe font-family-medium'>{{ item.desc }}</view>
         </view>
-        <view class='name font-family-medium'>GeneDock</view>
-        <view class='describe font-family-medium'>帮助合作伙伴在医学健康和卫生领域不断进行创新</view>
-      </view>
+
+      </block>
+
 
     </view>
 
   </view>
 
   <!-- 专家观点 -->
-  <view class='expertWrapper'>
+  <view class='expertWrapper'  wx:if='{{ detail.is_pro }}'>
     <view class='title'>专家观点</view>
 
     <view class='expertListWrapper'>
 
-      <view class='expertList'>
+      <view class='expertList' wx:for='{{ detail.expert_review }}' wx:key='{{ review }}'>
         <view class='avatar'>
           <view class='avatarInner'>
-            <image class='img' src='../../images/logo-144.png'></image>
+            <image class='img' src='{{ item.avatar }}'></image>
           </view>
         </view>
         <view class='expertBj'>
           <image class='img' src='../../images/expertBj@3x.png'></image>
         </view>
         <view class='topName'>
-          <text class='name font-family-medium'>JACK</text>
+          <text class='name font-family-medium'>{{ item.name }}</text>
           <view class='spot'></view>
-          <text class='jop font-family-medium'>知名架构师</text>
+          <text class='jop font-family-medium'>{{ item.title }}</text>
         </view>
-        <view class='describe'>依托实力雄厚的阿里巴巴集团，在杭州、北京和硅谷等地设有运营机构。阿里云是目前中国最大的云服务商，占有50%以上的市场份额。</view>
+        <view class='describe'>{{ item.content }}</view>
       </view>
     </view>
 
@@ -148,14 +128,26 @@
   <!-- 用户点评 -->
   <view class='userComment'>
     <view class='title'>用户点评</view>
-    <view class='seeMore'>查看全部23条点评</view>
+
+    <block wx:if='{{ total }}'>
+      <view class='' wx:for='{{ comment }}' wx:key='comment'>
+        <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
+      </view>
+    </block>
+
+    <view class='emptyWrapper' wx:else>
+      <view class='iconImg iconfont icon-kongzhuangtai-'></view>
+      <view class='iconText'>期待您参与首评</view>
+    </view>
+
+    <view class='seeMore' data-name='{{ detail.name }}' bindtap='goAllDianping' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
   </view>
 
   <!-- 评论打分 -->
   <view class='scoreWrapper'>
     <view class='component-score'>
       <view class='text'>就您的感受而言，您会给他打多少分？</view>
-      <MarkStar my-class='red-text'></MarkStar>
+      <MarkStar data-starNumber='{{starNumber}}' name='{{ detail.name }}' showNumber='{{ false }}' bind:authPhone="onAuthPhone"></MarkStar>
     </view>
   </view>
 
@@ -164,21 +156,21 @@
     <view class='title'>相关推荐</view>
 
     <view class='recommendList'>
-      <view class='comment-product'>
+      <view class='comment-product' wx:for='{{ detail.related_tags }}' wx:key='tags' data-id='{{ item.id }}' bindtap='goProductDetail'>
         <view class='product-info'>
           <view class='product-img'>
-            <image class='logo-img'  src='../../images/logo-144.png'></image>
+            <image class='logo-img'  src='{{ item.logo }}'></image>
           </view>
           <view class='product-detail'>
-            <view class='productName font-family-medium'>AMETRAS Manual</view>
+            <view class='productName font-family-medium'>{{ item.name }}</view>
             <view class='productMark'>
               <view class='stars'>
-                <StarView rating='4'></StarView>
+                <StarView rating='{{ item.review_average_rate }}'></StarView>
               </view>
               <view class='starsText'>
-                <text>4分</text>
+                <text>{{ item.review_average_rate }}分</text>
                 <text class='spot'></text>
-                <text>6条评论</text>
+                <text>{{ item.review_count }}条评论</text>
               </view>
             </view>
           </view>
@@ -194,19 +186,29 @@
     <view class='left'>
       <view class='top'>
         <text class='iconfont icon-zhuanyeban-'></text>
-        <text class='font-family-medium'>升级专业版</text>
+        <text class='font-family-medium'>{{ detail.is_pro ? '了解“企业服务点评”小程序' : '升级专业版' }}</text>
       </view>
-      <view class='bottom'>了解“企业服务点评”小程序</view>
+      <view class='bottom' wx:if='{{ !detail.is_pro }}'>了解“企业服务点评”小程序</view>
     </view>
-    <view class='right'>
+    <view class='right {{ detail.is_pro ? "":"addClass" }}'>
       <text class='iconfont icon-jinru'></text>
     </view>
   </view>
 
   <!-- 底部 -->
   <view class='footerWrapper'>
-    <view class='left iconfont icon-xiedianping-'></view>
-    <view class='right iconfont icon-zhuanfa-1'></view>
+    <view class='buttonWrapper iconfont icon-xiedianping-'></view>
+    <button class='buttonWrapper'hover-class="none" open-type="share">
+      <view class=' iconfont icon-zhuanfa-1'></view>
+    </button>
   </view>
+
+  <!-- 授权组建 -->
+  <block wx:if="{{!loading && !userInfo.name}}">
+      <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+      <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
+  </block>
 
 </view>

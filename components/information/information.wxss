@@ -1,0 +1,41 @@
+
+.consultList {
+  position: relative;
+  margin-bottom: 40rpx;
+}
+.consultList .splitCircle {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #444444;
+  position: absolute;
+  top: 17rpx;
+}
+.consultList .content {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 28rpx;
+}
+.consultList .content .left .titles {
+  color: #444444;
+  font-size: 32rpx;
+  line-height: 46rpx;
+  letter-spacing: 1rpx;
+}
+.consultList .content .left .bottom {
+  margin-top: 14rpx;
+  color: #C8C8C8;
+  font-size: 22rpx
+}
+.consultList .content .right {
+  margin-left: 27rpx;
+}
+.consultList .content .right .consultImg {
+  width:194rpx;
+  height:130rpx;
+}
+.consultList .content .right .consultImg .img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx; 
+}

@@ -26,6 +26,7 @@
   top: -1px; /* px不转换 */}
 
 .commentList {
+  position: relative;
   margin-top: 39.98rpx;}
 .commentList .line-river-after {
   margin-top: 19.96rpx;}
@@ -88,17 +89,18 @@
   letter-spacing: 1rpx;
 }
 .feed-open-all {
-  color: #03AEF9;
-  font-size: 26rpx;
-  margin-top: 8rpx;
+  color: #29BC9E;
+  font-size: 28rpx;
+  margin-top: 26rpx;
   padding: 0 32rpx;
   line-height: 37rpx;
+  text-align: right;
 }
 .feed-moreOperation {
-  /* margin-top: 20rpx; */
+  position: absolute;
+  top: -16rpx;
+  right: 0;
   color: #808080;
-  /* margin-bottom: 20rpx; */
-  /* text-align: right; */
   display: flex;
   justify-content: space-between;
 }
@@ -201,4 +203,42 @@
     width: 216rpx;
     height: 216rpx;
   }
+}
+
+.starsWrapper {
+  padding: 0 32rpx;
+  margin-top: 29rpx;
+}
+
+/* 官方回复 */
+.officialWrapper {
+  padding: 0 32rpx;
+  margin-top: 38rpx;
+  margin-bottom: 39rpx;
+}
+.officialWrapper .replycontent {
+  padding: 19rpx 30rpx;
+  background: #F7F8FA;
+  border-radius: 8rpx;
+  position: relative;
+}
+.officialWrapper .replycontent .texts {
+  color: #444444;
+  font-size: 26rpx;
+}
+.officialWrapper .replycontent .time {
+  color: #B4B4B6;
+  font-size: 22rpx;
+  margin: 4rpx 0 10rpx;
+}
+.officialWrapper .replycontent .contentText {
+  color: #444444;
+  font-size: 28rpx;
+  line-height: 45rpx;
+}
+.officialWrapper .replycontent .icon-sanjiaoxing- {
+  position: absolute;
+  top: -34rpx;
+  color: #F7F8FA;
+  font-size: 32rpx;
 }
