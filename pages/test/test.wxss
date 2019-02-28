@@ -171,7 +171,7 @@
     .component-card-product .second .right {
       position: absolute;
       right: 30rpx;
-      top: 18rpx; }
+      top: 22rpx; }
       .component-card-product .second .right .button {
         border-radius: 29.0rpx;
         width: 128rpx;
