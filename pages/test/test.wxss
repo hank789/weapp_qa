@@ -164,7 +164,7 @@
       color: white; }
       .component-card-product .second .left image {
         position: relative;
-        top: 6rpx;
+        top: 4rpx;
         width: 26rpx;
         height: 30rpx;
         margin-right: 6rpx; }
