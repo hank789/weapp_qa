@@ -18,7 +18,8 @@
     "pages/productRank/productRank",
     "pages/majorProduct/majorProduct",
     "pages/moreInfo/moreInfo",
-    "pages/url/url"
+    "pages/url/url",
+    "pages/video/video"
   ],
   "window": {
     "navigationBarTextStyle": "black",

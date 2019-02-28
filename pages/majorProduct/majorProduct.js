@@ -16,7 +16,8 @@ Page({
     authUserPhone: false,
     isShowPopup: false,
     starNumber: '',
-    tagId: ''
+    tagId: '',
+    system: ''
   },
 
   /**
@@ -33,6 +34,15 @@ Page({
       });
       that.getReviewInfo()
     });
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          system: res.platform
+        })
+      }
+    })
+
+
   },
   getReviewInfo: function () {
     var that = this;
@@ -103,6 +113,7 @@ Page({
 
   // 成功案例
   previewImage: function (e) {
+    var that = this
     var item = e.currentTarget.dataset.item
     // 预览图片
     if (item.type === 'image') {
@@ -113,12 +124,43 @@ Page({
         urls: attr // 需要预览的图片http链接列表 需要是数组
       })
     }
-// encodeURIComponent
-    console.log(item.link_url)
-    if (item.type === 'link' || item.type === 'pdf') {
+
+    // 打开链接
+    if (item.type === 'link') {
       wx.navigateTo({
         url: '../url/url?url=' + encodeURIComponent(item.link_url),
       })
+    }
+    // 打开视频
+    if (item.type === 'video') {
+      wx.navigateTo({
+        url: '../video/video?url=' + encodeURIComponent(item.link_url),
+      })
+    }
+    // 打开pdf
+    if (item.type === 'pdf') {
+      if (that.data.system === 'ios') {
+        wx.navigateTo({
+          url: '../url/url?url=' + encodeURIComponent(item.link_url),
+        })
+      }
+      if (that.data.system === 'android') {
+        wx.downloadFile({
+          url: item.link_url,
+          success: function (res) {
+            console.log(res)
+            var Path = res.tempFilePath
+            wx.openDocument({
+              filePath: Path,
+              success: function (res) {} //成功后回调
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+          }
+        })
+      }
+      
     }
 
   },
