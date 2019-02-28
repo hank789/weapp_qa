@@ -1,0 +1,12 @@
+<!-- <video class='video' src='{{ videoLink }}' direction="{{0}}" autoplay="{{true}}"  custom-cache="{{false}}"></video> -->
+
+
+<view class='video-root'>
+  <video id="myVideo" src="{{videoLink}}" direction="{{0}}" autoplay="{{true}}" bindfullscreenchange="videofullchange" show-fullscreen-btn="{{ false }}" bindended="bindended" bindwaiting="bindwaiting" custom-cache="{{false}}">
+    <cover-view class="controls">
+      <cover-view class="video-close" bindtap="bind_close_video">
+        <!-- <cover-image class="img" src="../../images/page_3@3x.png" /> -->
+      </cover-view>
+    </cover-view>
+  </video>
+</view>
