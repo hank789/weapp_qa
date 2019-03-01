@@ -21,6 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    openLink (e) {
+      wx.navigateTo({
+        url: '../url/url?url=' + encodeURIComponent(e.currentTarget.dataset.url),
+      })
+    }
   }
 })
