@@ -97,6 +97,7 @@
         height: 88rpx;
         border-radius: 8rpx;
         background: white;
+        overflow: hidden;
         border: 1rpx solid #ececee; }
         .component-card-product .first .productHead .logo image {
           width: 100%;
