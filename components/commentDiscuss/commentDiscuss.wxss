@@ -7,7 +7,7 @@
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding: 19.96rpx 0; }
+  padding: 30rpx 0; }
 .container-list-discuss .list-item-discuss .lidL {
   width: 67.96rpx; }
 .container-list-discuss .list-item-discuss .lidL image {
@@ -15,10 +15,11 @@
   height: 67.96rpx;
   border-radius: 50%; }
 .container-list-discuss .list-item-discuss .lidR {
+  position: relative;
   -webkit-box-flex: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  padding-left: 9.98rpx; }
+  padding-left: 12rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR1 {
   color: #808080;
   font-size: 25.96rpx; }
@@ -27,25 +28,36 @@
   margin: 0 9.98rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR2 {
   color: #444444;
-  font-size: 27.98rpx;
-  line-height: 37.96rpx;
-  margin: 8rpx 0 13rpx; 
+  font-size: 28rpx;
+  line-height: 45rpx;
+  margin: 10rpx 0 13rpx; 
   word-break: break-all;}
 .container-list-discuss .list-item-discuss .lidR .lidR3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  margin-top: 4rpx;
   color: #B4B4B6;
-  font-size: 24rpx; }
-.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption.active {
+  font-size: 22rpx; }
+.container-list-discuss .list-item-discuss .lidR .lidR4 {
+    position: absolute;
+    right: 0;
+    top: 4rpx;
+}
+.container-list-discuss .list-item-discuss .lidR .lidR4 .lidROption {
+  margin-top: -10rpx;
+}
+.container-list-discuss .list-item-discuss .lidR .lidR4 .lidROption.active {
   color: #03AEF9; }
-.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption .iconfont {
-  font-size: 28.96rpx; }
-.container-list-discuss .list-item-discuss .lidR .lidR3 .lidROption text {
-  margin-left: 9.98rpx; }
+.container-list-discuss .list-item-discuss .lidR .lidR4 .lidROption .iconfont {
+  color: #444444;
+  font-size: 30rpx;
+}
+.container-list-discuss .list-item-discuss .lidR .lidR4 .lidROption text {
+  margin-left: 6rpx; }
+.container-list-discuss .list-item-discuss .lidR .lidR4 .lidROption .number {
+  vertical-align: top;
+  display: inline-block;
+  color: #B4B4B6;
+  font-size: 20rpx;
+}
 .container-list-discuss .list-item-discuss-children {
   background-color: #F7F8FA;
   margin-left: 78rpx;

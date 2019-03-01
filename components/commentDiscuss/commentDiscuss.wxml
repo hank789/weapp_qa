@@ -7,16 +7,18 @@
         </view>
         <view class="lidR">
           <view class="lidR1">{{item.owner.name}}</view>
-          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
           <view class="lidR3">
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
             </view>
+          </view>
+          <view class="lidR4">
             <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
-              <text class='iconfont icon-zan1'></text>
-              <text>{{ item.supports }}</text>
+              <text class='number'>{{ item.supports }}</text>
+              <text class='iconfont icon-dianzan-'></text>
             </view>
           </view>
+          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
         </view>
       </view>
 
