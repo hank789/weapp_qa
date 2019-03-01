@@ -5,6 +5,7 @@
   padding-bottom: 24rpx;
   background: #1C2C42; }
   .container-special .component-card-product {
+    position: relative;
     margin-top: 54rpx; }
 
 .icon {
@@ -357,9 +358,10 @@
 .addOne {
   height: 42rpx;
   position: absolute;
-  top: -55.96rpx;
-  left: 8.96rpx;
+  top: 220rpx;
+  left: 36rpx;
   opacity: 0;
+  z-index: 9;
   transition-delay: 1.5s;
   -moz-transition-delay: 1.5s;
   -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
@@ -465,30 +467,30 @@
 @keyframes addone
   {
     0% {
-      top: -28px;
+      top: 220rpx;
       opacity: 1;
     }
     50% {
-      top: -28px;
+      top: 220rpx;
       opacity: 5;
     }
     100% {
-      top: -45px;
+      top: 180rpx;
       opacity: 0;
     }
   }
   @-webkit-keyframes addone 
   {
     0% {
-      top: -28px;
+      top: 220rpx;
       opacity: 1;
     }
     50% {
-      top: -28px;
+      top: 220rpx;
       opacity: 5;
     }
     100% {
-      top: -45px;
+      top: 180rpx;
       opacity: 0;
     }
   }
