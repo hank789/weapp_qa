@@ -107,43 +107,42 @@ Page({
         })
     },
     discoverDown: function (e) {
-        if (!this.data.userInfo.mobile) {
-            this.setData({
-                authUserPhone: true,
-                isShowPopup: true
-            });
-            return;
+      if (!this.data.userInfo.mobile) {
+        this.setData({
+            authUserPhone: true,
+            isShowPopup: true
+        });
+        return;
+      }
+      var that = this;
+      var item = e.currentTarget.dataset.item
+      var index = e.currentTarget.dataset.index
+      productUtil.supportAlbumProduct(item.id, (res) => {
+        var code = res.code
+        var support = "list[" + index + "].can_support"
+        if (code === 6120) {
+          wx.showToast({
+            title: '今天不能点赞了哦',
+            icon: 'loading',
+            duration: 1000
+          })
+          that.setData({
+            [support]: 0
+          })
+          return
         }
-
-        var that = this;
-        var item = e.currentTarget.dataset.item
-        var index = e.currentTarget.dataset.index
-        productUtil.supportAlbumProduct(item.id, (res) => {
-            var code = res.code
-            var support = "list[" + index + "].can_support"
-            if (code === 6120) {
-                wx.showToast({
-                    title: '今天不能点赞了哦',
-                    icon: 'loading',
-                    duration: 1000
-                })
-                that.setData({
-                    [support]: 0
-                })
-                return
-            }
-            var up = "list[" + index + "].support_rate";
-            var isShowAddOne = "list[" + index + "].isShowAddOne"
-            that.setData({
-                [up]: item.support_rate + 1,
-                [isShowAddOne]: true
-            })
-            setTimeout(() => {
-                that.setData({
-                    [isShowAddOne]: false
-                })
-            }, 1500)
+        var up = "list[" + index + "].support_rate";
+        var isShowAddOne = "list[" + index + "].isShowAddOne"
+        that.setData({
+          [up]: item.support_rate + 1,
+          [isShowAddOne]: true
         })
+        setTimeout(() => {
+          that.setData({
+            [isShowAddOne]: false
+          })
+        }, 1500)
+      })
     },
 
     getSupportsList: function () {

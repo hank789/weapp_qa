@@ -17,7 +17,7 @@ function getShareImage(id, type, successCallback, failCallback) {
 
 function supportAlbumProduct (id, successCallback) {
     request.httpsPostRequest('/weapp/product/supportAlbumProduct', {
-        id: item.id
+        id: id
     }, function (res) {
         successCallback(res)
     })
