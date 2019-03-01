@@ -1,0 +1,5 @@
+module.exports = {
+  date: function (time) {
+    return time.substring(5)
+  }
+}
