@@ -210,8 +210,6 @@ page {
 .specialWrapper .specialList {
   position: relative;
   margin: 20rpx 0rpx 0 0;
-  /* float: left; */
-  /* display: inline-block; */
 }
 .display {
   display: inline-block;

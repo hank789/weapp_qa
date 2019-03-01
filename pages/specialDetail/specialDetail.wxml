@@ -44,17 +44,55 @@
   <view class="component-earth-top"><image class="radian" src="/images/hudu@3x.png"></image></view>
 </view>
 
-<block>
+<!-- 相关资讯 -->
+<view class='newsWrapper'>
   <view class="component-title-big">相关资讯</view>
   <view class='newsList' wx:for='{{ newsList }}' wx:key='news'>
     <Information recentNews='{{ item }}'></Information>
-    <view class='seeMore font-family-medium'>查看更多</view>
   </view>
-</block>
+  <view class='seeMore font-family-medium'>查看更多</view>
+</view>
 
+<!-- 评论互动 -->
 <block>
   <view class="component-title-big">评论互动</view>
 
-  <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
+  <view class='commentWrapper'>
+    <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
+    <view class='seeMore font-family-medium'>查看全部23条评论</view>
+  </view>
 
 </block>
+
+<!-- 更多专题 -->
+
+<view class='specialWrapper'>
+  <view class="component-title-big">更多专题</view>
+
+  <view class='middle'>
+
+    <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail'>
+      <view class='mask'></view>
+      <view class='img'><image src='../../images/logo-144.png' mode="aspectFill"></image></view>
+      <view class='text font-family-medium'>分析与商业智能</view>
+    </view>
+
+  </view>
+</view>
+
+<view class='bottomWrapper'>
+  <view class='addWeChat'>更多合作请添加微信号“<text>hiinwe</text>”</view>
+  <view class='describe'>InweHub依据和采集平台用户的海量评价数据，采用数据模型对获得市场和客户高度认同认可的产品和服务，进行上榜展示。</view>
+  <view class='logo'><image src='../../images/zhuanti_bottom_logo@3x.png'></image></view>
+</view>
+
+<!-- 底部 -->
+<view class='footerWrapper'>
+  <view class='buttonWrapper iconfont icon-xiedianping-'></view>
+  <button class='buttonWrapper'hover-class="none" open-type="share">
+    <view class=' iconfont icon-zhuanfa-1'></view>
+  </button>
+</view>
+
+  
+

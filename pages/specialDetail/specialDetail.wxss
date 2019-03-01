@@ -245,13 +245,108 @@
   padding: 0 32rpx;
   margin-top: 6rpx; }
 
+.newsWrapper {
+  margin-bottom: 60rpx;
+}
 .newsList {
   padding: 0 32rpx;
   margin-top: 30rpx;
-  margin-bottom: 60rpx;
 }
-.newsList .seeMore {
+.seeMore {
   text-align: center;
   font-size: 28rpx;
   color: #808080;
+}
+.commentWrapper {
+  margin-bottom: 60rpx;
+}
+
+.specialWrapper {
+  margin-bottom: 60rpx;
+}
+.specialWrapper .middle {
+  padding: 0 32rpx;
+}
+.specialList {
+  position: relative;
+  margin: 20rpx 0rpx 0 0;
+  display: inline-block;
+}
+.specialList:nth-of-type(odd) {
+  margin-right: 20rpx;
+}
+.specialList .img {
+  width: 333rpx;
+  height: 159rpx;
+  border-radius: 8rpx;
+}
+.specialList image {
+  height: 100%;
+  width: 100%;
+  border-radius: 8rpx;
+}
+.specialList .text {
+  font-size: 26rpx;
+  color: #FFFFFF;
+  position: absolute;
+  top: 70rpx;
+  left: 30rpx;
+}
+.specialList .mask {
+  width: 333rpx;
+  height: 159rpx;
+  background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.9) 100%);
+  opacity:0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8rpx;
+}
+
+.bottomWrapper {
+  text-align: center;
+  padding-bottom: 148rpx;
+}
+.bottomWrapper .addWeChat {
+  color: #808080;
+  font-size: 22rpx;
+}
+.bottomWrapper .addWeChat text {
+  color: #444444;
+}
+.bottomWrapper .describe {
+  padding: 0 62rpx;
+  color: #B4B4B6;
+  font-size: 20rpx;
+  line-height: 28rpx;
+  text-align: left;
+  margin: 30rpx 0;
+}
+.bottomWrapper .logo {
+  width: 308rpx;
+  height: 38rpx;
+  margin: 0 auto;
+}
+.bottomWrapper .logo image {
+  width: 100%;
+  height: 100%;
+}
+
+.footerWrapper {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  box-shadow:0px 0px 26rpx 0px #E8F1F1;
+}
+.footerWrapper .buttonWrapper {
+  flex: 1;
+  text-align: center;
+  line-height: 88rpx;
+  color: #3C3E44;
+  font-size: 40rpx;
+  background: #FFFFFF;
 }
