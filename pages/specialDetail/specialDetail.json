@@ -5,6 +5,7 @@
     "StarView": "/components/starView/starView",
     "getUserInfo": "/components/getUserInfo/getUserInfo",
     "getUserPhone": "/components/getUserPhone/getUserPhone",
-    "Information": "/components/information/information"
+    "Information": "/components/information/information",
+    "PageMore": "/components/pageMore/pageMore"
   }
 }

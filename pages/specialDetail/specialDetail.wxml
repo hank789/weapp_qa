@@ -89,9 +89,13 @@
 <!-- 底部 -->
 <view class='footerWrapper'>
   <view class='buttonWrapper iconfont icon-xiedianping-'></view>
-  <button class='buttonWrapper'hover-class="none" open-type="share">
+  <button class='buttonWrapper'hover-class="none" bindtap='popup'>
     <view class=' iconfont icon-zhuanfa-1'></view>
   </button>
+</view>
+
+<view>
+  <PageMore showPageMore='{{showPageMore}}' bind:clickCancel='clickCancel' bind:myevent='clickItem' iconMenu='{{iconMenus}}'></PageMore>
 </view>
 
   
