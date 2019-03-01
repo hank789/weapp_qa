@@ -18,11 +18,8 @@
         <view class="right">
           <view class="title">{{ item.name }}</view>
           <view class="stars">
-            <text class='iconfont icon-shixinxingxing'></text>
-            <text class='iconfont icon-shixinxingxing'></text>
-            <text class='iconfont icon-shixinxingxing'></text>
-            <text class='iconfont icon-shixinxingxing'></text>
-            <text class='iconfont icon-shixinxingxing'></text><text class="span">{{ item.review_average_rate }}分</text>
+            <StarView rating='{{ item.review_average_rate }}'></StarView>
+            <text class="span">{{ item.review_average_rate }}分</text>
           </view>
         </view>
       </view>

@@ -123,6 +123,7 @@
         .component-card-product .first .productHead .right .stars {
           font-size: 22rpx;
           line-height: 44rpx;
+          display: flex;
           font-family: PingFangSC-Regular;
           font-weight: 400;
           color: #29bcb8; }
