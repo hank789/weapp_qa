@@ -30,7 +30,7 @@
   border: none;
 }
 .card-wrapper .menuList {
-  line-height: 86rpx;
+  /* line-height: 86rpx; */
   display: flex;
   padding: 30rpx 32rpx;
   position: relative;

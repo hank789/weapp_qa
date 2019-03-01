@@ -190,6 +190,9 @@
   text-align: center;
   line-height: 88rpx;
 }
+.footerWrapper .iconImg.isActive .iconfont {
+  color: #B4B4B6;
+}
 .footerWrapper .iconImg .iconfont {
   color: #3C3E44;
   font-size: 40rpx;

@@ -32,16 +32,16 @@
               </view>
             </view>
 
-            <view class="feed-open-all font-family-medium">展开</view>
+            <!-- <view class="feed-open-all font-family-medium">展开</view> -->
         </view>
 
          <!-- 官方回复 -->
-        <view class='officialWrapper'>
+        <view class='officialWrapper' wx:if='{{ productComments.feed.official_reply }}'>
           <view class='replycontent'>
             <view class="iconfont icon-sanjiaoxing-"></view>
-            <view class='texts font-family-medium'>官方回复</view>
-            <view class='time'>3分钟前</view>
-            <view class='contentText'>今年6月份注册成为Airbnb的房东，接待了两个房客，感觉非常的开心</view>
+            <view class='texts font-family-medium'>{{ productComments.feed.official_reply.author }}</view>
+            <view class='time'>{{ productComments.feed.official_reply.created_at }}</view>
+            <view class='contentText'>{{ productComments.feed.official_reply.content }}</view>
           </view>
         </view>
 
