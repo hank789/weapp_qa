@@ -1,10 +1,11 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
 <view class='consultList'>
   <view class='splitCircle'></view>
   <view class='content'>
     <view class='left'>
-      <view class='titles font-family-medium'>{{ recentNews.title }}</view>
+      <view class='titles font-family-medium text-line-2'>{{ recentNews.title }}</view>
       <view class='bottom'>
-        <text class='time'>{{ recentNews.date }}</text>
+        <text class='time'>{{ filter.date(recentNews.date) }}</text>
         <view class='spot'></view>
         <text class='name'>{{ recentNews.author }}</text>
       </view>

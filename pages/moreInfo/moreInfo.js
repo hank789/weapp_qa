@@ -1,6 +1,7 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
+
 Page({
 
   /**
@@ -49,9 +50,13 @@ Page({
         if (!response.data.next_page_url) {
           isMore = false;
         }
+        // let dataList = response.data.data; //获取到的数据
+        // dataList.forEach((item) => {
+        //   item.date = item.date.substring(5); //要截取字段的字符串
+        // })
 
         that.setData({
-          newsList: response.data,
+          newsList: response.data.data,
           page: nextPage,
           isLoading: false,
           isMore: isMore

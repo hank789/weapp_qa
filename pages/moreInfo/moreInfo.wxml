@@ -3,7 +3,7 @@
 <import src="../../template/loading" />
 
   <view class='consultWrapper'>
-    <block wx:for='{{ recentNews.data }}' wx:key='news'>
+    <block wx:for='{{ newsList }}' wx:key='news'>
         <Information recentNews='{{ item }}'></Information>
       </block>
   </view>

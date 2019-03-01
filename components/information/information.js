@@ -5,6 +5,9 @@ Component({
    */
   properties: {
     recentNews: Object
+  }, 
+  options: {
+    addGlobalClass: true,
   },
 
   /**

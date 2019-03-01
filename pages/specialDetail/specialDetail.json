@@ -3,6 +3,7 @@
   "usingComponents": {
     "StarView": "/components/starView/starView",
     "getUserInfo": "/components/getUserInfo/getUserInfo",
-    "getUserPhone": "/components/getUserPhone/getUserPhone"
+    "getUserPhone": "/components/getUserPhone/getUserPhone",
+    "Information": "/components/information/information"
   }
 }

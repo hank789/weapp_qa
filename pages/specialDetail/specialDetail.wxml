@@ -44,3 +44,6 @@
   <view class="component-earth-top"><image class="radian" src="/images/hudu@3x.png"></image></view>
 </view>
 <view class="component-title-big">相关资讯</view>
+<block wx:for='{{ detail.recent_news }}' wx:key='news'>
+  <Information recentNews='{{ item }}'></Information>
+</block>
