@@ -11,8 +11,8 @@
     </view>
     <view class="topRight"><image src="../../images/zhuanti_main_card_bg@3x.png"></image></view>
   </view>
-  <view class="component-card-product"  wx:for='{{ list }}' wx:key='index' data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
-    <view class="first">
+  <view class="component-card-product"  wx:for='{{ list }}' wx:key='index' data-id='{{ item.tag_id }}'>
+    <view class="first" bindtap='goProductDetail'>
       <view class="productHead">
         <view class="logo"><image src="{{item.logo}}" mode="aspectFit"></image></view>
         <view class="right">
@@ -28,11 +28,15 @@
       </view>
       <view class="content">{{ item.summary }}</view>
     </view>
+    <view class="addOne" wx:if='{{ item.isShowAddOne }}'>
+      <text class='triangle'></text>
+      <text class='addNum'>+1</text>
+    </view>
     <view class="second">
       <view class="left"><image src="../../images/fill_1@3x.png"></image>{{ item.support_rate }}</view>
       <view class="right" data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown'>
-        <view class="button">
-          <text class='iconfont icon-dianzan-'></text>{{ item.can_support ? '+1': '明天再来' }}
+        <view class="button {{item.can_support ? '':'active'}}">
+          <text class='iconfont icon-dianzan-' wx:if='{{item.can_support}}'></text>{{ item.can_support ? '+1': '明天再来' }}
         </view>
       </view>
     </view>
@@ -96,6 +100,13 @@
 
 <view>
   <PageMore showPageMore='{{showPageMore}}' bind:clickCancel='clickCancel' bind:myevent='clickItem' iconMenu='{{iconMenus}}'></PageMore>
+</view>
+
+<view class='leftFooter' wx:if='{{ showGood }}'>
+  <view class='lookGoodWrapper'> 
+    <!-- wx:for='{{ supportsList }}' -->
+    <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
+  </view>
 </view>
 
   

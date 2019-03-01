@@ -182,6 +182,9 @@
         text-align: center;
         background: #29bcb8;
         color: #fff; }
+        .component-card-product .second .right .button.active {
+          background: #1C2C42;
+        }
         .component-card-product .second .right .button .iconfont {
           position: relative;
           top: 2rpx;
@@ -350,3 +353,142 @@
   font-size: 40rpx;
   background: #FFFFFF;
 }
+
+.addOne {
+  height: 42rpx;
+  position: absolute;
+  top: -55.96rpx;
+  left: 8.96rpx;
+  opacity: 0;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: addone 0.8s;
+  -moz-animation: addone 0.8s; /* Firefox */
+  -webkit-animation: addone 0.8s; /* Safari and Chrome */
+  -o-animation: addone 0.8s; /* Opera */
+}
+.addOne .triangle {
+  width: 0;
+  height: 0;
+  border-left: 8rpx solid transparent;
+  border-right: 8rpx solid transparent;
+  border-top: 8rpx solid #FA4975;
+  position: absolute;
+  top: 36rpx;
+  left: 16rpx;
+}
+.addOne .addNum {
+  width: 45.98rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  color: #FFFFFF;
+  font-size: 21.98rpx;
+  text-align: center;
+  border-radius: 7.96rpx;
+  background: #FA4975;
+  display: inline-block;
+}
+
+
+
+.leftFooter {
+  position: fixed;
+  bottom: 128rpx;
+  max-width: 686rpx;
+  left:32rpx;
+  opacity: 0;
+  z-index: 2;
+  transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s; /* Safari 和 Chrome */
+  -o-transition-delay: 1.5s;
+  animation: rolling 1.5s;
+  -webkit-animation: rolling 2s; /* Safari and Chrome */
+}
+.leftFooter .lookGoodWrapper {
+  border-radius: 34rpx;
+  padding: 16rpx 20rpx;
+  background:rgba(17,17,17,0.7);
+  /* margin-top: 8rpx; */
+}
+.leftFooter .lookGoodWrapper .nameText {
+  color: #FFFFFF;
+  line-height: 30rpx;
+}
+.leftFooter .lookGoodWrapper .nameText .text {
+  color: #FA4975;
+  max-width:370rpx;
+  display:inline-block;
+  position: relative;
+  top: 4rpx;
+}
+@keyframes rolling {
+  0% {
+    bottom: 128rpx;
+    opacity: 1;
+  }
+  50% {
+    bottom: 128rpx;
+    opacity: 1;
+  }
+  75% {
+    bottom: 128rpx;
+    opacity: 1;
+  }
+  100% {
+    bottom: 238rpx;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rolling {
+  0% {
+    bottom: 128rpx;
+    opacity: 1;
+  }
+  50% {
+    bottom: 128rpx;
+    opacity: 3;
+  }
+  75% {
+    bottom: 128rpx;
+    opacity: 1;
+  }
+  100% {
+    bottom: 238rpx;
+    opacity: 0;
+  }
+}
+
+/* 热度+1动画 */
+@keyframes addone
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes addone 
+  {
+    0% {
+      top: -28px;
+      opacity: 1;
+    }
+    50% {
+      top: -28px;
+      opacity: 5;
+    }
+    100% {
+      top: -45px;
+      opacity: 0;
+    }
+  }
