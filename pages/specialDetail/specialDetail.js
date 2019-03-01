@@ -230,5 +230,11 @@ Page({
             });
             this.getProductList(this.data.page);
         }
-    }
+    },
+
+  seeMore: function () {
+    wx.navigateTo({
+      url: '../moreInfo/moreInfo?type=album' + id
+    });
+  },
 })

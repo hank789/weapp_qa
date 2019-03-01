@@ -34,10 +34,11 @@ Page({
   },
   getRecentNews: function(page) {
     var that = this
-    request.httpsPostRequest('/weapp/product/newsList', {
+    var data = {
       tag_id: that.data.tagId,
       page: page
-    }, function (response) {
+    }
+    request.httpsPostRequest('/weapp/product/newsList', data, function (response) {
       var code = response.code
       if (response.code === 1000) {
         var isMore = that.data.isMore;
@@ -50,11 +51,6 @@ Page({
         if (!response.data.next_page_url) {
           isMore = false;
         }
-        // let dataList = response.data.data; //获取到的数据
-        // dataList.forEach((item) => {
-        //   item.date = item.date.substring(5); //要截取字段的字符串
-        // })
-
         that.setData({
           newsList: response.data.data,
           page: nextPage,
