@@ -20,7 +20,9 @@ Page({
     supportsList: [],
     supportData: {},
     showGood: false,
-    index: 0
+    index: 0,
+    newsList: [],
+    commentList: []
   },
 
   /**
@@ -28,17 +30,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    // console.log(options,'数据')
-    that.data.id = options.id
 
     // 获取用户信息
     app.getUserInfo(function (userInfo) {
       that.setData({
-        userInfo: userInfo
+        userInfo: userInfo,
+        id: options.id
       });
       that.getProductList(1)
       that.getAlbumInfo()
       that.getSupportsList()
+      that.getRecentNews(1)
+      that.getCommentList(1)
     });
     var roll = setInterval(function () { setRoll() }, 3300);
     function setRoll() {
@@ -60,9 +63,6 @@ Page({
         clearInterval(roll);
       }
     }
-    
-    
-    
   },
   getAlbumInfo: function () {
     var that = this;
@@ -182,6 +182,68 @@ Page({
     wx.navigateTo({
       url: '../productDetail/productDetail?id=' + id
     });
+  },
+  getRecentNews: function (page) {
+    var that = this
+    request.httpsPostRequest('/weapp/product/albumNewsList', {
+      id: that.data.id,
+      page: page,
+      perPage: 5
+    }, function (response) {
+      var code = response.code
+      if (response.code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+      that.setData({
+        newsList: response.data.data,
+      });
+    })
+  },
+  getCommentsList: function (page) {
+    var that = this
+    request.httpsPostRequest('/weapp/product/albumComments', {
+      id: that.data.id,
+      page: page,
+      perPage: 3
+    }, function (response) {
+      var code = response.code
+      if (response.code !== 1000) {
+        wx.showToast({
+          title: response.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+      that.setData({
+        commentList: response.data,
+      });
+    })
+  },
+  getCommentList: function (page) {
+    var that = this;
+    request.httpsGetRequest('/weapp/product/reviewCommentList', {
+      submission_slug: 'zzsyc',
+      page: page,
+      perPage: 3
+    }, function (res_data) {
+      if (res_data.code === 1000) {
+
+        that.data.commentList = res_data.data.data;
+        that.setData({
+          commentList: that.data.commentList,
+        });
+      } else {
+        wx.showToast({
+          title: res_data.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
   },
 
   /**

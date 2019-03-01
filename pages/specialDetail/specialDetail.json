@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "专题详情",
   "usingComponents": {
+    "commentDiscuss": "/components/commentDiscuss/commentDiscuss",
     "StarView": "/components/starView/starView",
     "getUserInfo": "/components/getUserInfo/getUserInfo",
     "getUserPhone": "/components/getUserPhone/getUserPhone",

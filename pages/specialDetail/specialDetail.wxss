@@ -243,3 +243,14 @@
   color: #3c3e44;
   padding: 0 32rpx;
   margin-top: 6rpx; }
+
+.newsList {
+  padding: 0 32rpx;
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+}
+.newsList .seeMore {
+  text-align: center;
+  font-size: 28rpx;
+  color: #808080;
+}
