@@ -1,0 +1,11 @@
+body {
+    font-family: PingFang-SC-Regular, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.426rem;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    /*background: transparent !important;*/
+    background: #fff;
+    margin: 0;
+    padding: 0; }
