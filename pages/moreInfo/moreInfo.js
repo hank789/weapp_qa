@@ -15,30 +15,45 @@ Page({
     isLoading: true,//是否显示加载数据提示
     isMore: true,
     authUserPhone: false,
-    isShowPopup: false
+    isShowPopup: false,
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that = this
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
         userInfo: userInfo,
-        tagId: options.id
+        tagId: options.id,
+        type: options.type
       });
       that.getRecentNews(1)
     });
   },
   getRecentNews: function(page) {
     var that = this
-    var data = {
-      tag_id: that.data.tagId,
-      page: page
+    var api
+    var data = {}
+    if (that.data.type === 'product') {
+      api = '/weapp/product/newsList'
+      data = {
+        tag_id: that.data.tagId,
+        page: page
+      }
     }
-    request.httpsPostRequest('/weapp/product/newsList', data, function (response) {
+    if (that.data.type === 'album') {
+      data = {
+        id: that.data.tagId,
+        page: page
+      }
+      api = '/weapp/product/albumNewsList'
+    }
+    request.httpsPostRequest(api, data, function (response) {
       var code = response.code
       if (response.code === 1000) {
         var isMore = that.data.isMore;
