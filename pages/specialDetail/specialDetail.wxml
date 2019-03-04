@@ -51,7 +51,7 @@
   <view class='newsList' wx:for='{{ newsList }}' wx:key='news'>
     <Information recentNews='{{ item }}'></Information>
   </view>
-  <view bindtap='seeMore' class='seeMore font-family-medium'>查看更多</view>
+  <view bindtap='seeMore' data-id='{{ albumInfo.id }}' class='seeMore font-family-medium'>查看更多</view>
 </view>
 
 <!-- 评论互动 -->

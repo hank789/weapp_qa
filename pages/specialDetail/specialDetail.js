@@ -232,9 +232,9 @@ Page({
         }
     },
 
-  seeMore: function () {
+  seeMore: function (e) {
     wx.navigateTo({
-      url: '../moreInfo/moreInfo?type=album' + id
+      url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id + '&type=album'
     });
   },
 })

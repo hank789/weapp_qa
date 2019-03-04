@@ -188,7 +188,7 @@ Page({
   },
   seeMore (e) {
     wx.navigateTo({
-      url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id,
+      url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id + '&type=product',
     })
   },
   popup() {

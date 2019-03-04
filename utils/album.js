@@ -91,7 +91,7 @@ function getComments (id, page, perPage, successCallback) {
 }
 
 function getReviewCommentList (slug, page, perPage, successCallback) {
-    request.httpsPostRequest('/weapp/product/reviewCommentList', {
+  request.httpsGetRequest('/weapp/product/reviewCommentList', {
         submission_slug: slug,
         page: page,
         perPage: perPage
