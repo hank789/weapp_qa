@@ -208,6 +208,7 @@ Page({
     },
 
     clickItem(e) {
+        console.log('ok')
         var that = this;
         var size = 1
         if (e.detail.key === '生成公众号文章分享图') {
@@ -218,7 +219,7 @@ Page({
             mask: true
         });
 
-        productUtil.getShareImage(that.data.detail.id, size, (res) => {
+        albumUtil.getShareImage(parseInt(that.data.id), size, (res) => {
             wx.hideLoading();
             wx.previewImage({
                 current: res.data.url, // 当前显示图片的http链接

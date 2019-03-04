@@ -109,28 +109,46 @@ function getReviewCommentList (slug, page, perPage, successCallback) {
 }
 
 function getMoreAlbum(id, successCallback) {
-  request.httpsGetRequest('/weapp/product/moreAlbum', {
-    id: id
-  }, function (res) {
-    var code = res.code
-    if (code !== 1000) {
-      wx.showToast({
-        title: res.message,
-        icon: 'loading',
-        duration: 2000
-      })
-    } else {
-      successCallback(res)
-    }
-  })
+    request.httpsGetRequest('/weapp/product/moreAlbum', {
+        id: id
+    }, function (res) {
+        var code = res.code
+        if (code !== 1000) {
+            wx.showToast({
+                title: res.message,
+                icon: 'loading',
+                duration: 2000
+            })
+        } else {
+            successCallback(res)
+        }
+    })
+}
+
+
+function getShareImage(id, type, successCallback, failCallback) {
+    request.httpsGetRequest('/weapp/product/getAlbumShareImage', {id: id, type: type}, function (res) {
+        console.log(res)
+        if (res.code === 1000) {
+            successCallback(res)
+        } else {
+            wx.showToast({
+                title: res.message,
+                icon: 'success',
+                duration: 2000
+            });
+            failCallback(res)
+        }
+    });
 }
 
 module.exports = {
-  getDetail: getDetail,
-  getProductList: getProductList,
-  getSupports: getSupports,
-  getNewList: getNewList,
-  getComments: getComments,
-  getReviewCommentList: getReviewCommentList,
-  getMoreAlbum: getMoreAlbum
+    getDetail: getDetail,
+    getProductList: getProductList,
+    getSupports: getSupports,
+    getNewList: getNewList,
+    getComments: getComments,
+    getReviewCommentList: getReviewCommentList,
+    getShareImage: getShareImage,
+    getMoreAlbum: getMoreAlbum
 }
