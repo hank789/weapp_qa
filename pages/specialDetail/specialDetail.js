@@ -26,6 +26,7 @@ Page({
         newsList: [],
         commentList: [],
         showPageMore: false,
+        albumList: [],
         iconMenus: [
             {
                 img: '../../images/icon2@3x.png',
@@ -51,6 +52,7 @@ Page({
             that.getSupportsList()
             that.getRecentNews(1)
             that.getCommentList(1)
+            that.getMoreAlbumList()
         });
         var roll = setInterval(function () {
             setRoll()
@@ -183,6 +185,14 @@ Page({
             });
         })
     },
+  getMoreAlbumList: function () {
+    var that = this;
+    albumUtil.getMoreAlbum(that.data.id, (res) => {
+        that.setData({
+          albumList: res.data
+        });
+      })
+    },
     popup() {
         this.setData({
             showPageMore: true
@@ -235,6 +245,12 @@ Page({
   seeMore: function (e) {
     wx.navigateTo({
       url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id + '&type=album'
+    });
+  },
+
+  goDetail(e) {
+    wx.navigateTo({
+      url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
     });
   },
 })

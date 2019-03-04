@@ -46,7 +46,7 @@
 </view>
 
 <!-- 相关资讯 -->
-<view class='newsWrapper'>
+<view class='newsWrapper' wx:if='{{ newsList.length }}'>
   <view class="component-title-big">相关资讯</view>
   <view class='newsList' wx:for='{{ newsList }}' wx:key='news'>
     <Information recentNews='{{ item }}'></Information>
@@ -72,10 +72,10 @@
 
   <view class='middle'>
 
-    <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail'>
+    <view class='specialList' wx:for='{{ albumList }}' wx:key='albumId' data-id='{{ item.id }}' bindtap='goDetail'>
       <view class='mask'></view>
-      <view class='img'><image src='../../images/logo-144.png' mode="aspectFill"></image></view>
-      <view class='text font-family-medium'>分析与商业智能</view>
+      <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
+      <view class='text font-family-medium'>{{ item.name }}</view>
     </view>
 
   </view>

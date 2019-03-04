@@ -108,11 +108,29 @@ function getReviewCommentList (slug, page, perPage, successCallback) {
     })
 }
 
+function getMoreAlbum(id, successCallback) {
+  request.httpsGetRequest('/weapp/product/moreAlbum', {
+    id: id
+  }, function (res) {
+    var code = res.code
+    if (code !== 1000) {
+      wx.showToast({
+        title: res.message,
+        icon: 'loading',
+        duration: 2000
+      })
+    } else {
+      successCallback(res)
+    }
+  })
+}
+
 module.exports = {
-    getDetail: getDetail,
-    getProductList: getProductList,
-    getSupports: getSupports,
-    getNewList: getNewList,
-    getComments: getComments,
-    getReviewCommentList: getReviewCommentList
+  getDetail: getDetail,
+  getProductList: getProductList,
+  getSupports: getSupports,
+  getNewList: getNewList,
+  getComments: getComments,
+  getReviewCommentList: getReviewCommentList,
+  getMoreAlbum: getMoreAlbum
 }
