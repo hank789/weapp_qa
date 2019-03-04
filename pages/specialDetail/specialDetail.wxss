@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 0;
+}
 .container-special {
   position: relative;
   padding-top: 322rpx;

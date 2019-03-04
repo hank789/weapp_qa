@@ -6,6 +6,7 @@
     "getUserInfo": "/components/getUserInfo/getUserInfo",
     "getUserPhone": "/components/getUserPhone/getUserPhone",
     "Information": "/components/information/information",
-    "PageMore": "/components/pageMore/pageMore"
+    "PageMore": "/components/pageMore/pageMore",
+    "commentTextarea": "/components/textArea/textArea"
   }
 }

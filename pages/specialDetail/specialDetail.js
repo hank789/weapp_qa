@@ -27,6 +27,7 @@ Page({
         commentList: [],
         showPageMore: false,
         albumList: [],
+        total: '',
         iconMenus: [
             {
                 img: '../../images/icon2@3x.png',
@@ -51,7 +52,7 @@ Page({
             that.getAlbumInfo()
             that.getSupportsList()
             that.getRecentNews(1)
-            that.getCommentList(1)
+            that.getCommentsList(1)
             that.getMoreAlbumList()
         });
         var roll = setInterval(function () {
@@ -173,7 +174,8 @@ Page({
         var that = this
         albumUtil.getComments(that.data.id, page, 3, (res) => {
             that.setData({
-                commentList: res.data,
+              commentList: res.data.data,
+              total: res.data.total
             });
         })
     },
@@ -181,7 +183,8 @@ Page({
         var that = this;
         albumUtil.getReviewCommentList('zzsyc', page, 3, (res) => {
             that.setData({
-                commentList: res.data.data
+                commentList: res.data.data,
+                total: res.data.total
             });
         })
     },
@@ -251,6 +254,11 @@ Page({
   goDetail(e) {
     wx.navigateTo({
       url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
+    });
+  },
+  goTotalComment (e) {
+    wx.navigateTo({
+      url: '../totalComment/totalComment?id=' + e.currentTarget.dataset.id
     });
   },
 })

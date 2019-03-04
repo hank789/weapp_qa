@@ -1,6 +1,6 @@
 <view class='page'>
   <view class="container-list-discuss">
-    <view wx:for='{{comment}}' wx:key='id' wx:if='{{index < 3}}'>
+    <view wx:for='{{comment}}' wx:key='id'>
       <view class="list-item-discuss">
         <view class="lidL">
           <image src="{{item.owner.avatar}}"></image>

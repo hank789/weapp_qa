@@ -60,7 +60,7 @@
 
   <view class='commentWrapper'>
     <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
-    <view class='seeMore font-family-medium'>查看全部23条评论</view>
+    <view class='seeMore font-family-medium' data-id='{{ albumInfo.id }}' bindtap='goTotalComment' wx:if='{{ total > 3 }}'>查看全部{{ total }}条评论</view>
   </view>
 
 </block>
@@ -93,6 +93,10 @@
   <button class='buttonWrapper'hover-class="none" bindtap='popup'>
     <view class=' iconfont icon-zhuanfa-1'></view>
   </button>
+</view>
+
+<view>
+  <commentTextarea></commentTextarea>
 </view>
 
 <view>

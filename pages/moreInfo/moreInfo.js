@@ -67,7 +67,7 @@ Page({
           isMore = false;
         }
         that.setData({
-          newsList: response.data.data,
+          newsList: that.data.newsList,
           page: nextPage,
           isLoading: false,
           isMore: isMore
