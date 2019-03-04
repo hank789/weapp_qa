@@ -108,11 +108,28 @@ function getReviewCommentList (slug, page, perPage, successCallback) {
     })
 }
 
+function getShareImage(id, type, successCallback, failCallback) {
+    request.httpsGetRequest('/weapp/product/getAlbumShareImage', {id: id, type: type}, function (res) {
+        console.log(res)
+        if (res.code === 1000) {
+            successCallback(res)
+        } else {
+            wx.showToast({
+                title: res.message,
+                icon: 'success',
+                duration: 2000
+            });
+            failCallback(res)
+        }
+    });
+}
+
 module.exports = {
     getDetail: getDetail,
     getProductList: getProductList,
     getSupports: getSupports,
     getNewList: getNewList,
     getComments: getComments,
-    getReviewCommentList: getReviewCommentList
+    getReviewCommentList: getReviewCommentList,
+    getShareImage: getShareImage
 }
