@@ -28,6 +28,7 @@ Page({
         showPageMore: false,
         albumList: [],
         total: '',
+        showCommentBox: false,
         iconMenus: [
             {
                 img: '../../images/icon2@3x.png',
@@ -262,4 +263,9 @@ Page({
       url: '../totalComment/totalComment?id=' + e.currentTarget.dataset.id
     });
   },
+  comment () {
+    this.setData({
+      showCommentBox: true
+    })
+  }
 })

@@ -89,14 +89,14 @@
 
 <!-- 底部 -->
 <view class='footerWrapper'>
-  <view class='buttonWrapper iconfont icon-xiedianping-'></view>
+  <view class='buttonWrapper iconfont icon-xiedianping-' bindtap='comment'></view>
   <button class='buttonWrapper'hover-class="none" bindtap='popup'>
     <view class=' iconfont icon-zhuanfa-1'></view>
   </button>
 </view>
 
-<view>
-  <commentTextarea></commentTextarea>
+<view class='commentBox' wx:if='{{ showCommentBox }}'>
+  <commentTextarea tagId='{{ albumInfo.id }}'></commentTextarea>
 </view>
 
 <view>
