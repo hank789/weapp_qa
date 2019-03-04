@@ -250,18 +250,12 @@
     margin-top: 9px; }
 
 .container-card-product-minis {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
     padding-left: 30px; }
 .container-card-product-minis .component-card-product-mini {
     margin-bottom: 30px; }
 
 .component-card-product-mini {
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
+    display: inline-block;
     width: 234px;
     height: 375px;
     margin: 0 15px;
