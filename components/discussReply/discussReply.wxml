@@ -1,23 +1,25 @@
 <view class='page'>
 
   <view wx:for='{{commentChildren}}' wx:key='id'>
-    <view class='container-list-discuss list-item-discuss-children' bindtap='clickComment'>
+    <view class='container-list-discuss list-item-discuss-children'>
       <view class="list-item-discuss" >
         <view class="lidL">
           <image src='{{item.owner.avatar}}'></image>
         </view>
         <view class="lidR">
-          <view class="lidR1">{{item.owner.name}}<text>回复</text>{{ parentOwnerName }}</view>
-          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
+          <view class="lidR1">{{item.owner.name}}<text class='replyText'>回复</text>{{ parentOwnerName }}</view>
+          <view class='lidR4'>
+            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
+              <text class='number'>{{ item.supports }}</text>
+              <text class='iconfont icon-dianzan-'></text>
+            </view>
+          </view>
           <view class="lidR3">
             <view class="lidRtime">
               <text>{{ item.created_at }}</text>
             </view>
-            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
-              <text class='iconfont icon-zan1'></text>
-              <text>{{ item.supports }}</text>
-            </view>
           </view>
+          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
         </view>
         </view>
 

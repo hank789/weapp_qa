@@ -23,9 +23,10 @@
       </view>
 
       <view class="list-item-discuss-children" wx:if='{{ item.children.length }}'>
+  <view class='iconfont icon-sanjiaoxing- topArrow'></view>
         <DiscussReplay bind:comment='clickComment' bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
-      <view class="line-river-after" wx:if='{{ index !== 2 }}'></view>
+      <view class="line-river-after"></view>
     </view>
   </view>
 
