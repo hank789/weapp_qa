@@ -46,9 +46,5 @@ Component({
         }
       })
     },
-    clickComment: function (e) {
-      console.log('点击成功')
-      // this.triggerEvent('comment', {}, {});
-    },
   }
 })

@@ -1,4 +1,10 @@
 @import '/iconfont/iconfont.wxss';
+
+  .topArrow {
+    position: absolute;
+    top: -34rpx;
+    color: #F7F8FA;
+  }
 .container-list-discuss {
   padding: 0 30rpx 20rpx; }
 .container-list-discuss .list-item-discuss {
@@ -21,8 +27,9 @@
   flex-grow: 2;
   padding-left: 12rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR1 {
-  color: #808080;
-  font-size: 25.96rpx; }
+  color: #444444;
+  font-family:PingFangSC-Medium;
+  font-size: 26rpx; }
 .container-list-discuss .list-item-discuss .lidR .lidR1 span {
   color: #B4B4B6;
   margin: 0 9.98rpx; }
@@ -59,8 +66,12 @@
   font-size: 20rpx;
 }
 .container-list-discuss .list-item-discuss-children {
+  position: relative;
   background-color: #F7F8FA;
   margin-left: 78rpx;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
   padding: 19.96rpx 19.96rpx 0; }
 .list-item-discuss.list-item-discuss-children:first-child {
   border-radius: 7.96rpx 7.96rpx 0 0; }

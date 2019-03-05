@@ -63,7 +63,6 @@ Component({
 
     clickComment (e) {
       var item = e.currentTarget.dataset.item
-      console.log(item, '点击成功啦啦啦', this.data.albumId)
       this.setData({
         showTextArea: true,
         idName: item.owner.name,
