@@ -12,7 +12,7 @@
     <view class="topRight"><image src="../../images/zhuanti_main_card_bg@3x.png"></image></view>
   </view>
   <view class="component-card-product"  wx:for='{{ list }}' wx:key='index' data-id='{{ item.tag_id }}'>
-    <view class="first" bindtap='goProductDetail'>
+    <view class="first" data-id='{{ item.tag_id }}' bindtap='goProductDetail'>
       <view class="productHead">
         <view class="logo"><image src="{{item.logo}}" mode="aspectFit"></image></view>
         <view class="right">
