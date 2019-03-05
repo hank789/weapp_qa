@@ -257,6 +257,7 @@
 
 .component-card-product-mini {
     display: inline-block;
+    position: relative;
     width: 234px;
     height: 375px;
     margin: 0 15px;
@@ -282,11 +283,9 @@
     color: #29bcb8;
     line-height: 48px;
     padding: 24px 30px; }
-.component-card-product-mini .help {
-    height: 100%;
-    width: 100%; }
-.component-card-product-mini .help img {
-    position: relative;
+
+.component-card-product-mini .help{
+    position: absolute;
     top: 50%;
     left: 50%;
     margin-left:-31px;
