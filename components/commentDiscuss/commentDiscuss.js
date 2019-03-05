@@ -1,6 +1,9 @@
 // components/commentDiscuss/commentDiscuss.js
 var request = require("../../utils/request.js");
 var app = getApp();
+var timeagoFun = require('../../utils/timeago.js');
+var timeago = new timeagoFun()
+
 Component({
   /**
    * 组件的属性列表
@@ -26,6 +29,8 @@ Component({
    */
   methods: {
     upvote: function (e) {
+      console.log(timeago.format('2018-01-02', 'zh_CN'))
+
       if (!app.globalData.userInfo.mobile) {
         this.triggerEvent('authPhone', {}, {});
         return;
