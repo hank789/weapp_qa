@@ -257,7 +257,6 @@
 
 .component-card-product-mini {
     display: inline-block;
-    position: relative;
     width: 234px;
     height: 375px;
     margin: 0 15px;
@@ -285,11 +284,12 @@
     padding: 24px 30px; }
 
 .component-card-product-mini .help{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left:-31px;
-    margin-top:-45px; }
+    width:100%;
+    height:100%;
+    background-image: url(../images/wenhao@3x.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
 .component-specialShare-bottom {
     display: -webkit-box;
