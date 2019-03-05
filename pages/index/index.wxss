@@ -250,6 +250,7 @@ page {
   border-radius: 8rpx;
 }
 .expectWrapper {
+  width: 333rpx;
   height: 156rpx;
 }
 .expectWrapper .content {
