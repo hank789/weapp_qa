@@ -1,5 +1,5 @@
 .container-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 750rpx;
   min-height: 87rpx;

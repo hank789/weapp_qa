@@ -498,3 +498,7 @@ page {
       opacity: 0;
     }
   }
+  .commentBox {
+    position: absolute;
+    bottom: 0;
+  }
