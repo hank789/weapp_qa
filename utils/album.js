@@ -1,6 +1,8 @@
 
 
 var request = require("./request.js");
+var timeagoFun = require('./timeago.js');
+var timeago = new timeagoFun()
 
 function getDetail (id, successCallback) {
     request.httpsGetRequest('/weapp/product/albumInfo', {
@@ -85,9 +87,21 @@ function getComments (id, page, perPage, successCallback) {
                 duration: 2000
             });
         } else {
+            response.data.data = replaceTimeago(response.data.data);
             successCallback(response)
         }
     })
+}
+
+function replaceTimeago (list) {
+    for (var i = 0; i < list.length; i++) {
+      list[i].timeago = timeago.format(list[i].created_at, 'zh_CN')
+
+      if (list[i].children.length) {
+        list[i].children = replaceTimeago(list[i].children)
+      }
+    }
+    return list
 }
 
 function getReviewCommentList (slug, page, perPage, successCallback) {
