@@ -9,7 +9,7 @@
           <view class="lidR1">{{item.owner.name}}</view>
           <view class="lidR3">
             <view class="lidRtime">
-              <text>{{ item.created_at }}</text>
+              <text>{{ item.timeago }}</text>
             </view>
           </view>
           <view class="lidR4">
