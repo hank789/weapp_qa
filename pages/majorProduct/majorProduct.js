@@ -17,7 +17,18 @@ Page({
     isShowPopup: false,
     starNumber: '',
     tagId: '',
-    system: ''
+    system: '',
+    showPageMore: false,
+    iconMenus: [
+      {
+        img: '../../images/icon2@3x.png',
+        text: '生成朋友圈分享图'
+      },
+      {
+        img: '../../images/icon1@3x.png',
+        text: '生成公众号文章分享图'
+      }
+    ]
   },
 
   /**
@@ -194,6 +205,23 @@ Page({
   popup() {
     this.setData({
       showPageMore: true
+    })
+  },
+  clickCancel() {
+    this.setData({
+      showPageMore: false
+    })
+  },
+  goToDianPing(e) {
+    if (!this.data.userInfo.mobile) {
+      this.setData({
+        authUserPhone: true,
+        isShowPopup: true
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: '../add/add?tag=' + this.data.detail.name,
     })
   },
 
