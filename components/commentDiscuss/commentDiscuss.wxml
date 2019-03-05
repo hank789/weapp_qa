@@ -1,6 +1,6 @@
 <view class='page'>
-  <view class="container-list-discuss">
-    <view wx:for='{{comment}}' wx:key='id'>
+  <view class="container-list-discuss" >
+    <view wx:for='{{comment}}' wx:key='id' data-item='{{ item }}' bindtap='clickComment'>
       <view class="list-item-discuss">
         <view class="lidL">
           <image src="{{item.owner.avatar}}"></image>
@@ -23,9 +23,14 @@
       </view>
 
       <view class="list-item-discuss-children" wx:if='{{ item.children.length }}'>
-        <DiscussReplay bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
+        <DiscussReplay bind:comment='clickComment' bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
       <view class="line-river-after" wx:if='{{ index !== 2 }}'></view>
     </view>
   </view>
+
+  <view wx:if='{{ showTextArea }}'>
+    <commentTextarea placeName='回复{{ idName }}' bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}'></commentTextarea>
+  </view>
+
 </view>

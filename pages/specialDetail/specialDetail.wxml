@@ -59,7 +59,7 @@
   <view class="component-title-big">评论互动</view>
 
   <view class='commentWrapper'>
-    <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone"></commentDiscuss>
+    <commentDiscuss comment='{{commentList}}' albumId='{{ albumInfo.id }}' bind:authPhone="onAuthPhone"></commentDiscuss>
     <view class='seeMore font-family-medium' data-id='{{ albumInfo.id }}' bindtap='goTotalComment' wx:if='{{ total > 3 }}'>查看全部{{ total }}条评论</view>
   </view>
 
@@ -96,7 +96,7 @@
 </view>
 
 <view class='commentBox' wx:if='{{ showCommentBox }}'>
-  <commentTextarea tagId='{{ albumInfo.id }}'></commentTextarea>
+  <commentTextarea bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}'></commentTextarea>
 </view>
 
 <view>

@@ -29,6 +29,8 @@ Page({
         albumList: [],
         total: '',
         showCommentBox: false,
+        inputContent: '',
+        content: '',
         iconMenus: [
             {
                 img: '../../images/icon2@3x.png',
@@ -267,5 +269,38 @@ Page({
     this.setData({
       showCommentBox: true
     })
-  }
+  },
+
+  bindCode(e) {
+    this.setData({
+      inputContent: e.detail
+    })
+  },
+
+  submit() {
+    var that = this
+    request.httpsPostRequest('/weapp/product/commentAlbum', {
+      id: this.data.albumInfo.id,
+      body: this.data.inputContent,
+      parent_id: '0'
+    }, function (res) {
+      // console.log(res);
+      if (res.code === 1000) {
+        that.setData({
+          content: ''
+        })
+        wx.showToast({
+          title: res.message,
+          icon: 'success',
+          duration: 2000
+        });
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'loading',
+          duration: 2000
+        });
+      }
+    })
+  },
 })

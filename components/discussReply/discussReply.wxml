@@ -1,7 +1,7 @@
 <view class='page'>
 
   <view wx:for='{{commentChildren}}' wx:key='id'>
-    <view class='container-list-discuss list-item-discuss-children' >
+    <view class='container-list-discuss list-item-discuss-children' bindtap='clickComment'>
       <view class="list-item-discuss" >
         <view class="lidL">
           <image src='{{item.owner.avatar}}'></image>
@@ -21,7 +21,7 @@
         </view>
         </view>
 
-      <DiscussReplay commentChildren='{{item.children}}'></DiscussReplay>
+      <DiscussReplay bind:comment='clickComment' commentChildren='{{item.children}}'></DiscussReplay>
 
     </view>
   </view>

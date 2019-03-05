@@ -1,6 +1,6 @@
 <view class='container-footer'>
   <view class='footer-wrapper'>
-    <textarea class='text' value='{{ content }}' bindinput='bindTextAreaBlur' show-confirm-bar='{{ false }}' fixed='{{ true }}' auto-focus='true' auto-height placeholder="知音千里难寻觅，说点什么不后悔"></textarea>
+    <textarea class='text' value='{{ content }}' bindinput='bindTextAreaBlur' show-confirm-bar='{{ false }}' fixed='{{ true }}' auto-focus='true' auto-height placeholder="{{ placeName }}"></textarea>
     <view class='sendText' bindtap='submit'>发送</view>
   </view>
 </view>

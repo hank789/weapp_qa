@@ -7,14 +7,18 @@ Component({
    */
   properties: {
     comment: Array,
-    parentOwnerName: String
+    parentOwnerName: String,
+    albumId: String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    showTextArea: false,
+    idName: '',
+    userId: '',
+    content: ''
   },
 
   /**
@@ -47,8 +51,52 @@ Component({
         }
       })
     },
+
     onAuthPhone: function (e) {
       this.triggerEvent('authPhone', {}, {});
+    },
+
+    clickComment (e) {
+      var item = e.currentTarget.dataset.item
+      console.log(item, '点击成功啦啦啦', this.data.albumId)
+      this.setData({
+        showTextArea: true,
+        idName: item.owner.name,
+        userId: item.id
+      })
+    },
+
+    submit () {
+      var that = this
+      request.httpsPostRequest('/weapp/product/commentAlbum', {
+        id: this.data.albumId,
+        body: this.data.inputContent,
+        parent_id: this.data.userId
+      }, function (res) {
+        console.log(res);
+        if (res.code === 1000) {
+          that.setData({
+            content: ''
+          })
+          wx.showToast({
+            title: res.message,
+            icon: 'success',
+            duration: 2000
+          });
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'loading',
+            duration: 2000
+          });
+        }
+      })
+    },
+
+    bindCode (e) {
+      this.setData({
+        inputContent: e.detail
+      })
     },
   }
 })

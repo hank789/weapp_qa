@@ -7,14 +7,18 @@ Component({
   properties: {
     tagId: {
       type: String
-    }
+    },
+    placeName: {
+      type: String,
+      value: '知音千里难寻觅，说点什么不后悔'
+    },
+    content: String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    content: ''
   },
 
   /**
@@ -22,36 +26,15 @@ Component({
    */
   methods: {
     bindTextAreaBlur (e) {
-      console.log(e.detail.value)
       this.setData({
         content: e.detail.value,
       })
+      // console.log(e.detail.value,'input数据')
+      var inputContent = e.detail.value
+      this.triggerEvent('bindCode', inputContent)
     },
-    submit () {
-      var that = this
-      request.httpsPostRequest('/weapp/product/commentAlbum', {
-        id: this.data.tagId,
-        body: this.data.content,
-        parent_id: '0'
-      }, function (res) {
-        console.log(res);
-        if (res.code === 1000) {
-          that.setData({
-            content: ''
-          })
-          wx.showToast({
-            title: res.message,
-            icon: 'success',
-            duration: 2000
-          });
-        } else {
-          wx.showToast({
-            title: res.message,
-            icon: 'loading',
-            duration: 2000
-          });
-        }
-      })
+    submit() {
+      this.triggerEvent('submit', {}, {});
     }
   }
 })
