@@ -33,9 +33,18 @@ Page({
   getCommentList: function (page) {
     var that = this;
     albumUtil.getComments(that.data.id, page, 20, (res) => {
+
+      var nextPage = page + 1;
+      if (page === 1) {
+        that.data.commentList = res.data.data;
+      } else {
+        that.data.commentList = that.data.commentList.concat(res.data.data);
+      }
+
       that.setData({
-        commentList: res.data.data,
-        total: res.data.total
+        commentList: that.data.commentList,
+        total: res.data.total,
+        page: nextPage,
       });
     })
   },
@@ -71,14 +80,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getCommentList(1);
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getCommentList(this.data.page)
   },
 
   /**

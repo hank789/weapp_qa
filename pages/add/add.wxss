@@ -16,9 +16,9 @@ page {
 }
 .stars {
   position: relative;
-  color: #FCC816;
+  color: #29BCB8;
   font-size: 45.98rpx;
-  /*margin-top: 15.98rpx;*/
+  margin-top: 16rpx;
   margin-bottom: 30rpx;
   display: flex;
 }
@@ -208,7 +208,7 @@ page {
 
 .stars .star .iconfont {
   font-size: 46rpx;
-  color: #FCC816;
+  color: #29BCB8;
   margin:0 7rpx;
 }
 .textareaColor {

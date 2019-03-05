@@ -4,7 +4,7 @@
   position:relative;
   color:#29BCB8;
   font-size:45.98rpx;
-  margin-bottom:30rpx;
+  /* margin-bottom:30rpx; */
   display:flex;
 }
 
