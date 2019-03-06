@@ -318,6 +318,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    request.httpsPostRequest('/weapp/product/feedback', { title: '分享产品', content: this.data.detail.name }, function (res_data) { });
+    return {
+      title: this.data.detail.name,
+      path: "/pages/majorProduct/majorProduct?id=" + this.data.tagId
+    }
   }
 })
