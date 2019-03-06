@@ -37,8 +37,8 @@
         </view>
       </view>
     </view>
-    <view class="three">
-      <text class='iconfont icon-lianjie-'></text>亮点:<text class="span">所有ECS实例都附带Anti-DDoS保护</text>
+    <view class="three" wx:if='{{ item.advance_desc }}'>
+      <text class='iconfont icon-lianjie-'></text>亮点:<text class="span">{{ item.advance_desc }}</text>
     </view>
   </view>
 
