@@ -3,7 +3,7 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}' mode="aspectFill"></image>
+        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}' mode="aspectFit"></image>
         <view wx:else class='iconImg iconfont icon-kongzhuangtai-'></view>
       </view>
       <view  class='right'>
