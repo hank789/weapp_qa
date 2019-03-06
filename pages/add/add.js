@@ -204,10 +204,6 @@ Page({
       this.showTopTips('内容不能为空');
       return false;
     }
-    if (cids.length === 0) {
-      this.showTopTips('请选择领域');
-      return false;
-    }
 
     var jsonData = {
       title: this.data.title,
