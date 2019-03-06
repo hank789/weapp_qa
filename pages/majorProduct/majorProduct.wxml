@@ -81,18 +81,35 @@
   <view class='successCaseWrapper' wx:if='{{ detail.case_list.length }}'>
     <view class='title'>成功案例</view>
 
-    <view class='caseWrapper'>
-      <block wx:for='{{ detail.case_list }}' wx:key='case'>
+    <view class='caseWrapper' style="display: flex;">
+      <view class="caseLeft">
+        <block wx:for='{{ detail.case_list }}' wx:key='case'>
+          <block wx:if="{{ index % 2 === 0 }}">
+            <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
+              <view class='caseImg'>
+                <image class='img' mode="aspectFill" src='{{ item.cover_pic }}'></image>
+              </view>
+              <view class='name font-family-medium'>{{ item.title }}</view>
+              <view class='describe'>{{ item.desc }}</view>
+            </view>
+          </block>
+        </block>
+      </view>
 
-        <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
-          <view class='caseImg'>
-            <image class='img' mode="aspectFill" src='{{ item.cover_pic }}'></image>
-          </view>
-          <view class='name font-family-medium'>{{ item.title }}</view>
-          <view class='describe'>{{ item.desc }}</view>
-        </view>
+      <view class="caseRight">
+        <block wx:for='{{ detail.case_list }}' wx:key='case'>
+          <block wx:if="{{ index % 2 !== 0 }}">
+            <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
+              <view class='caseImg'>
+                <image class='img' mode="aspectFill" src='{{ item.cover_pic }}'></image>
+              </view>
+              <view class='name font-family-medium'>{{ item.title }}</view>
+              <view class='describe'>{{ item.desc }}</view>
+            </view>
+          </block>
+        </block>
+      </view>
 
-      </block>
 
 
     </view>
