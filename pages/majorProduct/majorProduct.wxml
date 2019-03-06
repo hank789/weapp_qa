@@ -51,7 +51,9 @@
           <view class='mask'></view>
           <view class='info'>
             <view class='top'>
-              <text class='iconfont icon-zhuanti'></text>
+              <view class='heatImg'>
+                <image class='img' src='../../images/chanpinHeat@3x.png'></image>
+              </view>
               热度{{ item.support_rate }}
             </view>
             <view class='name font-family-medium'>{{ item.name }}</view>
@@ -202,7 +204,9 @@
   <view class='updateWrapper'>
     <view class='left'>
       <view class='top'>
-        <text class='iconfont icon-zhuanyeban-'></text>
+        <view class='proImg'>
+          <image class='img' src='../../images/chanpin-pro@2x.png'></image>
+        </view>
         <text class='font-family-medium'>{{ detail.is_pro ? '了解“企业服务点评”小程序' : '升级专业版' }}</text>
       </view>
       <view class='bottom' wx:if='{{ !detail.is_pro }}'>了解“企业服务点评”小程序</view>
