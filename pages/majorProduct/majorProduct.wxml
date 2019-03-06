@@ -21,12 +21,12 @@
     <view class='describe'>{{ detail.summary }}</view>
   </view>
 
-  <view class='coverPic'  wx:if='{{ detail.is_pro && detail.cover_pic }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
+  <view class='coverPic'  wx:if='{{ detail.cover_pic }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
     <image class='img' mode="aspectFill" src='{{ detail.cover_pic }}'></image>
   </view>
 
   <!-- 产品亮点 -->
-  <view class='productWrapper' wx:if='{{ detail.is_pro }}'>
+  <view class='productWrapper' wx:if='{{ detail.introduce_pic }}'>
     <view class='title'>产品亮点</view>
 
     <view  class='imgWrapper'>
@@ -64,7 +64,7 @@
   </view>
 
   <!-- 最新资讯  -->
-  <view class='consultWrapper' wx:if='{{ detail.recent_news.length && detail.is_pro }}'>
+  <view class='consultWrapper' wx:if='{{ detail.recent_news.length }}'>
     <view class='title'>最新资讯</view>
 
     <view class='consultListWrapper'>
@@ -78,7 +78,7 @@
   </view>
 
   <!-- 成功案例 -->
-  <view class='successCaseWrapper' wx:if='{{ detail.is_pro }}'>
+  <view class='successCaseWrapper' wx:if='{{ detail.case_list.length }}'>
     <view class='title'>成功案例</view>
 
     <view class='caseWrapper'>
@@ -89,7 +89,7 @@
             <image class='img' mode="aspectFill" src='{{ item.cover_pic }}'></image>
           </view>
           <view class='name font-family-medium'>{{ item.title }}</view>
-          <view class='describe font-family-medium'>{{ item.desc }}</view>
+          <view class='describe'>{{ item.desc }}</view>
         </view>
 
       </block>
@@ -198,9 +198,7 @@
   <!-- 底部 -->
   <view class='footerWrapper'>
     <view class='buttonWrapper iconfont icon-xiedianping-' bindtap="goToDianPing"></view>
-    <button class='buttonWrapper' hover-class="none" bindtap='popup'>
-      <view class=' iconfont icon-zhuanfa-1'></view>
-    </button>
+    <view class='buttonWrapper iconfont icon-zhuanfa-1'  bindtap='popup'></view>
   </view>
 
   <!-- 授权组建 -->

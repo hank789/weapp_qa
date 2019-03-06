@@ -13,7 +13,6 @@
               <text class="time"><text>{{ productComments.created_at }}</text></text>
             </view>
           </view>
-          <!-- <view class="mark font-family-medium">{{ productComments.feed.rate_star }}分</view> -->
         </view>
 
         <!-- 星星评分 -->
@@ -21,6 +20,7 @@
           <view class='stars'>
             <StarView rating='{{ productComments.feed.rate_star }}'></StarView>
           </view>
+          <view class="mark font-family-medium">{{ productComments.feed.rate_star }}分</view>
         </view>
 
         <view data-slug='{{productComments.feed.slug}}' bindtap='goCommentDetail'>
