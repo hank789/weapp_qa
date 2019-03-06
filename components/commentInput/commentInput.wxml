@@ -1,0 +1,10 @@
+<view class="component-commentInput">
+    <view class="left">
+        <view class="textareaWrapper">
+            <textarea value='{{ content }}' bindinput='bindTextAreaBlur' placeholder="{{ placeName }}" auto-height="{{ true }}" show-confirm-bar="{{false}}" cursor-spacing="15px" fixed="{{true}}" auto-focus="{{ true }}"></textarea>
+        </view>
+    </view>
+    <view class="right">
+        <view class="sendBtn" bindtap='submit'>发送</view>
+    </view>
+</view>
