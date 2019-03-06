@@ -34,5 +34,11 @@
     "request": 10000,
     "downloadFile": 10000,
     "uploadFile": 10000
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.2.5",
+      "provider": "wxa75efa648b60994b"
+    }
   }
 }

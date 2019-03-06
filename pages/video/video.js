@@ -1,11 +1,13 @@
 // pages/video/video.js
+import util from '../../utils/util.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    videoLink: ''
+    videoLink: '',
+    videoType: 1
   },
 
   /**
@@ -13,9 +15,21 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    that.setData({
-      videoLink: decodeURIComponent(options.url)
-    })
+    var videoLink = decodeURIComponent(options.url)
+    var parseUrl = util.parseUrl(videoLink)
+    if (parseUrl.host === 'v.qq.com') {
+      var vid = parseUrl.pathname.replace('/x/page/','')
+      vid = vid.replace('.html','')
+      this.setData({
+        videoLink: vid,
+        videoType: 2
+      })
+    } else {
+      this.setData({
+        videoLink: videoLink,
+        videoType: 1
+      })
+    }
   },
 
   // 关闭事件触发
