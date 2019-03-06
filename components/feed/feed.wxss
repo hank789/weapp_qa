@@ -128,7 +128,7 @@
 .feed-operation .upDownVote .iconfont {
   font-size: 30rpx;
   margin-right: 10rpx;
-  color: #808080;
+  color: #444444;
 }
 
 .container-images {
@@ -208,6 +208,13 @@
 .starsWrapper {
   padding: 0 32rpx;
   margin-top: 29rpx;
+  display: flex
+}
+.starsWrapper .mark {
+  color: #444444;
+  font-size: 22rpx;
+  margin-left: 6rpx;
+  margin-top: 1rpx;
 }
 
 /* 官方回复 */

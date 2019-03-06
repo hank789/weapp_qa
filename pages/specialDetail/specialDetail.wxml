@@ -32,13 +32,13 @@
     <view class="second">
       <view class="left"><image src="../../images/fill_1@3x.png"></image>{{ item.support_rate }}</view>
       <view class="right" data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown'>
-        <view class="button {{item.can_support ? '':'active'}}">
+        <button class="button {{item.can_support ? '':'active'}}">
           <text class='iconfont icon-dianzan-' wx:if='{{item.can_support}}'></text>{{ item.can_support ? '+1': '明天再来' }}
-        </view>
+        </button>
       </view>
     </view>
-    <view class="three">
-      <text class='iconfont icon-lianjie-'></text>亮点:<text class="span">所有ECS实例都附带Anti-DDoS保护</text>
+    <view class="three" wx:if='{{ item.advance_desc }}'>
+      <text class='iconfont icon-lianjie-'></text>亮点:<text class="span">{{ item.advance_desc }}</text>
     </view>
   </view>
 
@@ -55,15 +55,20 @@
 </view>
 
 <!-- 评论互动 -->
-<block>
+<view class='commentBlock'>
   <view class="component-title-big">评论互动</view>
 
-  <view class='commentWrapper'>
+  <view class='commentWrapper' wx:if='{{ commentList.length }}'>
     <commentDiscuss comment='{{commentList}}' albumId='{{ albumInfo.id }}' bind:authPhone="onAuthPhone"></commentDiscuss>
     <view class='seeMore font-family-medium' data-id='{{ albumInfo.id }}' bindtap='goTotalComment' wx:if='{{ total > 3 }}'>查看全部{{ total }}条评论</view>
   </view>
 
-</block>
+    <view class='emptyWrapper' wx:else>
+      <view class='iconImg iconfont icon-kongzhuangtai-'></view>
+      <view class='iconText'>期待您参与首评</view>
+    </view>
+
+</view>
 
 <!-- 更多专题 -->
 

@@ -26,8 +26,6 @@
   width: 568rpx;
   line-height: 38rpx;
   max-height: 220rpx;
-  border: 1rpx solid #DCDCDC;
-  border-radius: 10rpx;
   margin-top: 10rpx;
   padding: 14rpx 20rpx 13rpx;
   color: #444444;
@@ -40,4 +38,10 @@
   position: absolute;
   bottom: 22rpx;
   right: 32rpx;
+}
+.textareaWrapper {
+  min-height: 67rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #DCDCDC;
 }

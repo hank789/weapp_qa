@@ -57,6 +57,7 @@ page {
     line-height: 46rpx;
     display: -webkit-box;
     overflow: hidden;
+    font-family:PingFangSC-Regular;
     white-space: normal !important;
     text-overflow: ellipsis;
     word-wrap: break-word;
@@ -186,7 +187,11 @@ page {
         line-height: 58rpx;
         text-align: center;
         background: #29bcb8;
+        font-size: 22rpx;
         color: #fff; }
+        .component-card-product .second .right .button.button-hover {
+          background: #1C2C42;
+        }
         .component-card-product .second .right .button.active {
           background: #1C2C42;
         }
@@ -265,7 +270,7 @@ page {
   font-size: 28rpx;
   color: #808080;
 }
-.commentWrapper {
+.commentBlock {
   margin-bottom: 60rpx;
 }
 
@@ -429,6 +434,20 @@ page {
   display:inline-block;
   position: relative;
   top: 4rpx;
+}
+
+
+.emptyWrapper .iconText {
+  text-align: center;
+  color: #808080;
+  font-size: 24rpx;
+}
+
+.iconImg {
+  color: #DCDCDC;
+  font-size: 76rpx;
+  text-align: center;
+  margin-top: 4rpx;
 }
 @keyframes rolling {
   0% {

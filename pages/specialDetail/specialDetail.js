@@ -287,13 +287,15 @@ Page({
       // console.log(res);
       if (res.code === 1000) {
         that.setData({
-          content: ''
+          content: '',
+          showCommentBox: false
         })
         wx.showToast({
           title: res.message,
           icon: 'success',
           duration: 2000
         });
+        that.getCommentsList(1)
       } else {
         wx.showToast({
           title: res.message,
