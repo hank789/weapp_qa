@@ -28,7 +28,7 @@
 
             <view class="container-images container-images-discover {{ 'container-images-' + productComments.feed.img.length }}">
               <view class="container-image" wx:for='{{productComments.feed.img}}' wx:key='img'>
-                <image src="{{item}}"></image>
+                <image src="{{item}}" style="width:100%;height:100%;"></image>
               </view>
             </view>
 

@@ -160,6 +160,8 @@
 .container-images .container-image:only-child {
   /* width: 452.02rpx;
   height: auto; */
+  width: 216rpx;
+  height: 216rpx;
   max-width: 452.02rpx;
   max-height: 452.02rpx;
 }
