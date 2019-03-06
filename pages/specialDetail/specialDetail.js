@@ -276,7 +276,6 @@ Page({
       inputContent: e.detail
     })
   },
-
   submit() {
     var that = this
     request.httpsPostRequest('/weapp/product/commentAlbum', {
@@ -305,4 +304,14 @@ Page({
       }
     })
   },
+  /**
+ * 用户点击右上角分享
+ */
+  onShareAppMessage: function () {
+    request.httpsPostRequest('/weapp/product/feedback', { title: '分享专题', content: this.data.albumInfo.name }, function (res_data) { });
+    return {
+      title: this.data.albumInfo.name,
+      path: "/pages/specialDetail/specialDetail?id=" + this.data.id
+    }
+  }
 })
