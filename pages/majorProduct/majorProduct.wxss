@@ -152,10 +152,10 @@
   padding: 0 30rpx;
 }
 .chosenWrapper .specialWrapper .speciaList .info .top {
-  width: 130rpx;
+  /* width: 130rpx; */
   color: #FFFFFF;
   font-size: 20rpx;
-  padding: 1rpx 8rpx;
+  padding: 1rpx 10rpx;
   border-radius: 8rpx;
   background: #1C2C42;
   text-align: center;

@@ -13,7 +13,7 @@
     </view>
     <view class='right'>
       <view class='consultImg'>
-        <image class='img' src='{{ recentNews.cover_pic }}'></image>
+        <image class='img' mode="aspectFill" src='{{ recentNews.cover_pic }}'></image>
       </view>
     </view>
   </view>

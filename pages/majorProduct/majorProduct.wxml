@@ -3,7 +3,7 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}'></image>
+        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}' mode="aspectFill"></image>
         <view wx:else class='iconImg iconfont icon-kongzhuangtai-'></view>
       </view>
       <view  class='right'>
@@ -21,8 +21,8 @@
     <view class='describe'>{{ detail.summary }}</view>
   </view>
 
-  <view class='coverPic' wx:if='{{ detail.is_pro }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
-    <image class='img' src='{{ detail.cover_pic }}'></image>
+  <view class='coverPic'  wx:if='{{ detail.is_pro && detail.cover_pic }}' bindtap='previewTopImg' data-img='{{ detail.cover_pic }}'>
+    <image class='img' mode="aspectFill" src='{{ detail.cover_pic }}'></image>
   </view>
 
   <!-- 产品亮点 -->
@@ -32,7 +32,7 @@
     <view  class='imgWrapper'>
       <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
         <view class='imgList' bindtap='previewImg' data-currentLink='{{ item }}' data-item='{{ detail.introduce_pic }}' wx:for='{{ detail.introduce_pic }}' wx:key='introduce_pic'>
-          <image class='img' src='{{ item }}'></image>
+          <image class='img' src='{{ item }}' mode="widthFix"></image>
         </view>
       </scroll-view>
 
@@ -46,13 +46,13 @@
     <view class='specialWrapper'>
       <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
 
-        <view class='speciaList' wx:for='{{ detail.categories }}' wx:key='categories'>
+        <view class='speciaList' data-id='{{ item.id }}' data-type='{{ item.type }}' wx:for='{{ detail.categories }}' wx:key='categories' bindtap='goSpecial'>
           <image class='img' src='../../images/1@3x 2.png'></image>
           <view class='mask'></view>
           <view class='info'>
             <view class='top'>
               <text class='iconfont icon-zhuanti'></text>
-              {{ item.support_rate }}
+              热度{{ item.support_rate }}
             </view>
             <view class='name font-family-medium'>{{ item.name }}</view>
           </view>
@@ -63,8 +63,8 @@
 
   </view>
 
-  <!-- 最新资讯   wx:if='{{ detail.recent_news.length && detail.is_pro }}' -->
-  <view class='consultWrapper'>
+  <!-- 最新资讯  -->
+  <view class='consultWrapper' wx:if='{{ detail.recent_news.length && detail.is_pro }}'>
     <view class='title'>最新资讯</view>
 
     <view class='consultListWrapper'>
@@ -86,7 +86,7 @@
 
         <view class='caseList' data-item="{{ item }}" bindtap="previewImage">
           <view class='caseImg'>
-            <image class='img' src='{{ item.cover_pic }}'></image>
+            <image class='img' mode="aspectFill" src='{{ item.cover_pic }}'></image>
           </view>
           <view class='name font-family-medium'>{{ item.title }}</view>
           <view class='describe font-family-medium'>{{ item.desc }}</view>
