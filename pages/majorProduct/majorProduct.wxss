@@ -303,7 +303,11 @@
   padding: 0 32rpx;
 }
 .userComment .seeMore {
-  margin-top: 29rpx;
+  padding: 0 32rpx;
+  margin-top: 12rpx;
+}
+.userComment .line-river-after {
+  padding-bottom: 30rpx;
 }
 
 .scoreWrapper {

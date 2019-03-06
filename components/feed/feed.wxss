@@ -122,6 +122,11 @@
   color: #444444;
   display: inline-block;
 }
+.feed-operation .upDownVote .number {
+  margin-right: 6rpx;
+  vertical-align: top;
+  display: inline-block;
+}
 .feed-operation .upDownVote.active, .feed-operation .upDownVote.active .iconfont {
   color: #B4B4B6;
 }

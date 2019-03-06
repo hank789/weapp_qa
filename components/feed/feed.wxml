@@ -51,16 +51,16 @@
           </view>
           <view class="feed-operation">
             <view bindtap="downvote" class='upDownVote {{ productComments.feed.is_downvoted ? "active" : "" }}'>
+              <text class='number'>{{productComments.feed.downvote_number}}</text>
               <text class="iconfont icon-diancai-"></text>
-              <text>{{productComments.feed.downvote_number}}</text>
             </view>
             <view bindtap="upvote" class='upDownVote {{ productComments.feed.is_upvoted ? "active" : "" }}'>
+              <text class='number'>{{productComments.feed.support_number}}</text>
               <text class="iconfont icon-dianzan-"></text>
-              <text>{{productComments.feed.support_number}}</text>
             </view>
           </view>
         </view>
-        <view class="line-river-after line-river-after-top"></view>
+        <view class="line-river-after line-river-after-top" wx:if='{{ index !== 2 }}'></view>
     </view>
 
 </view>
