@@ -42,6 +42,7 @@
 .component-card-main .title {
     color: #fff;
     font-size: 60px;
+    line-height: 66px;
     letter-spacing: 3px;
     display: -webkit-box;
     overflow: hidden;
