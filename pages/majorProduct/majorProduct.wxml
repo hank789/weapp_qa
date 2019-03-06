@@ -100,7 +100,7 @@
   </view>
 
   <!-- 专家观点 -->
-  <view class='expertWrapper'  wx:if='{{ detail.is_pro }}'>
+  <view class='expertWrapper'  wx:if='{{ detail.expert_review.length }}'>
     <view class='title'>专家观点</view>
 
     <view class='expertListWrapper'>
@@ -178,7 +178,7 @@
         <view class='line-river-after line-river-after-top'></view>
       </view>
     </view>
-    <view class='feedback'>如您有关于该产品服务相关问题或反馈，<text class='font-family-medium'>请点击</text> </view>
+    <view class='feedback'>如您有关于该产品服务相关问题或反馈，<text class='font-family-medium' bindtap='goFeedBack'>请点击</text> </view>
   </view>
 
   <!-- 升级专业版 -->

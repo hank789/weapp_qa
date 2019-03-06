@@ -57,6 +57,7 @@ page {
     line-height: 46rpx;
     display: -webkit-box;
     overflow: hidden;
+    font-family:PingFangSC-Regular;
     white-space: normal !important;
     text-overflow: ellipsis;
     word-wrap: break-word;
@@ -186,7 +187,11 @@ page {
         line-height: 58rpx;
         text-align: center;
         background: #29bcb8;
+        font-size: 22rpx;
         color: #fff; }
+        .component-card-product .second .right .button.button-hover {
+          background: #1C2C42;
+        }
         .component-card-product .second .right .button.active {
           background: #1C2C42;
         }

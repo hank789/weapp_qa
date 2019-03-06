@@ -32,9 +32,9 @@
     <view class="second">
       <view class="left"><image src="../../images/fill_1@3x.png"></image>{{ item.support_rate }}</view>
       <view class="right" data-item='{{ item }}' data-index='{{index}}' bindtap='discoverDown'>
-        <view class="button {{item.can_support ? '':'active'}}">
+        <button class="button {{item.can_support ? '':'active'}}">
           <text class='iconfont icon-dianzan-' wx:if='{{item.can_support}}'></text>{{ item.can_support ? '+1': '明天再来' }}
-        </view>
+        </button>
       </view>
     </view>
     <view class="three" wx:if='{{ item.advance_desc }}'>
