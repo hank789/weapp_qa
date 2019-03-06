@@ -201,17 +201,18 @@ page {
           font-size: 32rpx;
           margin-right: 6rpx; }
   .component-card-product .three {
-    padding-left: 24rpx;
-    line-height: 68rpx;
-    height: 68rpx;
+    position: relative;
+    padding-left: 76rpx;
+    line-height: 46rpx;
     color: #fff;
-    font-size: 28rpx; }
+    font-size: 28rpx;
+    padding-top: 20rpx; }
     .component-card-product .three .iconfont {
       font-size: 46rpx;
       color: #29BCB8;
-      position: relative;
-      top: -10rpx;
-      margin-right: 6rpx; }
+      position: absolute;
+      top: 2rpx;
+      left: 24rpx; }
     .component-card-product .three .span {
       opacity: .58;
       margin-left: 10rpx; }
