@@ -18,7 +18,7 @@
         <view class="right">
           <view class="title">{{ item.name }}</view>
           <view class="stars">
-            <StarView rating='{{ item.review_average_rate }}'></StarView>
+            <StarView rating='{{ item.review_average_rate }}' style="position: relative;top:-2rpx;"></StarView>
             <text class="span">{{ item.review_average_rate }}分</text>
           </view>
         </view>
