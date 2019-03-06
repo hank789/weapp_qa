@@ -365,6 +365,10 @@ page {
   background: #FFFFFF;
 }
 
+.footerWrapper .buttonWrapper.icon-zhuanfa-1 {
+  font-size: 36rpx;
+}
+
 .addOne {
   height: 42rpx;
   position: absolute;

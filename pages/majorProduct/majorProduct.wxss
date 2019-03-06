@@ -403,3 +403,6 @@
   font-size: 40rpx;
   background: #FFFFFF;
 }
+.footerWrapper .buttonWrapper.icon-zhuanfa-1 {
+  font-size: 36rpx;
+}

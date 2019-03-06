@@ -95,9 +95,7 @@
 <!-- 底部 -->
 <view class='footerWrapper'>
   <view class='buttonWrapper iconfont icon-xiedianping-' bindtap='comment'></view>
-  <button class='buttonWrapper'hover-class="none" bindtap='popup'>
-    <view class=' iconfont icon-zhuanfa-1'></view>
-  </button>
+  <view class='buttonWrapper iconfont icon-zhuanfa-1'  bindtap='popup'></view>
 </view>
 
 <!--<view class='commentBox' wx:if='{{ showCommentBox }}'>-->
