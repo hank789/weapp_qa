@@ -108,6 +108,13 @@
 .linkWrapper {
   padding: 0 32rpx;
 }
+.linkWrapper .imgView {
+  width: 686rpx;
+}
+.linkWrapper .imgView .img {
+  width: 100%;
+  border-radius: 8rpx;
+}
 
 .link {
   padding: 0 32rpx;

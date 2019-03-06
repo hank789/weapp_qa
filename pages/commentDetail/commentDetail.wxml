@@ -30,8 +30,8 @@
       </view>
 
       <view class="linkWrapper Column" >
-        <view wx:for='{{ detail.data.img }}' wx:key='index'>
-          <image src='{{ item }}'></image>
+        <view class='imgView' wx:for='{{ detail.data.img }}' wx:key='index'>
+          <image class='img' mode="aspectFit" src='{{ item }}'></image>
         </view>
       </view>
     </view>
