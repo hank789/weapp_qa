@@ -76,7 +76,8 @@ Component({
         console.log(res);
         if (res.code === 1000) {
           that.setData({
-            content: ''
+            content: '',
+            showTextArea: false
           })
           wx.showToast({
             title: res.message,

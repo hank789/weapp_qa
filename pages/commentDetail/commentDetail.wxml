@@ -3,7 +3,7 @@
   <view class='userInfoDetail'>
     <view class="avatar">
       <view class="avatarInner">
-        <image src='{{ detail.owner.avatar }}'></image>
+        <image mode="aspectFill" src='{{ detail.owner.avatar }}'></image>
       </view>
       <view class='userName'>
         <view class='userNameTop'>

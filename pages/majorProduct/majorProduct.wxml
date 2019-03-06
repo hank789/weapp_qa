@@ -3,7 +3,7 @@
   <view class='productDetail'>
     <view class='topInfo'>
       <view class='left'>
-        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}' mode="aspectFill"></image>
+        <image wx:if='{{ detail.logo }}' class='img' src='{{ detail.logo }}' mode="aspectFit"></image>
         <view wx:else class='iconImg iconfont icon-kongzhuangtai-'></view>
       </view>
       <view  class='right'>
@@ -51,7 +51,9 @@
           <view class='mask'></view>
           <view class='info'>
             <view class='top'>
-              <text class='iconfont icon-zhuanti'></text>
+              <view class='heatImg'>
+                <image class='img' src='../../images/chanpinHeat@3x.png'></image>
+              </view>
               热度{{ item.support_rate }}
             </view>
             <view class='name font-family-medium'>{{ item.name }}</view>
@@ -148,7 +150,7 @@
 
     <block wx:if='{{ total }}'>
       <view class='' wx:for='{{ comment }}' wx:key='comment'>
-        <feed  productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
+        <feed index='{{ index }}' productComments='{{item}}' bind:authPhone="onAuthPhone"></feed>
       </view>
     </block>
 
@@ -156,8 +158,9 @@
       <view class='iconImg iconfont icon-kongzhuangtai-'></view>
       <view class='iconText'>期待您参与首评</view>
     </view>
-
-    <view class='seeMore' data-name='{{ detail.name }}' bindtap='goAllDianping' wx:if='{{ total > 3 }}'>查看全部{{ total }}条点评</view>
+    <!-- <view class="line-river-after line-river-after-top"></view> -->
+    <view class='seeMore' data-name='{{ detail.name }}' bindtap='goAllDianping' wx:if='{{ total > 3 }}'>
+    <view class="line-river-after line-river-after-top"></view>查看全部{{ total }}条点评</view>
   </view>
 
   <!-- 评论打分 -->
@@ -202,7 +205,9 @@
   <view class='updateWrapper'>
     <view class='left'>
       <view class='top'>
-        <text class='iconfont icon-zhuanyeban-'></text>
+        <view class='proImg'>
+          <image class='img' src='../../images/chanpin-pro@2x.png'></image>
+        </view>
         <text class='font-family-medium'>{{ detail.is_pro ? '了解“企业服务点评”小程序' : '升级专业版' }}</text>
       </view>
       <view class='bottom' wx:if='{{ !detail.is_pro }}'>了解“企业服务点评”小程序</view>
