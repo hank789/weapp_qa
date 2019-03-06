@@ -2,7 +2,7 @@
   <view class='wx-popup' catchtouchmove='true' bindtap='cancel'></view>
   <view class='card-wrapper'>
   <view class='menuList'>
-      <button class='buttonShar' open-type="share">
+      <button class='buttonShar' open-type="share" bindtap='cancel'>
         <image class='img' src='../../images/icon4@3x.png'></image>
         <view class='text'>转发到微信</view>
       </button>

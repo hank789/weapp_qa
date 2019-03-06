@@ -70,7 +70,7 @@ Page({
       }
       that.setData({
         detail: response.data,
-        loding: 0
+        loading: 0
       })
       that.getReviewList()
     })
@@ -150,6 +150,7 @@ Page({
     }
     // 打开pdf
     if (item.type === 'pdf') {
+      console.log(that.data.system + 'pdf' )
       if (that.data.system === 'ios') {
         wx.navigateTo({
           url: '../url/url?url=' + encodeURIComponent(item.link_url),
