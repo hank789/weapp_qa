@@ -7,7 +7,7 @@ Page({
     userInfo: {},
     loading: true,
     keywords: [],
-    scrollindex: 0,  //当前页面的索引值
+    scrollindex: 1,  //当前页面的索引值
     totalnum: 2,  //总共页面数
     starty: 0,  //开始的位置x
     endy: 0, //结束的位置y
@@ -23,7 +23,7 @@ Page({
     var goto = options.goto
     if (options.goto === 'zhuanti') {
       that.setData({
-        starty: 1
+        scrollindex: 1
       })
     }
     // 页面初始化 options为页面跳转所带来的参数
