@@ -274,6 +274,12 @@ page {
 .commentBlock {
   margin-bottom: 60rpx;
 }
+.commentBlock .seeMore {
+  padding: 0 32rpx 0 110rpx;
+}
+.commentBlock .seeMore .line-river-after {
+  padding-bottom: 30rpx;
+}
 
 .specialWrapper {
   margin-bottom: 60rpx;

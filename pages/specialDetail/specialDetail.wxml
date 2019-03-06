@@ -60,7 +60,8 @@
 
   <view class='commentWrapper' wx:if='{{ commentList.length }}'>
     <commentDiscuss comment='{{commentList}}' albumId='{{ albumInfo.id }}' bind:authPhone="onAuthPhone"></commentDiscuss>
-    <view class='seeMore font-family-medium' data-id='{{ albumInfo.id }}' bindtap='goTotalComment' wx:if='{{ total > 3 }}'>查看全部{{ total }}条评论</view>
+    <view class='seeMore font-family-medium' data-id='{{ albumInfo.id }}' bindtap='goTotalComment' wx:if='{{ total > 3 }}'>
+    <view class="line-river-after line-river-after-top"></view>查看全部{{ total }}条评论</view>
   </view>
 
     <view class='emptyWrapper' wx:else>
