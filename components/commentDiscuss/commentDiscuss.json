@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "DiscussReplay": "/components/discussReply/discussReply"
+    "DiscussReplay": "/components/discussReply/discussReply",
+    "commentTextarea": "/components/textArea/textArea",
+    "commentInput": "/components/commentInput/commentInput"
   }
 }

@@ -1,0 +1,413 @@
+.title {
+  color: #3C3E44;
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium;
+}
+.emptyWrapper .iconText {
+  text-align: center;
+  color: #808080;
+  font-size: 24rpx;
+}
+.seeMore {
+  color: #808080;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+}
+.productDetail {
+  padding: 0 32rpx;
+  margin-bottom: 60rpx;
+  margin-top: 30rpx;
+}
+.productDetail .topInfo {
+  /* display: flex; */
+  overflow: hidden;
+}
+.productDetail .topInfo .left {
+  width: 148rpx;
+  height: 148rpx;
+  border: 1rpx solid #ECECEE;
+  border-radius: 8rpx;
+  float: left;
+  background: #FFFFFF;
+}
+.productDetail .topInfo .left .img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 8rpx;
+}
+.iconImg {
+  color: #DCDCDC;
+  font-size: 76rpx;
+  text-align: center;
+  margin-top: 17rpx;
+}
+.productDetail .topInfo .right {
+  width: 518rpx;
+  margin-left: 17rpx;
+  float: right;
+}
+.productDetail .topInfo .right .name {
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+.productDetail .topInfo .right .score {
+  margin-top: 11rpx;
+  display: flex;
+}
+.productDetail .topInfo .right .score .text {
+  color: #444444;
+  font-size: 22rpx;
+}
+.productDetail .topInfo .right .score .text:nth-of-type(1) {
+  margin-left: 6rpx;
+}
+.productDetail .topInfo .right .score .spot {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  top: 0;
+}
+.productDetail .describe {
+  margin-top: 15rpx;
+  color: #808080;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  letter-spacing: 1rpx;
+}
+
+.coverPic {
+  width: 686rpx;
+  padding: 0 32rpx;
+  margin-bottom: 60rpx;
+  border-radius: 8rpx;
+}
+.coverPic .img {
+  width: 100%;
+  border-radius: 8rpx;
+  box-shadow:0px 0px 26px 0px rgba(232,241,241,1);
+}
+
+.productWrapper {
+  margin-bottom: 60rpx;
+}
+.productWrapper .title {
+  padding: 0 32rpx;
+}
+.productWrapper .imgWrapper {
+  width: 100%;
+  overflow:hidden;
+  white-space:nowrap;
+  margin-top: 30rpx;
+}
+.productWrapper .imgWrapper .imgList {
+  display: inline-block;
+  margin: 30rpx 0 30rpx 20rpx;
+  border-radius: 8rpx; 
+  box-shadow:0px 0px 26px 0px rgba(232,241,241,1);
+}
+.productWrapper .imgWrapper .imgList .img {
+  width: 686rpx;
+  border-radius: 8rpx;
+}
+.productWrapper .imgWrapper .imgList:last-child {
+  margin-right: 20rpx;
+}
+
+.chosenWrapper {
+  margin-bottom: 60rpx;
+}
+.chosenWrapper .title {
+  padding: 0 32rpx;
+}
+.chosenWrapper .specialWrapper {
+  width: 100%;
+  margin-top: 30rpx;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.chosenWrapper .specialWrapper .speciaList {
+  width: 333rpx;
+  position: relative;
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.chosenWrapper .specialWrapper .speciaList:last-child {
+  margin-right: 20rpx;
+}
+.chosenWrapper .specialWrapper .speciaList .img {
+  width: 333rpx;
+  height: 159rpx;
+  border-radius: 8rpx;
+}
+.chosenWrapper .specialWrapper .speciaList .mask {
+  width: 333rpx;
+  height: 159rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8rpx;
+  background: linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.9) 100%);
+  opacity: 0.77;
+}
+.chosenWrapper .specialWrapper .speciaList .info {
+  width: 273rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 30rpx;
+}
+.chosenWrapper .specialWrapper .speciaList .info .top {
+  /* width: 130rpx; */
+  color: #FFFFFF;
+  font-size: 20rpx;
+  padding: 1rpx 10rpx;
+  border-radius: 8rpx;
+  background: #1C2C42;
+  text-align: center;
+  margin-top: 20rpx;
+  display: inline-block;
+  overflow: hidden;
+}
+.chosenWrapper .specialWrapper .speciaList .info .top .heatImg {
+  width: 20rpx;
+  height: 20rpx;
+  float: left;
+  margin-top: 2rpx;
+  margin-right: 6rpx;
+}
+.chosenWrapper .specialWrapper .speciaList .info .top .heatImg .img {
+  width: 100%;
+  height: 100%;
+}
+.chosenWrapper .specialWrapper .speciaList .info .iconfont {
+  color: #29BCB8;
+  font-size: 20rpx;
+}
+.chosenWrapper .specialWrapper .speciaList .info .name {
+  color: #FFFFFF;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  margin-top: 20rpx;
+  visibility: top;
+  white-space: normal;
+}
+
+.consultWrapper {
+  padding: 0 32rpx;
+  margin-bottom: 60rpx;
+}
+.consultWrapper .consultListWrapper {
+  margin-top: 34rpx;
+}
+
+.successCaseWrapper {
+  padding: 0 32rpx;
+  margin-bottom: 30rpx;
+}
+.caseWrapper {
+  margin-top: 30rpx;
+}
+.caseWrapper .caseList {
+  width: 333rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  margin-bottom: 21rpx;
+  padding-bottom: 30rpx;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 26rpx 0px rgba(232,241,241,1);
+}
+.caseWrapper .caseList:nth-child(odd) {
+  margin-right: 20rpx;
+}
+.caseWrapper .caseList .caseImg {
+  width: 333rpx;
+  height: 222rpx;
+}
+.caseWrapper .caseList .caseImg .img {
+  width: 100%;
+  height: 100%;
+}
+.caseWrapper .caseList .name {
+  color: #3C3E44;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  padding: 20rpx 20rpx 12rpx;
+}
+.caseWrapper .caseList .describe {
+  color: #808080;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  padding: 0 20rpx;
+}
+
+.expertWrapper {
+  padding: 0 32rpx;
+  margin-bottom: 7rpx;
+}
+.expertListWrapper {
+  margin-top: 63rpx;
+}
+.expertListWrapper .expertList {
+  position: relative;
+  padding: 55rpx 30rpx 41rpx;
+  margin-bottom: 53rpx;
+  border-radius: 16rpx;
+  background:linear-gradient(156deg,rgba(28,44,66,1) 0%,rgba(60,87,119,1) 45%,rgba(60,87,119,1) 51%,rgba(28,44,66,1) 100%);
+}
+.expertList .avatar {
+  position: absolute;
+  top: -40rpx;
+}
+.expertList .avatarInner {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid #FFFFFF;
+}
+.expertList .avatarInner .img {
+  width: 100%;
+  height: 100%;
+}
+.expertList .expertBj {
+  width: 177rpx;
+  height: 176rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.6;
+}
+.expertList .expertBj .img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 16rpx;
+}
+.topName {
+  color: #FFFFFF;
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+  z-index: 1;
+}
+.expertList .describe {
+  color: #ADB7C4;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  letter-spacing: 1rpx;
+  position: relative;
+  z-index: 1
+}
+
+.userComment {
+  margin-bottom: 60rpx;
+}
+.userComment .title {
+  padding: 0 32rpx;
+}
+.userComment .seeMore {
+  padding: 0 32rpx;
+  margin-top: 12rpx;
+}
+.userComment .line-river-after {
+  padding-bottom: 30rpx;
+}
+
+.scoreWrapper {
+  padding: 0 32rpx;
+  margin-bottom: 60rpx;
+}
+.component-score {
+  padding: 25rpx 30rpx 14rpx;
+  border-radius: 8rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 26px 0px rgba(232,241,241,1);
+}
+.component-score .text {
+  color: #B4B4B6;
+  font-size: 24rpx;
+  line-height: 33rpx;
+  margin-bottom: 4rpx
+}
+.component-score .stars {
+  margin-bottom: 0;
+}
+.red-text {
+  margin-bottom: 0 !important;
+}
+
+.recommendWrapper {
+  margin-bottom: 60rpx;
+}
+.recommendWrapper .title {
+  padding: 0 32rpx;
+}
+.recommendWrapper .feedback {
+  color: #B4B4B6;
+  font-size: 24rpx;
+  padding: 0 32rpx;
+  margin-top: 30rpx;
+}
+.recommendWrapper .feedback .font-family-medium {
+  color: #29BCB8;
+}
+
+.updateWrapper {
+  padding: 0 32rpx;
+  padding-bottom: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.updateWrapper .left .font-family-medium {
+  color: #3C3E44;
+  font-size: 40rpx;
+  margin-left: 10rpx;
+}
+.updateWrapper .left .bottom {
+  color: #808080;
+  font-size: 24rpx;
+  margin-top: 6rpx;
+}
+.updateWrapper .right.addClass {
+  margin-top: 22rpx;
+}
+.updateWrapper .right .icon-jinru {
+  color: #808080;
+  font-size: 40rpx;
+}
+.updateWrapper .left .top {
+  display: flex;
+}
+.updateWrapper .proImg {
+  width: 42rpx;
+  height: 36rpx;
+  margin-top: 15rpx;
+}
+.updateWrapper .proImg .img {
+  width: 100%;
+  height: 100%;
+}
+
+.footerWrapper {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  box-shadow:0px 0px 26rpx 0px #E8F1F1;
+}
+.footerWrapper .buttonWrapper {
+  flex: 1;
+  text-align: center;
+  line-height: 88rpx;
+  color: #3C3E44;
+  font-size: 40rpx;
+  background: #FFFFFF;
+}
+.footerWrapper .buttonWrapper.icon-zhuanfa-1 {
+  font-size: 36rpx;
+}

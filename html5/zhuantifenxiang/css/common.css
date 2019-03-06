@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'PingFangSC-Regular';
+    src: url('PingFangSC-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PingFangSC-Medium';
+    src: url('PingFangSC-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: PingFang-SC-Regular, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.426rem;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    /*background: transparent !important;*/
+    background: #fff;
+    margin: 0;
+    padding: 0; }
+
+

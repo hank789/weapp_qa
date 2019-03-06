@@ -1,29 +1,39 @@
 <view class='page'>
-  <view class="container-list-discuss">
-    <view wx:for='{{comment}}' wx:key='id' wx:if='{{index < 3}}'>
+  <view class="container-list-discuss" >
+    <view wx:for='{{comment}}' wx:key='id' data-item='{{ item }}' bindtap='clickComment'>
       <view class="list-item-discuss">
         <view class="lidL">
           <image src="{{item.owner.avatar}}"></image>
         </view>
         <view class="lidR">
           <view class="lidR1">{{item.owner.name}}</view>
-          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
           <view class="lidR3">
             <view class="lidRtime">
-              <text>{{ item.created_at }}</text>
-            </view>
-            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
-              <text class='iconfont icon-zan1'></text>
-              <text>{{ item.supports }}</text>
+              <text>{{ item.timeago }}</text>
             </view>
           </view>
+          <view class="lidR4">
+            <view data-id="{{ item.id }}" data-index="{{index}}" class="lidROption" bindtap="upvote">
+              <text class='number'>{{ item.supports }}</text>
+              <text class='iconfont icon-dianzan-'></text>
+            </view>
+          </view>
+          <rich-text class="lidR2 textToLink" nodes="{{item.content}}"></rich-text>
         </view>
       </view>
 
       <view class="list-item-discuss-children" wx:if='{{ item.children.length }}'>
-        <DiscussReplay bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
+  <view class='iconfont icon-sanjiaoxing- topArrow'></view>
+        <DiscussReplay bind:comment='clickComment' bind:authPhone="onAuthPhone" commentChildren='{{ item.children }}' parentOwnerName='{{ item.owner.name }}'></DiscussReplay>
       </view>
       <view class="line-river-after" wx:if='{{ index !== 2 }}'></view>
     </view>
   </view>
+
+<commentInput style="z-index:777;position: fixed;"  bind:submit='submit' bind:bindCode='bindCode' placeName='回复{{ idName }}' content='{{ content }}' wx:if='{{ showTextArea }}'></commentInput>
+
+  <!-- <view wx:if='{{ showTextArea }}'>
+    <commentTextarea placeName='回复{{ idName }}' bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}'></commentTextarea>
+  </view> -->
+
 </view>

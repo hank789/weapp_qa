@@ -15,7 +15,13 @@
     "pages/myComment/myComment",
     "pages/feedback/feedback",
     "pages/specialDetail/specialDetail",
-    "pages/productRank/productRank"
+    "pages/productRank/productRank",
+    "pages/majorProduct/majorProduct",
+    "pages/moreInfo/moreInfo",
+    "pages/test/test",
+    "pages/url/url",
+    "pages/video/video",
+    "pages/totalComment/totalComment"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -28,5 +34,11 @@
     "request": 10000,
     "downloadFile": 10000,
     "uploadFile": 10000
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.2.5",
+      "provider": "wxa75efa648b60994b"
+    }
   }
 }

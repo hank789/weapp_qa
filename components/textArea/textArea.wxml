@@ -1,0 +1,9 @@
+<view class='container-footer'>
+  <view class='footer-wrapper'>
+    <view class='textareaWrapper'>
+      <textarea class='text' value='{{ content }}' bindinput='bindTextAreaBlur' show-confirm-bar='{{ false }}' fixed='{{ true }}' auto-focus='true' auto-height placeholder="{{ placeName }}" cursor-spacing='10'></textarea>
+    </view>
+
+    <view class='sendText' bindtap='submit'>发送</view>
+  </view>
+</view>

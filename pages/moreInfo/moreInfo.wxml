@@ -1,0 +1,17 @@
+<view class='page'>
+<!--引入加载更多模版-->
+<import src="../../template/loading" />
+
+  <view class='consultWrapper'>
+    <block wx:for='{{ newsList }}' wx:key='news'>
+        <Information recentNews='{{ item }}'></Information>
+      </block>
+  </view>
+
+  <block wx:if="{{!loading && !userInfo.name}}">
+     <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
+  </block>
+  <block wx:if="{{authUserPhone && !userInfo.mobile}}">
+     <getUserPhone bind:authPhoneOk="onAuthPhoneOk" isHidden='{{isShowPopup}}'></getUserPhone>
+  </block>
+</view>

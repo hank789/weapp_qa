@@ -8,7 +8,8 @@ Component({
   properties: {
     productComments: Object,
     authUserPhone: Boolean,
-    showProductName: Boolean
+    showProductName: Boolean,
+    index: Number
   },
 
   options: {

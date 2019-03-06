@@ -73,7 +73,7 @@ Page({
           success: function (res) {
             if (res.confirm) {
               wx.navigateTo({
-                url: '../productDetail/productDetail?id=' + tagName
+                url: '../majorProduct/majorProduct?id=' + tagName
               });
             }
           }
@@ -202,10 +202,6 @@ Page({
     }
     if (this.data.title === '') {
       this.showTopTips('内容不能为空');
-      return false;
-    }
-    if (cids.length === 0) {
-      this.showTopTips('请选择领域');
       return false;
     }
 

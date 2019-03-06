@@ -3,7 +3,7 @@
   <view class='userInfoDetail'>
     <view class="avatar">
       <view class="avatarInner">
-        <image src='{{ detail.owner.avatar }}'></image>
+        <image mode="aspectFill" src='{{ detail.owner.avatar }}'></image>
       </view>
       <view class='userName'>
         <view class='userNameTop'>
@@ -30,11 +30,22 @@
       </view>
 
       <view class="linkWrapper Column" >
-        <view wx:for='{{ detail.data.img }}' wx:key='index'>
-          <image src='{{ item }}'></image>
+        <view class='imgView' wx:for='{{ detail.data.img }}' wx:key='index'>
+          <image class='img' mode="aspectFit" src='{{ item }}'></image>
         </view>
       </view>
     </view>
+
+    <!-- 官方回复 -->
+    <view class='officialWrapper' wx:if='{{ detail.official_reply }}'>
+      <view class='replycontent'>
+        <view class="iconfont icon-sanjiaoxing-"></view>
+        <view class='texts font-family-medium'>{{ detail.official_reply.author }}</view>
+        <view class='time'>{{ detail.official_reply.created_at }}</view>
+        <view class='contentText'>{{ detail.official_reply.content }}</view>
+      </view>
+    </view>
+
 
     <view class="link">
       <view class="linkBox" data-id='{{ detail.tags[0].id }}' bindtap='goProductDetail'>
@@ -112,7 +123,7 @@
 
   
 
-  <view class='operationList'>
+  <!-- <view class='operationList'>
     <view class="buttonWrapper  {{ detail.is_upvoted ? 'isActive' : '' }} {{ detail.upvotes ? '' : 'buttonMargin' }}"bindtap="upvote">
       <view class='textIcon'>
         <text class='iconfont icon-zan'></text>
@@ -131,6 +142,22 @@ bindtap="downvote">
         <text class='iconfont icon-fenxiang'></text>
       </view>
     </button>
+  </view> -->
+
+  <!-- 底部 -->
+  <view class='footerWrapper'>
+    <view class="iconImg {{ detail.is_downvoted ? 'isActive' : '' }}" bindtap="downvote">
+      <text class='number'>{{detail.downvotes}}</text>
+      <text class='iconfont icon-diancai-'></text>
+    </view>
+    <view class="iconImg {{ detail.is_upvoted ? 'isActive' : '' }}" bindtap="upvote">
+      <text class='number'>{{detail.upvotes}}</text>
+      <text class='iconfont icon-dianzan-'></text>
+    </view>
+    <view class='iconImg' bindtap='popup'>
+      <!-- <text class='number'>123</text> -->
+      <text class='iconfont icon-zhuanfa-1'></text>
+    </view>
   </view>
 
   <block wx:if="{{!loading && !userInfo.name}}">

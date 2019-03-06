@@ -1,0 +1,3 @@
+<view class='page'>
+  <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone" albumId='{{ id }}'></commentDiscuss>
+</view>

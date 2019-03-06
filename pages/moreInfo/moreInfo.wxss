@@ -1,0 +1,4 @@
+.consultWrapper {
+  padding: 0 32rpx;
+  margin-bottom: 60rpx;
+}

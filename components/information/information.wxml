@@ -1,0 +1,20 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+
+<view class='consultList' data-url='{{ recentNews.link_url }}' bindtap='openLink'>
+  <view class='splitCircle'></view>
+  <view class='content'>
+    <view class='left'>
+      <view class='titles font-family-medium text-line-2'>{{ recentNews.title }}</view>
+      <view class='bottom'>
+        <text class='time'>{{ filter.date(recentNews.date) }}</text>
+        <view class='spot'></view>
+        <text class='name'>{{ recentNews.author }}</text>
+      </view>
+    </view>
+    <view class='right'>
+      <view class='consultImg'>
+        <image class='img' mode="aspectFill" src='{{ recentNews.cover_pic }}'></image>
+      </view>
+    </view>
+  </view>
+</view>

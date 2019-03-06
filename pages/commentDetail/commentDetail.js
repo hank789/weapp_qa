@@ -98,7 +98,7 @@ Page({
   goProductDetail: function (e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?id=' + id,
+      url: '../majorProduct/majorProduct?id=' + id,
     })
   },
   onAuthPhone: function (e) {
