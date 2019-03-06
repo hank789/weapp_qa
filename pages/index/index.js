@@ -23,7 +23,7 @@ Page({
     var goto = options.goto
     if (options.goto === 'zhuanti') {
       that.setData({
-        starty: 1
+        scrollindex: 1
       })
     }
     // 页面初始化 options为页面跳转所带来的参数
@@ -48,6 +48,12 @@ Page({
          }
        })
        that.getAlbumList()
+       if (that.data.scrollindex == 1) {
+         request.httpsPostRequest('/weapp/product/feedback', {
+           title: '进入小程序专题集',
+           content: '/pages/index/index'
+         }, null)
+       }
      });
   },
   getAlbumList: function () {
@@ -172,6 +178,12 @@ Page({
       endy: 0,
       margintop: 0
     })
+    if (this.data.scrollindex == 1) {
+      request.httpsPostRequest('/weapp/product/feedback', {
+        title: '进入小程序专题集',
+        content: '/pages/index/index'
+      }, null)
+    }
   },
   showExpect () {
     this.setData({
