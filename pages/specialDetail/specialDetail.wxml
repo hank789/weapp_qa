@@ -100,9 +100,11 @@
   </button>
 </view>
 
-<view class='commentBox' wx:if='{{ showCommentBox }}'>
-  <commentTextarea bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}'></commentTextarea>
-</view>
+<!--<view class='commentBox' wx:if='{{ showCommentBox }}'>-->
+  <!--<commentTextarea bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}'></commentTextarea>-->
+<!--</view>-->
+
+<commentInput style="z-index:777;position: fixed;"  bind:submit='submit' bind:bindCode='bindCode' content='{{ content }}' wx:if='{{ showCommentBox }}'></commentInput>
 
 <view>
   <PageMore showPageMore='{{showPageMore}}' bind:clickCancel='clickCancel' bind:myevent='clickItem' iconMenu='{{iconMenus}}'></PageMore>

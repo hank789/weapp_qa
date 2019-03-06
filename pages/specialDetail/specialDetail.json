@@ -7,6 +7,7 @@
     "getUserPhone": "/components/getUserPhone/getUserPhone",
     "Information": "/components/information/information",
     "PageMore": "/components/pageMore/pageMore",
-    "commentTextarea": "/components/textArea/textArea"
+    "commentTextarea": "/components/textArea/textArea",
+    "commentInput": "/components/commentInput/commentInput"
   }
 }
