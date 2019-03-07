@@ -430,21 +430,26 @@ page {
   -webkit-animation: rolling 2s; /* Safari and Chrome */
 }
 .leftFooter .lookGoodWrapper {
+  height: 68rpx;
   border-radius: 34rpx;
-  padding: 16rpx 20rpx;
+  line-height: 68rpx;
+  padding: 0rpx 20rpx;
   background:rgba(17,17,17,0.7);
   /* margin-top: 8rpx; */
 }
+.leftFooter .name {
+  float: left;
+}
 .leftFooter .lookGoodWrapper .nameText {
   color: #FFFFFF;
-  line-height: 30rpx;
+  line-height: 68rpx;
 }
 .leftFooter .lookGoodWrapper .nameText .text {
   color: #FA4975;
   max-width:370rpx;
   display:inline-block;
   position: relative;
-  top: 8rpx;
+  top: 0rpx;
 }
 
 
