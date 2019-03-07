@@ -23,7 +23,7 @@ Component({
   methods: {
     openLink (e) {
       wx.navigateTo({
-        url: '../url/url?url=' + encodeURIComponent(e.currentTarget.dataset.url),
+        url: '../url/url?url=' + encodeURIComponent(e.currentTarget.dataset.url) + '&name=' + e.currentTarget.dataset.name,
       })
     }
   }
