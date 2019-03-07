@@ -112,7 +112,10 @@
 <view class='leftFooter' wx:if='{{ showGood }}'>
   <view class='lookGoodWrapper'> 
     <!-- wx:for='{{ supportsList }}' -->
-    <view class='nameText'>{{ supportData.user_name }} 看好了 <text class='text text-line-1'>{{ supportData.tag_name }}</text></view>
+    <view class='nameText'>
+      <view class='name'>{{ supportData.user_name }} 看好了 </view>
+      <view class='text text-line-1'>{{ supportData.tag_name }}</view>
+    </view>
   </view>
 </view>
 
