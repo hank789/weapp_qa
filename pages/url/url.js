@@ -70,7 +70,7 @@ Page({
     request.httpsPostRequest('/weapp/product/feedback', { title: '分享链接', content: this.data.name }, function (res_data) { });
     return {
       title: this.data.name,
-      path: "/pages/url/url?url=" + encodeURIComponent(this.data.linkUrl)
+      path: "/pages/url/url?url=" + encodeURIComponent(this.data.linkUrl)  + '&name=' + this.data.name
     }
   }
 })

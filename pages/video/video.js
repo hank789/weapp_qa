@@ -91,7 +91,7 @@ Page({
     request.httpsPostRequest('/weapp/product/feedback', { title: '分享视频', content: this.data.name }, function (res_data) { });
     return {
       title: this.data.name,
-      path: "/pages/video/video?url=" + encodeURIComponent(this.data.videoLink)
+      path: "/pages/video/video?url=" + encodeURIComponent(this.data.videoLink) + '&name=' + this.data.name
     }
   }
 })
