@@ -126,13 +126,6 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   feedBack: function (e) {
     var that = this;
     var text = e.currentTarget.dataset.name;
@@ -177,5 +170,11 @@ Page({
         });
       }
     });
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '问题反馈',
+      path: '/pages/feedback/feedback'
+    }
   }
 })

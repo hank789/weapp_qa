@@ -76,7 +76,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '咖啡暖心意 · 点评有好礼'
+      title: '咖啡暖心意 · 点评有好礼',
+      path: '/pages/activity/activity'
     }
   }
 })
