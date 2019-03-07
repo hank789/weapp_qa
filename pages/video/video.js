@@ -1,5 +1,6 @@
 // pages/video/video.js
 import util from '../../utils/util.js'
+var request = require("../../utils/request.js");
 Page({
 
   /**
@@ -7,13 +8,15 @@ Page({
    */
   data: {
     videoLink: '',
-    videoType: 1
+    videoType: 1,
+    name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options, '视频数据')
     var that = this
     var videoLink = decodeURIComponent(options.url)
     var parseUrl = util.parseUrl(videoLink)
@@ -22,12 +25,14 @@ Page({
       vid = vid.replace('.html','')
       this.setData({
         videoLink: vid,
-        videoType: 2
+        videoType: 2,
+        name: options.name
       })
     } else {
       this.setData({
         videoLink: videoLink,
-        videoType: 1
+        videoType: 1,
+        name: options.name
       })
     }
   },
@@ -83,6 +88,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    request.httpsPostRequest('/weapp/product/feedback', { title: '分享视频', content: this.data.name }, function (res_data) { });
+    return {
+      title: this.data.name,
+      path: "/pages/video/video?url=" + encodeURIComponent(this.data.videoLink)
+    }
   }
 })

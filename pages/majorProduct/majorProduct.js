@@ -145,7 +145,7 @@ Page({
     // 打开视频
     if (item.type === 'video') {
       wx.navigateTo({
-        url: '../video/video?url=' + encodeURIComponent(item.link_url),
+        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
       })
     }
     // 打开pdf
@@ -153,7 +153,7 @@ Page({
       console.log(that.data.system + 'pdf' )
       if (that.data.system === 'ios') {
         wx.navigateTo({
-          url: '../url/url?url=' + encodeURIComponent(item.link_url),
+          url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
         })
       }
       if (that.data.system === 'android') {
