@@ -139,7 +139,7 @@ Page({
     // 打开链接
     if (item.type === 'link') {
       wx.navigateTo({
-        url: '../url/url?url=' + encodeURIComponent(item.link_url),
+        url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
       })
     }
     // 打开视频

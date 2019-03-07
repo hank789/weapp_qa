@@ -1,11 +1,13 @@
-// pages/url/url.js
+
+var request = require("../../utils/request.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    linkUrl: ''
+    linkUrl: '',
+    name: ''
   },
 
   /**
@@ -14,7 +16,8 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      linkUrl: decodeURIComponent(options.url)
+      linkUrl: decodeURIComponent(options.url),
+      name: options.name
     })
   },
 
@@ -64,6 +67,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    request.httpsPostRequest('/weapp/product/feedback', { title: '分享链接', content: this.data.name }, function (res_data) { });
+    return {
+      title: this.data.name,
+      path: "/pages/url/url?url=" + encodeURIComponent(this.data.linkUrl)
+    }
   }
 })
