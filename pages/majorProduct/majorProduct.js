@@ -36,8 +36,16 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
+    var optionsId = options.id
+
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      optionsId = scene.split("=")[1];
+    }
+
     that.setData({
-      tagId: options.id
+      tagId: optionsId
     })
     app.getUserInfo(function (userInfo) {
       that.setData({
