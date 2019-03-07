@@ -118,6 +118,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    request.httpsPostRequest('/weapp/product/feedback', { title: '全部评论', content: this.data.slug }, function (res_data) { });
+    return {
+      title: '全部评论',
+      path: "/pages/allComment/allComment?slug=" + this.data.slug
+    }
   }
 })

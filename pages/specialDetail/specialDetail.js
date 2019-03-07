@@ -45,11 +45,18 @@ Page({
     onLoad: function (options) {
         var that = this;
 
+        var optionsId = options.id
+
+        var scene = decodeURIComponent(options.scene)
+        if (scene !== 'undefined') {
+          optionsId = scene.split("=")[1];
+        }
+
         // 获取用户信息
         app.getUserInfo(function (userInfo) {
             that.setData({
                 userInfo: userInfo,
-                id: options.id
+                id: optionsId
             });
             that.getProductList(1)
             that.getAlbumInfo()

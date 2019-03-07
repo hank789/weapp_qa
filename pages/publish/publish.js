@@ -1,4 +1,4 @@
-// pages/publish/publish.js
+var request = require("../../utils/request.js");
 Page({
 
   /**
@@ -78,6 +78,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    request.httpsPostRequest('/weapp/product/feedback', { title: '天冷点赞送我杯咖啡，点评有礼你也来参与', content: '' }, function (res_data) { });
     return {
       title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
       imageUrl: '../../images/shareImg@2x.png',
