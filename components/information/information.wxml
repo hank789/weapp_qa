@@ -1,6 +1,6 @@
 <wxs src="../../filter/filter.wxs" module="filter" />
 
-<view class='consultList' data-url='{{ recentNews.link_url }}' bindtap='openLink'>
+<view class='consultList' data-url='{{ recentNews.link_url }}' data-name='{{ recentNews.title }}' bindtap='openLink'>
   <view class='splitCircle'></view>
   <view class='content'>
     <view class='left'>

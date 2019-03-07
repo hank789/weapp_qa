@@ -1,6 +1,8 @@
 //获取应用实例
 var app = getApp();
 var albumUtil = require("../../utils/album.js");
+var request = require("../../utils/request.js");
+
 Page({
 
   /**
@@ -95,6 +97,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    request.httpsPostRequest('/weapp/product/feedback', { title: '全部评论', content: this.data.id }, function (res_data) { });
+    return {
+      title: '全部评论',
+      path: "/pages/allComment/allComment?id=" + this.data.id
+    }
   }
 })

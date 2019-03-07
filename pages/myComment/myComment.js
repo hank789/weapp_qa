@@ -111,10 +111,11 @@ Page({
     }
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-  
+    request.httpsPostRequest('/weapp/product/feedback', { title: '我的点评', content: '' }, function (res_data) { });
+    return {
+      title: '我的点评',
+      path: '/pages/myComment/myComment'
+    }
   }
 })

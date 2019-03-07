@@ -148,5 +148,12 @@ Page({
         this.loadList(1)
       }, 1000)
     }
+  },
+  onShareAppMessage: function () {
+    request.httpsPostRequest('/weapp/product/feedback', { title: '搜索', content: this.data.inputVal }, function (res_data) { });
+    return {
+      title: '搜索',
+      path: "/pages/search/search?id=" + this.data.inputVal
+    }
   }
 })

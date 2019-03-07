@@ -36,8 +36,16 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
+    var optionsId = options.id
+
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      optionsId = scene.split("=")[1];
+    }
+
     that.setData({
-      tagId: options.id
+      tagId: optionsId
     })
     app.getUserInfo(function (userInfo) {
       that.setData({
@@ -139,13 +147,13 @@ Page({
     // 打开链接
     if (item.type === 'link') {
       wx.navigateTo({
-        url: '../url/url?url=' + encodeURIComponent(item.link_url),
+        url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
       })
     }
     // 打开视频
     if (item.type === 'video') {
       wx.navigateTo({
-        url: '../video/video?url=' + encodeURIComponent(item.link_url),
+        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
       })
     }
     // 打开pdf
@@ -153,7 +161,7 @@ Page({
       console.log(that.data.system + 'pdf' )
       if (that.data.system === 'ios') {
         wx.navigateTo({
-          url: '../url/url?url=' + encodeURIComponent(item.link_url),
+          url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
         })
       }
       if (that.data.system === 'android') {

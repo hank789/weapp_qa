@@ -141,6 +141,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    request.httpsPostRequest('/weapp/product/feedback', { title: '所有点评', content: this.data.tagName }, function (res_data) { });
+    return {
+      title: this.data.name,
+      path: "/pages/allDianping/allDianping?name=" + this.data.tagName
+    }
   }
 })

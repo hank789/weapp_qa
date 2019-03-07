@@ -74,6 +74,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    request.httpsPostRequest('/weapp/product/feedback', { title: '最受企业欢迎的团队协作产品', content: '' }, function (res_data) { });
+    return {
+      title: '最受企业欢迎的团队协作产品',
+      path: '/pages/productRank/productRank'
+    }
   }
 })

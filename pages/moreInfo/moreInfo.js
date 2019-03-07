@@ -163,6 +163,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    request.httpsPostRequest('/weapp/product/feedback', { title: '更多咨询', content: this.data.type }, function (res_data) { });
+    return {
+      title: this.data.name,
+      path: "/pages/moreInfo/moreInfo?id=" + this.data.tagId  + '&type=' + this.data.type
+    }
   }
 })
