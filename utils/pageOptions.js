@@ -17,6 +17,11 @@ var getOptions = (options) => {
       queryObject.id = scene.split("=")[1];
     }
 
+    // 自动解码加密的字符串
+    if (queryObject.url) {
+      queryObject.url = decodeURIComponent(queryObject.url)
+    }
+
     this.setData({
       queryObject: queryObject
     })
