@@ -4,7 +4,6 @@ var request = require("../../utils/request.js");
 var albumUtil = require("../../utils/album.js");
 var productUtil = require("../../utils/product.js");
 var pageOptions = require("../../utils/pageOptions.js");
-require("../../utils/pageOptions");
 
 Page(pageOptions.getOptions({
 
