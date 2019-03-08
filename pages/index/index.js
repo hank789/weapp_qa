@@ -2,7 +2,9 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js")
+
+Page(pageOptions.getOptions({
   data:{
     userInfo: {},
     loading: true,
@@ -190,4 +192,4 @@ Page({
       showPopup: true
     })
   }
-})
+}))
