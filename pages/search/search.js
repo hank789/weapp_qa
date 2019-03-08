@@ -2,8 +2,14 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
   data:{
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '搜索'
+	  },
     userInfo: {},
     list: [],
     isMore: true,
@@ -15,20 +21,17 @@ Page({
     searchTip: true
   },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
     var that = this
-    //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
-      //更新数据
       that.setData({
         userInfo:userInfo
       });
-      if (options.id) {
-        if (options.id === '点评送咖啡') {
-          that.data.inputVal = options.id
+      if (that.data.queryObject.id) {
+        if (that.data.queryObject.id === '点评送咖啡') {
+          that.data.inputVal = that.data.queryObject.id
         } else {
           that.setData({
-            inputVal: options.id
+            inputVal: that.data.queryObject.id
           });
         }
         that.loadList(1)
@@ -43,7 +46,7 @@ Page({
   },
   //底部更多加载
   onReachBottom: function () {
-    if (this.data.isMore && this.data.inputVal) {
+    if (this.data.isMore && this.data.queryObject.id) {
       this.setData({
         isLoading: true
       });
@@ -149,11 +152,4 @@ Page({
       }, 1000)
     }
   },
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '搜索', content: this.data.inputVal }, function (res_data) { });
-    return {
-      title: '搜索',
-      path: "/pages/search/search?id=" + this.data.inputVal
-    }
-  }
-})
+}))
