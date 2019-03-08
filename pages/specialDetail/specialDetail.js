@@ -3,12 +3,19 @@ var app = getApp();
 var request = require("../../utils/request.js");
 var albumUtil = require("../../utils/album.js");
 var productUtil = require("../../utils/product.js");
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+require("../../utils/pageOptions");
+
+Page(pageOptions.getOptions({
 
     /**
      * 页面的初始数据
      */
     data: {
+        autoShareCurPage: true,
+        autoShareParams: {
+          title: 'demo'
+        },
         loading: 1,
         list: [],
         userInfo: {},
@@ -93,7 +100,10 @@ Page({
         var that = this;
         albumUtil.getDetail(that.data.id, (data) => {
             that.setData({
-                albumInfo: data
+                albumInfo: data,
+                autoShareParams: {
+                  title: data.name
+                }
             })
         })
     },
@@ -310,15 +320,5 @@ Page({
         });
       }
     })
-  },
-  /**
- * 用户点击右上角分享
- */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享专题', content: this.data.albumInfo.name }, function (res_data) { });
-    return {
-      title: this.data.albumInfo.name,
-      path: "/pages/specialDetail/specialDetail?id=" + this.data.id
-    }
   }
-})
+}))
