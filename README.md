@@ -8,6 +8,10 @@
 2. 将Page的options用pageOptions包裹起来
     pageOptions.getOptions({原options})
 
+[获取当前页面参数]
+可通过this.queryObject获取
+    如: this.data.queryObject.id
+
 [分享参数设置]
 1. 如果需要设置当前页面的分享参数，data中设置以下内容
 data: {

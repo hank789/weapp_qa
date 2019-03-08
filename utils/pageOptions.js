@@ -12,10 +12,10 @@ var getOptions = (options) => {
     oldOnLoad = options.onLoad
   }
   options.onLoad = function (queryObject) {
-    oldOnLoad.call(this, queryObject)
     this.setData({
       queryObject: queryObject
     })
+    oldOnLoad.call(this, queryObject)
   }
 
   // 重写onShow
