@@ -86,10 +86,16 @@ var getOptions = (options) => {
 
       statistics.uploadShareData(autoShareTitle, autoSharePath)
 
-      return {
+      var shareParams = {
         title: autoShareTitle,
         path: autoSharePath
       }
+
+      if (this.data.autoShareParams.imageUrl) {
+        shareParams.imageUrl = this.data.autoShareParams.imageUrl
+      }
+
+      return shareParams
     }
   }
   return options
