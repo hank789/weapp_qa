@@ -1,14 +1,20 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
-Page({
+
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
   /**
    * 页面的初始数据
    */
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '所有点评'
+	  },
     list: [],
     page: 1,
-    tagName: '',
     isLoading: true,//是否显示加载数据提示
     isMore: true,
     authUserPhone: false,
@@ -18,14 +24,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     var that = this
-    //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
-      //更新数据
       that.setData({
         userInfo:userInfo,
-        tagName: options.name
+	      autoShareParams: {
+		      title: that.data.queryObject.name
+	      },
       });
       that.loadList(1);
     });
@@ -60,7 +66,7 @@ Page({
   },
   loadList: function (page) {
     var that = this;
-    request.httpsPostRequest('/weapp/product/reviewList', {tag_name: this.data.tagName, page: page }, function(res_data) {
+    request.httpsPostRequest('/weapp/product/reviewList', {tag_name: this.data.queryObject.name, page: page }, function(res_data) {
       console.log(res_data);
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
@@ -137,14 +143,4 @@ Page({
       isShowPopup: true
     });
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '所有点评', content: this.data.tagName }, function (res_data) { });
-    return {
-      title: this.data.name,
-      path: "/pages/allDianping/allDianping?name=" + this.data.tagName
-    }
-  }
-})
+}))

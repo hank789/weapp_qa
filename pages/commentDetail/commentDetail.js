@@ -2,12 +2,19 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '分享'
+	  },
     loding: 1,
     userInfo: {},
     detail: {},
@@ -15,7 +22,6 @@ Page({
     isMore: true,
     isLoading: false,
     commentList: [],
-    slug: '',
     commentTotal: '',
     authUserPhone: false,
     isShowPopup: false, 
@@ -31,20 +37,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     var that = this
-    var slug = options.slug
-    var scene = decodeURIComponent(options.scene)
-    if (scene !== 'undefined') {
-      slug = scene.split("=")[1];
-    }
     app.getUserInfo(function(userInfo) {
       that.setData({
-        userInfo: userInfo,
-        slug: slug
+        userInfo: userInfo
       });
       request.httpsGetRequest('/weapp/product/reviewInfo', {
-        slug: slug
+        slug: that.data.queryObject.slug
       }, function (response) {
         var code = response.code
         if (code !== 1000) {
@@ -57,7 +57,10 @@ Page({
         that.data.detail = response.data
         that.setData({
           detail: that.data.detail,
-          loding: 0
+          loding: 0,
+	        autoShareParams: {
+            title: that.data.detail.owner.name + '对「' + that.data.detail.tags[0].name +'」的点评'
+          },
         })
       })
       that.getCommentList()
@@ -66,7 +69,6 @@ Page({
   goAllComment: function (e) {
     let slug = e.currentTarget.dataset.slug
     var that = this
-  
     wx.navigateTo({
       url: '../allComment/allComment?slug=' + slug,
     })
@@ -74,7 +76,7 @@ Page({
   getCommentList: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/reviewCommentList', {
-      submission_slug: that.data.slug,
+      submission_slug: that.data.queryObject.slug,
       page: that.data.page,
       perPage: 150
     }, function (res_data) {
@@ -255,15 +257,4 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享' + this.data.detail.owner.name + '对「' + this.data.detail.tags[0].name +'」的点评', content: this.data.detail.title }, function (res_data) {});
-    return{
-      title:this.data.detail.owner.name + '对「' + this.data.detail.tags[0].name +'」的点评',
-      path:"/pages/commentDetail/commentDetail?slug=" + this.data.slug
-    }
-  }
-})
+}))

@@ -1,13 +1,19 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
-Page({
+
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
-    slug: '',
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '全部评论'
+	  },
     commentList: [],
     page: 1
   },
@@ -16,17 +22,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var slug = options.slug
     var that = this;
-    that.setData({
-      slug: slug
-    })
     that.getCommentList()
   },
   getCommentList: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/reviewCommentList', {
-      submission_slug: that.data.slug,
+      submission_slug: that.data.queryObject.slug,
       page: that.data.page
     }, function (res_data) {
       if (res_data.code === 1000) {
@@ -113,15 +115,4 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '全部评论', content: this.data.slug }, function (res_data) { });
-    return {
-      title: '全部评论',
-      path: "/pages/allComment/allComment?slug=" + this.data.slug
-    }
-  }
-})
+}))

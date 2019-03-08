@@ -2,12 +2,15 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
 
-  /**
-   * 页面的初始数据
-   */
+Page(pageOptions.getOptions({
+
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '分享产品'
+	  },
     tagId: '',
     userInfo: {},
     detail: {},
@@ -30,23 +33,15 @@ Page({
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad:function (options) {
+  onLoad:function () {
 
     var that = this;
-    var scene = decodeURIComponent(options.scene)
-    var tagId = options.id
-    if (scene !== 'undefined') {
-      tagId = scene.split("=")[1];
-    }
-    this.setData({
-      tagId: tagId
-    })
     app.getUserInfo(function(userInfo){
       that.setData({
-        userInfo:userInfo
+        userInfo:userInfo,
+	      autoShareParams: {
+		      title: that.data.detail.name
+	      },
       });
       that.getReviewInfo()
     });
@@ -60,7 +55,7 @@ Page({
   getReviewInfo: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/info', {
-      tag_name: this.data.tagId
+      tag_name: this.data.queryObject.id
     }, function (response) {
       var code = response.code
       if (code !== 1000) {
@@ -241,14 +236,4 @@ Page({
   onReachBottom: function () {
   
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享产品', content: this.data.detail.name }, function (res_data) {});
-    return{
-      title:this.data.detail.name,
-      path:"/pages/productDetail/productDetail?id=" + this.data.detail.id
-    }
-  }
-})
+}))
