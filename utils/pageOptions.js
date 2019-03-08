@@ -12,6 +12,11 @@ var getOptions = (options) => {
     oldOnLoad = options.onLoad
   }
   options.onLoad = function (queryObject) {
+    var scene = decodeURIComponent(queryObject.scene)
+    if (scene !== 'undefined') {
+      queryObject.id = scene.split("=")[1];
+    }
+
     this.setData({
       queryObject: queryObject
     })

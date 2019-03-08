@@ -19,7 +19,6 @@ Page(pageOptions.getOptions({
         list: [],
         userInfo: {},
         albumInfo: {},
-        id: '',
         isMore: true,
         page: 1,
         // isShowAddOne: false,
@@ -48,21 +47,13 @@ Page(pageOptions.getOptions({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function () {
         var that = this;
-
-        var optionsId = options.id
-
-        var scene = decodeURIComponent(options.scene)
-        if (scene !== 'undefined') {
-          optionsId = scene.split("=")[1];
-        }
 
         // 获取用户信息
         app.getUserInfo(function (userInfo) {
             that.setData({
-                userInfo: userInfo,
-                id: optionsId
+                userInfo: userInfo
             });
             that.getProductList(1)
             that.getAlbumInfo()
@@ -97,7 +88,7 @@ Page(pageOptions.getOptions({
     },
     getAlbumInfo: function () {
         var that = this;
-        albumUtil.getDetail(that.data.id, (data) => {
+        albumUtil.getDetail(that.data.queryObject.id, (data) => {
             that.setData({
                 albumInfo: data,
                 autoShareParams: {
@@ -108,7 +99,7 @@ Page(pageOptions.getOptions({
     },
     getProductList: function (page) {
         var that = this;
-        albumUtil.getProductList(that.data.id, page, (res_data) => {
+        albumUtil.getProductList(that.data.queryObject.id, page, (res_data) => {
             var isMore = that.data.isMore;
             var nextPage = page + 1;
             if (page === 1) {
@@ -169,7 +160,7 @@ Page(pageOptions.getOptions({
 
     getSupportsList: function () {
         var that = this;
-        albumUtil.getSupports(that.data.id, (res) => {
+        albumUtil.getSupports(that.data.queryObject.id, (res) => {
             that.setData({
                 supportsList: res.data
             })
@@ -183,7 +174,7 @@ Page(pageOptions.getOptions({
     },
     getRecentNews: function (page) {
         var that = this
-        albumUtil.getNewList(that.data.id, page, 5, (res) => {
+        albumUtil.getNewList(that.data.queryObject.id, page, 5, (res) => {
             that.setData({
                 newsList: res.data.data,
             });
@@ -191,7 +182,7 @@ Page(pageOptions.getOptions({
     },
     getCommentsList: function (page) {
         var that = this
-        albumUtil.getComments(that.data.id, page, 3, (res) => {
+        albumUtil.getComments(that.data.queryObject.id, page, 3, (res) => {
             that.setData({
               commentList: res.data.data,
               total: res.data.total
@@ -209,7 +200,7 @@ Page(pageOptions.getOptions({
     },
   getMoreAlbumList: function () {
     var that = this;
-    albumUtil.getMoreAlbum(that.data.id, (res) => {
+    albumUtil.getMoreAlbum(that.data.queryObject.id, (res) => {
         that.setData({
           albumList: res.data
         });
@@ -238,7 +229,7 @@ Page(pageOptions.getOptions({
             mask: true
         });
 
-        albumUtil.getShareImage(parseInt(that.data.id), size, (res) => {
+        albumUtil.getShareImage(parseInt(that.data.queryObject.id), size, (res) => {
             wx.hideLoading();
             wx.previewImage({
                 current: res.data.url, // 当前显示图片的http链接
