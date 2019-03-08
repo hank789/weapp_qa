@@ -5,7 +5,8 @@ Page(pageOptions.getOptions({
   data: {
 	  autoShareCurPage: true,
 	  autoShareParams: {
-		  title: '天冷点赞送我杯咖啡，点评有礼你也来参与'
+		  title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
+		  imageUrl: '../../images/shareImg@2x.png'
 	  },
   },
 
