@@ -12,6 +12,8 @@
 可通过this.queryObject获取
     如: this.data.queryObject.id
 
+queryObject.scene值会自动分配到queryObject.id
+
 [分享参数设置]
 1. 如果需要设置当前页面的分享参数，data中设置以下内容
 data: {
