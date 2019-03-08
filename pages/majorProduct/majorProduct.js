@@ -1,12 +1,18 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
+    autoShareCurPage: true,
+    autoShareParams: {
+      title: '分享产品'
+    },
     loading: 1,
     detail: {},
     userInfo: {},
@@ -76,8 +82,12 @@ Page({
           duration: 2000
         })
       }
+
       that.setData({
         detail: response.data,
+        autoShareParams: {
+          title: response.data.name
+        },
         loading: 0
       })
       that.getReviewList()
@@ -320,16 +330,5 @@ Page({
    */
   onReachBottom: function () {
 
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享产品', content: this.data.detail.name }, function (res_data) { });
-    return {
-      title: this.data.detail.name,
-      path: "/pages/majorProduct/majorProduct?id=" + this.data.tagId
-    }
   }
-})
+}))
