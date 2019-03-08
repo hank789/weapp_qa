@@ -1,23 +1,23 @@
 
 var request = require("../../utils/request.js");
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
+
   data: {
-    linkUrl: '',
-    name: ''
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '分享链接'
+	  }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function () {
     var that = this
     that.setData({
-      linkUrl: decodeURIComponent(options.url),
-      name: options.name
+	    autoShareParams: {
+		    title: that.data.queryObject.name
+	    },
     })
   },
 
@@ -63,14 +63,4 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享链接', content: this.data.name }, function (res_data) { });
-    return {
-      title: this.data.name,
-      path: "/pages/url/url?url=" + encodeURIComponent(this.data.linkUrl)  + '&name=' + this.data.name
-    }
-  }
-})
+}))
