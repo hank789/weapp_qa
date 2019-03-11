@@ -53,6 +53,7 @@ var getOptions = (options) => {
     oldOnHide = options.oldHide
   }
   options.onHide = function () {
+    console.log('onHide fired')
     oldOnHide.call(this)
     var that = this
     setTimeout(function () {
@@ -68,6 +69,20 @@ var getOptions = (options) => {
         statistics.uploadData(startTime, endTime, that.route, that.data.queryObject)
       }
     }, 100)
+  }
+
+  // 重写onUnload
+  var oldOnUnload = function () { }
+  if (options.onUnload) {
+    oldOnUnload = options.onUnload
+  }
+  options.onUnload = function () {
+    oldOnUnload.call(this)
+
+    endTime = +new Date();
+    console.log("页面停留时间：" + (endTime - startTime))
+    // 上报数据
+    statistics.uploadData(startTime, endTime, this.route, this.data.queryObject)
   }
 
   // 重写onShareAppMessage
