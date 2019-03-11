@@ -1,0 +1,1 @@
+<web-view src='{{ queryObject.url }}'></web-view>
