@@ -31,6 +31,7 @@ Page(pageOptions.getOptions({
       submission_slug: that.data.queryObject.slug,
       page: that.data.page
     }, function (res_data) {
+      pageOptions.loaded(that)
       if (res_data.code === 1000) {
 
         that.data.commentList = res_data.data.data

@@ -18,7 +18,6 @@ Page(pageOptions.getOptions({
     page: 1,
     tagName: '',
     userInfo: {},
-    isLoading: true,//是否显示加载数据提示
     isMore: true,
     authUserPhone: false,
     isShowPopup: false,
@@ -58,6 +57,9 @@ Page(pageOptions.getOptions({
     }
     request.httpsPostRequest(api, data, function (response) {
       var code = response.code
+
+      pageOptions.loaded(that)
+
       if (response.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
@@ -72,7 +74,6 @@ Page(pageOptions.getOptions({
         that.setData({
           newsList: that.data.newsList,
           page: nextPage,
-          isLoading: false,
           isMore: isMore
         });
       } else {
@@ -127,9 +128,7 @@ Page(pageOptions.getOptions({
    */
   onReachBottom: function () {
     if (this.data.isMore) {
-      this.setData({
-        isLoading: true
-      });
+      pageOptions.loading(this)
       this.getRecentNews(this.data.page);
     }
   },

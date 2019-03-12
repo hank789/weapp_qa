@@ -14,7 +14,6 @@ Page(pageOptions.getOptions({
     tagId: '',
     userInfo: {},
     detail: {},
-    loading: 1,
     comment: [],
     perPage: 3,
     authUserPhone: false,
@@ -57,6 +56,9 @@ Page(pageOptions.getOptions({
     request.httpsGetRequest('/weapp/product/info', {
       tag_name: this.data.queryObject.id
     }, function (response) {
+
+      pageOptions.loaded(that)
+
       var code = response.code
       if (code !== 1000) {
         wx.showToast({

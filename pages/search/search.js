@@ -35,6 +35,8 @@ Page(pageOptions.getOptions({
           });
         }
         that.loadList(1)
+      } else {
+        pageOptions.loaded(that)
       }
     });
   },
@@ -95,6 +97,9 @@ Page(pageOptions.getOptions({
     })
     var that = this
     request.httpsPostRequest('/weapp/search/tagProduct', { search_word: this.data.inputVal, page: page }, function(res_data) {
+
+      pageOptions.loaded(that)
+
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
