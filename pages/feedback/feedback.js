@@ -2,13 +2,21 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 var pictures = [];
-Page({
+
+var pageOptions = require("../../utils/pageOptions.js");
+
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
 
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '问题反馈'
+	  },
     description: '',
     pictures: [],
     type: '',
@@ -40,7 +48,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    pageOptions.loaded(this)
   },
   bindFormSubmit: function (e) {
     var that = this;
@@ -151,10 +159,6 @@ Page({
         let tempFilePaths = res.tempFilePaths;
 
         tempFilePaths.forEach(function (url, index) {
-          //   pictures.push(url);
-          //   that.setData({
-          //       pictures: pictures
-          //   });
           let strRegex = "(.jpg|.png|.gif|.jpeg)$"; //用于验证图片扩展名的正则表达式
           let re = new RegExp(strRegex);
           if (re.test(url.toLowerCase())) {
@@ -170,11 +174,5 @@ Page({
         });
       }
     });
-  },
-  onShareAppMessage: function () {
-    return {
-      title: '问题反馈',
-      path: '/pages/feedback/feedback'
-    }
   }
-})
+}))

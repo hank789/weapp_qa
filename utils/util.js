@@ -56,8 +56,25 @@ function parseUrl(href) {
   }
 }
 
+function http_build_query (data) {
+  var _result = [];
+  for (var key in data){
+    var value = data[key];
+    if (value.constructor === Array){
+      value.forEach(function(_value){
+        _result.push(key + "=" + _value);
+      });
+    }else{
+      _result.push(key + '=' + value);
+    }
+  }
+
+  return _result.join('&');
+}
+
 module.exports = {
   formatTime: formatTime,
   countDown: countDown,
-  parseUrl: parseUrl
+  parseUrl: parseUrl,
+  http_build_query: http_build_query
 }

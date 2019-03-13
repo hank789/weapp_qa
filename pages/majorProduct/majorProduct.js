@@ -1,13 +1,18 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
-    loading: 1,
+    autoShareCurPage: true,
+    autoShareParams: {
+      title: '分享产品'
+    },
     detail: {},
     userInfo: {},
     comment: [],
@@ -68,6 +73,9 @@ Page({
     request.httpsGetRequest('/weapp/product/info', {
       tag_name: this.data.tagId
     }, function (response) {
+
+      pageOptions.loaded(that)
+
       var code = response.code
       if (code !== 1000) {
         wx.showToast({
@@ -76,9 +84,12 @@ Page({
           duration: 2000
         })
       }
+
       that.setData({
         detail: response.data,
-        loading: 0
+        autoShareParams: {
+          title: response.data.name
+        }
       })
       that.getReviewList()
     })
@@ -153,7 +164,7 @@ Page({
     // 打开视频
     if (item.type === 'video') {
       wx.navigateTo({
-        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
+        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
       })
     }
     // 打开pdf
@@ -161,7 +172,7 @@ Page({
       console.log(that.data.system + 'pdf' )
       if (that.data.system === 'ios') {
         wx.navigateTo({
-          url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
+          url: '../pdf/pdf?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
         })
       }
       if (that.data.system === 'android') {
@@ -320,16 +331,5 @@ Page({
    */
   onReachBottom: function () {
 
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享产品', content: this.data.detail.name }, function (res_data) { });
-    return {
-      title: this.data.detail.name,
-      path: "/pages/majorProduct/majorProduct?id=" + this.data.tagId
-    }
   }
-})
+}))

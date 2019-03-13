@@ -1,30 +1,17 @@
-var request = require("../../utils/request.js");
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
 
-  /**
-   * 页面的初始数据
-   */
+Page(pageOptions.getOptions({
+
   data: {
-    userName: '',
-    productName: '',
-    slug: ''
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
+		  imageUrl: '../../images/shareImg@2x.png'
+	  },
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    console.log(options, '：参数')
-    var that = this;
-    let userName = options.name;
-    let productName = options.tag;
-    let slug = options.slug;
-    that.setData({
-      userName: userName,
-      productName: productName,
-      slug: slug
-    })
-    
+    pageOptions.loaded(this)
   },
   goMyComment () {
     wx.redirectTo({
@@ -73,16 +60,4 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '天冷点赞送我杯咖啡，点评有礼你也来参与', content: '' }, function (res_data) { });
-    return {
-      title: '天冷点赞送我杯咖啡，点评有礼你也来参与',
-      imageUrl: '../../images/shareImg@2x.png',
-      path: "/pages/commentDetail/commentDetail?slug=" + this.data.slug
-    }
-  }
-})
+}))

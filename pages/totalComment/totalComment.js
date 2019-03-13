@@ -3,17 +3,19 @@ var app = getApp();
 var albumUtil = require("../../utils/album.js");
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
 
-  /**
-   * 页面的初始数据
-   */
+Page(pageOptions.getOptions({
+
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '全部评论'
+	  },
     userInfo: {},
     tagName: '',
     total: '',
-    commentList: [],
-    id: ''
+    commentList: []
   },
 
   /**
@@ -21,12 +23,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    console.log(options)
+
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo,
-        id: options.id
+        userInfo: userInfo
       });
       that.getCommentList(1);
     });
@@ -34,7 +35,8 @@ Page({
 
   getCommentList: function (page) {
     var that = this;
-    albumUtil.getComments(that.data.id, page, 20, (res) => {
+    albumUtil.getComments(that.data.queryObject.id, page, 20, (res) => {
+      pageOptions.loaded(that)
 
       var nextPage = page + 1;
       if (page === 1) {
@@ -93,14 +95,4 @@ Page({
     this.getCommentList(this.data.page)
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '全部评论', content: this.data.id }, function (res_data) { });
-    return {
-      title: '全部评论',
-      path: "/pages/allComment/allComment?id=" + this.data.id
-    }
-  }
-})
+}))

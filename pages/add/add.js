@@ -1,11 +1,11 @@
-// pages/detail/detail.js
-//获取应用实例
+
 var app = getApp();
 
 //查询用户信息
 var request = require("../../utils/request.js");
 var pictures = [];
-Page({
+var pageOptions = require("../../utils/pageOptions.js")
+Page(pageOptions.getOptions({
   data:{
     showTopTips: false,
     errorMsg: '',
@@ -83,6 +83,9 @@ Page({
         userInfo:userInfo,
         tag: tagName
       });
+
+      pageOptions.loaded(that)
+
       //更新数据
       request.httpsPostRequest('/tags/load', {tag_type: 8 }, function(tag_data) {
         if (tag_data.code === 1000) {
@@ -305,4 +308,4 @@ Page({
       }
     });
   }
-})
+}))

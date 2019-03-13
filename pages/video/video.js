@@ -1,21 +1,29 @@
 // pages/video/video.js
 import util from '../../utils/util.js'
 var request = require("../../utils/request.js");
-Page({
+
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '分享视频'
+	  },
     videoLink: '',
-    videoType: 1,
-    name: ''
+    videoType: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    pageOptions.loaded(this)
+
     console.log(options, '视频数据')
     var that = this
     var videoLink = decodeURIComponent(options.url)
@@ -26,13 +34,17 @@ Page({
       this.setData({
         videoLink: vid,
         videoType: 2,
-        name: options.name
+	      autoShareParams: {
+		      title: that.data.queryObject.name
+	      },
       })
     } else {
       this.setData({
         videoLink: videoLink,
         videoType: 1,
-        name: options.name
+	      autoShareParams: {
+		      title: that.data.queryObject.name
+	      },
       })
     }
   },
@@ -84,14 +96,4 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '分享视频', content: this.data.name }, function (res_data) { });
-    return {
-      title: this.data.name,
-      path: "/pages/video/video?url=" + encodeURIComponent(this.data.videoLink) + '&name=' + this.data.name
-    }
-  }
-})
+}))

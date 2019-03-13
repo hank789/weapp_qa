@@ -1,22 +1,22 @@
 var app = getApp();
 var request = require("../../utils/request.js");
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
+
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '我的点评'
+	  },
     list: [],
     page: 1,
     userInfo: {},
-    isMore: true,
-    isLoading: true //是否显示加载数据提示
+    isMore: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function () {
     var that = this
 
     app.getUserInfo(function (userInfo) {
@@ -33,6 +33,9 @@ Page({
       type: 2,
       page: page
     }, function (res_data) {
+
+      pageOptions.loaded(that)
+
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
@@ -48,7 +51,6 @@ Page({
         that.setData({
           list: that.data.list,
           page: nextPage,
-          isLoading: false,
           isMore: isMore
         });
       } else {
@@ -89,9 +91,7 @@ Page({
   
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  /**页面相关事件处理函数--监听用户下拉动作*/
   onPullDownRefresh: function () {
     // 下拉刷新
     this.data.page = 1;
@@ -99,23 +99,11 @@ Page({
     wx.stopPullDownRefresh();
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  /**页面上拉触底事件的处理函数*/
   onReachBottom: function () {
     if (this.data.isMore) {
-      this.setData({
-        isLoading: true
-      });
+      pageOptions.loading(this)
       this.loadList(this.data.page);
     }
-  },
-
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '我的点评', content: '' }, function (res_data) { });
-    return {
-      title: '我的点评',
-      path: '/pages/myComment/myComment'
-    }
   }
-})
+}))

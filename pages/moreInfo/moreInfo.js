@@ -2,21 +2,25 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 
-Page({
+var pageOptions = require("../../utils/pageOptions.js");
+
+Page(pageOptions.getOptions({
 
   /**
    * 页面的初始数据
    */
   data: {
+	  autoShareCurPage: true,
+	  autoShareParams: {
+		  title: '更多咨询'
+	  },
     newsList: [],
     page: 1,
     tagName: '',
     userInfo: {},
-    isLoading: true,//是否显示加载数据提示
     isMore: true,
     authUserPhone: false,
     isShowPopup: false,
-    type: ''
   },
 
   /**
@@ -28,9 +32,7 @@ Page({
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo,
-        tagId: options.id,
-        type: options.type
+        userInfo: userInfo
       });
       that.getRecentNews(1)
     });
@@ -39,22 +41,25 @@ Page({
     var that = this
     var api
     var data = {}
-    if (that.data.type === 'product') {
+    if (that.data.queryObject.type === 'product') {
       api = '/weapp/product/newsList'
       data = {
-        tag_id: that.data.tagId,
+        tag_id: that.data.queryObject.id,
         page: page
       }
     }
-    if (that.data.type === 'album') {
+    if (that.data.queryObject.type === 'album') {
       data = {
-        id: that.data.tagId,
+        id: that.data.queryObject.id,
         page: page
       }
       api = '/weapp/product/albumNewsList'
     }
     request.httpsPostRequest(api, data, function (response) {
       var code = response.code
+
+      pageOptions.loaded(that)
+
       if (response.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
@@ -69,7 +74,6 @@ Page({
         that.setData({
           newsList: that.data.newsList,
           page: nextPage,
-          isLoading: false,
           isMore: isMore
         });
       } else {
@@ -124,9 +128,7 @@ Page({
    */
   onReachBottom: function () {
     if (this.data.isMore) {
-      this.setData({
-        isLoading: true
-      });
+      pageOptions.loading(this)
       this.getRecentNews(this.data.page);
     }
   },
@@ -158,15 +160,4 @@ Page({
       isShowPopup: true
     });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    request.httpsPostRequest('/weapp/product/feedback', { title: '更多咨询', content: this.data.type }, function (res_data) { });
-    return {
-      title: this.data.name,
-      path: "/pages/moreInfo/moreInfo?id=" + this.data.tagId  + '&type=' + this.data.type
-    }
-  }
-})
+}))

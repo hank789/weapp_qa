@@ -100,9 +100,22 @@ App({
       })
     }
   },
+  onShow(){
+    if(this.globalData.firstIn){
+      this.globalData.firstIn = 0;
+    } else{
+      this.globalData.onShow = 1;
+    }
+  },
+  onHide(){
+    this.globalData.onHide = 1;
+  },
   globalData:{
     userInfo: null,
     appAccessToken: null,
+    firstIn:1,
+    onShow: 0,
+    onHide: 0,
     host: 'https://api.inwehub.com/api',
     sockHost: 'wss://read.inwehub.com'
   }
