@@ -23,8 +23,14 @@ var getOptions = (options) => {
     }
 
     this.setData({
-      queryObject: queryObject
+      queryObject: queryObject,
+      loading: 1
     })
+
+    wx.showLoading({
+      title: '加载中',
+    })
+
     oldOnLoad.call(this, queryObject)
   }
 
@@ -38,10 +44,10 @@ var getOptions = (options) => {
     setTimeout(function () {
       if (app.globalData.onShow) {
         app.globalData.onShow = 0;
-        console.log("demo前后台切换之切到前台")
+        console.log("前后台切换之切到前台")
       }
       else {
-        console.log("demo页面被切换显示")
+        console.log("页面被切换显示")
         startTime = +new Date();
       }
     }, 100)
@@ -121,6 +127,27 @@ var getOptions = (options) => {
   return options
 }
 
+var loaded = function (obj) {
+  obj.setData({
+    loading: 0
+  })
+  setTimeout(function () {
+    wx.hideLoading()
+  }, 200)
+}
+
+var loading = function (obj) {
+  obj.setData({
+    loading: 1
+  })
+
+  wx.showLoading({
+    title: '加载中',
+  })
+}
+
 module.exports = {
   getOptions: getOptions,
+  loaded: loaded,
+  loading: loading
 }

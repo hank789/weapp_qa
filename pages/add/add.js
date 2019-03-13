@@ -83,6 +83,9 @@ Page(pageOptions.getOptions({
         userInfo:userInfo,
         tag: tagName
       });
+
+      pageOptions.loaded(that)
+
       //更新数据
       request.httpsPostRequest('/tags/load', {tag_type: 8 }, function(tag_data) {
         if (tag_data.code === 1000) {

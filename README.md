@@ -8,6 +8,10 @@
 2. 将Page的options用pageOptions包裹起来
     pageOptions.getOptions({原options})
 
+3. 页面进入默认loading状态(显示加载中动画)
+    当可以显示页面xml时，调用pageOptions.loaded(this)
+    加载中如果不显示xml, 在xml根节点上加 wx:if='{{!loading}}'
+
 [获取当前页面参数]
 可通过this.queryObject获取
     如: this.data.queryObject.id

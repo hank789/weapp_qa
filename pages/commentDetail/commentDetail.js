@@ -15,7 +15,6 @@ Page(pageOptions.getOptions({
 	  autoShareParams: {
 		  title: '分享'
 	  },
-    loding: 1,
     userInfo: {},
     detail: {},
     page: 1,
@@ -46,6 +45,9 @@ Page(pageOptions.getOptions({
       request.httpsGetRequest('/weapp/product/reviewInfo', {
         slug: that.data.queryObject.slug
       }, function (response) {
+
+        pageOptions.loaded(that)
+
         var code = response.code
         if (code !== 1000) {
           wx.showToast({
@@ -57,7 +59,6 @@ Page(pageOptions.getOptions({
         that.data.detail = response.data
         that.setData({
           detail: that.data.detail,
-          loding: 0,
 	        autoShareParams: {
             title: that.data.detail.owner.name + '对「' + that.data.detail.tags[0].name +'」的点评'
           },

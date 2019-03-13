@@ -13,6 +13,8 @@ Page(pageOptions.getOptions({
   },
 
   onLoad: function () {
+    pageOptions.loaded(that)
+
     var that = this
     that.setData({
 	    autoShareParams: {

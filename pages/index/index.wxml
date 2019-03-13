@@ -1,4 +1,4 @@
-<view class='mui-container container-fill'>
+<view class='mui-container container-fill' wx:if='{{!loading}}'>
   <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
     <view class="pageIndex section">
       <view class="page__hd">

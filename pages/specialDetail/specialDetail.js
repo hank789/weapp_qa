@@ -15,7 +15,6 @@ Page(pageOptions.getOptions({
         autoShareParams: {
           title: 'demo'
         },
-        loading: 1,
         list: [],
         userInfo: {},
         albumInfo: {},
@@ -89,6 +88,7 @@ Page(pageOptions.getOptions({
     getAlbumInfo: function () {
         var that = this;
         albumUtil.getDetail(that.data.queryObject.id, (data) => {
+            pageOptions.loaded(that)
             that.setData({
                 albumInfo: data,
                 autoShareParams: {
