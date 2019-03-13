@@ -13,7 +13,6 @@ Page(pageOptions.getOptions({
     autoShareParams: {
       title: '分享产品'
     },
-    loading: 1,
     detail: {},
     userInfo: {},
     comment: [],
@@ -74,6 +73,9 @@ Page(pageOptions.getOptions({
     request.httpsGetRequest('/weapp/product/info', {
       tag_name: this.data.tagId
     }, function (response) {
+
+      pageOptions.loaded(that)
+
       var code = response.code
       if (code !== 1000) {
         wx.showToast({
@@ -87,8 +89,7 @@ Page(pageOptions.getOptions({
         detail: response.data,
         autoShareParams: {
           title: response.data.name
-        },
-        loading: 0
+        }
       })
       that.getReviewList()
     })
