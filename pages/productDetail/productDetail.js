@@ -1,24 +1,28 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
-
 var pageOptions = require("../../utils/pageOptions.js");
 
 Page(pageOptions.getOptions({
 
+  /**
+   * 页面的初始数据
+   */
   data: {
-	  autoShareCurPage: true,
-	  autoShareParams: {
-		  title: '分享产品'
-	  },
-    tagId: '',
-    userInfo: {},
+    autoShareCurPage: true,
+    autoShareParams: {
+      title: '分享产品'
+    },
     detail: {},
+    userInfo: {},
     comment: [],
     perPage: 3,
+    total: '',
     authUserPhone: false,
-    starNumber: '',
     isShowPopup: false,
+    starNumber: '',
+    tagId: '',
+    system: '',
     showPageMore: false,
     iconMenus: [
       {
@@ -32,29 +36,42 @@ Page(pageOptions.getOptions({
     ]
   },
 
-  onLoad:function () {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this
 
-    var that = this;
-    app.getUserInfo(function(userInfo){
+    var optionsId = options.id
+
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      optionsId = scene.split("=")[1];
+    }
+
+    that.setData({
+      tagId: optionsId
+    })
+    app.getUserInfo(function (userInfo) {
       that.setData({
-        userInfo:userInfo,
-	      autoShareParams: {
-		      title: that.data.detail.name
-	      },
+        userInfo: userInfo
       });
       that.getReviewInfo()
     });
-
-  },
-  goFeedBack: function () {
-    wx.navigateTo({
-      url: '../feedback/feedback',
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          system: res.platform
+        })
+      }
     })
+
+
   },
   getReviewInfo: function () {
     var that = this;
     request.httpsGetRequest('/weapp/product/info', {
-      tag_name: this.data.queryObject.id
+      tag_name: this.data.tagId
     }, function (response) {
 
       pageOptions.loaded(that)
@@ -67,9 +84,12 @@ Page(pageOptions.getOptions({
           duration: 2000
         })
       }
+
       that.setData({
         detail: response.data,
-        loding: 0
+        autoShareParams: {
+          title: response.data.name
+        }
       })
       that.getReviewList()
     })
@@ -90,31 +110,15 @@ Page(pageOptions.getOptions({
       }
       that.data.comment = response.data.data
       that.setData({
-        comment: that.data.comment
+        comment: that.data.comment,
+        total: response.data.total
       })
     })
-  },
-  onAuthPhone: function (e) {
-    this.setData({
-      authUserPhone: true,
-      isShowPopup: true
-    });
-  },
-  onAuthPhoneOk: function (e) {
-    this.setData({
-      authUserPhone: false,
-      userInfo: app.globalData.userInfo
-    });
-  },
-  onAuthUserOk: function (e) {
-    this.setData({
-      userInfo: app.globalData.userInfo
-    });
   },
   goProductDetail(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../productDetail/productDetail?id=' + id,
+      url: '../majorProduct/majorProduct?id=' + id,
     })
   },
   goAdd(e) {
@@ -130,6 +134,104 @@ Page(pageOptions.getOptions({
       url: '../allDianping/allDianping?name=' + name,
     })
   },
+  onAuthPhoneOk: function (e) {
+    this.setData({
+      authUserPhone: false,
+      userInfo: app.globalData.userInfo
+    });
+  },
+
+  // 成功案例
+  previewImage: function (e) {
+    var that = this
+    var item = e.currentTarget.dataset.item
+    // 预览图片
+    if (item.type === 'image') {
+      // var current = item.cover_pic;
+      var attr = item.link_url.split(' ');
+      wx.previewImage({
+        current: item.cover_pic, // 当前显示图片的http链接
+        urls: attr // 需要预览的图片http链接列表 需要是数组
+      })
+    }
+
+    // 打开链接
+    if (item.type === 'link') {
+      wx.navigateTo({
+        url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
+      })
+    }
+    // 打开视频
+    if (item.type === 'video') {
+      wx.navigateTo({
+        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
+      })
+    }
+    // 打开pdf
+    if (item.type === 'pdf') {
+      console.log(that.data.system + 'pdf')
+      if (that.data.system === 'ios') {
+        wx.navigateTo({
+          url: '../pdf/pdf?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
+        })
+      }
+      if (that.data.system === 'android') {
+        wx.downloadFile({
+          url: item.link_url,
+          success: function (res) {
+            console.log(res)
+            var Path = res.tempFilePath
+            wx.openDocument({
+              filePath: Path,
+              success: function (res) { } //成功后回调
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+          }
+        })
+      }
+
+    }
+
+  },
+  previewTopImg(e) {
+    var that = this
+    var img = e.currentTarget.dataset.img
+    // 预览图片
+    var attr = img.split(' ');
+    console.log(attr, "数据", e)
+    wx.previewImage({
+      current: img, // 当前显示图片的http链接
+      urls: img.split(' ') // 需要预览的图片http链接列表 需要是数组
+    })
+  },
+  previewImg(e) {
+    console.log(e, '数据')
+    var that = this
+    var item = e.currentTarget.dataset.item
+    // 预览图片
+    var attr = item.link_url;
+    wx.previewImage({
+      current: e.currentTarget.dataset.currentlink, // 当前显示图片的http链接
+      urls: item // 需要预览的图片http链接列表 需要是数组
+    })
+  },
+  seeMore(e) {
+    wx.navigateTo({
+      url: '../moreInfo/moreInfo?id=' + e.currentTarget.dataset.id + '&type=product',
+    })
+  },
+  popup() {
+    this.setData({
+      showPageMore: true
+    })
+  },
+  clickCancel() {
+    this.setData({
+      showPageMore: false
+    })
+  },
   goToDianPing(e) {
     if (!this.data.userInfo.mobile) {
       this.setData({
@@ -142,23 +244,8 @@ Page(pageOptions.getOptions({
       url: '../add/add?tag=' + this.data.detail.name,
     })
   },
-  goActivityDetail () {
-    wx.navigateTo({
-      url: '../activity/activity',
-    })
-  },
-  popup () {
-    this.setData({
-      showPageMore: true
-    })
-    console.log('弹窗')
-  },
-  clickCancel () {
-    this.setData({
-      showPageMore: false
-    })
-  },
-  clickItem (e) {
+
+  clickItem(e) {
     var that = this;
     var size = 1
     if (e.detail.key === '生成公众号文章分享图') {
@@ -187,7 +274,8 @@ Page(pageOptions.getOptions({
     });
 
   },
-  goSpecial (e) {
+
+  goSpecial(e) {
     var id = e.currentTarget.dataset.id
     var type = e.currentTarget.dataset.type
     if (type === 2) {
@@ -196,46 +284,52 @@ Page(pageOptions.getOptions({
       })
     }
   },
+
+  goFeedBack: function () {
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getReviewInfo();
-    wx.stopPullDownRefresh();
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
-  },
+
+  }
 }))
