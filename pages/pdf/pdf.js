@@ -13,7 +13,7 @@ Page(pageOptions.getOptions({
   },
 
   onLoad: function () {
-    pageOptions.loaded(that)
+    pageOptions.loaded(this)
 
     var that = this
     that.setData({
