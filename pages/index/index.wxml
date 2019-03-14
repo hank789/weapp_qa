@@ -66,33 +66,88 @@
 
   <!-- 专题集 -->
     <view class='pageSpecial section' >
-      <view class='topTitle font-family-medium'>专题集</view>
+      <scroll-view  scroll-y style="height: 100%;">
 
-      <view class='specialWrapper'>
-        <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+        <view class='topTitle font-family-medium'>热门专题</view>
+        <view class="heatAlbum">
 
-          <view class='display' wx:for='{{ list }}' wx:key='index'>
-            <view wx:for='{{ item }}' wx:key='id'>
-              <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail' wx:if="{{item.type === 'product_album'}}">
-                <view class='mask'></view>
-                <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
-                <view class='text font-family-medium'>{{ item.name }}</view>
+          <view class="albumList">
+            <view class="componentCarAlbum">
+              <view class="albumName font-family-medium">表单调查工具大全</view>
+              <view class="tags"><text>必看</text></view>
+              <view class="backgroundSmall">
+                <image src="../../images/remen_zhunti_small2@3x.png"></image>
               </view>
-
-              <view class='expectWrapper specialList' bindtap='showExpect' wx:if="{{item.type === 'lastElement'}}">
-                <view class='content'>
-                  <text class='iconfont icon-tianjia'></text>
-                  <text class='expectText'>我期待</text>
-                </view>
+              <view class="backgroundBig">
+                <image src="../../images/remen_zhunti_big1@3x.png"></image>
               </view>
             </view>
-
-
           </view>
 
-        </scroll-view>
-      
-      </view>
+        </view>
+
+        <view class='topTitle font-family-medium'>热门产品</view>
+        <view class="heatProduct">
+
+          <view class="productList">
+            <view class="componentCarProduct">
+              <view class="topInfo">
+                <view class="left">
+                  <view class="logo">
+                    <image src="../../images/logo-144.png"></image>
+                  </view>
+                  <view class="nameMark">
+                    <view class="title font-family-medium">阿里云</view>
+                    <view class="stars">
+                      <StarView rating='3'></StarView>
+                      <text class="span">4分</text>
+                    </view>
+                  </view>
+                </view>
+                <view class="right">
+                  <view class="heatICon">
+                    <image src="../../images/zhuanti_fill@3x.png"></image>
+                  </view>
+                  <view class="textNumber">2862</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="describe">提供快速内存和最新的英特尔CPU，可帮助您为云应用程序提供动力。</view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+
+        <view class='topTitle font-family-medium'>专题集</view>
+
+        <view class='specialWrapper'>
+          <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+
+            <view class='display' wx:for='{{ list }}' wx:key='index'>
+              <view wx:for='{{ item }}' wx:key='id'>
+                <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail' wx:if="{{item.type === 'product_album'}}">
+                  <view class='mask'></view>
+                  <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
+                  <view class='text font-family-medium'>{{ item.name }}</view>
+                </view>
+
+                <view class='expectWrapper specialList' bindtap='showExpect' wx:if="{{item.type === 'lastElement'}}">
+                  <view class='content'>
+                    <text class='iconfont icon-tianjia'></text>
+                    <text class='expectText'>我期待</text>
+                  </view>
+                </view>
+              </view>
+
+
+            </view>
+
+          </scroll-view>
+
+        </view>
+
+      </scroll-view>
 
       <view class="index-bottom">
           <view class="included">
