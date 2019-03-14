@@ -60,6 +60,11 @@ function http_build_query (data) {
   var _result = [];
   for (var key in data){
     var value = data[key];
+
+    if (key === 'url') {
+      value = encodeURIComponent(value)
+    }
+
     if (value.constructor === Array){
       value.forEach(function(_value){
         _result.push(key + "=" + _value);
