@@ -13,7 +13,6 @@ Page(pageOptions.getOptions({
     autoShareParams: {
       title: '分享产品'
     },
-    loading: 1,
     detail: {},
     userInfo: {},
     comment: [],
@@ -74,6 +73,9 @@ Page(pageOptions.getOptions({
     request.httpsGetRequest('/weapp/product/info', {
       tag_name: this.data.tagId
     }, function (response) {
+
+      pageOptions.loaded(that)
+
       var code = response.code
       if (code !== 1000) {
         wx.showToast({
@@ -87,8 +89,7 @@ Page(pageOptions.getOptions({
         detail: response.data,
         autoShareParams: {
           title: response.data.name
-        },
-        loading: 0
+        }
       })
       that.getReviewList()
     })
@@ -163,7 +164,7 @@ Page(pageOptions.getOptions({
     // 打开视频
     if (item.type === 'video') {
       wx.navigateTo({
-        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
+        url: '../video/video?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
       })
     }
     // 打开pdf
@@ -171,7 +172,7 @@ Page(pageOptions.getOptions({
       console.log(that.data.system + 'pdf' )
       if (that.data.system === 'ios') {
         wx.navigateTo({
-          url: '../url/url?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title,
+          url: '../pdf/pdf?url=' + encodeURIComponent(item.link_url) + '&name=' + item.title + '&id=' + item.id,
         })
       }
       if (that.data.system === 'android') {

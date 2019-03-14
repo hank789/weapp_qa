@@ -23,7 +23,7 @@ Page(pageOptions.getOptions({
    */
   onLoad: function (options) {
     var that = this
-    console.log(options)
+
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
@@ -36,6 +36,7 @@ Page(pageOptions.getOptions({
   getCommentList: function (page) {
     var that = this;
     albumUtil.getComments(that.data.queryObject.id, page, 20, (res) => {
+      pageOptions.loaded(that)
 
       var nextPage = page + 1;
       if (page === 1) {

@@ -13,8 +13,7 @@ Page(pageOptions.getOptions({
     list: [],
     page: 1,
     userInfo: {},
-    isMore: true,
-    isLoading: true //是否显示加载数据提示
+    isMore: true
   },
 
   onLoad: function () {
@@ -34,6 +33,9 @@ Page(pageOptions.getOptions({
       type: 2,
       page: page
     }, function (res_data) {
+
+      pageOptions.loaded(that)
+
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;
@@ -49,7 +51,6 @@ Page(pageOptions.getOptions({
         that.setData({
           list: that.data.list,
           page: nextPage,
-          isLoading: false,
           isMore: isMore
         });
       } else {
@@ -101,9 +102,7 @@ Page(pageOptions.getOptions({
   /**页面上拉触底事件的处理函数*/
   onReachBottom: function () {
     if (this.data.isMore) {
-      this.setData({
-        isLoading: true
-      });
+      pageOptions.loading(this)
       this.loadList(this.data.page);
     }
   }

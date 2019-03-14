@@ -7,7 +7,6 @@ var pageOptions = require("../../utils/pageOptions.js")
 Page(pageOptions.getOptions({
   data:{
     userInfo: {},
-    loading: true,
     keywords: [],
     scrollindex: 1,  //当前页面的索引值
     totalnum: 2,  //总共页面数
@@ -31,10 +30,12 @@ Page(pageOptions.getOptions({
     // 页面初始化 options为页面跳转所带来的参数
     //调用应用实例的方法获取全局数据
      app.getUserInfo(function(userInfo){
+
+       pageOptions.loaded(that)
+
        //更新数据
        that.setData({
-         userInfo:userInfo,
-         loading:false
+         userInfo:userInfo
        });
        request.httpsGetRequest('/weapp/search/getCommonTagProduct', {}, function (res_data) {
          if (res_data.code === 1000) {

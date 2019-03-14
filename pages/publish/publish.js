@@ -11,6 +11,7 @@ Page(pageOptions.getOptions({
   },
 
   onLoad: function (options) {
+    pageOptions.loaded(this)
   },
   goMyComment () {
     wx.redirectTo({

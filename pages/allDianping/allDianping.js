@@ -68,6 +68,9 @@ Page(pageOptions.getOptions({
     var that = this;
     request.httpsPostRequest('/weapp/product/reviewList', {tag_name: this.data.queryObject.name, page: page }, function(res_data) {
       console.log(res_data);
+
+      pageOptions.loaded(that)
+
       if (res_data.code === 1000) {
         var isMore = that.data.isMore;
         var nextPage = page + 1;

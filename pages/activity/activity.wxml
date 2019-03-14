@@ -1,4 +1,4 @@
-<view class='page'>
+<view class='page' wx:if='{{!loading}}'>
   <view class='topBig'>
     <image class='img' src='../../images/acticityImg@3x.png'></image>
   </view>
