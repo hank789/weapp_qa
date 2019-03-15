@@ -3,9 +3,11 @@
   <view class="component-earth-bottom"><image src="{{ albumInfo.icon }}"  mode="aspectFill"></image><image class="radian" src="/images/hudu2@3x.png"></image></view>
   <view class="component-card-main">
     <view class="title">{{ albumInfo.name }}</view>
-    <view class="content">{{ albumInfo.summary }}</view>
-    <view class="before">
-      <text class='iconfont icon-shangyinhao-'></text>
+    <view class="contentWrapper">
+      <view class="content">{{ albumInfo.summary }}</view>
+      <view class="before">
+        <text class='iconfont icon-shangyinhao-'></text>
+      </view>
     </view>
     <view class="last">
       <text class='iconfont icon-shangyinhao-'></text>

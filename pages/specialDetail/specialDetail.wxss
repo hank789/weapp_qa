@@ -41,16 +41,13 @@ page {
   .component-card-main .title {
     color: #fff;
     font-size: 40rpx;
-    letter-spacing: 2rpx;
-    display: -webkit-box;
-    overflow: hidden;
-    white-space: normal !important;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical; }
+    margin-bottom: 20rpx;
+    letter-spacing: 2rpx; }
+  .component-card-main .contentWrapper {
+    position: relative;
+  }
   .component-card-main .content {
-    margin-top: 70rpx;
+    padding-top: 70rpx;
     font-size: 28rpx;
     color: #fff;
     opacity: .58;
@@ -67,8 +64,8 @@ page {
     color: #29BCB8;
     font-size: 30rpx;
     position: absolute;
-    top: 130rpx;
-    left: 50rpx; }
+    top: 0rpx;
+    left: 0rpx; }
   .component-card-main .last {
     color: #29BCB8;
     font-size: 30rpx;
