@@ -179,7 +179,7 @@
       <view class='comment-product' wx:for='{{ detail.related_tags }}' wx:key='tags' data-id='{{ item.id }}' bindtap='goProductDetail'>
         <view class='product-info'>
           <view class='product-img'>
-            <image class='logo-img' mode="aspectFill" src='{{ item.logo }}'></image>
+            <image class='logo-img' mode="aspectFit" src='{{ item.logo }}'></image>
           </view>
           <view class='product-detail'>
             <view class='productName font-family-medium'>{{ item.name }}</view>
