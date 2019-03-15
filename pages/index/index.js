@@ -8,7 +8,7 @@ Page(pageOptions.getOptions({
   data:{
     userInfo: {},
     keywords: [],
-    scrollindex: 1,  //当前页面的索引值
+    scrollindex: 0,  //当前页面的索引值
     totalnum: 2,  //总共页面数
     starty: 0,  //开始的位置x
     endy: 0, //结束的位置y
@@ -16,7 +16,8 @@ Page(pageOptions.getOptions({
     margintop: 0,  //滑动下拉距离
     data: 5,
     list: [],
-    showPopup: false
+    showPopup: false,
+	  isAddWeChat: false
   },
   onLoad:function(options){
     console.log(options,'数据')
@@ -97,6 +98,27 @@ Page(pageOptions.getOptions({
     wx.navigateTo({
       url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
     });
+  },
+	copyText () {
+    var that = this
+		wx.setClipboardData({
+			data: 'hiinwe',
+			success(res) {
+				wx.hideToast();
+				wx.getClipboardData({
+					success(res) {
+						that.setData({
+						  isAddWeChat: true
+            })
+						setTimeout(function () {
+							that.setData({
+								isAddWeChat: false
+							})
+						}, 1500)
+					}
+				})
+			}
+		})
   },
   onReady:function(){
     // 页面渲染完成

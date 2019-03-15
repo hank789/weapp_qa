@@ -3,7 +3,7 @@
     <view class="pageIndex section">
       <view class="page__hd">
           <view class="ask-title">
-            <text class="ask-title-text font-family-medium">帮助您的企业\n获得适合的软件和服务</text>
+            <text class="iconfont icon-bangzhunindeqiyehuodeheshideruanjianhefuwu"></text>
           </view>
       </view>
 
@@ -23,17 +23,13 @@
           </view>
         </view>
 
-        <!-- <view class='commentGiving'>
-          <navigator url='../activity/activity' hover-class='none'>
-            <view class='commentBig'>
-              <image class='img' src='../../images/commentBig@3x.png'></image>
-            </view>
-          </navigator>
-        </view> -->
+      <view class="addWrapper" wx:if="{{ isAddWeChat }}">
+        <view class="text">已复制客服微信号hiinwe，请前往微信通讯录直接添加好友沟通</view>
+      </view>
 
         <view class="index-bottom">
           <view class="bottom-operation">
-            <button hover-class="none" open-type="contact" class="docbutton">
+            <button hover-class="none" bindtap="copyText" plain="true" class="docbutton">
               <view class="bottom-about">
                 <text class='iconfont icon-youxiang'></text>
                 <text>联系我们</text>
@@ -41,7 +37,7 @@
             </button>
             <view class="spot"></view>
             
-            <button hover-class="none" open-type="share" class="docbutton">
+            <button hover-class="none" open-type="share" plain="true" class="docbutton">
               <view class="bottom-about">
                 <text class='iconfont icon-fenxiang'></text>
                 <text>分享朋友</text>
@@ -50,11 +46,8 @@
             </button>
           </view>
           <view class="included">
-            <view class='iconWrapper'>
-              <text class='iconfont icon-xiangxiajiantou'></text>
-              <text class='iconfont icon-xiangxiajiantou shadow'></text>
-            </view>
             <view class='text font-family-medium'>进入专题</view>
+            <view class="iconfont icon-daosanjiao"></view>
           </view>
         </view>
 
@@ -148,16 +141,6 @@
         </view>
 
       </scroll-view>
-
-      <view class="index-bottom">
-          <view class="included">
-            <view class='iconWrapper'>
-              <text style="color:'#B2B3B5'" class='iconfont icon-xiangshangjiantou'></text>
-              <text style="color:'#3C3E44'" class='dowmShadow iconfont icon-xiangshangjiantou'></text>
-            </view>
-          </view>
-        </view>
-
 
     </view>
 

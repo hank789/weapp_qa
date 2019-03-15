@@ -81,7 +81,10 @@ page {
     padding-bottom: 20rpx;
 }
 button::after {
-  border: none;
+  border: none !important;
+}
+button[plain] {
+  border: none !important;
 }
 .font-family-medium {
   font-family:PingFangSC-Medium;
@@ -383,7 +386,7 @@ button::after {
   margin-top: 24rpx;
 }
 .operationList button::after {
-  border: none;
+  border: none !important;
 }
 .operationList .docbutton {
   width: 88rpx;
