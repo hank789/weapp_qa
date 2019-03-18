@@ -433,6 +433,7 @@ page {
   display: flex;
 }
 .componentCarProduct .topInfo .left .nameMark .title {
+  width: 452rpx;
   color: #3C3E44;
   font-size: 32rpx;
   line-height: 45rpx;

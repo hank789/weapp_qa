@@ -82,18 +82,18 @@
         <view class='topTitle font-family-medium'>热门产品</view>
         <view class="heatProduct">
 
-          <view class="productList">
+          <view class="productList" wx:for="{{ hotProductList }}" wx:key="index">
             <view class="componentCarProduct">
               <view class="topInfo">
                 <view class="left">
                   <view class="logo">
-                    <image src="../../images/logo-144.png"></image>
+                    <image mode="aspectFit" src="{{ item.logo }}"></image>
                   </view>
                   <view class="nameMark">
-                    <view class="title font-family-medium">阿里云</view>
+                    <view class="title font-family-medium text-line-2">{{ item.name }}</view>
                     <view class="stars">
-                      <StarView rating='3'></StarView>
-                      <text class="span">4分</text>
+                      <StarView rating='{{ item.review_average_rate }}'></StarView>
+                      <text class="span">{{ item.review_average_rate }}分</text>
                     </view>
                   </view>
                 </view>
@@ -101,18 +101,18 @@
                   <view class="heatICon">
                     <image src="../../images/zhuanti_fill@3x.png"></image>
                   </view>
-                  <view class="textNumber">2862</view>
+                  <view class="textNumber">{{ item.support_rate }}</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="describe">提供快速内存和最新的英特尔CPU，可帮助您为云应用程序提供动力。</view>
+                <view class="describe">{{ item.advance_desc }}</view>
               </view>
             </view>
           </view>
 
         </view>
 
-        <view class='topTitle font-family-medium'>专题集</view>
+        <view class='topTitle font-family-medium'>更多专题</view>
 
         <view class='specialWrapper'>
           <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">

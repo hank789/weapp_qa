@@ -116,7 +116,7 @@ App({
     firstIn:1,
     onShow: 0,
     onHide: 0,
-    host: 'https://api.inwehub.com/api',
+    host: 'https://api.ywhub.com/api',
     sockHost: 'wss://read.inwehub.com'
   }
 })

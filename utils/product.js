@@ -23,7 +23,14 @@ function supportAlbumProduct (id, successCallback) {
     })
 }
 
+function getHotProduct (perPage, successCallback) {
+	request.httpsGetRequest('/weapp/product/getHot', {perPage: perPage}, function (res) {
+		successCallback(res)
+	})
+}
+
 module.exports = {
     getShareImage: getShareImage,
-    supportAlbumProduct: supportAlbumProduct
+    supportAlbumProduct: supportAlbumProduct,
+    getHotProduct: getHotProduct
 }

@@ -1,6 +1,7 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
+var productUtil = require("../../utils/product.js");
 
 var pageOptions = require("../../utils/pageOptions.js")
 
@@ -17,7 +18,8 @@ Page(pageOptions.getOptions({
     data: 5,
     list: [],
     showPopup: false,
-	  isAddWeChat: false
+	  isAddWeChat: false,
+	  hotProductList: []
   },
   onLoad:function(options){
     console.log(options,'数据')
@@ -52,6 +54,7 @@ Page(pageOptions.getOptions({
          }
        })
        that.getAlbumList()
+       that.getHotProduct()
        if (that.data.scrollindex == 1) {
          request.httpsPostRequest('/weapp/product/feedback', {
            title: '进入小程序专题集',
@@ -119,6 +122,17 @@ Page(pageOptions.getOptions({
 				})
 			}
 		})
+  },
+  getHotProduct () {
+
+	  productUtil.getHotProduct(3, (res) => {
+	    var that = this
+		  that.setData({
+			  hotProductList: res.data.data
+		  })
+      console.log(that.data.hotProductList)
+	  })
+
   },
   onReady:function(){
     // 页面渲染完成
