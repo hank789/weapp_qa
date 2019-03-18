@@ -2,6 +2,7 @@
 var app = getApp();
 var request = require("../../utils/request.js");
 var productUtil = require("../../utils/product.js");
+var albumUtil = require("../../utils/album.js");
 
 var pageOptions = require("../../utils/pageOptions.js")
 
@@ -19,7 +20,8 @@ Page(pageOptions.getOptions({
     list: [],
     showPopup: false,
 	  isAddWeChat: false,
-	  hotProductList: []
+	  hotProductList: [],
+	  hotAlbum: []
   },
   onLoad:function(options){
     console.log(options,'数据')
@@ -102,6 +104,11 @@ Page(pageOptions.getOptions({
       url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
     });
   },
+	goProduct (e) {
+    wx.navigateTo({
+      url: '../majorProduct/majorProduct?id=' + e.currentTarget.dataset.id
+    })
+  },
 	copyText () {
     var that = this
 		wx.setClipboardData({
@@ -125,12 +132,18 @@ Page(pageOptions.getOptions({
   },
   getHotProduct () {
 
+	  var that = this
 	  productUtil.getHotProduct(3, (res) => {
-	    var that = this
 		  that.setData({
 			  hotProductList: res.data.data
 		  })
       console.log(that.data.hotProductList)
+	  })
+
+	  albumUtil.getHotAlbum((res) => {
+	    that.setData({
+        hotAlbum: res.data
+      })
 	  })
 
   },

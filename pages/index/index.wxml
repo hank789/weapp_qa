@@ -64,15 +64,15 @@
         <view class='topTitle font-family-medium'>热门专题</view>
         <view class="heatAlbum">
 
-          <view class="albumList">
+          <view class="albumList" wx:for="{{ hotAlbum }}" wx:key="hotAlbum" data-id="{{ item.id }}" bindtap="goDetail">
             <view class="componentCarAlbum">
-              <view class="albumName font-family-medium">表单调查工具大全</view>
-              <view class="tags"><text>必看</text></view>
-              <view class="backgroundSmall">
-                <image src="../../images/remen_zhunti_small2@3x.png"></image>
-              </view>
-              <view class="backgroundBig">
+              <view class="albumName font-family-medium">{{ item.name }}</view>
+              <view class="tags"><text>{{ item.tips }}</text></view>
+              <view class="backgroundBig" wx:if="{{ index === 0 }}">
                 <image src="../../images/remen_zhunti_big1@3x.png"></image>
+              </view>
+              <view class="backgroundSmall" wx:else>
+                <image src="../../images/remen_zhunti_small2@3x.png"></image>
               </view>
             </view>
           </view>
@@ -82,7 +82,7 @@
         <view class='topTitle font-family-medium'>热门产品</view>
         <view class="heatProduct">
 
-          <view class="productList" wx:for="{{ hotProductList }}" wx:key="index">
+          <view class="productList" wx:for="{{ hotProductList }}" wx:key="index" data-id="{{ item.tag_id }}" bindtap="goProduct">
             <view class="componentCarProduct">
               <view class="topInfo">
                 <view class="left">
@@ -90,7 +90,7 @@
                     <image mode="aspectFit" src="{{ item.logo }}"></image>
                   </view>
                   <view class="nameMark">
-                    <view class="title font-family-medium text-line-2">{{ item.name }}</view>
+                    <view class="title font-family-medium text-line-1">{{ item.name }}</view>
                     <view class="stars">
                       <StarView rating='{{ item.review_average_rate }}'></StarView>
                       <text class="span">{{ item.review_average_rate }}分</text>

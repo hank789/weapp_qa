@@ -355,6 +355,7 @@ page {
 }
 .heatAlbum .albumList {
   display: inline-block;
+  vertical-align: top;
 }
 .albumList .componentCarAlbum {
   width: 226rpx;
@@ -364,7 +365,11 @@ page {
   margin:4rpx 4rpx 0 0;
   background:linear-gradient(39deg,rgba(60,87,119,1) 0%,rgba(28,44,66,1) 100%);
 }
-.albumList .componentCarAlbum:nth-of-type(2) {
+.albumList:nth-of-type(1) .componentCarAlbum {
+  width: 456rpx;
+}
+.albumList:nth-of-type(2) .componentCarAlbum,
+.albumList:nth-of-type(5) .componentCarAlbum {
   margin-right: 0;
 }
 .albumList .componentCarAlbum .albumName {
@@ -386,6 +391,12 @@ page {
   border-radius:0px 8rpx 0px 8rpx;
   background:linear-gradient(45deg,rgba(83,223,221,1) 0%,rgba(41,188,184,1) 100%);
 }
+.albumList:nth-of-type(1) .componentCarAlbum .tags {
+  background:linear-gradient(90deg,rgba(253,128,173,1) 0%,rgba(250,73,117,1) 100%);
+}
+.albumList:nth-of-type(1) .componentCarAlbum .tags text {
+  color: #FFFFFF;
+}
 .albumList .componentCarAlbum .tags text {
   color: #1C2C42;
   font-size: 20rpx;
@@ -404,7 +415,7 @@ page {
   left: 0;
   width: 456rpx;
   height: 305rpx;
-  display: none;
+  /*display: none;*/
 }
 .albumList .componentCarAlbum .backgroundSmall image,
 .albumList .componentCarAlbum .backgroundBig image {
