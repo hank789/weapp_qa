@@ -3,5 +3,6 @@
     "getUserInfo": "/components/getUserInfo/getUserInfo",
     "expectZT": "/components/expectZT/expectZT",
     "StarView": "/components/starView/starView"
-  }
+  },
+  "disableScroll": true
 }
