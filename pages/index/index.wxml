@@ -105,7 +105,7 @@
                 </view>
               </view>
               <view class="bottom">
-                <view class="describe">{{ item.advance_desc }}</view>
+                <view class="describe text-line-2">{{ item.summary }}</view>
               </view>
             </view>
           </view>
