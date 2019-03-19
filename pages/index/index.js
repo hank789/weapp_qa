@@ -124,7 +124,7 @@ Page(pageOptions.getOptions({
 							that.setData({
 								isAddWeChat: false
 							})
-						}, 1500)
+						}, 3500)
 					}
 				})
 			}
