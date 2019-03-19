@@ -156,6 +156,13 @@ function getShareImage(id, type, successCallback, failCallback) {
     });
 }
 
+
+function getHotAlbum(successCallback) {
+	request.httpsGetRequest('/weapp/product/hotAlbum', {}, function (res) {
+		successCallback(res)
+    })
+}
+
 module.exports = {
     getDetail: getDetail,
     getProductList: getProductList,
@@ -164,5 +171,6 @@ module.exports = {
     getComments: getComments,
     getReviewCommentList: getReviewCommentList,
     getShareImage: getShareImage,
-    getMoreAlbum: getMoreAlbum
+    getMoreAlbum: getMoreAlbum,
+	  getHotAlbum: getHotAlbum
 }

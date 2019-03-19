@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -60,10 +60,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "点评详情",
 					"pathName": "pages/commentDetail/commentDetail",
-					"query": "slug=BC-199"
+					"query": "slug=gygddwxhy"
 				},
 				{
 					"id": 5,
@@ -90,10 +90,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "专业产品",
 					"pathName": "pages/majorProduct/majorProduct",
-					"query": ""
+					"query": "id=206"
 				},
 				{
 					"id": -1,
@@ -105,7 +105,20 @@
 					"id": -1,
 					"name": "/test/test",
 					"pathName": "pages/test/test",
+					"query": "",
 					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "全部评论",
+					"pathName": "pages/totalComment/totalComment",
+					"query": "id=2726"
+				},
+				{
+					"id": -1,
+					"name": "全部评论",
+					"pathName": "pages/totalComment/totalComment",
+					"query": "id=2726"
 				}
 			]
 		}

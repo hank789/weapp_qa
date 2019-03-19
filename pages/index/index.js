@@ -1,6 +1,8 @@
 //获取应用实例
 var app = getApp();
 var request = require("../../utils/request.js");
+var productUtil = require("../../utils/product.js");
+var albumUtil = require("../../utils/album.js");
 
 var pageOptions = require("../../utils/pageOptions.js")
 
@@ -16,7 +18,10 @@ Page(pageOptions.getOptions({
     margintop: 0,  //滑动下拉距离
     data: 5,
     list: [],
-    showPopup: false
+    showPopup: false,
+	  isAddWeChat: false,
+	  hotProductList: [],
+	  hotAlbum: []
   },
   onLoad:function(options){
     console.log(options,'数据')
@@ -51,6 +56,7 @@ Page(pageOptions.getOptions({
          }
        })
        that.getAlbumList()
+       that.getHotProduct()
        if (that.data.scrollindex == 1) {
          request.httpsPostRequest('/weapp/product/feedback', {
            title: '进入小程序专题集',
@@ -97,6 +103,49 @@ Page(pageOptions.getOptions({
     wx.navigateTo({
       url: '../specialDetail/specialDetail?id=' + e.currentTarget.dataset.id
     });
+  },
+	goProduct (e) {
+    wx.navigateTo({
+      url: '../majorProduct/majorProduct?id=' + e.currentTarget.dataset.id
+    })
+  },
+	copyText () {
+    var that = this
+		wx.setClipboardData({
+			data: 'hiinwe',
+			success(res) {
+				wx.hideToast();
+				wx.getClipboardData({
+					success(res) {
+						that.setData({
+						  isAddWeChat: true
+            })
+						setTimeout(function () {
+							that.setData({
+								isAddWeChat: false
+							})
+						}, 1500)
+					}
+				})
+			}
+		})
+  },
+  getHotProduct () {
+
+	  var that = this
+	  productUtil.getHotProduct(3, (res) => {
+		  that.setData({
+			  hotProductList: res.data.data
+		  })
+      console.log(that.data.hotProductList)
+	  })
+
+	  albumUtil.getHotAlbum((res) => {
+	    that.setData({
+        hotAlbum: res.data
+      })
+	  })
+
   },
   onReady:function(){
     // 页面渲染完成

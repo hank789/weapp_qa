@@ -1,9 +1,9 @@
 <view class='mui-container container-fill' wx:if='{{!loading}}'>
-  <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
+  <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);">
     <view class="pageIndex section">
       <view class="page__hd">
           <view class="ask-title">
-            <text class="ask-title-text font-family-medium">帮助您的企业\n获得适合的软件和服务</text>
+            <text class="iconfont icon-bangzhunindeqiyehuodeheshideruanjianhefuwu"></text>
           </view>
       </view>
 
@@ -23,17 +23,13 @@
           </view>
         </view>
 
-        <!-- <view class='commentGiving'>
-          <navigator url='../activity/activity' hover-class='none'>
-            <view class='commentBig'>
-              <image class='img' src='../../images/commentBig@3x.png'></image>
-            </view>
-          </navigator>
-        </view> -->
+      <view class="addWrapper" wx:if="{{ isAddWeChat }}">
+        <view class="text">已复制客服微信号hiinwe，请前往微信通讯录直接添加好友沟通</view>
+      </view>
 
         <view class="index-bottom">
           <view class="bottom-operation">
-            <button hover-class="none" open-type="contact" class="docbutton">
+            <button hover-class="none" bindtap="copyText" plain="true" class="docbutton">
               <view class="bottom-about">
                 <text class='iconfont icon-youxiang'></text>
                 <text>联系我们</text>
@@ -41,7 +37,7 @@
             </button>
             <view class="spot"></view>
             
-            <button hover-class="none" open-type="share" class="docbutton">
+            <button hover-class="none" open-type="share" plain="true" class="docbutton">
               <view class="bottom-about">
                 <text class='iconfont icon-fenxiang'></text>
                 <text>分享朋友</text>
@@ -50,11 +46,8 @@
             </button>
           </view>
           <view class="included">
-            <view class='iconWrapper'>
-              <text class='iconfont icon-xiangxiajiantou'></text>
-              <text class='iconfont icon-xiangxiajiantou shadow'></text>
-            </view>
             <view class='text font-family-medium'>进入专题</view>
+            <view class="iconfont icon-daosanjiao"></view>
           </view>
         </view>
 
@@ -66,43 +59,88 @@
 
   <!-- 专题集 -->
     <view class='pageSpecial section' >
-      <view class='topTitle font-family-medium'>专题集</view>
+      <scroll-view  scroll-y style="height: 100%;">
 
-      <view class='specialWrapper'>
-        <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+        <view class='topTitle font-family-medium'>热门专题</view>
+        <view class="heatAlbum">
 
-          <view class='display' wx:for='{{ list }}' wx:key='index'>
-            <view wx:for='{{ item }}' wx:key='id'>
-              <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail' wx:if="{{item.type === 'product_album'}}">
-                <view class='mask'></view>
-                <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
-                <view class='text font-family-medium'>{{ item.name }}</view>
+          <view class="albumList" wx:for="{{ hotAlbum }}" wx:key="hotAlbum" data-id="{{ item.id }}" bindtap="goDetail">
+            <view class="componentCarAlbum">
+              <view class="albumName font-family-medium">{{ item.name }}</view>
+              <view class="tags"><text>{{ item.tips }}</text></view>
+              <view class="backgroundBig" wx:if="{{ index === 0 }}">
+                <image src="../../images/remen_zhunti_big1@3x.png"></image>
               </view>
-
-              <view class='expectWrapper specialList' bindtap='showExpect' wx:if="{{item.type === 'lastElement'}}">
-                <view class='content'>
-                  <text class='iconfont icon-tianjia'></text>
-                  <text class='expectText'>我期待</text>
-                </view>
+              <view class="backgroundSmall" wx:else>
+                <image src="../../images/remen_zhunti_small2@3x.png"></image>
               </view>
             </view>
-
-
           </view>
 
-        </scroll-view>
-      
-      </view>
-
-      <view class="index-bottom">
-          <view class="included">
-            <view class='iconWrapper'>
-              <text style="color:'#B2B3B5'" class='iconfont icon-xiangshangjiantou'></text>
-              <text style="color:'#3C3E44'" class='dowmShadow iconfont icon-xiangshangjiantou'></text>
-            </view>
-          </view>
         </view>
 
+        <view class='topTitle font-family-medium'>热门产品</view>
+        <view class="heatProduct">
+
+          <view class="productList" wx:for="{{ hotProductList }}" wx:key="index" data-id="{{ item.tag_id }}" bindtap="goProduct">
+            <view class="componentCarProduct">
+              <view class="topInfo">
+                <view class="left">
+                  <view class="logo">
+                    <image mode="aspectFit" src="{{ item.logo }}"></image>
+                  </view>
+                  <view class="nameMark">
+                    <view class="title font-family-medium text-line-1">{{ item.name }}</view>
+                    <view class="stars">
+                      <StarView rating='{{ item.review_average_rate }}'></StarView>
+                      <text class="span">{{ item.review_average_rate }}分</text>
+                    </view>
+                  </view>
+                </view>
+                <view class="right">
+                  <view class="heatICon">
+                    <image src="../../images/zhuanti_fill@3x.png"></image>
+                  </view>
+                  <view class="textNumber">{{ item.support_rate }}</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="describe">{{ item.advance_desc }}</view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+
+        <view class='topTitle font-family-medium'>更多专题</view>
+
+        <view class='specialWrapper'>
+          <scroll-view class='scrollView' scroll-x style="width: 100%;overflow:hidden; height: 100%;">
+
+            <view class='display' wx:for='{{ list }}' wx:key='index'>
+              <view wx:for='{{ item }}' wx:key='id'>
+                <view class='specialList' data-id='{{ item.id }}' bindtap='goDetail' wx:if="{{item.type === 'product_album'}}">
+                  <view class='mask'></view>
+                  <view class='img'><image src='{{ item.icon }}' mode="aspectFill"></image></view>
+                  <view class='text font-family-medium'>{{ item.name }}</view>
+                </view>
+
+                <view class='expectWrapper specialList' bindtap='showExpect' wx:if="{{item.type === 'lastElement'}}">
+                  <view class='content'>
+                    <text class='iconfont icon-tianjia'></text>
+                    <text class='expectText'>我期待</text>
+                  </view>
+                </view>
+              </view>
+
+
+            </view>
+
+          </scroll-view>
+
+        </view>
+
+      </scroll-view>
 
     </view>
 

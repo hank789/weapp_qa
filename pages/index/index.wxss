@@ -16,11 +16,21 @@ page {
 .section {
   height: 100%;
 }
+.pageIndex.section {
+  background:linear-gradient(180deg,rgba(41,188,184,1) 0%,rgba(32,84,99,1) 52%,rgba(28,44,66,1) 100%);
+}
 .ask-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 147rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 147rpx;
+}
+.ask-title .iconfont {
+  color: #FFFFFF;
+  font-size: 420rpx;
+  height: 121rpx;
+  line-height: 121rpx;
+  overflow: hidden;
 }
 
 .ask-title-text {
@@ -28,7 +38,6 @@ page {
   text-align: center;
   line-height: 64rpx;
   color: #03AEF9;
-  /* font-family: STSongti-SC-Bold; */
 }
 
 .weui-search-bar-custom {
@@ -40,7 +49,6 @@ page {
   display:flex;
   box-sizing:border-box;
   margin: 0 auto;
-  /* background-color:#efeff4; */
 }
 .weui-search-bar__input {
   height: 68rpx;
@@ -74,13 +82,12 @@ page {
   text-align: center;
 }
 .seach-keyword-list {
-  /* float: left; */
   overflow: hidden;
   display: inline-block;
   margin-bottom: 12rpx;
 }
 .seach-keyword-text {
-  color: #808080;
+  color: #FFFFFF;
   font-size: 24rpx;
   float: left;
 }
@@ -90,6 +97,23 @@ page {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+}
+.addWrapper {
+  width: 600rpx;
+  padding: 16rpx 30rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background:rgba(17,17,17,0.7);
+  position: absolute;
+  bottom: 259rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  /*margin-left: -300rpx;*/
+}
+.addWrapper .text {
+  color: #FFFFFF;
+  font-size: 26rpx;
+  line-height: 42rpx;
 }
 .bottom-operation {
   text-align: center;
@@ -114,18 +138,19 @@ page {
   text-align: center;
 }
 .bottom-about text {
-  color: #03AEF9;
+  color: #FFFFFF;
   font-size: 24rpx;
 }
 .bottom-about .iconfont {
-  color: #B4B4B6;
+  color: #A0ABB3;
   margin-right: 11rpx;
 }
 .included {
   margin-top: 10rpx;
   padding: 0 32rpx;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 60rpx;
+  /*display: flex;*/
+  /*justify-content: center;*/
 }
 .included .iconWrapper .iconfont {
   display: block;
@@ -148,10 +173,58 @@ page {
   -webkit-animation: dowmShadow 1.2s 0.2s linear infinite; /* Safari and Chrome */
 }
 .included .text {
-  color: #3C3E44;
-  font-size: 26rpx;
+  color: #F3F4F6;
+  font-size: 28rpx;
   margin-top: 4rpx;
-  margin-left: 16rpx;
+  /*margin-left: 16rpx;*/
+}
+.included .iconfont {
+  color: #29BCB8;
+  font-size: 30rpx;
+  position: relative;
+  animation-fill-mode:forwards;
+  animation: upDown 1.2s 0.2s linear infinite;
+  -webkit-animation: upDown 1.2s 0.2s linear infinite; /* Safari and Chrome */
+}
+@keyframes upDown {
+  0% {
+    -moz-transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0,0);
+  }
+
+  25% {
+    -moz-transform: translate(0,10rpx);
+    -webkit-transform: translate(0,10rpx);
+    -o-transform: translate(0,10rpx);
+    -ms-transform: translate(0, 10rpx);
+    transform: translate(0,10rpx);
+  }
+  50% {
+    -moz-transform: translate(0,20rpx);
+    -webkit-transform: translate(0,20rpx);
+    -o-transform: translate(0,20rpx);
+    -ms-transform: translate(0, 20rpx);
+    transform: translate(0,20rpx);
+  }
+
+  75% {
+    -moz-transform: translate(0,10rpx);
+    -webkit-transform: translate(0,10rpx);
+    -o-transform: translate(0,10rpx);
+    -ms-transform: translate(0, 10rpx);
+    transform: translate(0,10rpx);
+  }
+
+  100% {
+    -moz-transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0,0);
+  }
 }
 
 .searchWrapper {
@@ -184,6 +257,10 @@ page {
   transform: translateX(-50%);
 }
 
+.bottom-operation button {
+  background: none !important;
+}
+
 .pageSpecial {
   position: relative;
 }
@@ -202,10 +279,10 @@ page {
 .specialWrapper {
   width: 100%;
   height: 893rpx;
-  padding: 0rpx 0 0 0rpx;
+  padding: 0rpx 0 60rpx 0rpx;
   overflow: hidden;
   white-space: nowrap;
-  /* display: flex; */
+  /* margin-bottom: 60rpx; */
 }
 .specialWrapper .specialList {
   position: relative;
@@ -236,14 +313,16 @@ page {
   font-size: 26rpx;
   color: #FFFFFF;
   position: absolute;
-  top: 70rpx;
+  bottom: 30rpx;
   left: 30rpx;
+  white-space: normal;
+  padding-right:30rpx;
 }
 .specialWrapper .specialList .mask {
   width: 333rpx;
   height: 159rpx;
-  background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.9) 100%);
-  opacity:0.7;
+  background:linear-gradient(180deg,rgba(28,44,66,0) 0%,rgba(28,44,66,1) 100%);
+  /* opacity:0.7; */
   position: absolute;
   top: 0;
   left: 0;
@@ -268,6 +347,153 @@ page {
 .expectWrapper .content .expectText {
   color: #808080;
   font-size: 26rpx;
+}
+
+.heatAlbum {
+  padding: 0 32rpx;
+  margin-top: 26rpx;
+}
+.heatAlbum .albumList {
+  display: inline-block;
+  vertical-align: top;
+}
+.albumList .componentCarAlbum {
+  width: 226rpx;
+  height: 305rpx;
+  position: relative;
+  border-radius:8rpx;
+  margin:4rpx 4rpx 0 0;
+  background:linear-gradient(39deg,rgba(60,87,119,1) 0%,rgba(28,44,66,1) 100%);
+}
+.albumList:nth-of-type(1) .componentCarAlbum {
+  width: 456rpx;
+}
+.albumList:nth-of-type(2) .componentCarAlbum,
+.albumList:nth-of-type(5) .componentCarAlbum {
+  margin-right: 0;
+}
+.albumList .componentCarAlbum .albumName {
+  position: relative;
+  z-index: 1;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  padding: 40rpx 30rpx 0;
+  line-height: 44rpx;
+}
+.albumList .componentCarAlbum .tags {
+  position: absolute;
+  z-index: 1;
+  left: 30rpx;
+  bottom: 40rpx;
+  height: 30rpx;
+  padding: 0 10rpx;
+  line-height: 30rpx;
+  border-radius:0px 8rpx 0px 8rpx;
+  background:linear-gradient(45deg,rgba(83,223,221,1) 0%,rgba(41,188,184,1) 100%);
+}
+.albumList:nth-of-type(1) .componentCarAlbum .tags {
+  background:linear-gradient(90deg,rgba(253,128,173,1) 0%,rgba(250,73,117,1) 100%);
+}
+.albumList:nth-of-type(1) .componentCarAlbum .tags text {
+  color: #FFFFFF;
+}
+.albumList .componentCarAlbum .tags text {
+  color: #1C2C42;
+  font-size: 20rpx;
+  line-height: 28rpx;
+}
+.albumList .componentCarAlbum .backgroundSmall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 226rpx;
+  height: 305rpx;
+}
+.albumList .componentCarAlbum .backgroundBig {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 456rpx;
+  height: 305rpx;
+  /*display: none;*/
+}
+.albumList .componentCarAlbum .backgroundSmall image,
+.albumList .componentCarAlbum .backgroundBig image {
+  width: 100%;
+  height: 100%;
+}
+
+.heatProduct {
+  margin-top: 30rpx;
+}
+.productList {
+  margin-top: 20rpx;
+  padding: 0 32rpx;
+}
+.componentCarProduct {
+  padding: 30rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  box-shadow:0px 0px 26px 0px rgba(232,241,241,1);
+}
+.componentCarProduct .topInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.componentCarProduct .topInfo .left {
+  display: flex;
+}
+.componentCarProduct .topInfo .left .nameMark .title {
+  width: 452rpx;
+  color: #3C3E44;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin-bottom: 14rpx;
+}
+.componentCarProduct .topInfo .left .nameMark .stars {
+  display: flex;
+}
+.componentCarProduct .topInfo .left .nameMark .stars .span {
+  font-size: 22rpx;
+  line-height: 30rpx;
+  margin-left: 6rpx;
+  margin-top: 3rpx;
+}
+.componentCarProduct .topInfo .left .logo {
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  border: 1rpx solid #ECECEE;
+}
+.componentCarProduct .topInfo .left .logo image {
+  width: 100%;
+  height: 100%;
+}
+.componentCarProduct .topInfo .right {
+  display: flex;
+}
+.componentCarProduct .topInfo .right .heatICon {
+  width: 18rpx;
+  height: 23rpx;
+  margin-right: 8rpx;
+}
+.componentCarProduct .topInfo .right .heatICon image {
+  width: 100%;
+  height: 100%;
+}
+.componentCarProduct .topInfo .right .textNumber {
+  color: #3C3E44;
+  font-size: 24rpx;
+  line-height: 29rpx;
+  margin-top: 2rpx;
+}
+.componentCarProduct .bottom .describe {
+  color: #808080;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  margin-top: 20rpx;
 }
 
 @keyframes shadow {
