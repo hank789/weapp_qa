@@ -7,8 +7,11 @@ page {
 }
 .bjWrapper {
   width: 750rpx;
+  height: 618rpx;
   position: absolute;
   bottom: 0;
+  z-index: 1;
+  opacity: 0.3;
 }
 .bjWrapper image {
   width: 100%;
