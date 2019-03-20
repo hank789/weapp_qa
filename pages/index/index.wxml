@@ -51,6 +51,10 @@
           </view>
         </view>
 
+      <view class="bjWrapper">
+        <image src="../../images/indexBj@3x.png"></image>
+      </view>
+
       <block wx:if="{{!loading && !userInfo.name}}">
         <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
       </block>
