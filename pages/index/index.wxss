@@ -86,6 +86,8 @@ page {
   width: 586rpx;
   margin: 20rpx auto 0;
   text-align: center;
+  position: relative;
+  z-index: 9;
 }
 .seach-keyword-center {
   text-align: center;
@@ -106,6 +108,7 @@ page {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+  z-index: 9;
 }
 .addWrapper {
   width: 600rpx;
