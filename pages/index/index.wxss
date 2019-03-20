@@ -5,6 +5,18 @@ page {
   flex-direction:column;
   padding-bottom: 0;
 }
+.bjWrapper {
+  width: 750rpx;
+  height: 618rpx;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.3;
+}
+.bjWrapper image {
+  width: 100%;
+  height: 618rpx;
+}
 .container-fill{
 	height: 100%;
 	overflow: hidden;
@@ -77,6 +89,8 @@ page {
   width: 586rpx;
   margin: 20rpx auto 0;
   text-align: center;
+  position: relative;
+  z-index: 9;
 }
 .seach-keyword-center {
   text-align: center;
@@ -97,6 +111,7 @@ page {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+  z-index: 9;
 }
 .addWrapper {
   width: 600rpx;

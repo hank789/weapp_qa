@@ -46,10 +46,14 @@
             </button>
           </view>
           <view class="included">
-            <view class='text font-family-medium'>进入专题</view>
+            <view class='text font-family-medium'>上滑进入专题</view>
             <view class="iconfont icon-daosanjiao"></view>
           </view>
         </view>
+
+      <view class="bjWrapper">
+        <image mode="aspectFit" src="../../images/indexBj@3x.png"></image>
+      </view>
 
       <block wx:if="{{!loading && !userInfo.name}}">
         <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
