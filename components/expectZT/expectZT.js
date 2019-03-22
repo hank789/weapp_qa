@@ -33,7 +33,7 @@ Component({
         return
       }
       request.httpsPostRequest('/system/feedback', {
-        title: this.data.voteTitle,
+        title: '期待专题',
         content: this.data.voteTitle
       }, function (res) {
         var code = res.code
