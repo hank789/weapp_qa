@@ -128,7 +128,6 @@ Page(pageOptions.getOptions({
    */
   onReachBottom: function () {
     if (this.data.isMore) {
-      pageOptions.loading(this)
       this.getRecentNews(this.data.page);
     }
   },
