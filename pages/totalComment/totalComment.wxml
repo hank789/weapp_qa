@@ -1,3 +1,12 @@
 <view class='page' wx:if='{{!loading}}'>
+
+  <!--引入加载更多模版-->
+  <import src="../../template/loading" />
+
   <commentDiscuss comment='{{commentList}}' bind:authPhone="onAuthPhone" albumId='{{ queryObject.id }}'></commentDiscuss>
+
+  <block wx:if="{{isLoading}}">
+    <template is="loading" />
+  </block>
+
 </view>

@@ -21,6 +21,7 @@ Page(pageOptions.getOptions({
     isMore: true,
     authUserPhone: false,
     isShowPopup: false,
+    isLoading: true,//是否显示加载数据提示
   },
 
   /**
@@ -49,14 +50,13 @@ Page(pageOptions.getOptions({
       }
     }
     if (that.data.queryObject.type === 'album') {
+	    api = '/weapp/product/albumNewsList'
       data = {
         id: that.data.queryObject.id,
         page: page
       }
-      api = '/weapp/product/albumNewsList'
     }
     request.httpsPostRequest(api, data, function (response) {
-      var code = response.code
 
       pageOptions.loaded(that)
 
@@ -69,12 +69,13 @@ Page(pageOptions.getOptions({
           that.data.newsList = that.data.newsList.concat(response.data.data);
         }
         if (!response.data.next_page_url) {
-          isMore = false;
+          isMore = true;
         }
         that.setData({
           newsList: that.data.newsList,
           page: nextPage,
-          isMore: isMore
+          isMore: isMore,
+          isLoading: false
         });
       } else {
         wx.showToast({
@@ -128,7 +129,10 @@ Page(pageOptions.getOptions({
    */
   onReachBottom: function () {
     if (this.data.isMore) {
-      this.getRecentNews(this.data.page);
+      this.setData({
+        isLoading: true
+      });
+	    this.getRecentNews(this.data.page);
     }
   },
   getUserPhone(e) {

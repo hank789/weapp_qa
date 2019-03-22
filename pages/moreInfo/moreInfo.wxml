@@ -8,6 +8,9 @@
       </block>
   </view>
 
+<block wx:if="{{isLoading}}">
+  <template is="loading" />
+</block>
   <block wx:if="{{!loading && !userInfo.name}}">
      <getUserInfo bind:authUserOk="onAuthUserOk"></getUserInfo>
   </block>
