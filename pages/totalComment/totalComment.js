@@ -15,7 +15,9 @@ Page(pageOptions.getOptions({
     userInfo: {},
     tagName: '',
     total: '',
-    commentList: []
+    commentList: [],
+	  isLoading: true,//是否显示加载数据提示
+	  isMore: true,
   },
 
   /**
@@ -33,23 +35,38 @@ Page(pageOptions.getOptions({
     });
   },
 
-  getCommentList: function (page) {
+  getCommentList (page) {
     var that = this;
-    albumUtil.getComments(that.data.queryObject.id, page, 20, (res) => {
+    albumUtil.getComments(that.data.queryObject.id, page, 20, (res_data) => {
       pageOptions.loaded(that)
 
-      var nextPage = page + 1;
-      if (page === 1) {
-        that.data.commentList = res.data.data;
-      } else {
-        that.data.commentList = that.data.commentList.concat(res.data.data);
-      }
+	    if (res_data.code === 1000) {
+		    var isMore = that.data.isMore;
+		    var nextPage = page + 1;
+		    if (page === 1) {
+			    that.data.list = res_data.data.data;
+		    } else {
+			    that.data.list = that.data.list.concat(res_data.data.data);
+		    }
+		    if (!res_data.data.next_page_url) {
+			    isMore = true;
+		    }
 
-      that.setData({
-        commentList: that.data.commentList,
-        total: res.data.total,
-        page: nextPage,
-      });
+		    that.setData({
+			    commentList: that.data.list,
+			    total: res_data.data.total,
+			    page: nextPage,
+			    isLoading: false,
+			    isMore: isMore
+		    });
+	    } else {
+		    wx.showToast({
+			    title: res_data.message,
+			    icon: 'loading',
+			    duration: 2000
+		    });
+	    }
+
     })
   },
   /**
@@ -84,15 +101,23 @@ Page(pageOptions.getOptions({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getCommentList(1);
-    wx.stopPullDownRefresh();
+	  // 下拉刷新
+	  this.data.page = 1;
+	  this.getCommentList(1);
+	  wx.stopPullDownRefresh();
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getCommentList(this.data.page)
+	  if (this.data.isMore) {
+		  this.setData({
+			  isLoading: true
+		  });
+		  this.getCommentList(this.data.page)
+	  }
   },
 
 }))
