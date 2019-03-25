@@ -23,6 +23,11 @@ Page(pageOptions.getOptions({
    */
   onLoad: function (options) {
     var that = this;
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      that.data.queryObject.slug = scene.split("=")[1];
+    }
+
     that.getCommentList()
   },
   getCommentList: function () {
