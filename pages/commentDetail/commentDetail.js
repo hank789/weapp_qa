@@ -36,8 +36,14 @@ Page(pageOptions.getOptions({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this
+
+    var scene = decodeURIComponent(options.scene)
+    if (scene !== 'undefined') {
+      that.data.queryObject.slug = scene.split("=")[1];
+    }
+
     app.getUserInfo(function(userInfo) {
       that.setData({
         userInfo: userInfo
