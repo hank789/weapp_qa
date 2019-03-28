@@ -41,16 +41,8 @@ var getOptions = (options) => {
   }
   options.onShow = function () {
     oldOnShow.call(this)
-    setTimeout(function () {
-      if (app.globalData.onShow) {
-        app.globalData.onShow = 0;
-        console.log("前后台切换之切到前台")
-      }
-      else {
-        console.log("页面被切换显示")
-        startTime = +new Date();
-      }
-    }, 100)
+    console.log("页面被切换显示")
+    startTime = +new Date();
   }
 
   // 重写onHide
@@ -61,20 +53,12 @@ var getOptions = (options) => {
   options.onHide = function () {
     console.log('onHide fired')
     oldOnHide.call(this)
-    var that = this
-    setTimeout(function () {
-      if (app.globalData.onHide) {
-        app.globalData.onHide = 0;
-        console.log("还在当前页面活动")
-      }
-      else {
-        endTime = +new Date();
-        console.log("页面停留时间：" + (endTime - startTime))
-        console.log(that)
-        // 上报数据
-        statistics.uploadData(startTime, endTime, that.route, that.data.queryObject)
-      }
-    }, 100)
+
+    endTime = +new Date();
+    console.log("页面停留时间：" + (endTime - startTime))
+
+    // 上报数据
+    statistics.uploadData(startTime, endTime, this.route, this.data.queryObject)
   }
 
   // 重写onUnload
@@ -102,7 +86,17 @@ var getOptions = (options) => {
     }
 
     options.onShareAppMessage = function () {
-      var queryStr = util.http_build_query(this.data.queryObject)
+      let app = getApp();
+      console.log('globalData', app.globalData)
+      let params = {}
+      if (app.globalData.userInfo.oauth_id) {
+        params = Object.assign(this.data.queryObject, {
+          from_oauth_id: app.globalData.userInfo.oauth_id
+        })
+      } else {
+        params = this.data.queryObject
+      }
+      var queryStr = util.http_build_query(params)
       queryStr = queryStr ? '?' + queryStr : ''
       var autoShareTitle = this.data.autoShareParams.title
       var autoSharePath = "/" + this.route + queryStr
