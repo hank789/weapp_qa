@@ -102,7 +102,17 @@ var getOptions = (options) => {
     }
 
     options.onShareAppMessage = function () {
-      var queryStr = util.http_build_query(this.data.queryObject)
+      let app = getApp();
+      console.log('globalData', app.globalData)
+      let params = {}
+      if (app.globalData.userInfo.oauth_id) {
+        params = Object.assign(this.data.queryObject, {
+          from_oauth_id: app.globalData.userInfo.oauth_id
+        })
+      } else {
+        params = this.data.queryObject
+      }
+      var queryStr = util.http_build_query(params)
       queryStr = queryStr ? '?' + queryStr : ''
       var autoShareTitle = this.data.autoShareParams.title
       var autoSharePath = "/" + this.route + queryStr
