@@ -1,12 +1,15 @@
 var request = require("./request.js");
 
-function uploadData(start_time, end_time, page, params) {
+function uploadData(start_time, end_time, page, params, successCallback) {
   request.httpsPostRequest('/weapp/product/reportActivity', {
     start_time: start_time,
     end_time: end_time,
     page: page,
     params: params
   }, function (response) {
+    if (successCallback) {
+      successCallback()
+    }
     // do nothing
   })
 }

@@ -55,10 +55,19 @@ var getOptions = (options) => {
     oldOnHide.call(this)
 
     endTime = +new Date();
+    console.log("startTime时间：" + startTime)
     console.log("页面停留时间：" + (endTime - startTime))
 
     // 上报数据
-    statistics.uploadData(startTime, endTime, this.route, this.data.queryObject)
+    statistics.uploadData(
+      startTime,
+      endTime,
+      this.route,
+      this.data.queryObject,
+      () => {
+        startTime = 0
+      }
+    )
   }
 
   // 重写onUnload
@@ -70,6 +79,12 @@ var getOptions = (options) => {
     oldOnUnload.call(this)
 
     endTime = +new Date();
+
+    if (!startTime) {
+      return
+    }
+
+    console.log("startTime时间：" + startTime)
     console.log("页面停留时间：" + (endTime - startTime))
     // 上报数据
     statistics.uploadData(startTime, endTime, this.route, this.data.queryObject)
