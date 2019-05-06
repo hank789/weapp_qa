@@ -111,6 +111,10 @@ Page(pageOptions.getOptions({
   },
 	copyText () {
     var that = this
+    request.httpsPostRequest('/weapp/product/feedback', {
+      title: '点击首页联系我们',
+      content: '/pages/index/index'
+    }, null)
 		wx.setClipboardData({
 			data: 'hiinwe',
 			success(res) {
